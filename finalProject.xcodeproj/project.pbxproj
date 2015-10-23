@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20536EF81BD9BC5D00BEB17A /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20536EF71BD9BC5D00BEB17A /* ProfileViewController.m */; };
+		20536EFC1BD9BEA100BEB17A /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20536EFB1BD9BEA100BEB17A /* TabBarViewController.m */; };
 		665393EF1BD5BC990014FD20 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 665393EE1BD5BC990014FD20 /* main.m */; };
 		665393F21BD5BC990014FD20 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 665393F11BD5BC990014FD20 /* AppDelegate.m */; };
 		665393F51BD5BC990014FD20 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 665393F41BD5BC990014FD20 /* FirstViewController.m */; };
@@ -28,6 +30,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		20536EF61BD9BC5D00BEB17A /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		20536EF71BD9BC5D00BEB17A /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		20536EFA1BD9BEA100BEB17A /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
+		20536EFB1BD9BEA100BEB17A /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
 		665393E91BD5BC990014FD20 /* finalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = finalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		665393ED1BD5BC990014FD20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		665393EE1BD5BC990014FD20 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -84,6 +90,10 @@
 		665393EB1BD5BC990014FD20 /* finalProject */ = {
 			isa = PBXGroup;
 			children = (
+				20536EFA1BD9BEA100BEB17A /* TabBarViewController.h */,
+				20536EFB1BD9BEA100BEB17A /* TabBarViewController.m */,
+				20536EF61BD9BC5D00BEB17A /* ProfileViewController.h */,
+				20536EF71BD9BC5D00BEB17A /* ProfileViewController.m */,
 				665393F01BD5BC990014FD20 /* AppDelegate.h */,
 				665393F11BD5BC990014FD20 /* AppDelegate.m */,
 				665393F31BD5BC990014FD20 /* FirstViewController.h */,
@@ -228,6 +238,8 @@
 				665393F21BD5BC990014FD20 /* AppDelegate.m in Sources */,
 				665393F51BD5BC990014FD20 /* FirstViewController.m in Sources */,
 				665393EF1BD5BC990014FD20 /* main.m in Sources */,
+				20536EFC1BD9BEA100BEB17A /* TabBarViewController.m in Sources */,
+				20536EF81BD9BC5D00BEB17A /* ProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
