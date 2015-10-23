@@ -422,6 +422,7 @@
 				665394111BD5BC990014FD20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		665394121BD5BC990014FD20 /* Build configuration list for PBXNativeTarget "finalProjectTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +431,7 @@
 				665394141BD5BC990014FD20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
