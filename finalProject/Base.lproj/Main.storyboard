@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QJ4-B0-TSo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="15B17c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QJ4-B0-TSo">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--First-->
+        <!--Sueño-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="FirstViewController" sceneMemberID="viewController">
@@ -41,7 +41,7 @@
                             <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="Reportes" selectedImage="Reportes" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Sueño" image="sleep" selectedImage="Reportes" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -76,9 +76,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1rx-Ge-QfY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="718.5" y="1307.5"/>
+            <point key="canvasLocation" x="180.5" y="937.5"/>
         </scene>
-        <!--Item-->
+        <!--Ejercicio-->
         <scene sceneID="PI2-Yo-mHb">
             <objects>
                 <viewController id="gBW-9N-U4b" sceneMemberID="viewController">
@@ -92,13 +92,13 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Svx-qg-4Nv"/>
+                    <tabBarItem key="tabBarItem" title="Ejercicio" image="gym" id="Svx-qg-4Nv"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MsW-m9-ymK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="768.5" y="557.5"/>
         </scene>
-        <!--Second-->
+        <!--Nutrición-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SecondViewController" sceneMemberID="viewController">
@@ -135,7 +135,7 @@
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Nutrición" image="food" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -281,7 +281,7 @@
             <objects>
                 <tabBarController id="49e-Tb-3d3" customClass="TabBarViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="3af-g2-b80">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="3dM-Vz-TsG">
+                        <barButtonItem key="leftBarButtonItem" image="profile" id="3dM-Vz-TsG">
                             <connections>
                                 <segue destination="piY-sy-SPq" kind="popoverPresentation" popoverAnchorBarButtonItem="3dM-Vz-TsG" id="RzR-oJ-KRM">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
@@ -308,11 +308,11 @@
             </objects>
             <point key="canvasLocation" x="131.5" y="91.5"/>
         </scene>
-        <!--Item-->
+        <!--Reportes-->
         <scene sceneID="tMU-kO-XZ7">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fJj-Oe-agU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="eJx-qs-ZaU"/>
+                    <tabBarItem key="tabBarItem" title="Reportes" image="Reportes" id="eJx-qs-ZaU"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FTj-6T-XTa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -326,11 +326,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pwn-g9-5cP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131.5" y="1307.5"/>
+            <point key="canvasLocation" x="-406.5" y="937.5"/>
         </scene>
     </scenes>
     <resources>
         <image name="Reportes" width="32" height="31"/>
-        <image name="second" width="30" height="30"/>
+        <image name="food" width="32" height="32"/>
+        <image name="gym" width="32" height="17"/>
+        <image name="profile" width="22" height="22"/>
+        <image name="sleep" width="32" height="32"/>
     </resources>
 </document>
