@@ -7,6 +7,7 @@
 //
 
 #import "ProfileViewController.h"
+#import "AppDelegate.h"
 
 @interface ProfileViewController ()
 
@@ -34,4 +35,44 @@
 }
 */
 
+- (IBAction)saveProfile:(id)sender {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"User"
+                                                       inManagedObjectContext:context];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entity];
+    [request setFetchLimit:1];
+    
+    NSError *error;
+    NSArray *fetchResults = [context executeFetchRequest:request error:&error];
+    NSManagedObject *user;
+    
+    if (fetchResults.count != 0) {
+        user = [fetchResults objectAtIndex:0];
+    } else {
+        user = [NSEntityDescription insertNewObjectForEntityForName:@"User"
+                                                            inManagedObjectContext:context];
+    }
+    
+    [user setValue:self.tfName.text forKey:@"name"];
+    
+    NSNumberFormatter *height = [[NSNumberFormatter alloc] init];
+    height.numberStyle = NSNumberFormatterDecimalStyle;
+    [user setValue:[height numberFromString:self.tfHeight.text] forKey:@"height"];
+    
+    NSNumberFormatter *weight = [[NSNumberFormatter alloc] init];
+    weight.numberStyle = NSNumberFormatterDecimalStyle;
+    [user setValue:[weight numberFromString:self.tfWeight.text] forKey:@"weight"];
+    
+    NSNumberFormatter *age = [[NSNumberFormatter alloc] init];
+    age.numberStyle = NSNumberFormatterNoStyle;
+    [user setValue:[age numberFromString:self.tfAge.text] forKey:@"age"];
+    
+    [user setValue:@(self.swExercise.isOn) forKey:@"exercise"];
+    
+    [context save:&error];
+}
 @end

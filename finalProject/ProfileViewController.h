@@ -10,6 +10,12 @@
 
 @interface ProfileViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *tfName;
+@property (weak, nonatomic) IBOutlet UITextField *tfAge;
+@property (weak, nonatomic) IBOutlet UITextField *tfHeight;
+@property (weak, nonatomic) IBOutlet UITextField *tfWeight;
+@property (weak, nonatomic) IBOutlet UISwitch *swExercise;
 
+- (IBAction)saveProfile:(id)sender;
 
 @end
