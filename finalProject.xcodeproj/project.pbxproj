@@ -19,6 +19,7 @@
 		665393FD1BD5BC990014FD20 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 665393FC1BD5BC990014FD20 /* Images.xcassets */; };
 		665394001BD5BC990014FD20 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 665393FE1BD5BC990014FD20 /* LaunchScreen.xib */; };
 		6653940C1BD5BC990014FD20 /* finalProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6653940B1BD5BC990014FD20 /* finalProjectTests.m */; };
+		668CD5061BEBBA9600456E66 /* XYPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CD5051BEBBA9600456E66 /* XYPieChart.m */; };
 		FB0F11691BEA9F3C005613A6 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0F11681BEA9F3C005613A6 /* ThirdViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,8 @@
 		665394051BD5BC990014FD20 /* finalProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = finalProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6653940A1BD5BC990014FD20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6653940B1BD5BC990014FD20 /* finalProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = finalProjectTests.m; sourceTree = "<group>"; };
+		668CD5041BEBBA9600456E66 /* XYPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYPieChart.h; sourceTree = "<group>"; };
+		668CD5051BEBBA9600456E66 /* XYPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYPieChart.m; sourceTree = "<group>"; };
 		FB0F11671BEA9F3C005613A6 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
 		FB0F11681BEA9F3C005613A6 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,6 +101,8 @@
 		665393EB1BD5BC990014FD20 /* finalProject */ = {
 			isa = PBXGroup;
 			children = (
+				668CD5041BEBBA9600456E66 /* XYPieChart.h */,
+				668CD5051BEBBA9600456E66 /* XYPieChart.m */,
 				20536EFA1BD9BEA100BEB17A /* TabBarViewController.h */,
 				20536EFB1BD9BEA100BEB17A /* TabBarViewController.m */,
 				20536EF61BD9BC5D00BEB17A /* ProfileViewController.h */,
@@ -255,6 +260,7 @@
 				20DB32E81BEB1F8A0056F4FF /* ReportsTableViewController.m in Sources */,
 				20536EFC1BD9BEA100BEB17A /* TabBarViewController.m in Sources */,
 				20536EF81BD9BC5D00BEB17A /* ProfileViewController.m in Sources */,
+				668CD5061BEBBA9600456E66 /* XYPieChart.m in Sources */,
 				FB0F11691BEA9F3C005613A6 /* ThirdViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
