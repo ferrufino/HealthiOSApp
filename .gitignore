@@ -8,7 +8,7 @@ finalProject/.DS_Store
 ## Build generated
 build/
 DerivedData
-
+.DS_Store
 ## Various settings
 *.pbxuser
 !default.pbxuser
