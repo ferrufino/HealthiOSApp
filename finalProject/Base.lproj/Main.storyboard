@@ -16,15 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B45-kq-gvt">
-                                <rect key="frame" x="313" y="72" width="53" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="Agregar"/>
-                                <connections>
-                                    <action selector="btnAgrega:" destination="9pv-A4-QxB" eventType="touchUpInside" id="zNa-p0-7ub"/>
-                                </connections>
-                            </button>
                             <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iDA-QT-loo">
                                 <rect key="frame" x="48" y="110" width="302" height="202"/>
                                 <subviews>
@@ -68,8 +59,15 @@
                                     </view>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.80392158030000005" green="0.79607844350000001" blue="0.85490196939999996" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B45-kq-gvt">
+                                <rect key="frame" x="337" y="80" width="22" height="22"/>
+                                <animations/>
+                                <connections>
+                                    <action selector="btnAgrega:" destination="9pv-A4-QxB" eventType="touchUpInside" id="zNa-p0-7ub"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

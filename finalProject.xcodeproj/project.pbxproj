@@ -11,6 +11,7 @@
 		20536EFC1BD9BEA100BEB17A /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20536EFB1BD9BEA100BEB17A /* TabBarViewController.m */; };
 		20DB32E21BE9E7F60056F4FF /* finalProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 20DB32E01BE9E7F60056F4FF /* finalProject.xcdatamodeld */; };
 		20DB32E81BEB1F8A0056F4FF /* ReportsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DB32E71BEB1F8A0056F4FF /* ReportsTableViewController.m */; };
+		20DB32EB1BEB43A60056F4FF /* DateUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DB32EA1BEB43A60056F4FF /* DateUtilities.m */; };
 		665393EF1BD5BC990014FD20 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 665393EE1BD5BC990014FD20 /* main.m */; };
 		665393F21BD5BC990014FD20 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 665393F11BD5BC990014FD20 /* AppDelegate.m */; };
 		665393F51BD5BC990014FD20 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 665393F41BD5BC990014FD20 /* FirstViewController.m */; };
@@ -40,6 +41,8 @@
 		20DB32E11BE9E7F60056F4FF /* finalProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = finalProject.xcdatamodel; sourceTree = "<group>"; };
 		20DB32E61BEB1F8A0056F4FF /* ReportsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportsTableViewController.h; sourceTree = "<group>"; };
 		20DB32E71BEB1F8A0056F4FF /* ReportsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportsTableViewController.m; sourceTree = "<group>"; };
+		20DB32E91BEB43850056F4FF /* DateUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateUtilities.h; sourceTree = "<group>"; };
+		20DB32EA1BEB43A60056F4FF /* DateUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateUtilities.m; sourceTree = "<group>"; };
 		665393E91BD5BC990014FD20 /* finalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = finalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		665393ED1BD5BC990014FD20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		665393EE1BD5BC990014FD20 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -98,6 +101,8 @@
 		665393EB1BD5BC990014FD20 /* finalProject */ = {
 			isa = PBXGroup;
 			children = (
+				20DB32E91BEB43850056F4FF /* DateUtilities.h */,
+				20DB32EA1BEB43A60056F4FF /* DateUtilities.m */,
 				20536EFA1BD9BEA100BEB17A /* TabBarViewController.h */,
 				20536EFB1BD9BEA100BEB17A /* TabBarViewController.m */,
 				20536EF61BD9BC5D00BEB17A /* ProfileViewController.h */,
@@ -110,9 +115,9 @@
 				665393F71BD5BC990014FD20 /* SecondViewController.m */,
 				20DB32E61BEB1F8A0056F4FF /* ReportsTableViewController.h */,
 				20DB32E71BEB1F8A0056F4FF /* ReportsTableViewController.m */,
-				665393F91BD5BC990014FD20 /* Main.storyboard */,
 				FB0F11671BEA9F3C005613A6 /* ThirdViewController.h */,
 				FB0F11681BEA9F3C005613A6 /* ThirdViewController.m */,
+				665393F91BD5BC990014FD20 /* Main.storyboard */,
 				665393FC1BD5BC990014FD20 /* Images.xcassets */,
 				665393FE1BD5BC990014FD20 /* LaunchScreen.xib */,
 				20DB32E01BE9E7F60056F4FF /* finalProject.xcdatamodeld */,
@@ -247,6 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20DB32EB1BEB43A60056F4FF /* DateUtilities.m in Sources */,
 				665393F81BD5BC990014FD20 /* SecondViewController.m in Sources */,
 				665393F21BD5BC990014FD20 /* AppDelegate.m in Sources */,
 				665393F51BD5BC990014FD20 /* FirstViewController.m in Sources */,

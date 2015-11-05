@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
 @interface FirstViewController : UIViewController
 
 - (IBAction)btnAgrega:(UIButton *)sender;
 - (IBAction)btnConfirma:(UIButton *)sender;
+
 @property (weak, nonatomic) IBOutlet UITextField *txtCantidadSue;
 @property (weak, nonatomic) IBOutlet UIView *FormaSue;
 
