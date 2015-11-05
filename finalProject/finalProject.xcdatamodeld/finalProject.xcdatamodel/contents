@@ -22,6 +22,13 @@
         <attribute name="sugars" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="vegetables" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
     </entity>
+    <entity name="Report" syncable="YES">
+        <attribute name="alcoholScore" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="exerciseScore" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="foodScore" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="sleepScore" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
     <entity name="SleepRecord" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="duration" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
@@ -39,5 +46,6 @@
         <element name="ExerciseRecord" positionX="-36" positionY="36" width="128" height="90"/>
         <element name="FoodRecord" positionX="-18" positionY="63" width="128" height="195"/>
         <element name="AlcoholRecord" positionX="0" positionY="135" width="128" height="90"/>
+        <element name="Report" positionX="18" positionY="144" width="128" height="120"/>
     </elements>
 </model>

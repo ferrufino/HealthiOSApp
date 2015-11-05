@@ -18,6 +18,37 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"User"
+                                              inManagedObjectContext:context];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entity];
+    [request setFetchLimit:1];
+    
+    NSError *error;
+    NSArray *fetchResults = [context executeFetchRequest:request error:&error];
+    NSManagedObject *user;
+    
+    if (fetchResults.count != 0) {
+        user = [fetchResults objectAtIndex:0];
+        
+        self.tfName.text = [user valueForKey:@"name"];
+        
+        NSNumber *age = [user valueForKey:@"age"];
+        self.tfAge.text = [age stringValue];
+        
+        NSNumber *height = [user valueForKey:@"height"];
+        self.tfHeight.text = [height stringValue];
+        
+        NSNumber *weight = [user valueForKey:@"weight"];
+        self.tfWeight.text = [weight stringValue];
+
+        self.swExercise.on = [user valueForKey:@"exercise"];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
