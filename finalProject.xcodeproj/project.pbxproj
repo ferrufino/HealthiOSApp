@@ -17,6 +17,8 @@
 		665393FD1BD5BC990014FD20 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 665393FC1BD5BC990014FD20 /* Images.xcassets */; };
 		665394001BD5BC990014FD20 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 665393FE1BD5BC990014FD20 /* LaunchScreen.xib */; };
 		6653940C1BD5BC990014FD20 /* finalProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6653940B1BD5BC990014FD20 /* finalProjectTests.m */; };
+		668CD4F61BEB30CF00456E66 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 668CD4F51BEB30CF00456E66 /* QuartzCore.framework */; };
+		668CD5031BEB399100456E66 /* XYPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CD5021BEB399100456E66 /* XYPieChart.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,9 @@
 		665394051BD5BC990014FD20 /* finalProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = finalProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6653940A1BD5BC990014FD20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6653940B1BD5BC990014FD20 /* finalProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = finalProjectTests.m; sourceTree = "<group>"; };
+		668CD4F51BEB30CF00456E66 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		668CD5011BEB399100456E66 /* XYPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYPieChart.h; sourceTree = "<group>"; };
+		668CD5021BEB399100456E66 /* XYPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYPieChart.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				668CD4F61BEB30CF00456E66 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +78,7 @@
 		665393E01BD5BC980014FD20 = {
 			isa = PBXGroup;
 			children = (
+				668CD4F51BEB30CF00456E66 /* QuartzCore.framework */,
 				665393EB1BD5BC990014FD20 /* finalProject */,
 				665394081BD5BC990014FD20 /* finalProjectTests */,
 				665393EA1BD5BC990014FD20 /* Products */,
@@ -91,6 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				20536EFA1BD9BEA100BEB17A /* TabBarViewController.h */,
+				668CD5011BEB399100456E66 /* XYPieChart.h */,
+				668CD5021BEB399100456E66 /* XYPieChart.m */,
 				20536EFB1BD9BEA100BEB17A /* TabBarViewController.m */,
 				20536EF61BD9BC5D00BEB17A /* ProfileViewController.h */,
 				20536EF71BD9BC5D00BEB17A /* ProfileViewController.m */,
@@ -234,6 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				668CD5031BEB399100456E66 /* XYPieChart.m in Sources */,
 				665393F81BD5BC990014FD20 /* SecondViewController.m in Sources */,
 				665393F21BD5BC990014FD20 /* AppDelegate.m in Sources */,
 				665393F51BD5BC990014FD20 /* FirstViewController.m in Sources */,
