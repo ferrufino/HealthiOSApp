@@ -19,6 +19,7 @@
 		665393FD1BD5BC990014FD20 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 665393FC1BD5BC990014FD20 /* Images.xcassets */; };
 		665394001BD5BC990014FD20 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 665393FE1BD5BC990014FD20 /* LaunchScreen.xib */; };
 		6653940C1BD5BC990014FD20 /* finalProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6653940B1BD5BC990014FD20 /* finalProjectTests.m */; };
+		FB0F11691BEA9F3C005613A6 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0F11681BEA9F3C005613A6 /* ThirdViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		665394051BD5BC990014FD20 /* finalProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = finalProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6653940A1BD5BC990014FD20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6653940B1BD5BC990014FD20 /* finalProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = finalProjectTests.m; sourceTree = "<group>"; };
+		FB0F11671BEA9F3C005613A6 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		FB0F11681BEA9F3C005613A6 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +111,8 @@
 				20DB32E61BEB1F8A0056F4FF /* ReportsTableViewController.h */,
 				20DB32E71BEB1F8A0056F4FF /* ReportsTableViewController.m */,
 				665393F91BD5BC990014FD20 /* Main.storyboard */,
+				FB0F11671BEA9F3C005613A6 /* ThirdViewController.h */,
+				FB0F11681BEA9F3C005613A6 /* ThirdViewController.m */,
 				665393FC1BD5BC990014FD20 /* Images.xcassets */,
 				665393FE1BD5BC990014FD20 /* LaunchScreen.xib */,
 				20DB32E01BE9E7F60056F4FF /* finalProject.xcdatamodeld */,
@@ -250,6 +255,7 @@
 				20DB32E81BEB1F8A0056F4FF /* ReportsTableViewController.m in Sources */,
 				20536EFC1BD9BEA100BEB17A /* TabBarViewController.m in Sources */,
 				20536EF81BD9BC5D00BEB17A /* ProfileViewController.m in Sources */,
+				FB0F11691BEA9F3C005613A6 /* ThirdViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

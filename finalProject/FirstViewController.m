@@ -24,4 +24,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)btnAgrega:(UIButton *)sender {
+    self.FormaSue.hidden = false;
+}
+
+- (IBAction)btnConfirma:(UIButton *)sender {
+    self.FormaSue.hidden = true;
+}
 @end
