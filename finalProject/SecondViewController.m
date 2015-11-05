@@ -20,8 +20,7 @@
     
     
     [self createfirstPiechart];
-    [self createSecondPiechart];
-    
+       
     
     
 }
@@ -42,19 +41,26 @@
     
     [self.pieChart reloadData];
 }
--(void) createSecondPiechart{
+
+- (void)viewDidAppear:(BOOL)animated {
     
-    
+    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Comida"
+                                                              style:UIBarButtonItemStylePlain target:self
+                                                              action:nil];
+    self.tabBarController.navigationItem.rightBarButtonItem = anotherButton;
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+
 }
 //Specify the number of Sectors in the chart
 - (NSUInteger)numberOfSlicesInPieChart:(XYPieChart *)pieChart
 {
     return 3;
 }
+
 //Specify the Value for each sector
 - (CGFloat)pieChart:(XYPieChart *)pieChart valueForSliceAtIndex:(NSUInteger)index
 {

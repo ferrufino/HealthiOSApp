@@ -21,6 +21,16 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    self.navigationItem.rightBarButtonItem = nil;
+    
+    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Ejercicio"
+                                                              style:UIBarButtonItemStylePlain target:self
+                                                              action:@selector(btnAgrega:)];
+    
+    self.tabBarController.navigationItem.rightBarButtonItem = anotherButton;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -55,7 +65,7 @@
     
     // Creating the line chart
     FSLineChart* lineChart = [[FSLineChart alloc] initWithFrame:CGRectMake(20, 400, [UIScreen mainScreen].bounds.size.width - 40, 166)];
-    lineChart.verticalGridStep = 6;
+    lineChart.verticalGridStep = 4;
     lineChart.horizontalGridStep = 3; // 151,187,205,0.2
     lineChart.color = [UIColor colorWithRed:151.0f/255.0f green:187.0f/255.0f blue:205.0f/255.0f alpha:1.0f];
     lineChart.fillColor = [lineChart.color colorWithAlphaComponent:0.3];
@@ -65,7 +75,7 @@
     };
     
     lineChart.labelForValue = ^(CGFloat value) {
-        return [NSString stringWithFormat:@"%.02f €", value];
+        return [NSString stringWithFormat:@"%.02f hrs", value];
     };
     
     [lineChart setChartData:chartData];
