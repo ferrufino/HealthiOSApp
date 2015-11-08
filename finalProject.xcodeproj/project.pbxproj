@@ -23,6 +23,17 @@
 		668CD5061BEBBA9600456E66 /* XYPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CD5051BEBBA9600456E66 /* XYPieChart.m */; };
 		668CD50B1BEBC20200456E66 /* UIColor+FSPalette.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CD5081BEBC20200456E66 /* UIColor+FSPalette.m */; };
 		668CD50C1BEBC20200456E66 /* FSLineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CD50A1BEBC20200456E66 /* FSLineChart.m */; };
+		66BA63EE1BEEB25300804667 /* JBChart.h in Headers */ = {isa = PBXBuildFile; fileRef = 66BA63ED1BEEB25300804667 /* JBChart.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		66BA63F41BEEB25300804667 /* JBChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66BA63E91BEEB25300804667 /* JBChart.framework */; };
+		66BA63FD1BEEB25300804667 /* JBChartTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BA63FC1BEEB25300804667 /* JBChartTests.m */; };
+		66BA64001BEEB25300804667 /* JBChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66BA63E91BEEB25300804667 /* JBChart.framework */; };
+		66BA64011BEEB25300804667 /* JBChart.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 66BA63E91BEEB25300804667 /* JBChart.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		66BA64101BEEB28600804667 /* JBBarChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = 66BA640A1BEEB28600804667 /* JBBarChartView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		66BA64111BEEB28600804667 /* JBBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BA640B1BEEB28600804667 /* JBBarChartView.m */; };
+		66BA64121BEEB28600804667 /* JBChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = 66BA640C1BEEB28600804667 /* JBChartView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		66BA64131BEEB28600804667 /* JBChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BA640D1BEEB28600804667 /* JBChartView.m */; };
+		66BA64141BEEB28600804667 /* JBLineChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = 66BA640E1BEEB28600804667 /* JBLineChartView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		66BA64151BEEB28600804667 /* JBLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BA640F1BEEB28600804667 /* JBLineChartView.m */; };
 		FB0F11691BEA9F3C005613A6 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0F11681BEA9F3C005613A6 /* ThirdViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -34,7 +45,42 @@
 			remoteGlobalIDString = 665393E81BD5BC980014FD20;
 			remoteInfo = finalProject;
 		};
+		66BA63F51BEEB25300804667 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 665393E11BD5BC980014FD20 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 66BA63E81BEEB25300804667;
+			remoteInfo = JBChart;
+		};
+		66BA63F71BEEB25300804667 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 665393E11BD5BC980014FD20 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 665393E81BD5BC980014FD20;
+			remoteInfo = finalProject;
+		};
+		66BA63FE1BEEB25300804667 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 665393E11BD5BC980014FD20 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 66BA63E81BEEB25300804667;
+			remoteInfo = JBChart;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		66BA64071BEEB25300804667 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				66BA64011BEEB25300804667 /* JBChart.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		20536EF61BD9BC5D00BEB17A /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
@@ -67,6 +113,18 @@
 		668CD5081BEBC20200456E66 /* UIColor+FSPalette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FSPalette.m"; sourceTree = "<group>"; };
 		668CD5091BEBC20200456E66 /* FSLineChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSLineChart.h; sourceTree = "<group>"; };
 		668CD50A1BEBC20200456E66 /* FSLineChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSLineChart.m; sourceTree = "<group>"; };
+		66BA63E91BEEB25300804667 /* JBChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JBChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		66BA63EC1BEEB25300804667 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66BA63ED1BEEB25300804667 /* JBChart.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JBChart.h; sourceTree = "<group>"; };
+		66BA63F31BEEB25300804667 /* JBChartTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JBChartTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		66BA63FB1BEEB25300804667 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66BA63FC1BEEB25300804667 /* JBChartTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JBChartTests.m; sourceTree = "<group>"; };
+		66BA640A1BEEB28600804667 /* JBBarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBarChartView.h; sourceTree = "<group>"; };
+		66BA640B1BEEB28600804667 /* JBBarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBBarChartView.m; sourceTree = "<group>"; };
+		66BA640C1BEEB28600804667 /* JBChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBChartView.h; sourceTree = "<group>"; };
+		66BA640D1BEEB28600804667 /* JBChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBChartView.m; sourceTree = "<group>"; };
+		66BA640E1BEEB28600804667 /* JBLineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBLineChartView.h; sourceTree = "<group>"; };
+		66BA640F1BEEB28600804667 /* JBLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBLineChartView.m; sourceTree = "<group>"; };
 		FB0F11671BEA9F3C005613A6 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
 		FB0F11681BEA9F3C005613A6 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66BA64001BEEB25300804667 /* JBChart.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +142,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66BA63E51BEEB25300804667 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66BA63F01BEEB25300804667 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66BA63F41BEEB25300804667 /* JBChart.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +168,8 @@
 			children = (
 				665393EB1BD5BC990014FD20 /* finalProject */,
 				665394081BD5BC990014FD20 /* finalProjectTests */,
+				66BA63EA1BEEB25300804667 /* JBChart */,
+				66BA63F91BEEB25300804667 /* JBChartTests */,
 				665393EA1BD5BC990014FD20 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -103,6 +179,8 @@
 			children = (
 				665393E91BD5BC990014FD20 /* finalProject.app */,
 				665394051BD5BC990014FD20 /* finalProjectTests.xctest */,
+				66BA63E91BEEB25300804667 /* JBChart.framework */,
+				66BA63F31BEEB25300804667 /* JBChartTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -167,7 +245,69 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		66BA63EA1BEEB25300804667 /* JBChart */ = {
+			isa = PBXGroup;
+			children = (
+				66BA64091BEEB26200804667 /* Classes */,
+				66BA63ED1BEEB25300804667 /* JBChart.h */,
+				66BA63EB1BEEB25300804667 /* Supporting Files */,
+			);
+			path = JBChart;
+			sourceTree = "<group>";
+		};
+		66BA63EB1BEEB25300804667 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				66BA63EC1BEEB25300804667 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		66BA63F91BEEB25300804667 /* JBChartTests */ = {
+			isa = PBXGroup;
+			children = (
+				66BA63FC1BEEB25300804667 /* JBChartTests.m */,
+				66BA63FA1BEEB25300804667 /* Supporting Files */,
+			);
+			path = JBChartTests;
+			sourceTree = "<group>";
+		};
+		66BA63FA1BEEB25300804667 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				66BA63FB1BEEB25300804667 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		66BA64091BEEB26200804667 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				66BA640A1BEEB28600804667 /* JBBarChartView.h */,
+				66BA640B1BEEB28600804667 /* JBBarChartView.m */,
+				66BA640C1BEEB28600804667 /* JBChartView.h */,
+				66BA640D1BEEB28600804667 /* JBChartView.m */,
+				66BA640E1BEEB28600804667 /* JBLineChartView.h */,
+				66BA640F1BEEB28600804667 /* JBLineChartView.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		66BA63E61BEEB25300804667 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66BA64141BEEB28600804667 /* JBLineChartView.h in Headers */,
+				66BA64101BEEB28600804667 /* JBBarChartView.h in Headers */,
+				66BA64121BEEB28600804667 /* JBChartView.h in Headers */,
+				66BA63EE1BEEB25300804667 /* JBChart.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		665393E81BD5BC980014FD20 /* finalProject */ = {
@@ -177,10 +317,12 @@
 				665393E51BD5BC980014FD20 /* Sources */,
 				665393E61BD5BC980014FD20 /* Frameworks */,
 				665393E71BD5BC980014FD20 /* Resources */,
+				66BA64071BEEB25300804667 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				66BA63FF1BEEB25300804667 /* PBXTargetDependency */,
 			);
 			name = finalProject;
 			productName = finalProject;
@@ -205,6 +347,43 @@
 			productReference = 665394051BD5BC990014FD20 /* finalProjectTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		66BA63E81BEEB25300804667 /* JBChart */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66BA64061BEEB25300804667 /* Build configuration list for PBXNativeTarget "JBChart" */;
+			buildPhases = (
+				66BA63E41BEEB25300804667 /* Sources */,
+				66BA63E51BEEB25300804667 /* Frameworks */,
+				66BA63E61BEEB25300804667 /* Headers */,
+				66BA63E71BEEB25300804667 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JBChart;
+			productName = JBChart;
+			productReference = 66BA63E91BEEB25300804667 /* JBChart.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		66BA63F21BEEB25300804667 /* JBChartTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66BA64081BEEB25300804667 /* Build configuration list for PBXNativeTarget "JBChartTests" */;
+			buildPhases = (
+				66BA63EF1BEEB25300804667 /* Sources */,
+				66BA63F01BEEB25300804667 /* Frameworks */,
+				66BA63F11BEEB25300804667 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				66BA63F61BEEB25300804667 /* PBXTargetDependency */,
+				66BA63F81BEEB25300804667 /* PBXTargetDependency */,
+			);
+			name = JBChartTests;
+			productName = JBChartTests;
+			productReference = 66BA63F31BEEB25300804667 /* JBChartTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -218,6 +397,13 @@
 						CreatedOnToolsVersion = 6.4;
 					};
 					665394041BD5BC990014FD20 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 665393E81BD5BC980014FD20;
+					};
+					66BA63E81BEEB25300804667 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					66BA63F21BEEB25300804667 = {
 						CreatedOnToolsVersion = 6.4;
 						TestTargetID = 665393E81BD5BC980014FD20;
 					};
@@ -238,6 +424,8 @@
 			targets = (
 				665393E81BD5BC980014FD20 /* finalProject */,
 				665394041BD5BC990014FD20 /* finalProjectTests */,
+				66BA63E81BEEB25300804667 /* JBChart */,
+				66BA63F21BEEB25300804667 /* JBChartTests */,
 			);
 		};
 /* End PBXProject section */
@@ -254,6 +442,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		665394031BD5BC990014FD20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66BA63E71BEEB25300804667 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66BA63F11BEEB25300804667 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -291,6 +493,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		66BA63E41BEEB25300804667 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66BA64111BEEB28600804667 /* JBBarChartView.m in Sources */,
+				66BA64151BEEB28600804667 /* JBLineChartView.m in Sources */,
+				66BA64131BEEB28600804667 /* JBChartView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66BA63EF1BEEB25300804667 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66BA63FD1BEEB25300804667 /* JBChartTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -298,6 +518,21 @@
 			isa = PBXTargetDependency;
 			target = 665393E81BD5BC980014FD20 /* finalProject */;
 			targetProxy = 665394061BD5BC990014FD20 /* PBXContainerItemProxy */;
+		};
+		66BA63F61BEEB25300804667 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 66BA63E81BEEB25300804667 /* JBChart */;
+			targetProxy = 66BA63F51BEEB25300804667 /* PBXContainerItemProxy */;
+		};
+		66BA63F81BEEB25300804667 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 665393E81BD5BC980014FD20 /* finalProject */;
+			targetProxy = 66BA63F71BEEB25300804667 /* PBXContainerItemProxy */;
+		};
+		66BA63FF1BEEB25300804667 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 66BA63E81BEEB25300804667 /* JBChart */;
+			targetProxy = 66BA63FE1BEEB25300804667 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -455,6 +690,80 @@
 			};
 			name = Release;
 		};
+		66BA64021BEEB25300804667 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = JBChart/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		66BA64031BEEB25300804667 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = JBChart/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		66BA64041BEEB25300804667 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = JBChartTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/finalProject.app/finalProject";
+			};
+			name = Debug;
+		};
+		66BA64051BEEB25300804667 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = JBChartTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/finalProject.app/finalProject";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -484,6 +793,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		66BA64061BEEB25300804667 /* Build configuration list for PBXNativeTarget "JBChart" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66BA64021BEEB25300804667 /* Debug */,
+				66BA64031BEEB25300804667 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		66BA64081BEEB25300804667 /* Build configuration list for PBXNativeTarget "JBChartTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66BA64041BEEB25300804667 /* Debug */,
+				66BA64051BEEB25300804667 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 

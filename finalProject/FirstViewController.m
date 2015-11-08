@@ -14,16 +14,28 @@
 @interface FirstViewController ()
 
 @property NSManagedObject *lastRecord;
-
+@property  UIAlertView *alert;
 @end
 
 @implementation FirstViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view addSubview:[self chart1]];
-    // Do any additional setup after loading the view, typically from a nib.
     
+    //Scroll View
+    [self.scrollView setScrollEnabled:YES];
+    [self.scrollView setContentSize:CGSizeMake(320, 800)];
+
+    // Pop -up
+    _alert = [[UIAlertView alloc] initWithTitle:@"Hello!" message:@"Please enter your name:" delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
+    _alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    UITextField * alertTextField = [_alert textFieldAtIndex:0];
+    alertTextField.keyboardType = UIKeyboardTypeNumberPad;
+    alertTextField.placeholder = @"Enter your name";
+  
+
+    
+    //Core Data
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
     
@@ -53,7 +65,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Sueño"
-                                                              style:UIBarButtonItemStylePlain target:self
+                                                              style:UIBarButtonSystemItemAdd target:self
                                                               action:@selector(btnAgrega:)];
     
     self.tabBarController.navigationItem.rightBarButtonItem = anotherButton;
@@ -64,34 +76,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(FSLineChart*)chart1 {
-    // Generating some dummy data
-    NSMutableArray* chartData = [NSMutableArray arrayWithCapacity:10];
-    
-    for(int i=0;i<10;i++) {
-        int r = (rand() + rand()) % 10;
-        chartData[i] = [NSNumber numberWithInt:r + 2];
-    }
-    
-    // Creating the line chart
-    FSLineChart* lineChart = [[FSLineChart alloc] initWithFrame:CGRectMake(20, 400, [UIScreen mainScreen].bounds.size.width - 40, 166)];
-    lineChart.verticalGridStep = 5;
-    lineChart.horizontalGridStep = 5;
-    
-    lineChart.labelForIndex = ^(NSUInteger item) {
-        return [NSString stringWithFormat:@"%lu",(unsigned long)item];
-    };
-    
-    lineChart.labelForValue = ^(CGFloat value) {
-        return [NSString stringWithFormat:@"%.f", value];
-    };
-    
-    [lineChart setChartData:chartData];
-    return lineChart;
-}
 
 - (IBAction)btnAgrega:(UIButton *)sender {
-    self.FormaSue.hidden = false;
+     [_alert show];
 }
 
 - (IBAction)btnConfirma:(UIButton *)sender {
