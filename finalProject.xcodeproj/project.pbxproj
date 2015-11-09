@@ -24,6 +24,7 @@
 		668CD50B1BEBC20200456E66 /* UIColor+FSPalette.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CD5081BEBC20200456E66 /* UIColor+FSPalette.m */; };
 		668CD50C1BEBC20200456E66 /* FSLineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CD50A1BEBC20200456E66 /* FSLineChart.m */; };
 		FB0F11691BEA9F3C005613A6 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0F11681BEA9F3C005613A6 /* ThirdViewController.m */; };
+		FB73DC6A1BEBE63900172A9B /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB73DC691BEBE63900172A9B /* CustomTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,8 @@
 		668CD50A1BEBC20200456E66 /* FSLineChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSLineChart.m; sourceTree = "<group>"; };
 		FB0F11671BEA9F3C005613A6 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
 		FB0F11681BEA9F3C005613A6 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
+		FB73DC681BEBE63900172A9B /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomTableViewCell.h; path = ../CustomTableViewCell.h; sourceTree = "<group>"; };
+		FB73DC691BEBE63900172A9B /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomTableViewCell.m; path = ../CustomTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +135,8 @@
 				FB0F11681BEA9F3C005613A6 /* ThirdViewController.m */,
 				20DB32E61BEB1F8A0056F4FF /* ReportsTableViewController.h */,
 				20DB32E71BEB1F8A0056F4FF /* ReportsTableViewController.m */,
+				FB73DC681BEBE63900172A9B /* CustomTableViewCell.h */,
+				FB73DC691BEBE63900172A9B /* CustomTableViewCell.m */,
 				665393F91BD5BC990014FD20 /* Main.storyboard */,
 				665393FC1BD5BC990014FD20 /* Images.xcassets */,
 				665393FE1BD5BC990014FD20 /* LaunchScreen.xib */,
@@ -275,6 +280,7 @@
 				665393EF1BD5BC990014FD20 /* main.m in Sources */,
 				20DB32E81BEB1F8A0056F4FF /* ReportsTableViewController.m in Sources */,
 				668CD50B1BEBC20200456E66 /* UIColor+FSPalette.m in Sources */,
+				FB73DC6A1BEBE63900172A9B /* CustomTableViewCell.m in Sources */,
 				20536EFC1BD9BEA100BEB17A /* TabBarViewController.m in Sources */,
 				20536EF81BD9BC5D00BEB17A /* ProfileViewController.m in Sources */,
 				668CD5061BEBBA9600456E66 /* XYPieChart.m in Sources */,
