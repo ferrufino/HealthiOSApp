@@ -6,11 +6,14 @@
 //  Copyright (c) 2015 Gustavo Ferrufino. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "AppDelegate.h"
 
+#import <JBChart/JBChart.h>
+#import "AppDelegate.h"
+// Views
 @interface FirstViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet JBBarChartView *barChart;
+@property (weak, nonatomic) IBOutlet UILabel *lbInfo;
 - (IBAction)btnAgrega:(UIButton *)sender;
 - (IBAction)btnConfirma:(UIButton *)sender;
 
