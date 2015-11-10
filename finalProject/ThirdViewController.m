@@ -122,7 +122,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
         [self secAlert];
     } else if (alertView.tag == TAG_Second){ // handle the donate
         NSLog(@"Entered: %@",[[alertView textFieldAtIndex:0] text]);
-git 
+ 
     }
 }
 
