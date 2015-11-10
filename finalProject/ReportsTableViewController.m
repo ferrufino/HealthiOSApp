@@ -7,10 +7,13 @@
 //
 
 #import "ReportsTableViewController.h"
+#import "CustomTableViewCell.h"
+#import "QuartzCore/QuartzCore.h"
 
 @interface ReportsTableViewController ()
 
 @property NSMutableArray *reports;
+@property NSArray *test;
 
 @end
 
@@ -18,7 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    _test =[[NSArray alloc]initWithObjects:@"19/03/2015",@"20/03/2015",nil];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -38,13 +42,17 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return self.test.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
+    NSDate *object = self.test[indexPath.row];
+    [cell.ViewCell.layer setCornerRadius:20.0f];
+    [cell.ViewCell.layer setMasksToBounds:YES];
+    cell.LbDate.text = [object description];
     // Configure the cell...
     
     return cell;
