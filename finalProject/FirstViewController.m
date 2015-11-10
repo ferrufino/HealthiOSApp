@@ -110,10 +110,10 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self
                                                               action:@selector(btnAgrega:)];
     
-    self.tabBarController.navigationItem.rightBarButtonItem = anotherButton;
+    self.tabBarController.navigationItem.rightBarButtonItem = addButton;
 }
 - (float)getRandomFloat {
     float i1 = (float)(arc4random() % 1000000) / 100 ;
@@ -215,9 +215,12 @@
     return @" people";
 }
 
+// PopAlert - INPUT INGRESADO EN EL TEXTFIELD
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSLog(@"Entered: %@",[[alertView textFieldAtIndex:0] text]);
+}
 
 
-///////////
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
