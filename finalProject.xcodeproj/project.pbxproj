@@ -36,6 +36,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		66BA64071BEEB25300804667 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		20536EF61BD9BC5D00BEB17A /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		20536EF71BD9BC5D00BEB17A /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
@@ -67,6 +80,8 @@
 		668CD5081BEBC20200456E66 /* UIColor+FSPalette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FSPalette.m"; sourceTree = "<group>"; };
 		668CD5091BEBC20200456E66 /* FSLineChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSLineChart.h; sourceTree = "<group>"; };
 		668CD50A1BEBC20200456E66 /* FSLineChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSLineChart.m; sourceTree = "<group>"; };
+		66BA63FB1BEEB25300804667 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66BA63FC1BEEB25300804667 /* JBChartTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JBChartTests.m; sourceTree = "<group>"; };
 		FB0F11671BEA9F3C005613A6 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
 		FB0F11681BEA9F3C005613A6 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,6 +109,7 @@
 			children = (
 				665393EB1BD5BC990014FD20 /* finalProject */,
 				665394081BD5BC990014FD20 /* finalProjectTests */,
+				66BA63F91BEEB25300804667 /* JBChartTests */,
 				665393EA1BD5BC990014FD20 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -167,6 +183,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		66BA63F91BEEB25300804667 /* JBChartTests */ = {
+			isa = PBXGroup;
+			children = (
+				66BA63FC1BEEB25300804667 /* JBChartTests.m */,
+				66BA63FA1BEEB25300804667 /* Supporting Files */,
+			);
+			path = JBChartTests;
+			sourceTree = "<group>";
+		};
+		66BA63FA1BEEB25300804667 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				66BA63FB1BEEB25300804667 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -177,6 +210,7 @@
 				665393E51BD5BC980014FD20 /* Sources */,
 				665393E61BD5BC980014FD20 /* Frameworks */,
 				665393E71BD5BC980014FD20 /* Resources */,
+				66BA64071BEEB25300804667 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -405,6 +439,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = finalProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -415,6 +450,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = finalProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
