@@ -9,8 +9,12 @@
 #import "ThirdViewController.h"
 #import "FSLineChart.h"
 #import "UIColor+FSPalette.h"
-@interface ThirdViewController ()
 
+#define TAG_First 1
+#define TAG_Second 2
+
+@interface ThirdViewController ()
+@property  UIAlertView *alert2;
 @end
 
 @implementation ThirdViewController
@@ -18,14 +22,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:[self chart3]];
-    // Do any additional setup after loading the view.
+    
+    
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     self.navigationItem.rightBarButtonItem = nil;
     
-    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Ejercicio"
-                                                              style:UIBarButtonItemStylePlain target:self
+    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self
                                                               action:@selector(btnAgrega:)];
     
     self.tabBarController.navigationItem.rightBarButtonItem = anotherButton;
@@ -46,9 +51,9 @@
 }
 */
 
+
 - (IBAction)btnAgrega:(UIButton *)sender {
-    self.FormaEjercicio.hidden = false;
-    [self.chart3 removeFromSuperview] ;
+    [self firstAlert];
 }
 
 - (IBAction)btnConfirma:(UIButton *)sender {
@@ -81,6 +86,44 @@
     [lineChart setChartData:chartData];
     
     return lineChart;
+}
+
+
+- (IBAction)firstAlert {
+    UIAlertView *alert = [[UIAlertView alloc]
+                          
+                          initWithTitle:@"titleGoesHere"
+                          message:@"messageGoesHere"
+                          delegate:self
+                          cancelButtonTitle:@"Areobico"
+                          otherButtonTitles:@"Anareobico", nil];
+    alert.tag = TAG_First;
+    [alert show];
+    
+}
+
+- (IBAction)secAlert {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Agrega Ejercicio realizado"
+                                                    message:@"Ingresa la cantidad de horas ejecitadas:"
+                                                   delegate:self
+                                          cancelButtonTitle:@"Ok"
+                                          otherButtonTitles:nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    UITextField * alertTextField = [alert textFieldAtIndex:0];
+    alertTextField.keyboardType = UIKeyboardTypeNumberPad;
+    alertTextField.placeholder = @"horas";
+    alert.tag = TAG_Second;
+    [alert show];
+}
+
+-(void)alertView:(UIAlertView *)alertView
+clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (alertView.tag == TAG_First) { // handle the altdev
+        [self secAlert];
+    } else if (alertView.tag == TAG_Second){ // handle the donate
+        NSLog(@"Entered: %@",[[alertView textFieldAtIndex:0] text]);
+git 
+    }
 }
 
 @end
