@@ -26,7 +26,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self hydrateDatasets];
+    
+    self.arrayOfValues = [NSMutableArray arrayWithObjects:@"2", @"5", @"3", nil];
+    
+    NSDate *today = [NSDate date];
+    NSDate *yesterday = [today dateByAddingTimeInterval:-86400.0];
+    NSDate *before = [yesterday dateByAddingTimeInterval:-86400.0];
+    
+    self.arrayOfDates = [[NSMutableArray alloc] initWithObjects:today, yesterday, before, nil];
   
     //Scroll View
     [self.scrollView setScrollEnabled:YES];
@@ -38,8 +45,7 @@
     UITextField * alertTextField = [_alert textFieldAtIndex:0];
     alertTextField.keyboardType = UIKeyboardTypeNumberPad;
     alertTextField.placeholder = @"horas";
-    //Graph
-    
+   
     // Create a gradient to apply to the bottom portion of the graph
     CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
     size_t num_locations = 2;
@@ -48,7 +54,7 @@
         1.0, 1.0, 1.0, 1.0,
         1.0, 1.0, 1.0, 0.0
     };
-    
+    //Graph
     // Apply the gradient to the bottom portion of the graph
     self.myGraph.gradientBottom = CGGradientCreateWithColorComponents(colorspace, components, locations, num_locations);
     
@@ -81,7 +87,7 @@
     
     
     
-    //Core Data
+    /*Core Data
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
     
@@ -106,7 +112,7 @@
         NSNumber *duration = [self.lastRecord valueForKey:@"duration"];
         self.txtCantidadSue.text = [duration stringValue];
     }
-    
+    */
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -152,6 +158,7 @@
     NSDate *newDate = [date dateByAddingTimeInterval:secondsInTwentyFourHours];
     return newDate;
 }
+
 - (NSString *)labelForDateAtIndex:(NSInteger)index {
     NSDate *date = self.arrayOfDates[index];
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
@@ -163,48 +170,17 @@
 #pragma mark - SimpleLineGraph Data Source
 
 - (NSInteger)numberOfPointsInLineGraph:(BEMSimpleLineGraphView *)graph {
-    return (int)[self.arrayOfValues count];
+    return 3;
 }
-
 - (CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {
     return [[self.arrayOfValues objectAtIndex:index] doubleValue];
 }
 
 #pragma mark - SimpleLineGraph Delegate
 
-- (NSInteger)numberOfGapsBetweenLabelsOnLineGraph:(BEMSimpleLineGraphView *)graph {
-    return 2;
-}
 
 - (NSString *)lineGraph:(BEMSimpleLineGraphView *)graph labelOnXAxisForIndex:(NSInteger)index {
-    
-    NSString *label = [self labelForDateAtIndex:index];
-    return [label stringByReplacingOccurrencesOfString:@" " withString:@"\n"];
-}
-
-- (void)lineGraph:(BEMSimpleLineGraphView *)graph didTouchGraphWithClosestIndex:(NSInteger)index {
-    self.labelValues.text = [NSString stringWithFormat:@"%@", [self.arrayOfValues objectAtIndex:index]];
-    self.labelDates.text = [NSString stringWithFormat:@"in %@", [self labelForDateAtIndex:index]];
-}
-
-- (void)lineGraph:(BEMSimpleLineGraphView *)graph didReleaseTouchFromGraphWithClosestIndex:(CGFloat)index {
-    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        self.labelValues.alpha = 0.0;
-        self.labelDates.alpha = 0.0;
-    } completion:^(BOOL finished) {
-        self.labelValues.text = [NSString stringWithFormat:@"%i", [[self.myGraph calculatePointValueSum] intValue]];
-        self.labelDates.text = [NSString stringWithFormat:@"between %@ and %@", [self labelForDateAtIndex:0], [self labelForDateAtIndex:self.arrayOfDates.count - 1]];
-        
-        [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-            self.labelValues.alpha = 1.0;
-            self.labelDates.alpha = 1.0;
-        } completion:nil];
-    }];
-}
-
-- (void)lineGraphDidFinishLoading:(BEMSimpleLineGraphView *)graph {
-    self.labelValues.text = [NSString stringWithFormat:@"%i", [[self.myGraph calculatePointValueSum] intValue]];
-    self.labelDates.text = [NSString stringWithFormat:@"between %@ and %@", [self labelForDateAtIndex:0], [self labelForDateAtIndex:self.arrayOfDates.count - 1]];
+    return [self labelForDateAtIndex:index];
 }
 
 /* - (void)lineGraphDidFinishDrawing:(BEMSimpleLineGraphView *)graph {
@@ -212,7 +188,7 @@
  } */
 
 - (NSString *)popUpSuffixForlineGraph:(BEMSimpleLineGraphView *)graph {
-    return @" people";
+    return @" horas";
 }
 
 // PopAlert - INPUT INGRESADO EN EL TEXTFIELD
