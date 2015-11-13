@@ -26,14 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    self.arrayOfValues = [NSMutableArray arrayWithObjects:@"2", @"5", @"3", nil];
-    
-    NSDate *today = [NSDate date];
-    NSDate *yesterday = [today dateByAddingTimeInterval:-86400.0];
-    NSDate *before = [yesterday dateByAddingTimeInterval:-86400.0];
-    
-    self.arrayOfDates = [[NSMutableArray alloc] initWithObjects:today, yesterday, before, nil];
+    [self loadGraphData];
   
     //Scroll View
     [self.scrollView setScrollEnabled:YES];
@@ -42,6 +35,7 @@
     // Pop -up
     _alert = [[UIAlertView alloc] initWithTitle:@"Agrega Sueño" message:@"Ingresa la cantidad de horas dormidas:" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
     _alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    
     UITextField * alertTextField = [_alert textFieldAtIndex:0];
     alertTextField.keyboardType = UIKeyboardTypeNumberPad;
     alertTextField.placeholder = @"horas";
@@ -67,6 +61,7 @@
     self.myGraph.enableReferenceXAxisLines = YES;
     self.myGraph.enableReferenceYAxisLines = YES;
     self.myGraph.enableReferenceAxisFrame = YES;
+    self.myGraph.enableBezierCurve = YES;
     
     // Draw an average line
     self.myGraph.averageLine.enableAverageLine = YES;
@@ -74,6 +69,8 @@
     self.myGraph.averageLine.color = [UIColor darkGrayColor];
     self.myGraph.averageLine.width = 2.5;
     self.myGraph.averageLine.dashPattern = @[@(2),@(2)];
+    self.myGraph.colorXaxisLabel = [UIColor whiteColor];
+    self.myGraph.colorYaxisLabel = [UIColor whiteColor];
     
     // Set the graph's animation style to draw, fade, or none
     self.myGraph.animationGraphStyle = BEMLineAnimationDraw;
@@ -121,37 +118,6 @@
     
     self.tabBarController.navigationItem.rightBarButtonItem = addButton;
 }
-- (float)getRandomFloat {
-    float i1 = (float)(arc4random() % 1000000) / 100 ;
-    return i1;
-}
-
-- (void)hydrateDatasets {
-    // Reset the arrays of values (Y-Axis points) and dates (X-Axis points / labels)
-    if (!self.arrayOfValues) self.arrayOfValues = [[NSMutableArray alloc] init];
-    if (!self.arrayOfDates) self.arrayOfDates = [[NSMutableArray alloc] init];
-    [self.arrayOfValues removeAllObjects];
-    [self.arrayOfDates removeAllObjects];
-    
-    totalNumber = 0;
-    NSDate *baseDate = [NSDate date];
-    BOOL showNullValue = true;
-    
-    // Add objects to the array based on the stepper value
-    for (int i = 0; i < 9; i++) {
-        [self.arrayOfValues addObject:@([self getRandomFloat])]; // Random values for the graph
-        if (i == 0) {
-            [self.arrayOfDates addObject:baseDate]; // Dates for the X-Axis of the graph
-        } else if (showNullValue && i == 4) {
-            [self.arrayOfDates addObject:[self dateForGraphAfterDate:self.arrayOfDates[i-1]]]; // Dates for the X-Axis of the graph
-            self.arrayOfValues[i] = @(BEMNullGraphValue);
-        } else {
-            [self.arrayOfDates addObject:[self dateForGraphAfterDate:self.arrayOfDates[i-1]]]; // Dates for the X-Axis of the graph
-        }
-        
-        totalNumber = totalNumber + [[self.arrayOfValues objectAtIndex:i] intValue]; // All of the values added together
-    }
-}
 
 - (NSDate *)dateForGraphAfterDate:(NSDate *)date {
     NSTimeInterval secondsInTwentyFourHours = 24 * 60 * 60;
@@ -160,7 +126,7 @@
 }
 
 - (NSString *)labelForDateAtIndex:(NSInteger)index {
-    NSDate *date = self.arrayOfDates[index];
+    NSDate *date = [self.arrayOfDates objectAtIndex:index];
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     df.dateFormat = @"MM/dd";
     NSString *label = [df stringFromDate:date];
@@ -170,7 +136,7 @@
 #pragma mark - SimpleLineGraph Data Source
 
 - (NSInteger)numberOfPointsInLineGraph:(BEMSimpleLineGraphView *)graph {
-    return 3;
+    return 7;
 }
 - (CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {
     return [[self.arrayOfValues objectAtIndex:index] doubleValue];
@@ -181,6 +147,10 @@
 
 - (NSString *)lineGraph:(BEMSimpleLineGraphView *)graph labelOnXAxisForIndex:(NSInteger)index {
     return [self labelForDateAtIndex:index];
+}
+
+- (NSInteger)numberOfGapsBetweenLabelsOnLineGraph:(BEMSimpleLineGraphView *)graph {
+    return 1;
 }
 
 /* - (void)lineGraphDidFinishDrawing:(BEMSimpleLineGraphView *)graph {
@@ -224,6 +194,57 @@
     
     NSError *error;
     [context save:&error];
+}
+
+
+
+#pragma mark - Helper functions
+
+- (void)loadGraphData {
+    NSDate *today = [NSDate date];
+    NSDate *yesterday = [today dateByAddingTimeInterval:-86400.0];
+    NSDate *twoDaysAgo = [yesterday dateByAddingTimeInterval:-86400.0];
+    NSDate *threeDaysAgo = [twoDaysAgo dateByAddingTimeInterval:-86400.0];
+    NSDate *fourDaysAgo = [threeDaysAgo dateByAddingTimeInterval:-86400.0];
+    NSDate *fiveDaysAgo = [fourDaysAgo dateByAddingTimeInterval:-86400.0];
+    NSDate *sixDaysAgo = [fiveDaysAgo dateByAddingTimeInterval:-86400.0];
+    NSDate *sevenDaysAgo = [sixDaysAgo dateByAddingTimeInterval:-86400.0];
+    
+    self.arrayOfDates = [[NSMutableArray alloc] initWithObjects:today, yesterday, twoDaysAgo,
+                         threeDaysAgo, fourDaysAgo, fiveDaysAgo, sixDaysAgo, sevenDaysAgo, nil];
+    
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"SleepRecord"
+                                              inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entity];
+    NSError *error;
+    NSManagedObject *record;
+    NSPredicate *predicate;
+    NSArray *fetchResults;
+    self.arrayOfValues = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i<=6; i++) {
+        predicate = [NSPredicate predicateWithFormat:@"(date <= %@) AND (date >= %@)",
+                     [self.arrayOfDates objectAtIndex:i], [self.arrayOfDates objectAtIndex:i+1]];
+        [request setPredicate:predicate];
+        [request setFetchLimit:1];
+        fetchResults = [context executeFetchRequest:request error:&error];
+        NSNumber *duration = [[NSNumber alloc] initWithFloat:0];
+        if (fetchResults.count != 0) {
+            record = [fetchResults objectAtIndex:0];
+            duration = [record valueForKey:@"duration"];
+        }
+        [self.arrayOfValues addObject:duration];
+    }
+    
+    [self.arrayOfDates removeObjectAtIndex:7];
+    self.arrayOfDates = [[[self.arrayOfDates reverseObjectEnumerator] allObjects] mutableCopy];
+    self.arrayOfValues = [[[self.arrayOfValues reverseObjectEnumerator] allObjects] mutableCopy];
+    
+    
 }
 
 
