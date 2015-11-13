@@ -9,7 +9,6 @@
 #import "FirstViewController.h"
 #import "SecondViewController.h"
 #import "DateUtilities.h"
-#import "FSLineChart.h"
 #import "UIColor+FSPalette.h"
 
 
@@ -196,11 +195,7 @@
     NSError *error;
     [context save:&error];
 }
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    if ([viewController isKindOfClass:[SecondViewController class]]) {
-        [viewController.navigationItem setRightBarButtonItem:nil];
-    }
-}
+
 
 
 #pragma mark - Helper functions
