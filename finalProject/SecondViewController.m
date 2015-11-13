@@ -8,6 +8,9 @@
 
 #import "SecondViewController.h"
 @interface SecondViewController ()
+@property HMSegmentedControl *segmentedControlQ1;
+@property NSMutableArray *answers;
+@property NSInteger numOfQuestion;
 
 @end
 
@@ -16,48 +19,62 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    self.numOfQuestion = 1;
+    self.answers = [[NSMutableArray alloc] init];
+    
     self.horizontalScrollView.frame = CGRectMake(0, 0, 392, 162);
     //Impide que usuario pueda darle scroll
     self.horizontalScrollView.scrollEnabled = NO;
     
+    //SegmentedControl for horizontal scroll view
+    _segmentedControlQ1 = [[HMSegmentedControl alloc] initWithSectionTitles:@[@"1", @"2", @"3", @"4", @"5"]];
+    [_segmentedControlQ1 setFrame:CGRectMake(0, 112, self.horizontalScrollView.frame.size.width, 50)];
+    [_segmentedControlQ1 setIndexChangeBlock:^(NSInteger index) {
+        NSLog(@"Selected index %ld (via block)", (long)index);
+        double delayInSeconds = 0.5;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            if (self.numOfQuestion == 1) {
+                [_answers addObject:@(index+1)];
+                [self buttonClicked1];
+            }else if (self.numOfQuestion == 2){
+                [_answers addObject:@(index+1)];
+                [self buttonClicked2];
+            }else if(self.numOfQuestion == 3){
+                [_answers addObject:@(index+1)];
+                [self buttonClicked3];
+            }else if(self.numOfQuestion == 4){
+                [_answers addObject:@(index+1)];
+                [self buttonClicked4];
+            }else if(self.numOfQuestion == 5){
+                [_answers addObject:@(index+1)];
+                [self buttonClicked5];
+            }
+            
+        });
+        
+    }];
+    _segmentedControlQ1.selectionIndicatorHeight = 4.0f;
+    _segmentedControlQ1.backgroundColor = [UIColor colorWithRed:0.1 green:0.4 blue:0.8 alpha:1];
+    _segmentedControlQ1.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
+    _segmentedControlQ1.selectionIndicatorColor = [UIColor colorWithRed:0.5 green:0.8 blue:1 alpha:1];
+    _segmentedControlQ1.selectionStyle = HMSegmentedControlSelectionStyleBox;
+    _segmentedControlQ1.selectedSegmentIndex = HMSegmentedControlNoSegment;
+    _segmentedControlQ1.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
+    _segmentedControlQ1.shouldAnimateUserSelection = NO;
+    _segmentedControlQ1.tag = 1;
+   
     
-    //Button for horizontal Scroll
-    UIButton *but1 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [but1 addTarget:self action:@selector(buttonClicked1:) forControlEvents:UIControlEventTouchUpInside];
-    [but1 setFrame:CGRectMake(0, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height)];
-    [but1 setTitle:@"test1" forState:UIControlStateNormal];
-    [but1 setExclusiveTouch:YES];
-    
-    UIButton *but2 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [but2 addTarget:self action:@selector(buttonClicked2:) forControlEvents:UIControlEventTouchUpInside];
-    [but2 setFrame:CGRectMake(self.horizontalScrollView.frame.size.width, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height)];
-    [but2 setTitle:@"test2" forState:UIControlStateNormal];
-    [but2 setExclusiveTouch:YES];
-    
-    UIButton *but3 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [but3 addTarget:self action:@selector(buttonClicked3:) forControlEvents:UIControlEventTouchUpInside];
-    [but3 setFrame:CGRectMake(_horizontalScrollView.frame.size.width*2, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height)];
-    [but3 setTitle:@"test3" forState:UIControlStateNormal];
-    [but3 setExclusiveTouch:YES];
-    
-    UIButton *but4 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [but4 addTarget:self action:@selector(buttonClicked4:) forControlEvents:UIControlEventTouchUpInside];
-    [but4 setFrame:CGRectMake(_horizontalScrollView.frame.size.width*3, 0, _horizontalScrollView.frame.size.width, _horizontalScrollView.frame.size.height)];
-    [but4 setTitle:@"test4" forState:UIControlStateNormal];
-    [but4 setExclusiveTouch:YES];
-    
-    UIButton *but5 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [but5 addTarget:self action:@selector(buttonClicked5:) forControlEvents:UIControlEventTouchUpInside];
-    [but5 setFrame:CGRectMake(self.horizontalScrollView.frame.size.width*4, 0, _horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height)];
-    [but5 setTitle:@"test5" forState:UIControlStateNormal];
-    [but5 setExclusiveTouch:YES];
     
     
-    [self.horizontalScrollView addSubview:but1];
-    [self.horizontalScrollView addSubview:but2];
-    [self.horizontalScrollView addSubview:but3];
-    [self.horizontalScrollView addSubview:but4];
-    [self.horizontalScrollView addSubview:but5];
+
+    
+   
+    [self.horizontalScrollView addSubview:_segmentedControlQ1];
+ 
+
     
     //Oculta sidebar scroll
     [self.horizontalScrollView setShowsHorizontalScrollIndicator:NO];
@@ -85,32 +102,65 @@
 
 }
 
--(void) buttonClicked1:(UIButton*)sender
+-(void) buttonClicked1
 {
+
+    self.numOfQuestion += 1;
+    _segmentedControlQ1.selectedSegmentIndex =  UISegmentedControlNoSegment;
+    
+    CGRect changePositionInX = _segmentedControlQ1.frame;
+    changePositionInX.origin.x = self.horizontalScrollView.frame.size.width;
+    _segmentedControlQ1.frame = changePositionInX;
+    
     CGRect frame = CGRectMake(self.horizontalScrollView.frame.size.width, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height); //wherever you want to scroll
     [self.horizontalScrollView scrollRectToVisible:frame animated:YES];
 }
--(void) buttonClicked2:(UIButton*)sender
+-(void) buttonClicked2
 {
+    self.numOfQuestion += 1;
+    _segmentedControlQ1.selectedSegmentIndex =  UISegmentedControlNoSegment;
+    
+    CGRect changePositionInX = _segmentedControlQ1.frame;
+    changePositionInX.origin.x = self.horizontalScrollView.frame.size.width*2;
+    _segmentedControlQ1.frame = changePositionInX;
+    
+    
     CGRect frame = CGRectMake(self.horizontalScrollView.frame.size.width*2, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height); //wherever you want to scroll
     [self.horizontalScrollView scrollRectToVisible:frame animated:YES];
 }
--(void) buttonClicked3:(UIButton*)sender
+-(void) buttonClicked3
 {
+    self.numOfQuestion += 1;
+    _segmentedControlQ1.selectedSegmentIndex =  UISegmentedControlNoSegment;
+    
+    CGRect changePositionInX = _segmentedControlQ1.frame;
+    changePositionInX.origin.x = self.horizontalScrollView.frame.size.width*3;
+    _segmentedControlQ1.frame = changePositionInX;
+    
     CGRect frame = CGRectMake(self.horizontalScrollView.frame.size.width*3, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height); //wherever you want to scroll
     [self.horizontalScrollView scrollRectToVisible:frame animated:YES];
 }
--(void) buttonClicked4:(UIButton*)sender
+-(void) buttonClicked4
 {
+    self.numOfQuestion += 1;
+    _segmentedControlQ1.selectedSegmentIndex =  UISegmentedControlNoSegment;
+    
+    CGRect changePositionInX = _segmentedControlQ1.frame;
+    changePositionInX.origin.x = self.horizontalScrollView.frame.size.width*4;
+    _segmentedControlQ1.frame = changePositionInX;
+    
     CGRect frame = CGRectMake(self.horizontalScrollView.frame.size.width*4, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height); //wherever you want to scroll
     [self.horizontalScrollView scrollRectToVisible:frame animated:YES];
 }
--(void) buttonClicked5:(UIButton*)sender
+-(void) buttonClicked5
 {
+    
 //    CGRect frame = CGRectMake(self.horizontalScrollView.frame.size.width*5, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height); //wherever you want to scroll
 //    [self.horizontalScrollView scrollRectToVisible:frame animated:YES];
     self.horizontalScrollView.hidden = YES;
     self.verticalScroll.frame = CGRectMake(0,0,self.verticalScroll.frame.size.width, self.verticalScroll.frame.size.height);
+    for (id obj in self.answers)
+        NSLog(@"%@", obj);
     
 }
 @end

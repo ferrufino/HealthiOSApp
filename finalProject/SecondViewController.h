@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HMSegmentedControl.h"
 @interface SecondViewController : UIViewController
 
 @property(nonatomic, strong) NSArray        *sliceColors;

@@ -1,10 +1,13 @@
 PODS:
   - BEMSimpleLineGraph (4.1)
+  - HMSegmentedControl (1.5.2)
 
 DEPENDENCIES:
   - BEMSimpleLineGraph
+  - HMSegmentedControl
 
 SPEC CHECKSUMS:
   BEMSimpleLineGraph: 44fd451f27f8e9cf96f2da5bea27603093576dd1
+  HMSegmentedControl: 83b9686022d2176fb6457d2bdb61e5d6393fed7d
 
 COCOAPODS: 0.39.0
