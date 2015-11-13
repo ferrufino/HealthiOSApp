@@ -127,10 +127,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
     }
 }
 
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    if ([viewController isKindOfClass:[SecondViewController class]]) {
-        [viewController.navigationItem setRightBarButtonItem:nil];
-    }
-}
+
 
 @end

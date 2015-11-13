@@ -10,6 +10,8 @@
 @interface SecondViewController : UIViewController
 
 @property(nonatomic, strong) NSArray        *sliceColors;
+@property (weak, nonatomic) IBOutlet UIScrollView *verticalScroll;
+@property (weak, nonatomic) IBOutlet UIScrollView *horizontalScrollView;
 
 @end
 
