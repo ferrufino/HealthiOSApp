@@ -7,6 +7,7 @@
 //
 
 #import "ThirdViewController.h"
+#import "SecondViewController.h"
 #import "FSLineChart.h"
 #import "UIColor+FSPalette.h"
 
@@ -57,7 +58,7 @@
 }
 
 - (IBAction)btnConfirma:(UIButton *)sender {
-    self.FormaEjercicio.hidden = true;
+
 }
 -(FSLineChart*)chart3 {
     // Generating some dummy data
@@ -123,6 +124,12 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
     } else if (alertView.tag == TAG_Second){ // handle the donate
         NSLog(@"Entered: %@",[[alertView textFieldAtIndex:0] text]);
  
+    }
+}
+
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    if ([viewController isKindOfClass:[SecondViewController class]]) {
+        [viewController.navigationItem setRightBarButtonItem:nil];
     }
 }
 

@@ -9,10 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ThirdViewController : UIViewController
-- (IBAction)btnAgrega:(UIButton *)sender;
-- (IBAction)btnConfirma:(UIButton *)sender;
-@property (weak, nonatomic) IBOutlet UIView *FormaEjercicio;
-@property (weak, nonatomic) IBOutlet UITextField *txtHorasAerobico;
-@property (weak, nonatomic) IBOutlet UITextField *txtHorasAnaerobico;
 
 @end
