@@ -22,13 +22,6 @@
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6iV-fK-iSt">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Up high" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrl-6X-YUz">
-                                                <rect key="frame" x="166" y="24" width="60" height="21"/>
-                                                <animations/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Down low" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qmb-4W-zii">
                                                 <rect key="frame" x="149" y="600" width="76" height="21"/>
                                                 <animations/>
@@ -36,14 +29,21 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pF1-tc-vRd" customClass="BEMSimpleLineGraphView">
-                                                <rect key="frame" x="93" y="72" width="188" height="277"/>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GGL-KM-KKb">
+                                                <rect key="frame" x="0.0" y="-110" width="375" height="598"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pF1-tc-vRd" customClass="BEMSimpleLineGraphView">
+                                                        <rect key="frame" x="35" y="142" width="304" height="380"/>
+                                                        <animations/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="9pv-A4-QxB" id="mbP-eM-Cbo"/>
+                                                            <outlet property="delegate" destination="9pv-A4-QxB" id="M77-DR-KrB"/>
+                                                        </connections>
+                                                    </view>
+                                                </subviews>
                                                 <animations/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <connections>
-                                                    <outlet property="dataSource" destination="9pv-A4-QxB" id="mbP-eM-Cbo"/>
-                                                    <outlet property="delegate" destination="9pv-A4-QxB" id="M77-DR-KrB"/>
-                                                </connections>
+                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
                                         </subviews>
                                         <animations/>
@@ -56,7 +56,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Sueño" image="sleep" selectedImage="sleep" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Sueño" image="sleep" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="myGraph" destination="pF1-tc-vRd" id="RtO-4Y-Bcq"/>
                         <outlet property="scrollView" destination="tfo-uU-o2b" id="QwK-TJ-YjK"/>
