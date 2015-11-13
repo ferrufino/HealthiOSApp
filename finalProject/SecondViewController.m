@@ -65,16 +65,48 @@
     _segmentedControlQ1.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
     _segmentedControlQ1.shouldAnimateUserSelection = NO;
     _segmentedControlQ1.tag = 1;
-   
-    
-    
-    
-
-    
-   
     [self.horizontalScrollView addSubview:_segmentedControlQ1];
  
+    // Create Label 1
+    UILabel *labelOne = [[UILabel alloc]initWithFrame:CGRectMake(70, 10, 400, 40)];
+    [labelOne setBackgroundColor:[UIColor clearColor]];
+    [labelOne setText:@"Incluir gran variedad de frutas y verduras"];
+    [labelOne setFont:[UIFont fontWithName:@"Avenir-Heavy" size:15]];
+    [self.horizontalScrollView addSubview:labelOne];
+    
+    
+    // Create Label 2
+    UILabel *labelTwo = [[UILabel alloc]initWithFrame:CGRectMake(self.horizontalScrollView.frame.size.width+70, 10, 400, 40)];
+    [labelTwo setBackgroundColor:[UIColor clearColor]];
+    [labelTwo setText:@"Comes seguido cereales integrales?"];
+    [labelTwo setFont:[UIFont fontWithName:@"Avenir-Heavy" size:15]];
+    [self.horizontalScrollView addSubview:labelTwo];
+    
+    // Create Label 3
+    UILabel *labelThree = [[UILabel alloc]initWithFrame:CGRectMake(self.horizontalScrollView.frame.size.width*2+70, 10, 400, 80)];
+    [labelThree setText:@"Consumes bebidas o comidas con \n azucares con moderación?"];
+    labelThree.lineBreakMode = UILineBreakModeWordWrap;
+    labelThree.numberOfLines = 0;
+    [labelThree setFont:[UIFont fontWithName:@"Avenir-Heavy" size:15]];
+    [self.horizontalScrollView addSubview:labelThree];
 
+    // Create Label 4
+    UILabel *labelFour = [[UILabel alloc]initWithFrame:CGRectMake(self.horizontalScrollView.frame.size.width*3+70, 10, 400, 80)];
+    [labelFour setText:@"Consumes al menos un litro de agua diario?"];
+    labelFour.lineBreakMode = UILineBreakModeWordWrap;
+    labelFour.numberOfLines = 0;
+    [labelFour setFont:[UIFont fontWithName:@"Avenir-Heavy" size:15]];
+    [self.horizontalScrollView addSubview:labelFour];
+    
+    // Create Label 5
+    UILabel *labelFive = [[UILabel alloc]initWithFrame:CGRectMake(self.horizontalScrollView.frame.size.width*4+70, 10, 400, 80)];
+    [labelFive setText:@"Respetas tus horarios de comida?"];
+    labelFive.lineBreakMode = UILineBreakModeWordWrap;
+    labelFive.numberOfLines = 0;
+    [labelFive setFont:[UIFont fontWithName:@"Avenir-Heavy" size:15]];
+    [self.horizontalScrollView addSubview:labelFive];
+    
+    
     
     //Oculta sidebar scroll
     [self.horizontalScrollView setShowsHorizontalScrollIndicator:NO];
