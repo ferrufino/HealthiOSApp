@@ -23,6 +23,8 @@
     [super viewDidLoad];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     _test =[[NSArray alloc]initWithObjects:@"19/03/2015",@"20/03/2015",nil];
+    
+    //[self loadReports];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -68,5 +70,35 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void) loadReports {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Report"
+                                              inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entity];
+    
+    NSError *error;
+    NSArray *fetchResults = [context executeFetchRequest:request error:&error];
+    
+    for (int i = 0; i < fetchResults.count; i++) {
+        NSManagedObject *record = [fetchResults objectAtIndex:i];
+        NSArray *keys = [[[record entity] attributesByName] allKeys];
+        NSMutableDictionary *report = [[record dictionaryWithValuesForKeys:keys] mutableCopy];
+        NSNumber *foodScore = [record valueForKey:@"foodScore"];
+        NSNumber *exerciseScore = [record valueForKey:@"exerciseScore"];
+        NSNumber *sleepScore = [record valueForKey:@"sleepScore"];
+        NSNumber *score = [[NSNumber alloc] initWithFloat:
+                           ([foodScore floatValue] + [exerciseScore floatValue] + [sleepScore floatValue]) / 3];
+        [report setValue:foodScore forKey:@"foodScore"];
+        [report setValue:exerciseScore forKey:@"exerciseScore"];
+        [report setValue:sleepScore forKey:@"sleepScore"];
+        [report setValue:score forKey:@"score"];
+        [self.reports addObject:report];
+    }
+
+}
 
 @end
