@@ -20,7 +20,43 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self loadQuestionView];
     
+    [self setQuestionView];
+    
+    /*****Vertical Scroll***/
+    [self.verticalScroll setScrollEnabled:YES];
+    [self.verticalScroll setContentSize:CGSizeMake(320, 800)];
+    
+    //Animated cards
+    testView  = [[UIView alloc]initWithFrame:CGRectMake(50, 280, 280, 185)];
+    testView.backgroundColor = [UIColor redColor];
+    testView.layer.cornerRadius = 10.0; // set cornerRadius as you want.
+    testView.layer.borderColor = [UIColor lightGrayColor].CGColor; // set color as you want.
+    testView.layer.borderWidth = 1.0; // set borderWidth as you want.
+    
+    UILabel *labelSuggestion = [[UILabel alloc]initWithFrame:CGRectMake(50,30, 100, 100)];
+    [labelSuggestion setText:@"Sugerencia"];
+    [labelSuggestion setFont:[UIFont fontWithName:@"Avenir" size:15]];
+    [testView addSubview:labelSuggestion];
+    [self.verticalScroll addSubview:testView];
+
+
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+    self.tabBarController.navigationItem.rightBarButtonItem = nil;
+    [self goAnimation];
+}
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)loadQuestionView {
     self.numOfQuestion = 1;
     self.answers = [[NSMutableArray alloc] init];
     
@@ -66,14 +102,13 @@
     _segmentedControlQ1.shouldAnimateUserSelection = NO;
     _segmentedControlQ1.tag = 1;
     [self.horizontalScrollView addSubview:_segmentedControlQ1];
- 
+    
     // Create Label 1
     UILabel *labelOne = [[UILabel alloc]initWithFrame:CGRectMake(70, 10, 400, 40)];
     [labelOne setBackgroundColor:[UIColor clearColor]];
     [labelOne setText:@"Incluir gran variedad de frutas y verduras"];
     [labelOne setFont:[UIFont fontWithName:@"Avenir-Heavy" size:15]];
     [self.horizontalScrollView addSubview:labelOne];
-    
     
     // Create Label 2
     UILabel *labelTwo = [[UILabel alloc]initWithFrame:CGRectMake(self.horizontalScrollView.frame.size.width+70, 10, 400, 40)];
@@ -89,7 +124,7 @@
     labelThree.numberOfLines = 0;
     [labelThree setFont:[UIFont fontWithName:@"Avenir-Heavy" size:15]];
     [self.horizontalScrollView addSubview:labelThree];
-
+    
     // Create Label 4
     UILabel *labelFour = [[UILabel alloc]initWithFrame:CGRectMake(self.horizontalScrollView.frame.size.width*3+70, 10, 400, 80)];
     [labelFour setText:@"Consumes al menos un litro de agua diario?"];
@@ -106,52 +141,40 @@
     [labelFive setFont:[UIFont fontWithName:@"Avenir-Heavy" size:15]];
     [self.horizontalScrollView addSubview:labelFive];
     
-    
-    
     //Oculta sidebar scroll
     [self.horizontalScrollView setShowsHorizontalScrollIndicator:NO];
     //Asigna tamaño a vertical scroll view
     [self.horizontalScrollView setContentSize:CGSizeMake(self.horizontalScrollView.frame.size.width*5, self.horizontalScrollView.frame.size.height)];
-    
-    
-    
-    
-    /*****Vertical Scroll***/
-    [self.verticalScroll setScrollEnabled:YES];
-    [self.verticalScroll setContentSize:CGSizeMake(320, 800)];
-    
-    
-    //Animated cards
-    testView  = [[UIView alloc]initWithFrame:CGRectMake(50, 280, 280, 185)];
-    testView.backgroundColor = [UIColor redColor];
-    testView.layer.cornerRadius = 10.0; // set cornerRadius as you want.
-    testView.layer.borderColor = [UIColor lightGrayColor].CGColor; // set color as you want.
-    testView.layer.borderWidth = 1.0; // set borderWidth as you want.
-    
-    UILabel *labelSuggestion = [[UILabel alloc]initWithFrame:CGRectMake(50,30, 100, 100)];
-    [labelSuggestion setText:@"Sugerencia"];
-    [labelSuggestion setFont:[UIFont fontWithName:@"Avenir" size:15]];
-    [testView addSubview:labelSuggestion];
-    [self.verticalScroll addSubview:testView];
-
-
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    
-    self.tabBarController.navigationItem.rightBarButtonItem = nil;
-    [self goAnimation];
+- (void) setQuestionView {
+     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+     NSManagedObjectContext *context = [appDelegate managedObjectContext];
+     
+     NSEntityDescription *entity = [NSEntityDescription entityForName:@"FoodRecord"
+     inManagedObjectContext:context];
+     NSFetchRequest *request = [[NSFetchRequest alloc] init];
+     [request setEntity:entity];
+     
+     NSDate *today = [NSDate date];
+     NSDate *yesterday = [today dateByAddingTimeInterval:-86400.0];
+     
+     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"date >= %@", yesterday];
+     [request setPredicate:predicate];
+     [request setFetchLimit:1];
+     
+     NSError *error;
+     NSArray *fetchResults = [context executeFetchRequest:request error:&error];
+     
+     if (fetchResults.count != 0) {
+         self.horizontalScrollView.hidden = YES;
+         self.verticalScroll.frame = CGRectMake(0,0,self.verticalScroll.frame.size.width, self.verticalScroll.frame.size.height);
+     }
 }
 
+#pragma mark Question Buttons
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-
-}
-
--(void) buttonClicked1
-{
+-(void) buttonClicked1 {
 
     self.numOfQuestion += 1;
     _segmentedControlQ1.selectedSegmentIndex =  UISegmentedControlNoSegment;
@@ -163,8 +186,8 @@
     CGRect frame = CGRectMake(self.horizontalScrollView.frame.size.width, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height); //wherever you want to scroll
     [self.horizontalScrollView scrollRectToVisible:frame animated:YES];
 }
--(void) buttonClicked2
-{
+
+-(void) buttonClicked2 {
     self.numOfQuestion += 1;
     _segmentedControlQ1.selectedSegmentIndex =  UISegmentedControlNoSegment;
     
@@ -176,8 +199,8 @@
     CGRect frame = CGRectMake(self.horizontalScrollView.frame.size.width*2, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height); //wherever you want to scroll
     [self.horizontalScrollView scrollRectToVisible:frame animated:YES];
 }
--(void) buttonClicked3
-{
+
+-(void) buttonClicked3 {
     self.numOfQuestion += 1;
     _segmentedControlQ1.selectedSegmentIndex =  UISegmentedControlNoSegment;
     
@@ -188,8 +211,8 @@
     CGRect frame = CGRectMake(self.horizontalScrollView.frame.size.width*3, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height); //wherever you want to scroll
     [self.horizontalScrollView scrollRectToVisible:frame animated:YES];
 }
--(void) buttonClicked4
-{
+
+-(void) buttonClicked4 {
     self.numOfQuestion += 1;
     _segmentedControlQ1.selectedSegmentIndex =  UISegmentedControlNoSegment;
     
@@ -200,6 +223,7 @@
     CGRect frame = CGRectMake(self.horizontalScrollView.frame.size.width*4, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height); //wherever you want to scroll
     [self.horizontalScrollView scrollRectToVisible:frame animated:YES];
 }
+
 -(void) buttonClicked5
 {
     
@@ -207,11 +231,39 @@
 //    [self.horizontalScrollView scrollRectToVisible:frame animated:YES];
     self.horizontalScrollView.hidden = YES;
     self.verticalScroll.frame = CGRectMake(0,0,self.verticalScroll.frame.size.width, self.verticalScroll.frame.size.height);
-    for (id obj in self.answers)
+    for (id obj in self.answers) {
         NSLog(@"%@", obj);
-    
+    }
+    [self saveFoodRecord];
 }
 
+#pragma mark Core Data
+
+- (void) saveFoodRecord {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+
+    NSDate *date = [NSDate date];
+    CGFloat averageScore;
+    
+    for (int i = 0; i < 5; i++) {
+        averageScore += [[self.answers objectAtIndex:i] doubleValue];
+    }
+    
+    averageScore /= 5;
+    
+    NSManagedObject *record = [NSEntityDescription insertNewObjectForEntityForName:@"FoodRecord"
+                                                            inManagedObjectContext:context];
+    
+    [record setValue:date forKey:@"date"];
+    [record setValue:@(averageScore) forKey:@"score"];
+    
+    NSError *error;
+    [context save:&error];
+}
+
+
+#pragma mark Animated Card
 //Animated Card
 - (void) goAnimation
 {
