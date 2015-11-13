@@ -22,7 +22,6 @@
 		665394001BD5BC990014FD20 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 665393FE1BD5BC990014FD20 /* LaunchScreen.xib */; };
 		6653940C1BD5BC990014FD20 /* finalProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6653940B1BD5BC990014FD20 /* finalProjectTests.m */; };
 		668CD50B1BEBC20200456E66 /* UIColor+FSPalette.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CD5081BEBC20200456E66 /* UIColor+FSPalette.m */; };
-		668CD50C1BEBC20200456E66 /* FSLineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CD50A1BEBC20200456E66 /* FSLineChart.m */; };
 		FB0F11691BEA9F3C005613A6 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0F11681BEA9F3C005613A6 /* ThirdViewController.m */; };
 		FB73DC6A1BEBE63900172A9B /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB73DC691BEBE63900172A9B /* CustomTableViewCell.m */; };
 /* End PBXBuildFile section */
@@ -78,8 +77,6 @@
 		6653940B1BD5BC990014FD20 /* finalProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = finalProjectTests.m; sourceTree = "<group>"; };
 		668CD5071BEBC20200456E66 /* UIColor+FSPalette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FSPalette.h"; sourceTree = "<group>"; };
 		668CD5081BEBC20200456E66 /* UIColor+FSPalette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FSPalette.m"; sourceTree = "<group>"; };
-		668CD5091BEBC20200456E66 /* FSLineChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSLineChart.h; sourceTree = "<group>"; };
-		668CD50A1BEBC20200456E66 /* FSLineChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSLineChart.m; sourceTree = "<group>"; };
 		66BA63FB1BEEB25300804667 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66BA63FC1BEEB25300804667 /* JBChartTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JBChartTests.m; sourceTree = "<group>"; };
 		8C72D9B633DD238DE5A1BB38 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -137,8 +134,6 @@
 				20DB32EA1BEB43A60056F4FF /* DateUtilities.m */,
 				668CD5071BEBC20200456E66 /* UIColor+FSPalette.h */,
 				668CD5081BEBC20200456E66 /* UIColor+FSPalette.m */,
-				668CD5091BEBC20200456E66 /* FSLineChart.h */,
-				668CD50A1BEBC20200456E66 /* FSLineChart.m */,
 				20536EFA1BD9BEA100BEB17A /* TabBarViewController.h */,
 				20536EFB1BD9BEA100BEB17A /* TabBarViewController.m */,
 				20536EF61BD9BC5D00BEB17A /* ProfileViewController.h */,
@@ -388,7 +383,6 @@
 				20536EFC1BD9BEA100BEB17A /* TabBarViewController.m in Sources */,
 				20536EF81BD9BC5D00BEB17A /* ProfileViewController.m in Sources */,
 				FB0F11691BEA9F3C005613A6 /* ThirdViewController.m in Sources */,
-				668CD50C1BEBC20200456E66 /* FSLineChart.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
