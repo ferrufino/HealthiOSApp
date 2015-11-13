@@ -9,7 +9,6 @@
 #import "FirstViewController.h"
 #import "SecondViewController.h"
 #import "DateUtilities.h"
-#import "FSLineChart.h"
 #import "UIColor+FSPalette.h"
 
 
