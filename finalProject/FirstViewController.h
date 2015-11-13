@@ -12,7 +12,9 @@
 #import "BEMSimpleLineGraphView.h"
 // Views
 @interface FirstViewController : UIViewController<BEMSimpleLineGraphDataSource, BEMSimpleLineGraphDelegate>
-
+{
+    UIView *testView;
+}
 
 @property (weak, nonatomic) IBOutlet UILabel *lbInfo;
 - (IBAction)btnAgrega:(UIButton *)sender;

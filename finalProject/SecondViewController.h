@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "HMSegmentedControl.h"
 @interface SecondViewController : UIViewController
+{
+    UIView *testView;
+}
 
 @property(nonatomic, strong) NSArray        *sliceColors;
 @property (weak, nonatomic) IBOutlet UIScrollView *verticalScroll;
