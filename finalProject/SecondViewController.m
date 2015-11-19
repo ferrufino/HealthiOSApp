@@ -24,13 +24,13 @@
     self.numOfQuestion = 1;
     self.answers = [[NSMutableArray alloc] init];
     
-    self.horizontalScrollView.frame = CGRectMake(0, 0, 392, 162);
+    self.horizontalScrollView.frame = CGRectMake(0, 0, 375, 162);
     //Impide que usuario pueda darle scroll
     self.horizontalScrollView.scrollEnabled = NO;
     
     //SegmentedControl for horizontal scroll view
     _segmentedControlQ1 = [[HMSegmentedControl alloc] initWithSectionTitles:@[@"1", @"2", @"3", @"4", @"5"]];
-    [_segmentedControlQ1 setFrame:CGRectMake(0, 112, self.horizontalScrollView.frame.size.width, 50)];
+    [_segmentedControlQ1 setFrame:CGRectMake(0, 112, self.horizontalScrollView.frame.size.width, 53)];
     [_segmentedControlQ1 setIndexChangeBlock:^(NSInteger index) {
         NSLog(@"Selected index %ld (via block)", (long)index);
         double delayInSeconds = 0.25;
