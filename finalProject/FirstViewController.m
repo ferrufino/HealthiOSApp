@@ -84,32 +84,7 @@
     
     
     
-    /*Core Data
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext *context = [appDelegate managedObjectContext];
-    
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"SleepRecord"
-                                              inManagedObjectContext:context];
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:entity];
-    
-    NSDate *today = [NSDate date];
-    NSDate *yesterday = [today dateByAddingTimeInterval:-86400.0];
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"date >= %@", yesterday];
-    [request setPredicate:predicate];
-    [request setFetchLimit:1];
-    
-    NSError *error;
-    NSArray *fetchResults = [context executeFetchRequest:request error:&error];
-    
-    if (fetchResults.count != 0) {
-        self.lastRecord = [fetchResults objectAtIndex:0];
-        
-        NSNumber *duration = [self.lastRecord valueForKey:@"duration"];
-        self.txtCantidadSue.text = [duration stringValue];
-    }
-    */
+
     //Animated cards
     testView  = [[UIView alloc]initWithFrame:CGRectMake(50, 500, 280, 185)];
     testView.backgroundColor = [UIColor colorWithRed:14.0/255.0 green:114.0/255.0 blue:199.0/255.0 alpha:1];

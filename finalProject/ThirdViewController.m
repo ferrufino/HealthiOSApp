@@ -121,16 +121,16 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     [UIView beginAnimations:@"1" context:NULL];
     [UIView setAnimationDuration:0.8f];
-    // 设置最终视图路径
+    
     testView.frame = CGRectMake(testView.frame.origin.x-30, testView.frame.origin.y - 200, testView.frame.size.width, testView.frame.size.height);
-    // 设置最终视图旋转
+
     testView.transform = CGAffineTransformMakeRotation(- (10.0f * M_PI) / 180.0f);
     
     [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector: @selector(next)];  //执行完调用返回缩小函数
+    [UIView setAnimationDidStopSelector: @selector(next)];
     [UIView commitAnimations];
     
-    // 设置最终视图放大倍数
+   
     CGAffineTransform transform = testView.transform;
     transform = CGAffineTransformScale(transform, 1.2 ,1.2);
     testView.transform = transform;
@@ -150,15 +150,14 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
     testView.frame = CGRectMake(50, 280, 280, 185);
     
     [UIView setAnimationDelegate:self];
-    // 如果不需要执行的弹跳可不执行
+    
     [UIView setAnimationDidStopSelector: @selector(bounceAnimationStopped)];
     
     [UIView commitAnimations];
     
 }
 
-#pragma -
-#pragma mark  阻尼弹跳
+
 
 - (void)bounceAnimationStopped {
     
