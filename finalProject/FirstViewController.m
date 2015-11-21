@@ -97,7 +97,7 @@
     [labelSuggestion setFont:[UIFont fontWithName:@"Avenir" size:15]];
     [testView addSubview:labelSuggestion];
     [self.scrollView addSubview:testView];
-
+    [self goAnimation];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -105,7 +105,7 @@
                                                               action:@selector(btnAgrega:)];
     
     self.tabBarController.navigationItem.rightBarButtonItem = addButton;
-     [self goAnimation];
+   
 }
 
 - (NSDate *)dateForGraphAfterDate:(NSDate *)date {
@@ -166,9 +166,7 @@
 }
 
 - (IBAction)btnConfirma:(UIButton *)sender {
-    self.FormaSue.hidden = true;
-    
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+      AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
     
     if (!self.lastRecord) {
@@ -232,7 +230,7 @@
     [self.arrayOfDates removeObjectAtIndex:7];
     self.arrayOfDates = [[[self.arrayOfDates reverseObjectEnumerator] allObjects] mutableCopy];
     self.arrayOfValues = [[[self.arrayOfValues reverseObjectEnumerator] allObjects] mutableCopy];
-    
+   
     
 }
 
@@ -247,16 +245,15 @@
     
     [UIView beginAnimations:@"1" context:NULL];
     [UIView setAnimationDuration:0.8f];
-    // 设置最终视图路径
+
     testView.frame = CGRectMake(testView.frame.origin.x-30, testView.frame.origin.y - 200, testView.frame.size.width, testView.frame.size.height);
-    // 设置最终视图旋转
+
     testView.transform = CGAffineTransformMakeRotation(- (10.0f * M_PI) / 180.0f);
     
     [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector: @selector(next)];  //执行完调用返回缩小函数
+    [UIView setAnimationDidStopSelector: @selector(next)];
     [UIView commitAnimations];
-    
-    // 设置最终视图放大倍数
+ 
     CGAffineTransform transform = testView.transform;
     transform = CGAffineTransformScale(transform, 1.2 ,1.2);
     testView.transform = transform;

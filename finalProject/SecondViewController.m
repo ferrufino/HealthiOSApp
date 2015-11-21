@@ -11,7 +11,7 @@
 @property HMSegmentedControl *segmentedControlQ1;
 @property NSMutableArray *answers;
 @property NSInteger numOfQuestion;
-
+@property NSManagedObject *lastRecord;
 @end
 
 @implementation SecondViewController
@@ -184,7 +184,7 @@
     self.nutriGraph.formatStringForValues = @"%.1f";
     
 
-
+    [self goAnimation];
 
 }
 
@@ -198,7 +198,7 @@
 
         
     }
-    [self goAnimation];
+    
 }
 
 
@@ -448,7 +448,7 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
     
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"SleepRecord"
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"FoodRecord"
                                               inManagedObjectContext:context];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entity];

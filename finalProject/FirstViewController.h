@@ -21,7 +21,7 @@
 - (IBAction)btnConfirma:(UIButton *)sender;
 
 @property (weak, nonatomic) IBOutlet UITextField *txtCantidadSue;
-@property (weak, nonatomic) IBOutlet UIView *FormaSue;
+
 @property (weak, nonatomic) IBOutlet UIButton *btnAddRecord;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 

@@ -38,6 +38,7 @@
 
     
     
+    [self goAnimation];
     
 }
 
@@ -49,7 +50,6 @@
     
     self.tabBarController.navigationItem.rightBarButtonItem = anotherButton;
     
-    [self goAnimation];
 
 }
 
