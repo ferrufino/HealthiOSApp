@@ -13,5 +13,6 @@
 @interface ReportsHelper : NSObject
 
 - (void) generateReport;
+- (NSString*) getLastReportScore;
 
 @end

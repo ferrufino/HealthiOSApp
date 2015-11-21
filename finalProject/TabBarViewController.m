@@ -17,6 +17,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    ReportsHelper *helper = [[ReportsHelper alloc] init];
+    NSString *score = [helper getLastReportScore];
+    NSString *display = [[NSString alloc] initWithFormat:@"%@/5", score];
+    self.navigationController.navigationBar.topItem.title = display;
+    
 }
 
 - (void)didReceiveMemoryWarning {

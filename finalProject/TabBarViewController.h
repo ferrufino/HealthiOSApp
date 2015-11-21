@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ReportsHelper.h"
+#import <ChameleonFramework/Chameleon.h>
+
 
 @interface TabBarViewController : UITabBarController
 

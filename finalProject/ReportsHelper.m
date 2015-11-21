@@ -231,4 +231,37 @@
     return score;
 }
 
+- (NSString*) getLastReportScore {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Report"
+                                              inManagedObjectContext:context];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entity];
+    
+    // Results should be in descending order of timeStamp.
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
+    [request setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+    [request setFetchLimit:1];
+    
+    NSArray *results = [context executeFetchRequest:request error:NULL];
+    
+    if (results.count == 0) {
+        return @"5";
+    }
+    
+    NSManagedObject *report = [results objectAtIndex:0];
+    
+    NSNumber *foodScore = [report valueForKey:@"foodScore"];
+    NSNumber *exerciseScore = [report valueForKey:@"exerciseScore"];
+    NSNumber *sleepScore = [report valueForKey:@"sleepScore"];
+    NSNumber *score = [[NSNumber alloc] initWithFloat:
+                       ([foodScore floatValue] + [exerciseScore floatValue] + [sleepScore floatValue]) / 3];
+    
+    int scoreRounded = (int)([score floatValue] + 0.5);
+    return [NSString stringWithFormat:@"%d", scoreRounded];
+}
+
 @end

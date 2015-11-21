@@ -99,6 +99,9 @@
     self.tabBarController.navigationItem.rightBarButtonItem = addButton;
     [self.tabBarController.tabBar setTintColor:[UIColor flatMintColor]];
     [self.tabBarController.navigationController.navigationBar setTintColor:[UIColor flatMintColor]];
+    [self.navigationController.navigationBar
+     setTitleTextAttributes: @{NSFontAttributeName: [UIFont fontWithName:@"Avenir-Heavy" size:20],
+                               NSForegroundColorAttributeName: [UIColor flatMintColor]}];
 }
 
 - (IBAction)btnAgrega:(UIButton *)sender {

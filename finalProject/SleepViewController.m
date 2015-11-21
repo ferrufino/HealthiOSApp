@@ -93,6 +93,9 @@
     [self.tabBarController.navigationController.navigationBar setTintColor:[UIColor flatYellowColor]];
     [self.tabBarController.tabBar setTintColor:[UIColor flatYellowColor]];
     [self.view setTintColor:[UIColor flatYellowColor]];
+    [self.navigationController.navigationBar
+     setTitleTextAttributes: @{NSFontAttributeName: [UIFont fontWithName:@"Avenir-Heavy" size:20],
+                               NSForegroundColorAttributeName: [UIColor flatYellowColor]}];
 }
 - (void) setQuestionView {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
