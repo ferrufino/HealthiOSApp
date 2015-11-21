@@ -84,32 +84,7 @@
     
     
     
-    /*Core Data
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext *context = [appDelegate managedObjectContext];
-    
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"SleepRecord"
-                                              inManagedObjectContext:context];
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:entity];
-    
-    NSDate *today = [NSDate date];
-    NSDate *yesterday = [today dateByAddingTimeInterval:-86400.0];
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"date >= %@", yesterday];
-    [request setPredicate:predicate];
-    [request setFetchLimit:1];
-    
-    NSError *error;
-    NSArray *fetchResults = [context executeFetchRequest:request error:&error];
-    
-    if (fetchResults.count != 0) {
-        self.lastRecord = [fetchResults objectAtIndex:0];
-        
-        NSNumber *duration = [self.lastRecord valueForKey:@"duration"];
-        self.txtCantidadSue.text = [duration stringValue];
-    }
-    */
+
     //Animated cards
     testView  = [[UIView alloc]initWithFrame:CGRectMake(50, 500, 280, 185)];
     testView.backgroundColor = [UIColor colorWithRed:14.0/255.0 green:114.0/255.0 blue:199.0/255.0 alpha:1];
@@ -122,7 +97,7 @@
     [labelSuggestion setFont:[UIFont fontWithName:@"Avenir" size:15]];
     [testView addSubview:labelSuggestion];
     [self.scrollView addSubview:testView];
-
+    [self goAnimation];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -130,7 +105,7 @@
                                                               action:@selector(btnAgrega:)];
     
     self.tabBarController.navigationItem.rightBarButtonItem = addButton;
-     [self goAnimation];
+   
 }
 
 - (NSDate *)dateForGraphAfterDate:(NSDate *)date {
@@ -191,9 +166,7 @@
 }
 
 - (IBAction)btnConfirma:(UIButton *)sender {
-    self.FormaSue.hidden = true;
-    
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+      AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
     
     if (!self.lastRecord) {
@@ -257,7 +230,7 @@
     [self.arrayOfDates removeObjectAtIndex:7];
     self.arrayOfDates = [[[self.arrayOfDates reverseObjectEnumerator] allObjects] mutableCopy];
     self.arrayOfValues = [[[self.arrayOfValues reverseObjectEnumerator] allObjects] mutableCopy];
-    
+   
     
 }
 
@@ -272,16 +245,15 @@
     
     [UIView beginAnimations:@"1" context:NULL];
     [UIView setAnimationDuration:0.8f];
-    // 设置最终视图路径
+
     testView.frame = CGRectMake(testView.frame.origin.x-30, testView.frame.origin.y - 200, testView.frame.size.width, testView.frame.size.height);
-    // 设置最终视图旋转
+
     testView.transform = CGAffineTransformMakeRotation(- (10.0f * M_PI) / 180.0f);
     
     [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector: @selector(next)];  //执行完调用返回缩小函数
+    [UIView setAnimationDidStopSelector: @selector(next)];
     [UIView commitAnimations];
-    
-    // 设置最终视图放大倍数
+ 
     CGAffineTransform transform = testView.transform;
     transform = CGAffineTransformScale(transform, 1.2 ,1.2);
     testView.transform = transform;
@@ -301,15 +273,13 @@
     testView.frame = CGRectMake(50, 500, 280, 185);
     
     [UIView setAnimationDelegate:self];
-    // 如果不需要执行的弹跳可不执行
+
     [UIView setAnimationDidStopSelector: @selector(bounceAnimationStopped)];
     
     [UIView commitAnimations];
     
 }
 
-#pragma -
-#pragma mark  阻尼弹跳
 
 - (void)bounceAnimationStopped {
     
