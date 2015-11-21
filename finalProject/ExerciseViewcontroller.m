@@ -22,6 +22,7 @@
 @property NSArray *fetchResults;
 @property NSManagedObject *lastRecord;
 @property BOOL show;
+@property BOOL mustAnswer;
 @property NSMutableArray *suggestions;
 @end
 
@@ -38,7 +39,7 @@
     
     /*****Vertical Scroll***/
     [self.scrollView setScrollEnabled:YES];
-    [self.scrollView setContentSize:CGSizeMake(320, 800)];
+    [self.scrollView setContentSize:CGSizeMake(320, 1000)];
     
     
     _animationView = [[CSAnimationView alloc] initWithFrame:CGRectMake(50, 560 , 280, 185)];
@@ -76,7 +77,12 @@
     frame.size.width +=70;
     labelSuggestion.frame=frame;
     
-    
+    [self.tfAnareobico setKeyboardType:UIKeyboardTypeNumberPad];
+    [self.tfAreobico setKeyboardType:UIKeyboardTypeNumberPad];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self action:@selector(quitaTeclado)];
+    [self.view addGestureRecognizer:tap];
+
     [_animationView addSubview:labelSuggestion];
 
     [self.scrollView addSubview:_animationView];
@@ -104,9 +110,11 @@
     _fetchResults = [context executeFetchRequest:request error:&error];
     
     if ((_fetchResults.count != 0) && !_show) {
+        _mustAnswer = NO;
         self.questionView.hidden = YES;
         self.scrollView.frame = CGRectMake(0,62,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
     }else{
+        _mustAnswer = YES;
         self.questionView.hidden = NO;
         self.scrollView.frame = CGRectMake(0,325,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
         
@@ -123,8 +131,18 @@
     NSLog(@"Click");
 
 }
+
+- (void)quitaTeclado {
+    [self.view endEditing:YES];
+    
+}
 - (void)viewDidAppear:(BOOL)animated {
     self.navigationItem.rightBarButtonItem = nil;
+    
+    if (_mustAnswer) {
+        self.tabBarController.navigationItem.rightBarButtonItem = nil;
+    }else{
+    
     
     UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit Input" style:nil target:self action:@selector(btnAgrega:)];
     
@@ -136,6 +154,7 @@
     [self.navigationController.navigationBar
      setTitleTextAttributes: @{NSFontAttributeName: [UIFont fontWithName:@"Avenir-Heavy" size:20],
                                NSForegroundColorAttributeName: [UIColor flatWatermelonColor]}];
+    }
     
     _animationView.type     = CSAnimationTypeFadeInUp;
     [_animationView startCanvasAnimation];
@@ -158,9 +177,25 @@
 
 
 - (IBAction)btnAgrega:(UIButton *)sender {
-    _show = YES;
-    self.questionView.hidden = NO;
-    self.scrollView.frame = CGRectMake(0,325,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
+   
+    
+    if (!_mustAnswer) {
+        if (_show) {
+            _show = NO;
+            self.questionView.hidden = YES;
+            self.scrollView.frame = CGRectMake(0,62,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
+            
+            
+        }else{
+            
+            _show = YES;
+            self.questionView.hidden = NO;
+            self.scrollView.frame = CGRectMake(0,325,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
+            
+            
+        }
+        
+    }
 }
 
 

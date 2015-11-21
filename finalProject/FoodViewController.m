@@ -19,6 +19,7 @@
 @property NSMutableArray *suggestions;
 @property CSAnimationView *animationView;
 
+
 @end
 
 @implementation FoodViewController
@@ -158,7 +159,8 @@
     
     _animationView.type = CSAnimationTypeShake;
     [_animationView startCanvasAnimation];
-    
+    [self loadGraphData];
+    [self loadSuggestion];
     NSLog(@"Click");
     
 }
@@ -185,6 +187,8 @@
     acum/=cont;
     
     acum *= 5;
+    }else if (cont < 5){
+        acum/=cont;
     }
      NSLog(@"Valor regresado en nutri::%d",(NSInteger)roundf( acum));
     return roundf( acum-1);
@@ -469,6 +473,10 @@
     
     [record setValue:date forKey:@"date"];
     [record setValue:@(averageScore) forKey:@"score"];
+    
+    
+    
+    
     
     NSError *error;
     [context save:&error];

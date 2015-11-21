@@ -53,9 +53,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S7r-sY-Ukx">
-                                        <rect key="frame" x="264" y="99" width="46" height="30"/>
+                                        <rect key="frame" x="264" y="99" width="60" height="30"/>
                                         <animations/>
-                                        <state key="normal" title="Button">
+                                        <state key="normal" title="Submit">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
