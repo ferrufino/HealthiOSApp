@@ -77,7 +77,7 @@
     self.nutriGraph.averageLine.color = [UIColor whiteColor];
     self.nutriGraph.averageLine.width = 2.5;
     self.nutriGraph.averageLine.dashPattern = @[@(2),@(2)];
-    self.nutriGraph.colorXaxisLabel = [UIColor whiteColor];
+    self.nutriGraph.colorXaxisLabel = [UIColor flatMintColor];
     self.nutriGraph.colorYaxisLabel = [UIColor whiteColor];
     
     // Set the graph's animation style to draw, fade, or none
@@ -137,7 +137,7 @@
     }else{
         self.horizontalScrollView.hidden = NO;
         self.horizontalView.hidden = NO;
-         self.verticalScroll.frame = CGRectMake(0,225,self.verticalScroll.frame.size.width, self.verticalScroll.frame.size.height);
+        self.verticalScroll.frame = CGRectMake(0,225,self.verticalScroll.frame.size.width, self.verticalScroll.frame.size.height);
     
     }
     
@@ -202,7 +202,7 @@
 
     //SegmentedControl for horizontal scroll view
     _segmentedControlQ1 = [[HMSegmentedControl alloc] initWithSectionTitles:@[@"1", @"2", @"3", @"4", @"5"]];
-    [_segmentedControlQ1 setFrame:CGRectMake(0, 107, self.horizontalScrollView.frame.size.width, 53)];
+    [_segmentedControlQ1 setFrame:CGRectMake(0, 115, self.horizontalScrollView.frame.size.width, 53)];
     [_segmentedControlQ1 setIndexChangeBlock:^(NSInteger index) {
         NSLog(@"Selected index %ld (via block)", (long)index);
         double delayInSeconds = 0.25;
@@ -230,13 +230,15 @@
     }];
     _segmentedControlQ1.selectionIndicatorHeight = 4.0f;
     _segmentedControlQ1.backgroundColor = [UIColor flatMintColorDark];
-    _segmentedControlQ1.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
+    
+    _segmentedControlQ1.titleTextAttributes = @{NSFontAttributeName : [UIFont fontWithName:@"Avenir-Heavy" size:18], NSForegroundColorAttributeName : [UIColor flatNavyBlueColorDark]};
     _segmentedControlQ1.selectionIndicatorColor = [UIColor colorWithRed:0.5 green:0.8 blue:1 alpha:1];
     _segmentedControlQ1.selectionStyle = HMSegmentedControlSelectionStyleBox;
     _segmentedControlQ1.selectedSegmentIndex = HMSegmentedControlNoSegment;
     _segmentedControlQ1.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
     _segmentedControlQ1.shouldAnimateUserSelection = NO;
     _segmentedControlQ1.tag = 1;
+    
     [self.horizontalScrollView addSubview:_segmentedControlQ1];
     
     // Create Label 1

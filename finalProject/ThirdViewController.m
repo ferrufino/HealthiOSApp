@@ -11,6 +11,7 @@
 #import "UIColor+FSPalette.h"
 #import "QuartzCore/QuartzCore.h"
 #import "Canvas.h"
+#import <ChameleonFramework/Chameleon.h>
 
 #define TAG_First 1
 #define TAG_Second 2
@@ -37,9 +38,6 @@
     /*****Vertical Scroll***/
     [self.scrollView setScrollEnabled:YES];
     [self.scrollView setContentSize:CGSizeMake(320, 800)];
-
-    
-    
     
     
     _animationView = [[CSAnimationView alloc] initWithFrame:CGRectMake(50, 280, 280, 185)];
@@ -56,7 +54,7 @@
     _animationView.type     = CSAnimationTypeFadeInUp;
     
     
-        UITapGestureRecognizer *singleFingerTap =
+    UITapGestureRecognizer *singleFingerTap =
     [[UITapGestureRecognizer alloc] initWithTarget:self
                                             action:@selector(cardPressed)];
     
@@ -113,7 +111,9 @@
     self.tabBarController.navigationItem.rightBarButtonItem = anotherButton;
     _animationView.type     = CSAnimationTypeFadeInUp;
     [_animationView startCanvasAnimation];
-    
+    [self.tabBarController.tabBar setTintColor:[UIColor flatWatermelonColor]];
+    [self.tabBarController.navigationController.navigationBar setTintColor:[UIColor flatWatermelonColor]];
+    [self.view setTintColor:[UIColor flatWatermelonColor]];
 }
 
 - (void)didReceiveMemoryWarning {

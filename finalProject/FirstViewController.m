@@ -94,6 +94,7 @@
     self.tabBarController.navigationItem.rightBarButtonItem = addButton;
     [self.tabBarController.navigationController.navigationBar setTintColor:[UIColor flatYellowColor]];
     [self.tabBarController.tabBar setTintColor:[UIColor flatYellowColor]];
+    [self.view setTintColor:[UIColor flatYellowColor]];
 }
 - (void) setQuestionView {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
