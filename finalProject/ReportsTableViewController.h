@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+#import "CustomTableViewCell.h"
+#import "QuartzCore/QuartzCore.h"
+#import "ReportsHelper.h"
 
 @interface ReportsTableViewController : UITableViewController
 
