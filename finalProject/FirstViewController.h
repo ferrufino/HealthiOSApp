@@ -12,10 +12,13 @@
 #import "BEMSimpleLineGraphView.h"
 // Views
 @interface FirstViewController : UIViewController<BEMSimpleLineGraphDataSource, BEMSimpleLineGraphDelegate>
-{
-    UIView *cardView;
-}
 
+- (IBAction)submit:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *btPlus;
+@property (weak, nonatomic) IBOutlet UIButton *btMinus;
+- (IBAction)pressedButton:(UIButton *)sender;
+
+@property (weak, nonatomic) IBOutlet UITextField *tfTimeSlept;
 @property (weak, nonatomic) IBOutlet UILabel *lbInfo;
 - (IBAction)btnAgrega:(UIButton *)sender;
 - (IBAction)btnConfirma:(UIButton *)sender;
@@ -24,6 +27,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *btnAddRecord;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIView *questionView;
 
 
 

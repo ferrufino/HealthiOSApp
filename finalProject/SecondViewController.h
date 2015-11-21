@@ -12,9 +12,7 @@
 #import "BEMSimpleLineGraphView.h"
 @interface SecondViewController : UIViewController<BEMSimpleLineGraphDataSource, BEMSimpleLineGraphDelegate>
 
-{
-    UIView *cardView;
-}
+
 
 @property(nonatomic, strong) NSArray        *sliceColors;
 @property (weak, nonatomic) IBOutlet UIScrollView *verticalScroll;

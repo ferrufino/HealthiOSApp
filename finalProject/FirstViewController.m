@@ -17,12 +17,18 @@
     int previousStepperValue;
     int totalNumber;
 }
+@property NSArray *fetchResults;
 @property NSManagedObject *lastRecord;
 @property  UIAlertView *alert;
 @end
 
 @implementation FirstViewController
-
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    [self setQuestionView];
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -32,14 +38,7 @@
     [self.scrollView setScrollEnabled:YES];
     [self.scrollView setContentSize:CGSizeMake(320, 800)];
 
-    // Pop -up
-    _alert = [[UIAlertView alloc] initWithTitle:@"Agrega Sueño" message:@"Ingresa la cantidad de horas dormidas:" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-    _alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     
-    UITextField * alertTextField = [_alert textFieldAtIndex:0];
-    alertTextField.keyboardType = UIKeyboardTypeNumberPad;
-    alertTextField.placeholder = @"horas";
-   
     // Create a gradient to apply to the bottom portion of the graph
     CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
     size_t num_locations = 2;
@@ -88,13 +87,40 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self
-                                                              action:@selector(btnAgrega:)];
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(btnAgrega:)];
     
     self.tabBarController.navigationItem.rightBarButtonItem = addButton;
    
 }
-
+- (void) setQuestionView {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"SleepRecord"
+                                              inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entity];
+    
+    NSDate *today = [NSDate date];
+    NSDate *yesterday = [today dateByAddingTimeInterval:-86400.0];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"date >= %@", yesterday];
+    [request setPredicate:predicate];
+    [request setFetchLimit:1];
+    
+    NSError *error;
+    _fetchResults = [context executeFetchRequest:request error:&error];
+    
+    if ((_fetchResults.count != 0)) {
+        self.questionView.hidden = YES;
+        self.scrollView.frame = CGRectMake(0,65,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
+    }else{
+        self.questionView.hidden = NO;
+        self.scrollView.frame = CGRectMake(0,210,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
+        
+    }
+    
+}
 - (NSDate *)dateForGraphAfterDate:(NSDate *)date {
     NSTimeInterval secondsInTwentyFourHours = 24 * 60 * 60;
     NSDate *newDate = [date dateByAddingTimeInterval:secondsInTwentyFourHours];
@@ -149,26 +175,11 @@
 }
 
 - (IBAction)btnAgrega:(UIButton *)sender {
-     [_alert show];
+    self.questionView.hidden = NO;
+    self.scrollView.frame = CGRectMake(0,210,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
 }
 
-- (IBAction)btnConfirma:(UIButton *)sender {
-      AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext *context = [appDelegate managedObjectContext];
-    
-    if (!self.lastRecord) {
-        self.lastRecord = [NSEntityDescription insertNewObjectForEntityForName:@"SleepRecord"
-                                               inManagedObjectContext:context];
-    }
-    NSDate *date = [NSDate date];
-    CGFloat duration = [self.txtCantidadSue.text floatValue];
-    
-    [self.lastRecord setValue:date forKey:@"date"];
-    [self.lastRecord setValue:@(duration) forKey:@"duration"];
-    
-    NSError *error;
-    [context save:&error];
-}
+
 
 
 
@@ -223,4 +234,56 @@
 
 
 
+- (IBAction)submit:(id)sender {
+    if (![self.tfTimeSlept.text isEqualToString:@""]) {
+        self.questionView.hidden = YES;
+        self.scrollView.frame = CGRectMake(0,65,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
+        
+        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        NSManagedObjectContext *context = [appDelegate managedObjectContext];
+        
+        if (!self.lastRecord) {
+            self.lastRecord = [NSEntityDescription insertNewObjectForEntityForName:@"SleepRecord"
+                                                            inManagedObjectContext:context];
+        }
+        NSDate *date = [NSDate date];
+        CGFloat duration = [self.txtCantidadSue.text floatValue];
+        
+        [self.lastRecord setValue:date forKey:@"date"];
+        [self.lastRecord setValue:@(duration) forKey:@"duration"];
+        
+        NSError *error;
+        [context save:&error];
+    }
+    
+}
+- (IBAction)pressedButton:(UIButton *)sender {
+    if (sender == self.btPlus) {
+        
+        if ([self.tfTimeSlept.text isEqualToString:@""]) {
+            
+            self.tfTimeSlept.text = [@(5) stringValue];
+            
+        }else if ([self.tfTimeSlept.text integerValue] > 0){
+            self.tfTimeSlept.text = [@([self.tfTimeSlept.text integerValue] + 5) stringValue];
+        }
+        
+        
+        NSLog(@"Plus ");
+        
+    }else if (sender == self.btMinus){
+        
+        if ([self.tfTimeSlept.text isEqualToString:@""]) {
+            NSLog(@"No puede restar un espacio vacio");
+            
+        }else if ([self.tfTimeSlept.text integerValue] > 0){
+            self.tfTimeSlept.text = [@([self.tfTimeSlept.text integerValue] - 5) stringValue];
+            
+        }else if ([self.tfTimeSlept.text integerValue] == 0){
+            self.tfTimeSlept.text = @"";
+        }
+        
+        NSLog(@"Minus ");
+    }
+}
 @end
