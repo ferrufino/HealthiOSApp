@@ -118,7 +118,7 @@
     
     if ((_fetchResults.count != 0) && !_show) {
         self.questionView.hidden = YES;
-        self.scrollView.frame = CGRectMake(0,65,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
+        self.scrollView.frame = CGRectMake(0,62,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
         NSLog(@" se oculto 1");
     }else{
         self.questionView.hidden = NO;
@@ -246,7 +246,7 @@
     if (![self.tfTimeSlept.text isEqualToString:@""]) {
         _show = false;
         self.questionView.hidden = YES;
-        self.scrollView.frame = CGRectMake(0,65,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
+        self.scrollView.frame = CGRectMake(0,62,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
             NSLog(@" se oculto 2");
         AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
         NSManagedObjectContext *context = [appDelegate managedObjectContext];
