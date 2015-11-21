@@ -114,6 +114,9 @@
     [self.tabBarController.tabBar setTintColor:[UIColor flatWatermelonColor]];
     [self.tabBarController.navigationController.navigationBar setTintColor:[UIColor flatWatermelonColor]];
     [self.view setTintColor:[UIColor flatWatermelonColor]];
+    [self.navigationController.navigationBar
+     setTitleTextAttributes: @{NSFontAttributeName: [UIFont fontWithName:@"Avenir-Heavy" size:20],
+                               NSForegroundColorAttributeName: [UIColor flatWatermelonColor]}];
 }
 
 - (void)didReceiveMemoryWarning {
