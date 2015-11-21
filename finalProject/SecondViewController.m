@@ -80,8 +80,18 @@
 
 
 }
+- (void)viewDidAppear:(BOOL)animated {
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(btnAgrega:)];
+    
+    self.tabBarController.navigationItem.rightBarButtonItem = addButton;
+    
+}
 
-
+- (IBAction)btnAgrega:(UIButton *)sender {
+//    _show = YES;
+//    self.questionView.hidden = NO;
+//    self.scrollView.frame = CGRectMake(0,210,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -261,12 +271,6 @@
 
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    
-    self.tabBarController.navigationItem.rightBarButtonItem = nil;
-
-
-}
 
 
 
