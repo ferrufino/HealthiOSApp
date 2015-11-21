@@ -11,6 +11,7 @@
 #import "CustomTableViewCell.h"
 #import "QuartzCore/QuartzCore.h"
 #import "ReportsHelper.h"
+#import <ChameleonFramework/Chameleon.h>
 
 @interface ReportsTableViewController : UITableViewController
 

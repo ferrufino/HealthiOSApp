@@ -22,6 +22,8 @@
     [super viewDidLoad];
     
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [self.tableView setBackgroundColor:[UIColor flatNavyBlueColor]];
+    self.tableView.allowsSelection = NO;
     self.helper = [[ReportsHelper alloc] init];
     
     [self loadReports];
@@ -41,6 +43,12 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self
                                                                                action:@selector(addReport)];
     self.tabBarController.navigationItem.rightBarButtonItem = addButton;
+    [self.tabBarController.tabBar setTintColor:[UIColor flatSkyBlueColor]];
+    [self.tabBarController.navigationController.navigationBar setTintColor:[UIColor flatSkyBlueColor]];
+    [self.view setTintColor:[UIColor flatSkyBlueColor]];
+    [self.tabBarController.navigationController.navigationBar
+     setTitleTextAttributes: @{NSFontAttributeName: [UIFont fontWithName:@"Avenir-Heavy" size:20],
+                               NSForegroundColorAttributeName: [UIColor flatSkyBlueColor]}];
 }
 
 
@@ -59,21 +67,35 @@
     CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     NSMutableDictionary *report = [self.reports objectAtIndex:indexPath.row];
-    [cell.ViewCell.layer setCornerRadius:20.0f];
-    [cell.ViewCell.layer setMasksToBounds:YES];
+    NSMutableDictionary *roundedScores = [self formatReport:report];
     
     NSDate *date = [report valueForKey:@"date"];
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     df.dateFormat = @"MM/dd/YYYY";
     cell.lbDate.text = [df stringFromDate:date];
-    cell.lbMainScore.text = [[report valueForKey:@"score"] stringValue];
-    cell.lbFoodScore.text = [[report valueForKey:@"foodScore"] stringValue];
-    cell.lbSleepScore.text = [[report valueForKey:@"sleepScore"] stringValue];
-    cell.lbExerciseScore.text = [[report valueForKey:@"exerciseScore"] stringValue];
+    cell.lbMainScore.text = [[roundedScores valueForKey:@"score"] stringValue];
+    cell.lbFoodScore.text = [[roundedScores valueForKey:@"foodScore"] stringValue];
+    cell.lbSleepScore.text = [[roundedScores valueForKey:@"sleepScore"] stringValue];
+    cell.lbExerciseScore.text = [[roundedScores valueForKey:@"exerciseScore"] stringValue];
     
     return cell;
 }
 
+
+- (NSMutableDictionary *)formatReport:(NSMutableDictionary *)report {
+    int roundedFoodScore = (int)[[report valueForKey:@"foodScore"] floatValue] + 0.5;
+    int roundedSleepScore = (int)[[report valueForKey:@"sleepScore"] floatValue] + 0.5;
+    int roundedExerciseScore = (int)[[report valueForKey:@"exerciseScore"] floatValue] + 0.5;
+    int roundedScore = (int)[[report valueForKey:@"score"] floatValue] + 0.5;
+    
+    NSMutableDictionary *roundedScores = [[NSMutableDictionary alloc] init];
+    [roundedScores setValue:@(roundedFoodScore) forKey:@"foodScore"];
+    [roundedScores setValue:@(roundedSleepScore) forKey:@"sleepScore"];
+    [roundedScores setValue:@(roundedExerciseScore) forKey:@"exerciseScore"];
+    [roundedScores setValue:@(roundedScore) forKey:@"score"];
+    
+    return roundedScores;
+}
 
 /*
 #pragma mark - Navigation
@@ -120,6 +142,7 @@
 
 - (void) addReport {
     [self.helper generateReport];
+    [self loadReports];
     [self.tableView reloadData];
 }
 

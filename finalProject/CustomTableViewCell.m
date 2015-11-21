@@ -13,6 +13,9 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    
+    [self.ViewCell.layer setCornerRadius:5.0f];
+    [self.ViewCell.layer setMasksToBounds:YES];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

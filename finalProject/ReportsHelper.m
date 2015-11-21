@@ -58,6 +58,7 @@
     [report setValue:@(foodScore) forKey:@"foodScore"];
     [report setValue:@(exerciseScore) forKey:@"exerciseScore"];
     [report setValue:@(0) forKey:@"alcoholScore"];
+    [report setValue:today forKey:@"date"];
     
     NSError *error;
     [context save:&error];
