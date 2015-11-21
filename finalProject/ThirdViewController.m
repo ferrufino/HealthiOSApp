@@ -19,6 +19,7 @@
 @property  UIAlertView *alert2;
 @property CSAnimationView *animationView;
 @property NSArray *fetchResults;
+@property NSManagedObject *lastRecord;
 @end
 
 @implementation ThirdViewController
@@ -94,8 +95,6 @@
     
 }
 
-- (IBAction)submit:(id)sender {
-}
 
 -(IBAction) cardPressed {
    
@@ -195,7 +194,47 @@
          NSLog(@"Minus Anareobico");
     
     }else{
-        NSLog(@"Bro somethings wrong");
+        NSLog(@"Bro something's wrong");
     }
 }
+
+- (IBAction)submit:(id)sender {
+    
+    if ((![self.tfAreobico.text isEqualToString:@""] && ![self.tfAnareobico.text isEqualToString:@""]) || [self.tfAnareobico.text isEqualToString:@""] || [self.tfAreobico.text isEqualToString:@""]) {
+        //Core Data
+        
+        self.questionView.hidden = YES;
+        self.scrollView.frame = CGRectMake(0,65,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
+        
+        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        NSManagedObjectContext *context = [appDelegate managedObjectContext];
+        
+        if (!self.lastRecord) {
+            self.lastRecord = [NSEntityDescription insertNewObjectForEntityForName:@"ExerciseRecord"
+                                                            inManagedObjectContext:context];
+        }
+        NSDate *date = [NSDate date];
+        CGFloat durationAreobico = [self.tfAreobico.text floatValue];
+        
+        [self.lastRecord setValue:date forKey:@"date"];
+        
+        if (![self.tfAreobico.text isEqualToString:@""]) {
+            [self.lastRecord setValue:@(durationAreobico) forKey:@"aerobicDuration"];
+        }
+        
+        if (![self.tfAnareobico.text isEqualToString:@""]) {
+            [self.lastRecord setValue:@(durationAreobico) forKey:@"anaerobicDuration"];
+            
+        }
+        
+        NSError *error;
+        [context save:&error];
+
+        
+        
+        
+    }
+    
+}
+
 @end
