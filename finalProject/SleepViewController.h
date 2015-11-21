@@ -11,7 +11,7 @@
 #import "AppDelegate.h"
 #import "BEMSimpleLineGraphView.h"
 // Views
-@interface FirstViewController : UIViewController<BEMSimpleLineGraphDataSource, BEMSimpleLineGraphDelegate>
+@interface SleepViewController : UIViewController<BEMSimpleLineGraphDataSource, BEMSimpleLineGraphDelegate>
 
 - (IBAction)submit:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *btPlus;

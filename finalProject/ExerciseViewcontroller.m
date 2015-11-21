@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Gustavo Ferrufino. All rights reserved.
 //
 
-#import "ThirdViewController.h"
-#import "SecondViewController.h"
+#import "ExerciseViewcontroller.h"
+#import "FoodViewController.h"
 #import "UIColor+FSPalette.h"
 #import "QuartzCore/QuartzCore.h"
 #import "Canvas.h"
@@ -16,7 +16,7 @@
 #define TAG_First 1
 #define TAG_Second 2
 
-@interface ThirdViewController ()
+@interface ExerciseViewcontroller ()
 @property  UIAlertView *alert2;
 @property CSAnimationView *animationView;
 @property NSArray *fetchResults;
@@ -24,7 +24,7 @@
 @property BOOL show;
 @end
 
-@implementation ThirdViewController
+@implementation ExerciseViewcontroller
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     

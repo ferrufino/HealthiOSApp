@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ThirdViewController : UIViewController{
+@interface ExerciseViewcontroller : UIViewController{
 UIView *cardView;
 }
 - (IBAction)buttonPressed:(UIButton *)sender;

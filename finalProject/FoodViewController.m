@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 Gustavo Ferrufino. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "FoodViewController.h"
 #import <ChameleonFramework/Chameleon.h>
 
-@interface SecondViewController ()
+@interface FoodViewController ()
 @property HMSegmentedControl *segmentedControlQ1;
 @property NSMutableArray *answers;
 @property NSInteger numOfQuestion;
@@ -17,7 +17,7 @@
 @property NSArray *fetchResults;
 @end
 
-@implementation SecondViewController
+@implementation FoodViewController
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
 

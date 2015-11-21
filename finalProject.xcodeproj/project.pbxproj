@@ -11,18 +11,17 @@
 		20536EFC1BD9BEA100BEB17A /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20536EFB1BD9BEA100BEB17A /* TabBarViewController.m */; };
 		20DB32E21BE9E7F60056F4FF /* finalProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 20DB32E01BE9E7F60056F4FF /* finalProject.xcdatamodeld */; };
 		20DB32E81BEB1F8A0056F4FF /* ReportsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DB32E71BEB1F8A0056F4FF /* ReportsTableViewController.m */; };
-		20DB32EB1BEB43A60056F4FF /* DateUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DB32EA1BEB43A60056F4FF /* DateUtilities.m */; };
 		2D15E49809DA0448E3062CE3 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F18FC6F0F56991304854A969 /* Pods.framework */; };
 		665393EF1BD5BC990014FD20 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 665393EE1BD5BC990014FD20 /* main.m */; };
 		665393F21BD5BC990014FD20 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 665393F11BD5BC990014FD20 /* AppDelegate.m */; };
-		665393F51BD5BC990014FD20 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 665393F41BD5BC990014FD20 /* FirstViewController.m */; };
-		665393F81BD5BC990014FD20 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 665393F71BD5BC990014FD20 /* SecondViewController.m */; };
+		665393F51BD5BC990014FD20 /* SleepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 665393F41BD5BC990014FD20 /* SleepViewController.m */; };
+		665393F81BD5BC990014FD20 /* FoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 665393F71BD5BC990014FD20 /* FoodViewController.m */; };
 		665393FB1BD5BC990014FD20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 665393F91BD5BC990014FD20 /* Main.storyboard */; };
 		665393FD1BD5BC990014FD20 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 665393FC1BD5BC990014FD20 /* Images.xcassets */; };
 		665394001BD5BC990014FD20 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 665393FE1BD5BC990014FD20 /* LaunchScreen.xib */; };
 		6653940C1BD5BC990014FD20 /* finalProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6653940B1BD5BC990014FD20 /* finalProjectTests.m */; };
 		668CD50B1BEBC20200456E66 /* UIColor+FSPalette.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CD5081BEBC20200456E66 /* UIColor+FSPalette.m */; };
-		FB0F11691BEA9F3C005613A6 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0F11681BEA9F3C005613A6 /* ThirdViewController.m */; };
+		FB0F11691BEA9F3C005613A6 /* ExerciseViewcontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0F11681BEA9F3C005613A6 /* ExerciseViewcontroller.m */; };
 		FB73DC6A1BEBE63900172A9B /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB73DC691BEBE63900172A9B /* CustomTableViewCell.m */; };
 /* End PBXBuildFile section */
 
@@ -58,17 +57,15 @@
 		20DB32E11BE9E7F60056F4FF /* finalProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = finalProject.xcdatamodel; sourceTree = "<group>"; };
 		20DB32E61BEB1F8A0056F4FF /* ReportsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportsTableViewController.h; sourceTree = "<group>"; };
 		20DB32E71BEB1F8A0056F4FF /* ReportsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportsTableViewController.m; sourceTree = "<group>"; };
-		20DB32E91BEB43850056F4FF /* DateUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateUtilities.h; sourceTree = "<group>"; };
-		20DB32EA1BEB43A60056F4FF /* DateUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateUtilities.m; sourceTree = "<group>"; };
 		665393E91BD5BC990014FD20 /* finalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = finalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		665393ED1BD5BC990014FD20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		665393EE1BD5BC990014FD20 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		665393F01BD5BC990014FD20 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		665393F11BD5BC990014FD20 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		665393F31BD5BC990014FD20 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		665393F41BD5BC990014FD20 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		665393F61BD5BC990014FD20 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		665393F71BD5BC990014FD20 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		665393F31BD5BC990014FD20 /* SleepViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SleepViewController.h; sourceTree = "<group>"; };
+		665393F41BD5BC990014FD20 /* SleepViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SleepViewController.m; sourceTree = "<group>"; };
+		665393F61BD5BC990014FD20 /* FoodViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoodViewController.h; sourceTree = "<group>"; };
+		665393F71BD5BC990014FD20 /* FoodViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodViewController.m; sourceTree = "<group>"; };
 		665393FA1BD5BC990014FD20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		665393FC1BD5BC990014FD20 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		665393FF1BD5BC990014FD20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -81,8 +78,8 @@
 		66BA63FC1BEEB25300804667 /* JBChartTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JBChartTests.m; sourceTree = "<group>"; };
 		8C72D9B633DD238DE5A1BB38 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F18FC6F0F56991304854A969 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB0F11671BEA9F3C005613A6 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
-		FB0F11681BEA9F3C005613A6 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
+		FB0F11671BEA9F3C005613A6 /* ExerciseViewcontroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseViewcontroller.h; sourceTree = "<group>"; };
+		FB0F11681BEA9F3C005613A6 /* ExerciseViewcontroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseViewcontroller.m; sourceTree = "<group>"; };
 		FB73DC681BEBE63900172A9B /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomTableViewCell.h; path = ../CustomTableViewCell.h; sourceTree = "<group>"; };
 		FB73DC691BEBE63900172A9B /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomTableViewCell.m; path = ../CustomTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,6 +103,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		20817AE61C00A2FD008C453F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				20536EFA1BD9BEA100BEB17A /* TabBarViewController.h */,
+				20536EFB1BD9BEA100BEB17A /* TabBarViewController.m */,
+				20536EF61BD9BC5D00BEB17A /* ProfileViewController.h */,
+				20536EF71BD9BC5D00BEB17A /* ProfileViewController.m */,
+				665393F31BD5BC990014FD20 /* SleepViewController.h */,
+				665393F41BD5BC990014FD20 /* SleepViewController.m */,
+				665393F61BD5BC990014FD20 /* FoodViewController.h */,
+				665393F71BD5BC990014FD20 /* FoodViewController.m */,
+				FB0F11671BEA9F3C005613A6 /* ExerciseViewcontroller.h */,
+				FB0F11681BEA9F3C005613A6 /* ExerciseViewcontroller.m */,
+				20DB32E61BEB1F8A0056F4FF /* ReportsTableViewController.h */,
+				20DB32E71BEB1F8A0056F4FF /* ReportsTableViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		20817AE81C00A4EB008C453F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FB73DC681BEBE63900172A9B /* CustomTableViewCell.h */,
+				FB73DC691BEBE63900172A9B /* CustomTableViewCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		665393E01BD5BC980014FD20 = {
 			isa = PBXGroup;
 			children = (
@@ -130,26 +155,12 @@
 		665393EB1BD5BC990014FD20 /* finalProject */ = {
 			isa = PBXGroup;
 			children = (
-				20DB32E91BEB43850056F4FF /* DateUtilities.h */,
-				20DB32EA1BEB43A60056F4FF /* DateUtilities.m */,
-				668CD5071BEBC20200456E66 /* UIColor+FSPalette.h */,
-				668CD5081BEBC20200456E66 /* UIColor+FSPalette.m */,
-				20536EFA1BD9BEA100BEB17A /* TabBarViewController.h */,
-				20536EFB1BD9BEA100BEB17A /* TabBarViewController.m */,
-				20536EF61BD9BC5D00BEB17A /* ProfileViewController.h */,
-				20536EF71BD9BC5D00BEB17A /* ProfileViewController.m */,
+				20817AE61C00A2FD008C453F /* ViewControllers */,
+				20817AE81C00A4EB008C453F /* Views */,
 				665393F01BD5BC990014FD20 /* AppDelegate.h */,
 				665393F11BD5BC990014FD20 /* AppDelegate.m */,
-				665393F31BD5BC990014FD20 /* FirstViewController.h */,
-				665393F41BD5BC990014FD20 /* FirstViewController.m */,
-				665393F61BD5BC990014FD20 /* SecondViewController.h */,
-				665393F71BD5BC990014FD20 /* SecondViewController.m */,
-				FB0F11671BEA9F3C005613A6 /* ThirdViewController.h */,
-				FB0F11681BEA9F3C005613A6 /* ThirdViewController.m */,
-				20DB32E61BEB1F8A0056F4FF /* ReportsTableViewController.h */,
-				20DB32E71BEB1F8A0056F4FF /* ReportsTableViewController.m */,
-				FB73DC681BEBE63900172A9B /* CustomTableViewCell.h */,
-				FB73DC691BEBE63900172A9B /* CustomTableViewCell.m */,
+				668CD5071BEBC20200456E66 /* UIColor+FSPalette.h */,
+				668CD5081BEBC20200456E66 /* UIColor+FSPalette.m */,
 				665393F91BD5BC990014FD20 /* Main.storyboard */,
 				665393FC1BD5BC990014FD20 /* Images.xcassets */,
 				665393FE1BD5BC990014FD20 /* LaunchScreen.xib */,
@@ -371,10 +382,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20DB32EB1BEB43A60056F4FF /* DateUtilities.m in Sources */,
-				665393F81BD5BC990014FD20 /* SecondViewController.m in Sources */,
+				665393F81BD5BC990014FD20 /* FoodViewController.m in Sources */,
 				665393F21BD5BC990014FD20 /* AppDelegate.m in Sources */,
-				665393F51BD5BC990014FD20 /* FirstViewController.m in Sources */,
+				665393F51BD5BC990014FD20 /* SleepViewController.m in Sources */,
 				20DB32E21BE9E7F60056F4FF /* finalProject.xcdatamodeld in Sources */,
 				665393EF1BD5BC990014FD20 /* main.m in Sources */,
 				20DB32E81BEB1F8A0056F4FF /* ReportsTableViewController.m in Sources */,
@@ -382,7 +392,7 @@
 				FB73DC6A1BEBE63900172A9B /* CustomTableViewCell.m in Sources */,
 				20536EFC1BD9BEA100BEB17A /* TabBarViewController.m in Sources */,
 				20536EF81BD9BC5D00BEB17A /* ProfileViewController.m in Sources */,
-				FB0F11691BEA9F3C005613A6 /* ThirdViewController.m in Sources */,
+				FB0F11691BEA9F3C005613A6 /* ExerciseViewcontroller.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
