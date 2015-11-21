@@ -6,15 +6,13 @@
 //  Copyright (c) 2015 Gustavo Ferrufino. All rights reserved.
 //
 
-#import "FirstViewController.h"
-#import "SecondViewController.h"
-#import "DateUtilities.h"
+#import "SleepViewController.h"
 #import "UIColor+FSPalette.h"
 #import <ChameleonFramework/Chameleon.h>
 
 
 
-@interface FirstViewController () {
+@interface SleepViewController () {
     int previousStepperValue;
     int totalNumber;
 }
@@ -24,7 +22,7 @@
 @property BOOL show;
 @end
 
-@implementation FirstViewController
+@implementation SleepViewController
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     

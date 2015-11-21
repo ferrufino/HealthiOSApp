@@ -10,7 +10,7 @@
 #import "AppDelegate.h"
 #import "HMSegmentedControl.h"
 #import "BEMSimpleLineGraphView.h"
-@interface SecondViewController : UIViewController<BEMSimpleLineGraphDataSource, BEMSimpleLineGraphDelegate>
+@interface FoodViewController : UIViewController<BEMSimpleLineGraphDataSource, BEMSimpleLineGraphDelegate>
 
 
 
