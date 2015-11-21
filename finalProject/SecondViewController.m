@@ -170,16 +170,10 @@
 - (void)loadQuestionView {
     self.numOfQuestion = 1;
     self.answers = [[NSMutableArray alloc] init];
-    
-
-
-    
     self.horizontalScrollView.frame = CGRectMake(0, 0, 375, 162);
     //Impide que usuario pueda darle scroll
     self.horizontalScrollView.scrollEnabled = NO;
-    
-    
-    
+
     //SegmentedControl for horizontal scroll view
     _segmentedControlQ1 = [[HMSegmentedControl alloc] initWithSectionTitles:@[@"1", @"2", @"3", @"4", @"5"]];
     [_segmentedControlQ1 setFrame:CGRectMake(0, 107, self.horizontalScrollView.frame.size.width, 53)];
