@@ -20,6 +20,7 @@
 @property CSAnimationView *animationView;
 @property NSArray *fetchResults;
 @property NSManagedObject *lastRecord;
+@property BOOL show;
 @end
 
 @implementation ThirdViewController
@@ -84,7 +85,7 @@
     NSError *error;
     _fetchResults = [context executeFetchRequest:request error:&error];
     
-    if ((_fetchResults.count != 0)) {
+    if ((_fetchResults.count != 0) && !_show) {
         self.questionView.hidden = YES;
         self.scrollView.frame = CGRectMake(0,65,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
     }else{
@@ -132,6 +133,7 @@
 
 
 - (IBAction)btnAgrega:(UIButton *)sender {
+    _show = YES;
     self.questionView.hidden = NO;
     self.scrollView.frame = CGRectMake(0,325,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
 }
@@ -201,6 +203,7 @@
 - (IBAction)submit:(id)sender {
     
     if ((![self.tfAreobico.text isEqualToString:@""] && ![self.tfAnareobico.text isEqualToString:@""]) || [self.tfAnareobico.text isEqualToString:@""] || [self.tfAreobico.text isEqualToString:@""]) {
+        _show = NO;
         //Core Data
         
         self.questionView.hidden = YES;

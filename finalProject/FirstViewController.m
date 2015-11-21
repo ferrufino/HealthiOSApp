@@ -20,6 +20,7 @@
 @property NSArray *fetchResults;
 @property NSManagedObject *lastRecord;
 @property  UIAlertView *alert;
+@property BOOL show;
 @end
 
 @implementation FirstViewController
@@ -80,7 +81,7 @@
     // Show the y axis values with this format string
     self.myGraph.formatStringForValues = @"%.1f";
     
-    
+    _show = NO;
     
 
    
@@ -111,9 +112,10 @@
     NSError *error;
     _fetchResults = [context executeFetchRequest:request error:&error];
     
-    if ((_fetchResults.count != 0)) {
+    if ((_fetchResults.count != 0) && !_show) {
         self.questionView.hidden = YES;
         self.scrollView.frame = CGRectMake(0,65,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
+        NSLog(@" se oculto 1");
     }else{
         self.questionView.hidden = NO;
         self.scrollView.frame = CGRectMake(0,210,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
@@ -175,6 +177,7 @@
 }
 
 - (IBAction)btnAgrega:(UIButton *)sender {
+    _show = YES;
     self.questionView.hidden = NO;
     self.scrollView.frame = CGRectMake(0,210,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
 }
@@ -235,10 +238,12 @@
 
 
 - (IBAction)submit:(id)sender {
+   
     if (![self.tfTimeSlept.text isEqualToString:@""]) {
+        _show = false;
         self.questionView.hidden = YES;
         self.scrollView.frame = CGRectMake(0,65,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
-        
+            NSLog(@" se oculto 2");
         AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
         NSManagedObjectContext *context = [appDelegate managedObjectContext];
         
@@ -265,7 +270,7 @@
             self.tfTimeSlept.text = [@(5) stringValue];
             
         }else if ([self.tfTimeSlept.text integerValue] > 0){
-            self.tfTimeSlept.text = [@([self.tfTimeSlept.text integerValue] + 5) stringValue];
+            self.tfTimeSlept.text = [@([self.tfTimeSlept.text integerValue] + 1) stringValue];
         }
         
         
@@ -277,7 +282,7 @@
             NSLog(@"No puede restar un espacio vacio");
             
         }else if ([self.tfTimeSlept.text integerValue] > 0){
-            self.tfTimeSlept.text = [@([self.tfTimeSlept.text integerValue] - 5) stringValue];
+            self.tfTimeSlept.text = [@([self.tfTimeSlept.text integerValue] - 1) stringValue];
             
         }else if ([self.tfTimeSlept.text integerValue] == 0){
             self.tfTimeSlept.text = @"";
