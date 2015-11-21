@@ -83,7 +83,7 @@
     
     
     
-    
+
 
     //Animated cards
     testView  = [[UIView alloc]initWithFrame:CGRectMake(50, 500, 280, 185)];
