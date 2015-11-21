@@ -17,7 +17,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // Do any additional setup after loading the view
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(quitaTeclado)];
+    [self.view addGestureRecognizer:tap];
+    
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
     
@@ -105,5 +108,9 @@
     [user setValue:@(self.swExercise.isOn) forKey:@"exercise"];
     
     [context save:&error];
+}
+
+- (void) quitaTeclado {
+    [self.view endEditing:YES];
 }
 @end
