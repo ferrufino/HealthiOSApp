@@ -13,7 +13,7 @@
 // Views
 @interface FirstViewController : UIViewController<BEMSimpleLineGraphDataSource, BEMSimpleLineGraphDelegate>
 {
-    UIView *testView;
+    UIView *cardView;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *lbInfo;

@@ -10,6 +10,7 @@
 #import "SecondViewController.h"
 #import "UIColor+FSPalette.h"
 #import "QuartzCore/QuartzCore.h"
+#import "Canvas.h"
 
 #define TAG_First 1
 #define TAG_Second 2
@@ -23,9 +24,37 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    
+    CSAnimationView *animationView = [[CSAnimationView alloc] initWithFrame:CGRectMake(30, 100, 100, 100)];
     
-        
+    animationView.backgroundColor = [UIColor whiteColor];
     
+    animationView.duration = 0.5;
+    animationView.delay    = 0;
+    animationView.type     = CSAnimationTypeMorph;
+    
+    [self.view addSubview:animationView];
+    
+    
+    
+    cardView  = [[UIView alloc]initWithFrame:CGRectMake(50, 280, 280, 185)];
+    cardView.backgroundColor = [UIColor redColor];
+    cardView.layer.cornerRadius = 10.0; // set cornerRadius as you want.
+    cardView.layer.borderColor = [UIColor lightGrayColor].CGColor; // set color as you want.
+    cardView.layer.borderWidth = 1.0; // set borderWidth as you want.
+    
+    UILabel *labelSuggestion = [[UILabel alloc]initWithFrame:CGRectMake(50,30, 100, 100)];
+    [labelSuggestion setText:@"Sugerencia"];
+    [labelSuggestion setFont:[UIFont fontWithName:@"Avenir" size:15]];
+    [cardView addSubview:labelSuggestion];
+    [self.view addSubview:cardView];
+    
+    
+    
+    
+    //Adds suggestion card view to animation.
+    // [animationView addSubview:<#(UIView *)#>]
+    
+    [animationView startCanvasAnimation];
     
     
 }

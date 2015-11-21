@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ThirdViewController : UIViewController{
-UIView *testView;
+UIView *cardView;
 }
 @end

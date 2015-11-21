@@ -13,7 +13,7 @@
 @interface SecondViewController : UIViewController<BEMSimpleLineGraphDataSource, BEMSimpleLineGraphDelegate>
 
 {
-    UIView *testView;
+    UIView *cardView;
 }
 
 @property(nonatomic, strong) NSArray        *sliceColors;

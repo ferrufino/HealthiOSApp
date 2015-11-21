@@ -85,9 +85,11 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods/BEMSimpleLineGraph.framework"
+  install_framework "Pods/Canvas.framework"
   install_framework "Pods/HMSegmentedControl.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/BEMSimpleLineGraph.framework"
+  install_framework "Pods/Canvas.framework"
   install_framework "Pods/HMSegmentedControl.framework"
 fi
