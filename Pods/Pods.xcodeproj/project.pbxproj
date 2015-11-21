@@ -7,88 +7,147 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		040EB842CB7BC977DD846152721D45A0 /* BEMSimpleLineGraph-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F293FC827B54E25F1329F0026EA7F2 /* BEMSimpleLineGraph-dummy.m */; };
+		0035E280E2227924AC4E2F8B3D44EF6B /* CSBlurView.h in Headers */ = {isa = PBXBuildFile; fileRef = 42C2CC5C86E2DE401AEEAA3BF791C036 /* CSBlurView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		040EB842CB7BC977DD846152721D45A0 /* BEMSimpleLineGraph-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CD055A8E054F8DC0DFC25EAD3B32A5C1 /* BEMSimpleLineGraph-dummy.m */; };
+		050D31F1ACF003324524127CC92E1C6F /* UITextView+TCCustomFont.h in Headers */ = {isa = PBXBuildFile; fileRef = 425F40517EFB0AE01961E3A2CFC438A8 /* UITextView+TCCustomFont.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0988BF1E00B39F2DD8E546A0CE72F6EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258B0C8029B3982F03A30ED9FB271283 /* Foundation.framework */; };
 		0DA1539DF2A64AEE5C3D7B7FA5A883AB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18F24645AA4D651DFC7B69A3A0833DB /* QuartzCore.framework */; };
-		17C98E3715E6FE0B24C0F7B6184D4737 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258B0C8029B3982F03A30ED9FB271283 /* Foundation.framework */; };
-		27072C75CAC3228FB372AF53BA3F19B9 /* BEMCircle.h in Headers */ = {isa = PBXBuildFile; fileRef = F0353D717B1D93AE145A14C74B80C801 /* BEMCircle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		146EA652DBF62F28CFB6A3001693A9D8 /* UITextView+TCCustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2CB73E1C9FED69C41F55B487BE114A /* UITextView+TCCustomFont.m */; };
+		1924A70BF11E5482D5118C346529847A /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 894E5DA93A9F359521A89826BE6DA777 /* Pods-dummy.m */; };
+		194F240E2777ABB596A2DB81BA4729E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258B0C8029B3982F03A30ED9FB271283 /* Foundation.framework */; };
+		27072C75CAC3228FB372AF53BA3F19B9 /* BEMCircle.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AA366CC751CB4909D541E09AC336552 /* BEMCircle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		296E453AD165A3259916C9DD032EC38A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258B0C8029B3982F03A30ED9FB271283 /* Foundation.framework */; };
-		48007B0C9088E248E7E9B5AEB2EA4EBB /* BEMLine.h in Headers */ = {isa = PBXBuildFile; fileRef = FBC76BA6A978E4A719D5A488D4B5E8EE /* BEMLine.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5228AF52562C18004805793DA89B86A4 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 894E5DA93A9F359521A89826BE6DA777 /* Pods-dummy.m */; };
-		526FA868E7B720981A453383D20E18A3 /* BEMLine.m in Sources */ = {isa = PBXBuildFile; fileRef = F344EBD3B6A58F95D5C6D3A84954DA9B /* BEMLine.m */; };
-		5BBA056560A0B3ABE7929F78A8B264D1 /* Pods-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BCC458FDD5F692BBB2BFC64BB5701FC /* Pods-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7955541AC235F55C7AEDB61CC775EC59 /* BEMCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1568F68B4CF5F5F48CC754BCD45989F2 /* BEMCircle.m */; };
-		79787FAC35CA2BB8518C83A811AAF008 /* BEMAverageLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D4A3F2E14E60450525B49DB973754C /* BEMAverageLine.m */; };
-		7A0A98778C517AECE63DBB7D599958A3 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = F4EB15B4570048DB1C380BCEED8EE46B /* HMSegmentedControl.m */; };
-		89E8119EB308787F5A052F01E6E556EF /* BEMSimpleLineGraphView.h in Headers */ = {isa = PBXBuildFile; fileRef = 62B0006CE7380B1E63AA43D1D579FAF7 /* BEMSimpleLineGraphView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9F37BF5A31FCE7A8C38C477154137661 /* BEMSimpleLineGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BFE011A401D2BF8856EE0D7DB173155 /* BEMSimpleLineGraphView.m */; };
-		A6E67DEB921E16A09704BFDC8574B179 /* HMSegmentedControl-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CA11CCF0840BD75CC296D164E6836F74 /* HMSegmentedControl-dummy.m */; };
-		B84836F7FC874648BD77A9F291E8E149 /* HMSegmentedControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CEA0134302FF71627DF40EACC463B10 /* HMSegmentedControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BB1A5B8FB21DBC206479EA43A2C20CB6 /* BEMPermanentPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F854D5B47C074314F69EEB05C1ACFD2 /* BEMPermanentPopupView.m */; };
-		BC56D9D67D700EDB23CAF47DD6EBC0EA /* HMSegmentedControl-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A1D7EAD4EC16A87474C85C9012BC1C79 /* HMSegmentedControl-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C17E1A25CB6BCBF1ADAFD63AEC03F3EE /* BEMAverageLine.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A2DCA9A58CCCAC71FB5AE886F299030 /* BEMAverageLine.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D22A843064E5C0D27C07565AC0212E3A /* BEMPermanentPopupView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1747AD90414C292D26D3C1D46938F437 /* BEMPermanentPopupView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E771441625D005A2C0A4B6EA45817E66 /* BEMSimpleLineGraph-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 30CBD8450F2699ED272712D65041CDFE /* BEMSimpleLineGraph-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2B3C98BF6B534DD54B2918F45B66A324 /* UITextField+TCCustomFont.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B94ED51FBF58BC1EABBE3624C75E0F8 /* UITextField+TCCustomFont.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37437BE1DBC4C60EEF23B79D6C994BF8 /* CSAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B0B975E6597DA97478FA8F123FA235 /* CSAnimationView.m */; };
+		48007B0C9088E248E7E9B5AEB2EA4EBB /* BEMLine.h in Headers */ = {isa = PBXBuildFile; fileRef = 8751E3A41C4729D87A6E9B56F2E71B8A /* BEMLine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4F3DF3C44C278FE44AD44BA7C7FFE416 /* CSAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AAB8D90D6D3715FE21CA3DE89D8B5E3 /* CSAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		51DB856BD58ADC66EAF464260C9BB683 /* CSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B0FBBD588ADC4F79DF2719B90C45440 /* CSNavigationController.m */; };
+		526FA868E7B720981A453383D20E18A3 /* BEMLine.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEFEA89BE196555D6AC8DF3BC52F93 /* BEMLine.m */; };
+		56B63E2941BF70F53F5CE86948AF45B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258B0C8029B3982F03A30ED9FB271283 /* Foundation.framework */; };
+		662C71BB07B541650F00C223691E8902 /* UILabel+TCCustomFont.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A159E46E56220148259D6290B6A38E1 /* UILabel+TCCustomFont.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7955541AC235F55C7AEDB61CC775EC59 /* BEMCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = E31C928029F44D332E0ED8F6EF96812D /* BEMCircle.m */; };
+		79787FAC35CA2BB8518C83A811AAF008 /* BEMAverageLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FB04B5E67B675EA09DD36D93194D3B /* BEMAverageLine.m */; };
+		7A0A98778C517AECE63DBB7D599958A3 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6B73B512379EC6D14BFA00905E4ACE /* HMSegmentedControl.m */; };
+		89E8119EB308787F5A052F01E6E556EF /* BEMSimpleLineGraphView.h in Headers */ = {isa = PBXBuildFile; fileRef = E94846B7EDB3A5BF6B0AC54F2CF149E5 /* BEMSimpleLineGraphView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9F37BF5A31FCE7A8C38C477154137661 /* BEMSimpleLineGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC34B2012F2B100424D39AE037D43D89 /* BEMSimpleLineGraphView.m */; };
+		A2EAB23D235F8B41E28A14ADD16542A9 /* CSNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 03D749C2DF9C6AE668DF0143C6D2112D /* CSNavigationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A6E67DEB921E16A09704BFDC8574B179 /* HMSegmentedControl-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9182022FE537FF90F900E687CBDC813A /* HMSegmentedControl-dummy.m */; };
+		AE024FC0C6A794A8BC3B113BF63E836A /* UIButton+TCCustomFont.h in Headers */ = {isa = PBXBuildFile; fileRef = B2985E096E6BA0D7C4256506F5FDBAAA /* UIButton+TCCustomFont.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B37A4CE3AE562C1B0715F69687E6644A /* CSBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 898E639B38CB734DA23F606646BF51CB /* CSBlurView.m */; };
+		B84836F7FC874648BD77A9F291E8E149 /* HMSegmentedControl.h in Headers */ = {isa = PBXBuildFile; fileRef = D4C560FB203B81ED7EFF7BBCD6781D0C /* HMSegmentedControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BB1A5B8FB21DBC206479EA43A2C20CB6 /* BEMPermanentPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFAC8210541EC446BDAADF6A7483A91A /* BEMPermanentPopupView.m */; };
+		BC56D9D67D700EDB23CAF47DD6EBC0EA /* HMSegmentedControl-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 54BA599B07167C28D1F095BA8B1E1482 /* HMSegmentedControl-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C12996EA896ABDF39A40FC94315EA238 /* UILabel+TCCustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E1E6AB470FA14C1C610F7E7E68469F /* UILabel+TCCustomFont.m */; };
+		C17E1A25CB6BCBF1ADAFD63AEC03F3EE /* BEMAverageLine.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F087C57F453AD676A3FEC1FB8FA0A09 /* BEMAverageLine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C24A441A5D30F5590A19A6977DA28A27 /* Pods-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BCC458FDD5F692BBB2BFC64BB5701FC /* Pods-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C5703AD94DB5E55AF9A2D572CC81A08B /* Canvas-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5788A73484D693BF58BE717C67B2933C /* Canvas-dummy.m */; };
+		C9EA18F788CF76E49B34C3B12A42200D /* CSAnimationView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C39B4331AE6A92818A6BCD869C8F776 /* CSAnimationView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CB9EA82F545BB2D13A0B32FF3A9FFF1C /* CSAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AAE2A7AC10A73D024330AD7D3EE61B /* CSAnimation.m */; };
+		D22A843064E5C0D27C07565AC0212E3A /* BEMPermanentPopupView.h in Headers */ = {isa = PBXBuildFile; fileRef = FF4ECE0148694C103F7E85311B8E9D68 /* BEMPermanentPopupView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DAD9483A8C579DE8A0561E2EC91736EB /* UINavigationBar+TCCustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = AFEEAC0BEE83B781F8C9A112577157FF /* UINavigationBar+TCCustomFont.m */; };
+		DB678D6A80AE82C0E08F121230FADB12 /* UITextField+PlaceholderColor.h in Headers */ = {isa = PBXBuildFile; fileRef = D54F1715AC5C0B39679599595046AE2D /* UITextField+PlaceholderColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DD0DB59C5A2FC7EF534D4BFE1F45BFDC /* Canvas-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D4947D7AC7AEC8D8E78A7C020ED537C1 /* Canvas-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DF9556B6C0FBC1894056CA9E9DFFC0E5 /* UINavigationBar+TCCustomFont.h in Headers */ = {isa = PBXBuildFile; fileRef = 80D00F2A6AB4C68E430C94C7F6EB21A4 /* UINavigationBar+TCCustomFont.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E0280B7E837B585206DACE6B58CBA14A /* UIButton+TCCustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = C6092E33196CB4A619118F0345285A61 /* UIButton+TCCustomFont.m */; };
+		E064A372B02C1DB0F4DD763CAD500BA1 /* Canvas.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FFFD97CB531534C3C0067CDC1796709 /* Canvas.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E771441625D005A2C0A4B6EA45817E66 /* BEMSimpleLineGraph-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 14A6F0812A7C3D26D10FDF01CBBCABEB /* BEMSimpleLineGraph-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F36FC5C3F71A1B956F4D4837202295AF /* UITextField+TCCustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 545A8DF887B908A1EDB9721D3C5D2524 /* UITextField+TCCustomFont.m */; };
+		FF638CC4A9134346D3A7831C880CF8CC /* UITextField+PlaceholderColor.m in Sources */ = {isa = PBXBuildFile; fileRef = F25FDE9987ED4E95DAE8099A42AE24BE /* UITextField+PlaceholderColor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		00FD9D271191F3A10D59656682B86B4F /* PBXContainerItemProxy */ = {
+		012BA620B4CF50F047B7DCABEF7D791E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 78DD729E6F6BE3C1326232CD5DFFFBB7;
-			remoteInfo = BEMSimpleLineGraph;
+			remoteGlobalIDString = 80CBCC225074FD190F9BEA2940592423;
+			remoteInfo = Canvas;
 		};
-		4F2F4A18C2D0ECC4E277BF73ADF48380 /* PBXContainerItemProxy */ = {
+		57A4107C1FABD1178812B38FD28B39CA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 71C1DF39EE1271EA1147F993CA1439A0;
 			remoteInfo = HMSegmentedControl;
 		};
+		CCC56276F92629905726E271B68F1F7C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 78DD729E6F6BE3C1326232CD5DFFFBB7;
+			remoteInfo = BEMSimpleLineGraph;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0A2DCA9A58CCCAC71FB5AE886F299030 /* BEMAverageLine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BEMAverageLine.h; path = Classes/BEMAverageLine.h; sourceTree = "<group>"; };
-		10AD3D2D28B77A9BF80EECD45F8A441F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1568F68B4CF5F5F48CC754BCD45989F2 /* BEMCircle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BEMCircle.m; path = Classes/BEMCircle.m; sourceTree = "<group>"; };
-		165E15489F577254431A4500285CE06D /* BEMSimpleLineGraph.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = BEMSimpleLineGraph.modulemap; sourceTree = "<group>"; };
-		1747AD90414C292D26D3C1D46938F437 /* BEMPermanentPopupView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BEMPermanentPopupView.h; path = Classes/BEMPermanentPopupView.h; sourceTree = "<group>"; };
+		02249AC1233789F259267C70B85032C7 /* HMSegmentedControl.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = HMSegmentedControl.modulemap; sourceTree = "<group>"; };
+		02B0B975E6597DA97478FA8F123FA235 /* CSAnimationView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSAnimationView.m; path = CanvasLibrary/CSAnimationView.m; sourceTree = "<group>"; };
+		03D749C2DF9C6AE668DF0143C6D2112D /* CSNavigationController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSNavigationController.h; path = CanvasLibrary/CSNavigationController.h; sourceTree = "<group>"; };
+		05AAE2A7AC10A73D024330AD7D3EE61B /* CSAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSAnimation.m; path = CanvasLibrary/CSAnimation.m; sourceTree = "<group>"; };
+		0BD244EF39E5E8DD34FC0677A1D1EC49 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0F61218EEAD8864913615C723812B952 /* HMSegmentedControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HMSegmentedControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		14A6F0812A7C3D26D10FDF01CBBCABEB /* BEMSimpleLineGraph-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BEMSimpleLineGraph-umbrella.h"; sourceTree = "<group>"; };
+		1B94ED51FBF58BC1EABBE3624C75E0F8 /* UITextField+TCCustomFont.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITextField+TCCustomFont.h"; path = "CanvasLibrary/UITextField+TCCustomFont.h"; sourceTree = "<group>"; };
+		1F2CB73E1C9FED69C41F55B487BE114A /* UITextView+TCCustomFont.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextView+TCCustomFont.m"; path = "CanvasLibrary/UITextView+TCCustomFont.m"; sourceTree = "<group>"; };
+		253BF7D2CE2285295DD9AE8E7BC89392 /* BEMSimpleLineGraph.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = BEMSimpleLineGraph.modulemap; sourceTree = "<group>"; };
 		258B0C8029B3982F03A30ED9FB271283 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		27567504F3EACA00F2418CAD12B9AD76 /* HMSegmentedControl.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HMSegmentedControl.xcconfig; sourceTree = "<group>"; };
 		2BCC458FDD5F692BBB2BFC64BB5701FC /* Pods-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-umbrella.h"; sourceTree = "<group>"; };
-		30CBD8450F2699ED272712D65041CDFE /* BEMSimpleLineGraph-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BEMSimpleLineGraph-umbrella.h"; sourceTree = "<group>"; };
-		38F293FC827B54E25F1329F0026EA7F2 /* BEMSimpleLineGraph-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BEMSimpleLineGraph-dummy.m"; sourceTree = "<group>"; };
-		4F854D5B47C074314F69EEB05C1ACFD2 /* BEMPermanentPopupView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BEMPermanentPopupView.m; path = Classes/BEMPermanentPopupView.m; sourceTree = "<group>"; };
-		55ECF38EFD36F48E3BCBCB13264192F7 /* BEMSimpleLineGraph.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BEMSimpleLineGraph.xcconfig; sourceTree = "<group>"; };
-		62B0006CE7380B1E63AA43D1D579FAF7 /* BEMSimpleLineGraphView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BEMSimpleLineGraphView.h; path = Classes/BEMSimpleLineGraphView.h; sourceTree = "<group>"; };
-		64D4A3F2E14E60450525B49DB973754C /* BEMAverageLine.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BEMAverageLine.m; path = Classes/BEMAverageLine.m; sourceTree = "<group>"; };
-		6E52FEB04E936ABC8F00A7A6590A3CCD /* HMSegmentedControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HMSegmentedControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		34FB04B5E67B675EA09DD36D93194D3B /* BEMAverageLine.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BEMAverageLine.m; path = Classes/BEMAverageLine.m; sourceTree = "<group>"; };
+		3A159E46E56220148259D6290B6A38E1 /* UILabel+TCCustomFont.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UILabel+TCCustomFont.h"; path = "CanvasLibrary/UILabel+TCCustomFont.h"; sourceTree = "<group>"; };
+		3AA366CC751CB4909D541E09AC336552 /* BEMCircle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BEMCircle.h; path = Classes/BEMCircle.h; sourceTree = "<group>"; };
+		3C39B4331AE6A92818A6BCD869C8F776 /* CSAnimationView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSAnimationView.h; path = CanvasLibrary/CSAnimationView.h; sourceTree = "<group>"; };
+		400E3759EEE32A66848FF3F7F3C3E65E /* Canvas.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Canvas.xcconfig; sourceTree = "<group>"; };
+		425F40517EFB0AE01961E3A2CFC438A8 /* UITextView+TCCustomFont.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITextView+TCCustomFont.h"; path = "CanvasLibrary/UITextView+TCCustomFont.h"; sourceTree = "<group>"; };
+		42C2CC5C86E2DE401AEEAA3BF791C036 /* CSBlurView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSBlurView.h; path = CanvasLibrary/CSBlurView.h; sourceTree = "<group>"; };
+		48DFD2A29DC8D47EEC3C927191A4EA30 /* Canvas.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Canvas.modulemap; sourceTree = "<group>"; };
+		4B0FBBD588ADC4F79DF2719B90C45440 /* CSNavigationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSNavigationController.m; path = CanvasLibrary/CSNavigationController.m; sourceTree = "<group>"; };
+		545A8DF887B908A1EDB9721D3C5D2524 /* UITextField+TCCustomFont.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextField+TCCustomFont.m"; path = "CanvasLibrary/UITextField+TCCustomFont.m"; sourceTree = "<group>"; };
+		54BA599B07167C28D1F095BA8B1E1482 /* HMSegmentedControl-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HMSegmentedControl-umbrella.h"; sourceTree = "<group>"; };
+		55B0896032C541AE20401268B313FF5D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5788A73484D693BF58BE717C67B2933C /* Canvas-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Canvas-dummy.m"; sourceTree = "<group>"; };
+		5D6B73B512379EC6D14BFA00905E4ACE /* HMSegmentedControl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HMSegmentedControl.m; path = HMSegmentedControl/HMSegmentedControl.m; sourceTree = "<group>"; };
+		68814F5A3C271BCBF7D94EF5D0666A99 /* BEMSimpleLineGraph.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BEMSimpleLineGraph.xcconfig; sourceTree = "<group>"; };
+		6AAB8D90D6D3715FE21CA3DE89D8B5E3 /* CSAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSAnimation.h; path = CanvasLibrary/CSAnimation.h; sourceTree = "<group>"; };
+		6FFFD97CB531534C3C0067CDC1796709 /* Canvas.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Canvas.h; path = CanvasLibrary/Canvas.h; sourceTree = "<group>"; };
 		79A9DEDC89FE8336BF5FEDAAF75BF7FC /* Pods.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Pods.modulemap; sourceTree = "<group>"; };
-		7B5BD4BEE14CBB5A5CF0C762E60EC1D8 /* HMSegmentedControl-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HMSegmentedControl-prefix.pch"; sourceTree = "<group>"; };
-		7CEA0134302FF71627DF40EACC463B10 /* HMSegmentedControl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HMSegmentedControl.h; path = HMSegmentedControl/HMSegmentedControl.h; sourceTree = "<group>"; };
-		80A3965E3114E4E0272CEF28F3703CDE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CA406B575AFD416A6DE61D43DB38CFD /* HMSegmentedControl.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HMSegmentedControl.xcconfig; sourceTree = "<group>"; };
+		7F06245D444D3797D0179871A6B808F0 /* BEMSimpleLineGraph.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BEMSimpleLineGraph.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		80D00F2A6AB4C68E430C94C7F6EB21A4 /* UINavigationBar+TCCustomFont.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UINavigationBar+TCCustomFont.h"; path = "CanvasLibrary/UINavigationBar+TCCustomFont.h"; sourceTree = "<group>"; };
+		8751E3A41C4729D87A6E9B56F2E71B8A /* BEMLine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BEMLine.h; path = Classes/BEMLine.h; sourceTree = "<group>"; };
 		87B213035BAC5F75386F62D3C75D2342 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
 		894E5DA93A9F359521A89826BE6DA777 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
-		8BFE011A401D2BF8856EE0D7DB173155 /* BEMSimpleLineGraphView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BEMSimpleLineGraphView.m; path = Classes/BEMSimpleLineGraphView.m; sourceTree = "<group>"; };
-		8CB0B9ECF6CEE279DA5DCBD265AAA57A /* HMSegmentedControl.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = HMSegmentedControl.modulemap; sourceTree = "<group>"; };
+		898E639B38CB734DA23F606646BF51CB /* CSBlurView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSBlurView.m; path = CanvasLibrary/CSBlurView.m; sourceTree = "<group>"; };
+		8AC814CD665FA6C56CD7D6398F89E8BA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9182022FE537FF90F900E687CBDC813A /* HMSegmentedControl-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HMSegmentedControl-dummy.m"; sourceTree = "<group>"; };
 		977577C045EDA9D9D1F46E2598D19FC7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
-		A1D7EAD4EC16A87474C85C9012BC1C79 /* HMSegmentedControl-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HMSegmentedControl-umbrella.h"; sourceTree = "<group>"; };
-		B0FE2EC0D3829FEBA07E52A32CC0D63D /* BEMSimpleLineGraph.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BEMSimpleLineGraph.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F087C57F453AD676A3FEC1FB8FA0A09 /* BEMAverageLine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BEMAverageLine.h; path = Classes/BEMAverageLine.h; sourceTree = "<group>"; };
+		A1CEFEA89BE196555D6AC8DF3BC52F93 /* BEMLine.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BEMLine.m; path = Classes/BEMLine.m; sourceTree = "<group>"; };
+		A9E1E6AB470FA14C1C610F7E7E68469F /* UILabel+TCCustomFont.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UILabel+TCCustomFont.m"; path = "CanvasLibrary/UILabel+TCCustomFont.m"; sourceTree = "<group>"; };
+		AC34B2012F2B100424D39AE037D43D89 /* BEMSimpleLineGraphView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BEMSimpleLineGraphView.m; path = Classes/BEMSimpleLineGraphView.m; sourceTree = "<group>"; };
+		AFEEAC0BEE83B781F8C9A112577157FF /* UINavigationBar+TCCustomFont.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UINavigationBar+TCCustomFont.m"; path = "CanvasLibrary/UINavigationBar+TCCustomFont.m"; sourceTree = "<group>"; };
+		B101B0F136DF83B4B65CDF39DC33D603 /* Canvas-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Canvas-prefix.pch"; sourceTree = "<group>"; };
 		B18F24645AA4D651DFC7B69A3A0833DB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		B2985E096E6BA0D7C4256506F5FDBAAA /* UIButton+TCCustomFont.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+TCCustomFont.h"; path = "CanvasLibrary/UIButton+TCCustomFont.h"; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		CA11CCF0840BD75CC296D164E6836F74 /* HMSegmentedControl-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HMSegmentedControl-dummy.m"; sourceTree = "<group>"; };
+		C6092E33196CB4A619118F0345285A61 /* UIButton+TCCustomFont.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+TCCustomFont.m"; path = "CanvasLibrary/UIButton+TCCustomFont.m"; sourceTree = "<group>"; };
 		CBC0F7C552B739C909B650A0F42F7F38 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
-		CF43030BC40F252ABA29639500CB96ED /* BEMSimpleLineGraph-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BEMSimpleLineGraph-prefix.pch"; sourceTree = "<group>"; };
+		CD055A8E054F8DC0DFC25EAD3B32A5C1 /* BEMSimpleLineGraph-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BEMSimpleLineGraph-dummy.m"; sourceTree = "<group>"; };
 		D0405803033A2A777B8E4DFA0C1800ED /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
+		D4947D7AC7AEC8D8E78A7C020ED537C1 /* Canvas-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Canvas-umbrella.h"; sourceTree = "<group>"; };
+		D4C560FB203B81ED7EFF7BBCD6781D0C /* HMSegmentedControl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HMSegmentedControl.h; path = HMSegmentedControl/HMSegmentedControl.h; sourceTree = "<group>"; };
+		D54F1715AC5C0B39679599595046AE2D /* UITextField+PlaceholderColor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITextField+PlaceholderColor.h"; path = "CanvasLibrary/UITextField+PlaceholderColor.h"; sourceTree = "<group>"; };
 		DA312349A49333542E6F4B36B329960E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		DCD15F9CBF6DBD0395ED5F87E7BA7E90 /* Canvas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Canvas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E31C928029F44D332E0ED8F6EF96812D /* BEMCircle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BEMCircle.m; path = Classes/BEMCircle.m; sourceTree = "<group>"; };
 		E7F21354943D9F42A70697D5A5EF72E9 /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
 		E8446514FBAD26C0E18F24A5715AEF67 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F0353D717B1D93AE145A14C74B80C801 /* BEMCircle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BEMCircle.h; path = Classes/BEMCircle.h; sourceTree = "<group>"; };
-		F344EBD3B6A58F95D5C6D3A84954DA9B /* BEMLine.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BEMLine.m; path = Classes/BEMLine.m; sourceTree = "<group>"; };
-		F4EB15B4570048DB1C380BCEED8EE46B /* HMSegmentedControl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HMSegmentedControl.m; path = HMSegmentedControl/HMSegmentedControl.m; sourceTree = "<group>"; };
-		FBC76BA6A978E4A719D5A488D4B5E8EE /* BEMLine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BEMLine.h; path = Classes/BEMLine.h; sourceTree = "<group>"; };
-		FD08194B873DA9B46CD141A0554EC3E9 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8BDD1099B278A8E8218EED6F998B4BA /* HMSegmentedControl-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HMSegmentedControl-prefix.pch"; sourceTree = "<group>"; };
+		E94846B7EDB3A5BF6B0AC54F2CF149E5 /* BEMSimpleLineGraphView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BEMSimpleLineGraphView.h; path = Classes/BEMSimpleLineGraphView.h; sourceTree = "<group>"; };
+		EE31090E9B17D83D91A0723E44A2A36C /* BEMSimpleLineGraph-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BEMSimpleLineGraph-prefix.pch"; sourceTree = "<group>"; };
+		F25FDE9987ED4E95DAE8099A42AE24BE /* UITextField+PlaceholderColor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextField+PlaceholderColor.m"; path = "CanvasLibrary/UITextField+PlaceholderColor.m"; sourceTree = "<group>"; };
+		FE80C1CE7D20742092A9454110CD4FB3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF4ECE0148694C103F7E85311B8E9D68 /* BEMPermanentPopupView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BEMPermanentPopupView.h; path = Classes/BEMPermanentPopupView.h; sourceTree = "<group>"; };
+		FFAC8210541EC446BDAADF6A7483A91A /* BEMPermanentPopupView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BEMPermanentPopupView.m; path = Classes/BEMPermanentPopupView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,11 +159,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E7A3F74F9ACB8CFE1D01D17A8992D60C /* Frameworks */ = {
+		910A477B8028CFF2267C8C9B8791CCB6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17C98E3715E6FE0B24C0F7B6184D4737 /* Foundation.framework in Frameworks */,
+				194F240E2777ABB596A2DB81BA4729E6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC6C95184157AB40444666A475B9348C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56B63E2941BF70F53F5CE86948AF45B7 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,30 +187,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		11503D9DFAD2B52E1AC229CBE51A1032 /* BEMSimpleLineGraph */ = {
+		2529E49519B62B1F72B072ECB4838A77 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0A2DCA9A58CCCAC71FB5AE886F299030 /* BEMAverageLine.h */,
-				64D4A3F2E14E60450525B49DB973754C /* BEMAverageLine.m */,
-				F0353D717B1D93AE145A14C74B80C801 /* BEMCircle.h */,
-				1568F68B4CF5F5F48CC754BCD45989F2 /* BEMCircle.m */,
-				FBC76BA6A978E4A719D5A488D4B5E8EE /* BEMLine.h */,
-				F344EBD3B6A58F95D5C6D3A84954DA9B /* BEMLine.m */,
-				1747AD90414C292D26D3C1D46938F437 /* BEMPermanentPopupView.h */,
-				4F854D5B47C074314F69EEB05C1ACFD2 /* BEMPermanentPopupView.m */,
-				62B0006CE7380B1E63AA43D1D579FAF7 /* BEMSimpleLineGraphView.h */,
-				8BFE011A401D2BF8856EE0D7DB173155 /* BEMSimpleLineGraphView.m */,
-				96CE6874C95F860671CD0EAB54B2AC95 /* Support Files */,
+				5AEFA02289DFA6E0181A7467CD5984DB /* BEMSimpleLineGraph */,
+				9F4E1270A36E8F36EDD82DA333400F72 /* Canvas */,
+				E62121C1BCDD30ADCE70D5E8DEE0822C /* HMSegmentedControl */,
 			);
-			path = BEMSimpleLineGraph;
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		23437787B368B8C914F2C0925BE345D5 /* Products */ = {
+		28A276FE1AA9153ED776778493C0A258 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B0FE2EC0D3829FEBA07E52A32CC0D63D /* BEMSimpleLineGraph.framework */,
-				6E52FEB04E936ABC8F00A7A6590A3CCD /* HMSegmentedControl.framework */,
-				FD08194B873DA9B46CD141A0554EC3E9 /* Pods.framework */,
+				7F06245D444D3797D0179871A6B808F0 /* BEMSimpleLineGraph.framework */,
+				DCD15F9CBF6DBD0395ED5F87E7BA7E90 /* Canvas.framework */,
+				0F61218EEAD8864913615C723812B952 /* HMSegmentedControl.framework */,
+				55B0896032C541AE20401268B313FF5D /* Pods.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -157,16 +217,6 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		3F4C7E16FD8B66B8386C33A8E035C68E /* HMSegmentedControl */ = {
-			isa = PBXGroup;
-			children = (
-				7CEA0134302FF71627DF40EACC463B10 /* HMSegmentedControl.h */,
-				F4EB15B4570048DB1C380BCEED8EE46B /* HMSegmentedControl.m */,
-				5459CCA4DD082B6D09E189805EC3C881 /* Support Files */,
-			);
-			path = HMSegmentedControl;
-			sourceTree = "<group>";
-		};
 		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,18 +225,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5459CCA4DD082B6D09E189805EC3C881 /* Support Files */ = {
+		5AEFA02289DFA6E0181A7467CD5984DB /* BEMSimpleLineGraph */ = {
 			isa = PBXGroup;
 			children = (
-				8CB0B9ECF6CEE279DA5DCBD265AAA57A /* HMSegmentedControl.modulemap */,
-				27567504F3EACA00F2418CAD12B9AD76 /* HMSegmentedControl.xcconfig */,
-				CA11CCF0840BD75CC296D164E6836F74 /* HMSegmentedControl-dummy.m */,
-				7B5BD4BEE14CBB5A5CF0C762E60EC1D8 /* HMSegmentedControl-prefix.pch */,
-				A1D7EAD4EC16A87474C85C9012BC1C79 /* HMSegmentedControl-umbrella.h */,
-				80A3965E3114E4E0272CEF28F3703CDE /* Info.plist */,
+				9F087C57F453AD676A3FEC1FB8FA0A09 /* BEMAverageLine.h */,
+				34FB04B5E67B675EA09DD36D93194D3B /* BEMAverageLine.m */,
+				3AA366CC751CB4909D541E09AC336552 /* BEMCircle.h */,
+				E31C928029F44D332E0ED8F6EF96812D /* BEMCircle.m */,
+				8751E3A41C4729D87A6E9B56F2E71B8A /* BEMLine.h */,
+				A1CEFEA89BE196555D6AC8DF3BC52F93 /* BEMLine.m */,
+				FF4ECE0148694C103F7E85311B8E9D68 /* BEMPermanentPopupView.h */,
+				FFAC8210541EC446BDAADF6A7483A91A /* BEMPermanentPopupView.m */,
+				E94846B7EDB3A5BF6B0AC54F2CF149E5 /* BEMSimpleLineGraphView.h */,
+				AC34B2012F2B100424D39AE037D43D89 /* BEMSimpleLineGraphView.m */,
+				C82B8C4162D504B0F1CB20E1754EEDC7 /* Support Files */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/HMSegmentedControl";
+			path = BEMSimpleLineGraph;
 			sourceTree = "<group>";
 		};
 		75D98FF52E597A11900E131B6C4E1ADA /* Pods */ = {
@@ -207,38 +261,58 @@
 			path = "Target Support Files/Pods";
 			sourceTree = "<group>";
 		};
-		78009CFDD012E67C283160588269E0DD /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				11503D9DFAD2B52E1AC229CBE51A1032 /* BEMSimpleLineGraph */,
-				3F4C7E16FD8B66B8386C33A8E035C68E /* HMSegmentedControl */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
 				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
-				78009CFDD012E67C283160588269E0DD /* Pods */,
-				23437787B368B8C914F2C0925BE345D5 /* Products */,
+				2529E49519B62B1F72B072ECB4838A77 /* Pods */,
+				28A276FE1AA9153ED776778493C0A258 /* Products */,
 				B7B80995527643776607AFFA75B91E24 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		96CE6874C95F860671CD0EAB54B2AC95 /* Support Files */ = {
+		80910773035D3A5588A416327E11D077 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				165E15489F577254431A4500285CE06D /* BEMSimpleLineGraph.modulemap */,
-				55ECF38EFD36F48E3BCBCB13264192F7 /* BEMSimpleLineGraph.xcconfig */,
-				38F293FC827B54E25F1329F0026EA7F2 /* BEMSimpleLineGraph-dummy.m */,
-				CF43030BC40F252ABA29639500CB96ED /* BEMSimpleLineGraph-prefix.pch */,
-				30CBD8450F2699ED272712D65041CDFE /* BEMSimpleLineGraph-umbrella.h */,
-				10AD3D2D28B77A9BF80EECD45F8A441F /* Info.plist */,
+				48DFD2A29DC8D47EEC3C927191A4EA30 /* Canvas.modulemap */,
+				400E3759EEE32A66848FF3F7F3C3E65E /* Canvas.xcconfig */,
+				5788A73484D693BF58BE717C67B2933C /* Canvas-dummy.m */,
+				B101B0F136DF83B4B65CDF39DC33D603 /* Canvas-prefix.pch */,
+				D4947D7AC7AEC8D8E78A7C020ED537C1 /* Canvas-umbrella.h */,
+				8AC814CD665FA6C56CD7D6398F89E8BA /* Info.plist */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/BEMSimpleLineGraph";
+			path = "../Target Support Files/Canvas";
+			sourceTree = "<group>";
+		};
+		9F4E1270A36E8F36EDD82DA333400F72 /* Canvas */ = {
+			isa = PBXGroup;
+			children = (
+				6FFFD97CB531534C3C0067CDC1796709 /* Canvas.h */,
+				6AAB8D90D6D3715FE21CA3DE89D8B5E3 /* CSAnimation.h */,
+				05AAE2A7AC10A73D024330AD7D3EE61B /* CSAnimation.m */,
+				3C39B4331AE6A92818A6BCD869C8F776 /* CSAnimationView.h */,
+				02B0B975E6597DA97478FA8F123FA235 /* CSAnimationView.m */,
+				42C2CC5C86E2DE401AEEAA3BF791C036 /* CSBlurView.h */,
+				898E639B38CB734DA23F606646BF51CB /* CSBlurView.m */,
+				03D749C2DF9C6AE668DF0143C6D2112D /* CSNavigationController.h */,
+				4B0FBBD588ADC4F79DF2719B90C45440 /* CSNavigationController.m */,
+				B2985E096E6BA0D7C4256506F5FDBAAA /* UIButton+TCCustomFont.h */,
+				C6092E33196CB4A619118F0345285A61 /* UIButton+TCCustomFont.m */,
+				3A159E46E56220148259D6290B6A38E1 /* UILabel+TCCustomFont.h */,
+				A9E1E6AB470FA14C1C610F7E7E68469F /* UILabel+TCCustomFont.m */,
+				80D00F2A6AB4C68E430C94C7F6EB21A4 /* UINavigationBar+TCCustomFont.h */,
+				AFEEAC0BEE83B781F8C9A112577157FF /* UINavigationBar+TCCustomFont.m */,
+				D54F1715AC5C0B39679599595046AE2D /* UITextField+PlaceholderColor.h */,
+				F25FDE9987ED4E95DAE8099A42AE24BE /* UITextField+PlaceholderColor.m */,
+				1B94ED51FBF58BC1EABBE3624C75E0F8 /* UITextField+TCCustomFont.h */,
+				545A8DF887B908A1EDB9721D3C5D2524 /* UITextField+TCCustomFont.m */,
+				425F40517EFB0AE01961E3A2CFC438A8 /* UITextView+TCCustomFont.h */,
+				1F2CB73E1C9FED69C41F55B487BE114A /* UITextView+TCCustomFont.m */,
+				80910773035D3A5588A416327E11D077 /* Support Files */,
+			);
+			path = Canvas;
 			sourceTree = "<group>";
 		};
 		B7B80995527643776607AFFA75B91E24 /* Targets Support Files */ = {
@@ -249,9 +323,74 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+		C82B8C4162D504B0F1CB20E1754EEDC7 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				253BF7D2CE2285295DD9AE8E7BC89392 /* BEMSimpleLineGraph.modulemap */,
+				68814F5A3C271BCBF7D94EF5D0666A99 /* BEMSimpleLineGraph.xcconfig */,
+				CD055A8E054F8DC0DFC25EAD3B32A5C1 /* BEMSimpleLineGraph-dummy.m */,
+				EE31090E9B17D83D91A0723E44A2A36C /* BEMSimpleLineGraph-prefix.pch */,
+				14A6F0812A7C3D26D10FDF01CBBCABEB /* BEMSimpleLineGraph-umbrella.h */,
+				0BD244EF39E5E8DD34FC0677A1D1EC49 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/BEMSimpleLineGraph";
+			sourceTree = "<group>";
+		};
+		E62121C1BCDD30ADCE70D5E8DEE0822C /* HMSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				D4C560FB203B81ED7EFF7BBCD6781D0C /* HMSegmentedControl.h */,
+				5D6B73B512379EC6D14BFA00905E4ACE /* HMSegmentedControl.m */,
+				FEBF67E5B7F68C1E962E3BD0ABF4BCB3 /* Support Files */,
+			);
+			path = HMSegmentedControl;
+			sourceTree = "<group>";
+		};
+		FEBF67E5B7F68C1E962E3BD0ABF4BCB3 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				02249AC1233789F259267C70B85032C7 /* HMSegmentedControl.modulemap */,
+				7CA406B575AFD416A6DE61D43DB38CFD /* HMSegmentedControl.xcconfig */,
+				9182022FE537FF90F900E687CBDC813A /* HMSegmentedControl-dummy.m */,
+				E8BDD1099B278A8E8218EED6F998B4BA /* HMSegmentedControl-prefix.pch */,
+				54BA599B07167C28D1F095BA8B1E1482 /* HMSegmentedControl-umbrella.h */,
+				FE80C1CE7D20742092A9454110CD4FB3 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/HMSegmentedControl";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		1ABD51434B89C564DDB5195ECF221EFB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C24A441A5D30F5590A19A6977DA28A27 /* Pods-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D2DEE5F2ACADAF8DC0B4772E36CC6C7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD0DB59C5A2FC7EF534D4BFE1F45BFDC /* Canvas-umbrella.h in Headers */,
+				E064A372B02C1DB0F4DD763CAD500BA1 /* Canvas.h in Headers */,
+				4F3DF3C44C278FE44AD44BA7C7FFE416 /* CSAnimation.h in Headers */,
+				C9EA18F788CF76E49B34C3B12A42200D /* CSAnimationView.h in Headers */,
+				0035E280E2227924AC4E2F8B3D44EF6B /* CSBlurView.h in Headers */,
+				A2EAB23D235F8B41E28A14ADD16542A9 /* CSNavigationController.h in Headers */,
+				AE024FC0C6A794A8BC3B113BF63E836A /* UIButton+TCCustomFont.h in Headers */,
+				662C71BB07B541650F00C223691E8902 /* UILabel+TCCustomFont.h in Headers */,
+				DF9556B6C0FBC1894056CA9E9DFFC0E5 /* UINavigationBar+TCCustomFont.h in Headers */,
+				DB678D6A80AE82C0E08F121230FADB12 /* UITextField+PlaceholderColor.h in Headers */,
+				2B3C98BF6B534DD54B2918F45B66A324 /* UITextField+TCCustomFont.h in Headers */,
+				050D31F1ACF003324524127CC92E1C6F /* UITextView+TCCustomFont.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		48ECC7F1E9A41C6A27B54B366EC5019A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -274,14 +413,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C659F57EE661489D6CA405AF57D4F469 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5BBA056560A0B3ABE7929F78A8B264D1 /* Pods-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -299,7 +430,7 @@
 			);
 			name = HMSegmentedControl;
 			productName = HMSegmentedControl;
-			productReference = 6E52FEB04E936ABC8F00A7A6590A3CCD /* HMSegmentedControl.framework */;
+			productReference = 0F61218EEAD8864913615C723812B952 /* HMSegmentedControl.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		78DD729E6F6BE3C1326232CD5DFFFBB7 /* BEMSimpleLineGraph */ = {
@@ -316,26 +447,44 @@
 			);
 			name = BEMSimpleLineGraph;
 			productName = BEMSimpleLineGraph;
-			productReference = B0FE2EC0D3829FEBA07E52A32CC0D63D /* BEMSimpleLineGraph.framework */;
+			productReference = 7F06245D444D3797D0179871A6B808F0 /* BEMSimpleLineGraph.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		D2627EE99C1681005670781C11295A35 /* Pods */ = {
+		80CBCC225074FD190F9BEA2940592423 /* Canvas */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 87BDAD932803C104BEBBADD57F2CB3CA /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildConfigurationList = 3F734F76098089EF9030FCCACD5766C7 /* Build configuration list for PBXNativeTarget "Canvas" */;
 			buildPhases = (
-				375BC4CBBE663CD2E871E5CF21CD3C07 /* Sources */,
-				E7A3F74F9ACB8CFE1D01D17A8992D60C /* Frameworks */,
-				C659F57EE661489D6CA405AF57D4F469 /* Headers */,
+				0A33DC707B44F030F5360D55F0E5C04D /* Sources */,
+				910A477B8028CFF2267C8C9B8791CCB6 /* Frameworks */,
+				1D2DEE5F2ACADAF8DC0B4772E36CC6C7 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				209BA2618FD014946782B850A0905D91 /* PBXTargetDependency */,
-				C14EFE4A9E131F8D6D6BA3E812D9DAE5 /* PBXTargetDependency */,
+			);
+			name = Canvas;
+			productName = Canvas;
+			productReference = DCD15F9CBF6DBD0395ED5F87E7BA7E90 /* Canvas.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FB3EBB99E240A9B630A6852042042233 /* Pods */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E3FD1AE3070837509841F898B7E63533 /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildPhases = (
+				41B525B98F6300295BB76D7AC55A7DED /* Sources */,
+				CC6C95184157AB40444666A475B9348C /* Frameworks */,
+				1ABD51434B89C564DDB5195ECF221EFB /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9B3C02D65994D9201DD02EF1EA07BAFE /* PBXTargetDependency */,
+				00014CA8E35BE55A4A0CB7109EAE12DF /* PBXTargetDependency */,
+				31E98AB69D08EA8C48D32AAB093EC3BE /* PBXTargetDependency */,
 			);
 			name = Pods;
 			productName = Pods;
-			productReference = FD08194B873DA9B46CD141A0554EC3E9 /* Pods.framework */;
+			productReference = 55B0896032C541AE20401268B313FF5D /* Pods.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -355,18 +504,37 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 23437787B368B8C914F2C0925BE345D5 /* Products */;
+			productRefGroup = 28A276FE1AA9153ED776778493C0A258 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				78DD729E6F6BE3C1326232CD5DFFFBB7 /* BEMSimpleLineGraph */,
+				80CBCC225074FD190F9BEA2940592423 /* Canvas */,
 				71C1DF39EE1271EA1147F993CA1439A0 /* HMSegmentedControl */,
-				D2627EE99C1681005670781C11295A35 /* Pods */,
+				FB3EBB99E240A9B630A6852042042233 /* Pods */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0A33DC707B44F030F5360D55F0E5C04D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5703AD94DB5E55AF9A2D572CC81A08B /* Canvas-dummy.m in Sources */,
+				CB9EA82F545BB2D13A0B32FF3A9FFF1C /* CSAnimation.m in Sources */,
+				37437BE1DBC4C60EEF23B79D6C994BF8 /* CSAnimationView.m in Sources */,
+				B37A4CE3AE562C1B0715F69687E6644A /* CSBlurView.m in Sources */,
+				51DB856BD58ADC66EAF464260C9BB683 /* CSNavigationController.m in Sources */,
+				E0280B7E837B585206DACE6B58CBA14A /* UIButton+TCCustomFont.m in Sources */,
+				C12996EA896ABDF39A40FC94315EA238 /* UILabel+TCCustomFont.m in Sources */,
+				DAD9483A8C579DE8A0561E2EC91736EB /* UINavigationBar+TCCustomFont.m in Sources */,
+				FF638CC4A9134346D3A7831C880CF8CC /* UITextField+PlaceholderColor.m in Sources */,
+				F36FC5C3F71A1B956F4D4837202295AF /* UITextField+TCCustomFont.m in Sources */,
+				146EA652DBF62F28CFB6A3001693A9D8 /* UITextView+TCCustomFont.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0A54FF3F8444C9DB312F17178CC8F779 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -380,11 +548,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		375BC4CBBE663CD2E871E5CF21CD3C07 /* Sources */ = {
+		41B525B98F6300295BB76D7AC55A7DED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5228AF52562C18004805793DA89B86A4 /* Pods-dummy.m in Sources */,
+				1924A70BF11E5482D5118C346529847A /* Pods-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,24 +568,30 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		209BA2618FD014946782B850A0905D91 /* PBXTargetDependency */ = {
+		00014CA8E35BE55A4A0CB7109EAE12DF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = BEMSimpleLineGraph;
-			target = 78DD729E6F6BE3C1326232CD5DFFFBB7 /* BEMSimpleLineGraph */;
-			targetProxy = 00FD9D271191F3A10D59656682B86B4F /* PBXContainerItemProxy */;
+			name = Canvas;
+			target = 80CBCC225074FD190F9BEA2940592423 /* Canvas */;
+			targetProxy = 012BA620B4CF50F047B7DCABEF7D791E /* PBXContainerItemProxy */;
 		};
-		C14EFE4A9E131F8D6D6BA3E812D9DAE5 /* PBXTargetDependency */ = {
+		31E98AB69D08EA8C48D32AAB093EC3BE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = HMSegmentedControl;
 			target = 71C1DF39EE1271EA1147F993CA1439A0 /* HMSegmentedControl */;
-			targetProxy = 4F2F4A18C2D0ECC4E277BF73ADF48380 /* PBXContainerItemProxy */;
+			targetProxy = 57A4107C1FABD1178812B38FD28B39CA /* PBXContainerItemProxy */;
+		};
+		9B3C02D65994D9201DD02EF1EA07BAFE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BEMSimpleLineGraph;
+			target = 78DD729E6F6BE3C1326232CD5DFFFBB7 /* BEMSimpleLineGraph */;
+			targetProxy = CCC56276F92629905726E271B68F1F7C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1FE3950926F9E74EF62E357974F2762C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 27567504F3EACA00F2418CAD12B9AD76 /* HMSegmentedControl.xcconfig */;
+			baseConfigurationReference = 7CA406B575AFD416A6DE61D43DB38CFD /* HMSegmentedControl.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -442,7 +616,88 @@
 			};
 			name = Release;
 		};
-		55DAD54C5D57757A4C80E1450808C6B7 /* Debug */ = {
+		58D474A5B719D0873247C879224CC8B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68814F5A3C271BCBF7D94EF5D0666A99 /* BEMSimpleLineGraph.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/BEMSimpleLineGraph/BEMSimpleLineGraph-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BEMSimpleLineGraph/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/BEMSimpleLineGraph/BEMSimpleLineGraph.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = BEMSimpleLineGraph;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6E3C4B87A0F833C2790F835B43817502 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 400E3759EEE32A66848FF3F7F3C3E65E /* Canvas.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Canvas/Canvas-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Canvas/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Canvas/Canvas.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Canvas;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7F34B1954AB9B47A9D17B6B27DA8F909 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 400E3759EEE32A66848FF3F7F3C3E65E /* Canvas.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Canvas/Canvas-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Canvas/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Canvas/Canvas.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Canvas;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		955B1E68316859008B019F831D74A776 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 977577C045EDA9D9D1F46E2598D19FC7 /* Pods.debug.xcconfig */;
 			buildSettings = {
@@ -471,63 +726,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		58D474A5B719D0873247C879224CC8B8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 55ECF38EFD36F48E3BCBCB13264192F7 /* BEMSimpleLineGraph.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/BEMSimpleLineGraph/BEMSimpleLineGraph-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/BEMSimpleLineGraph/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/BEMSimpleLineGraph/BEMSimpleLineGraph.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = BEMSimpleLineGraph;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		95CE63D917AF436E23A480D92917E17E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DA312349A49333542E6F4B36B329960E /* Pods.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods/Pods.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
 		};
 		A70CDAD61F90AC503C7D04CC22DA2923 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -570,7 +768,7 @@
 		};
 		C3968EC3C0554B5F3DCB32484B7A4B0C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 27567504F3EACA00F2418CAD12B9AD76 /* HMSegmentedControl.xcconfig */;
+			baseConfigurationReference = 7CA406B575AFD416A6DE61D43DB38CFD /* HMSegmentedControl.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -595,9 +793,39 @@
 			};
 			name = Debug;
 		};
+		ED088BB630D29CF7465BA8ECC2A089ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA312349A49333542E6F4B36B329960E /* Pods.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods/Pods.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		F62062B27927778182F2F272DF93F081 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 55ECF38EFD36F48E3BCBCB13264192F7 /* BEMSimpleLineGraph.xcconfig */;
+			baseConfigurationReference = 68814F5A3C271BCBF7D94EF5D0666A99 /* BEMSimpleLineGraph.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -677,6 +905,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		3F734F76098089EF9030FCCACD5766C7 /* Build configuration list for PBXNativeTarget "Canvas" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E3C4B87A0F833C2790F835B43817502 /* Debug */,
+				7F34B1954AB9B47A9D17B6B27DA8F909 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5974C3409BB469D8D46DB08D72DFCC29 /* Build configuration list for PBXNativeTarget "BEMSimpleLineGraph" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -686,11 +923,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		87BDAD932803C104BEBBADD57F2CB3CA /* Build configuration list for PBXNativeTarget "Pods" */ = {
+		E3FD1AE3070837509841F898B7E63533 /* Build configuration list for PBXNativeTarget "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				55DAD54C5D57757A4C80E1450808C6B7 /* Debug */,
-				95CE63D917AF436E23A480D92917E17E /* Release */,
+				955B1E68316859008B019F831D74A776 /* Debug */,
+				ED088BB630D29CF7465BA8ECC2A089ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

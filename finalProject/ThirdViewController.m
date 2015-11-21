@@ -10,47 +10,110 @@
 #import "SecondViewController.h"
 #import "UIColor+FSPalette.h"
 #import "QuartzCore/QuartzCore.h"
+#import "Canvas.h"
 
 #define TAG_First 1
 #define TAG_Second 2
 
 @interface ThirdViewController ()
 @property  UIAlertView *alert2;
+@property CSAnimationView *animationView;
+@property NSArray *fetchResults;
 @end
 
 @implementation ThirdViewController
-
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    [self setQuestionView];
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
    
     
-    testView  = [[UIView alloc]initWithFrame:CGRectMake(50, 280, 280, 185)];
-    testView.backgroundColor = [UIColor redColor];
-    testView.layer.cornerRadius = 10.0; // set cornerRadius as you want.
-    testView.layer.borderColor = [UIColor lightGrayColor].CGColor; // set color as you want.
-    testView.layer.borderWidth = 1.0; // set borderWidth as you want.
-  
-    UILabel *labelSuggestion = [[UILabel alloc]initWithFrame:CGRectMake(50,30, 100, 100)];
-    [labelSuggestion setText:@"Sugerencia"];
-    [labelSuggestion setFont:[UIFont fontWithName:@"Avenir" size:15]];
-    [testView addSubview:labelSuggestion];
-    [self.view addSubview:testView];
+    /*****Vertical Scroll***/
+    [self.scrollView setScrollEnabled:YES];
+    [self.scrollView setContentSize:CGSizeMake(320, 800)];
 
     
     
-    [self goAnimation];
+    
+    
+    _animationView = [[CSAnimationView alloc] initWithFrame:CGRectMake(50, 280, 280, 185)];
+    
+    _animationView.backgroundColor = [UIColor colorWithRed:14.0/255.0 green:114.0/255.0 blue:199.0/255.0 alpha:1];
+    
+    _animationView.layer.cornerRadius = 55.0;
+    _animationView.layer.borderWidth = 0.5;
+    _animationView.layer.borderColor =(__bridge CGColorRef)([UIColor colorWithRed:14.0/255.0 green:114.0/255.0 blue:199.0/255.0 alpha:1]);
+
+
+    _animationView.duration = 0.5;
+    _animationView.delay    = 0;
+    _animationView.type     = CSAnimationTypeFadeInUp;
+    
+    
+        UITapGestureRecognizer *singleFingerTap =
+    [[UITapGestureRecognizer alloc] initWithTarget:self
+                                            action:@selector(cardPressed)];
+    
+    [_animationView addGestureRecognizer:singleFingerTap];
+    [self.scrollView addSubview:_animationView];
+    
+
+}
+
+- (void) setQuestionView {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"ExerciseRecord"
+                                              inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entity];
+    
+    NSDate *today = [NSDate date];
+    NSDate *yesterday = [today dateByAddingTimeInterval:-86400.0];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"date >= %@", yesterday];
+    [request setPredicate:predicate];
+    [request setFetchLimit:1];
+    
+    NSError *error;
+    _fetchResults = [context executeFetchRequest:request error:&error];
+    
+    if ((_fetchResults.count != 0)) {
+        self.questionView.hidden = YES;
+        self.scrollView.frame = CGRectMake(0,65,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
+    }else{
+        self.questionView.hidden = NO;
+        self.scrollView.frame = CGRectMake(0,325,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
+        
+    }
     
 }
 
+- (IBAction)submit:(id)sender {
+}
+
+-(IBAction) cardPressed {
+   
+        _animationView.type = CSAnimationTypeShake;
+         [_animationView startCanvasAnimation];
+    
+    NSLog(@"Click");
+
+}
 - (void)viewDidAppear:(BOOL)animated {
     self.navigationItem.rightBarButtonItem = nil;
     
-    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self
-                                                              action:@selector(btnAgrega:)];
+    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit Input" style:nil target:self action:@selector(btnAgrega:)];
     
     self.tabBarController.navigationItem.rightBarButtonItem = anotherButton;
+    _animationView.type     = CSAnimationTypeFadeInUp;
+    [_animationView startCanvasAnimation];
     
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,182 +133,69 @@
 
 
 - (IBAction)btnAgrega:(UIButton *)sender {
-    [self firstAlert];
+    self.questionView.hidden = NO;
+    self.scrollView.frame = CGRectMake(0,325,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
 }
 
 
 
-
-- (IBAction)firstAlert {
-    UIAlertView *alert = [[UIAlertView alloc]
-                          
-                          initWithTitle:@"titleGoesHere"
-                          message:@"messageGoesHere"
-                          delegate:self
-                          cancelButtonTitle:@"Areobico"
-                          otherButtonTitles:@"Anareobico", nil];
-    alert.tag = TAG_First;
-    [alert show];
+- (IBAction)buttonPressed:(UIButton *)sender {
     
-}
-
-- (IBAction)secAlert {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Agrega Ejercicio realizado"
-                                                    message:@"Ingresa la cantidad de horas ejecitadas:"
-                                                   delegate:self
-                                          cancelButtonTitle:@"Ok"
-                                          otherButtonTitles:nil];
-    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-    UITextField * alertTextField = [alert textFieldAtIndex:0];
-    alertTextField.keyboardType = UIKeyboardTypeNumberPad;
-    alertTextField.placeholder = @"horas";
-    alert.tag = TAG_Second;
-    [alert show];
-}
-
--(void)alertView:(UIAlertView *)alertView
-clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (alertView.tag == TAG_First) { // handle the altdev
-        [self secAlert];
-    } else if (alertView.tag == TAG_Second){ // handle the donate
-        NSLog(@"Entered: %@",[[alertView textFieldAtIndex:0] text]);
- 
+    if (sender == self.btPlusAreobico) {
+        
+        if ([self.tfAreobico.text isEqualToString:@""]) {
+            
+            self.tfAreobico.text = [@(5) stringValue];
+            
+        }else if ([self.tfAreobico.text integerValue] > 0){
+             self.tfAreobico.text = [@([self.tfAreobico.text integerValue] + 5) stringValue];
+        }
+        
+        
+        NSLog(@"Plus Areobico");
+        
+    }else if (sender == self.btMinusAreobico){
+        
+        if ([self.tfAreobico.text isEqualToString:@""]) {
+           NSLog(@"No puede restar un espacio vacio");
+            
+        }else if ([self.tfAreobico.text integerValue] > 0){
+             self.tfAreobico.text = [@([self.tfAreobico.text integerValue] - 5) stringValue];
+            
+        }else if ([self.tfAreobico.text integerValue] == 0){
+            self.tfAreobico.text = @"";
+        }
+        
+        NSLog(@"Minus Areobico");
+    }else if (sender == self.btPlusAnareobico){
+        
+        if ([self.tfAnareobico.text isEqualToString:@""]) {
+            
+            self.tfAnareobico.text = [@(5) stringValue];
+            
+        }else if ([self.tfAnareobico.text integerValue] > 0){
+            self.tfAnareobico.text = [@([self.tfAnareobico.text integerValue] + 5) stringValue];
+        }
+        
+        NSLog(@"Plus Anareobico");
+        
+    }else if (sender == self.btMinusAnareobico){
+        
+        
+        if ([self.tfAnareobico.text isEqualToString:@""]) {
+             NSLog(@"No puede restar un espacio vacio");
+            
+        }else if ([self.tfAnareobico.text integerValue] > 0){
+            self.tfAnareobico.text = [@([self.tfAnareobico.text integerValue] - 5) stringValue];
+            
+        }else if ([self.tfAnareobico.text integerValue] == 0){
+            self.tfAnareobico.text = @"";
+            
+        }
+         NSLog(@"Minus Anareobico");
+    
+    }else{
+        NSLog(@"Bro somethings wrong");
     }
 }
-
-
-- (void) goAnimation
-{
-    
-    
-    
-    [UIView beginAnimations:@"1" context:NULL];
-    [UIView setAnimationDuration:0.8f];
-    
-    testView.frame = CGRectMake(testView.frame.origin.x-30, testView.frame.origin.y - 200, testView.frame.size.width, testView.frame.size.height);
-
-    testView.transform = CGAffineTransformMakeRotation(- (10.0f * M_PI) / 180.0f);
-    
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector: @selector(next)];
-    [UIView commitAnimations];
-    
-   
-    CGAffineTransform transform = testView.transform;
-    transform = CGAffineTransformScale(transform, 1.2 ,1.2);
-    testView.transform = transform;
-    
-    
-}
-
-
--(void)next{
-    
-    [self.view bringSubviewToFront:testView];
-    
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.8f];
-    
-    testView.transform = CGAffineTransformMakeRotation((0.0f) / 180.0f);
-    testView.frame = CGRectMake(50, 280, 280, 185);
-    
-    [UIView setAnimationDelegate:self];
-    
-    [UIView setAnimationDidStopSelector: @selector(bounceAnimationStopped)];
-    
-    [UIView commitAnimations];
-    
-}
-
-
-
-- (void)bounceAnimationStopped {
-    
-    [UIView beginAnimations:@"3" context:NULL];
-    [UIView setAnimationDuration:0.1f];
-    
-    testView.frame = CGRectMake(testView.frame.origin.x, testView.frame.origin.y - 20, testView.frame.size.width, testView.frame.size.height);
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector: @selector(bounce2AnimationStopped)];
-    
-    [UIView commitAnimations];
-    
-    
-    
-}
-- (void)bounce2AnimationStopped {
-    
-    [UIView beginAnimations:@"3" context:NULL];
-    [UIView setAnimationDuration:0.1f];
-    
-    testView.frame = CGRectMake(testView.frame.origin.x, testView.frame.origin.y + 20, testView.frame.size.width, testView.frame.size.height);
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector: @selector(bounce3AnimationStopped)];
-    
-    [UIView commitAnimations];
-    
-}
-
-
-
-- (void)bounce3AnimationStopped {
-    
-    [UIView beginAnimations:@"3" context:NULL];
-    [UIView setAnimationDuration:0.1f];
-    
-    testView.frame = CGRectMake(testView.frame.origin.x, testView.frame.origin.y - 10, testView.frame.size.width, testView.frame.size.height);
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector: @selector(bounce4AnimationStopped)];
-    
-    [UIView commitAnimations];
-    
-    
-    
-}
-- (void)bounce4AnimationStopped {
-    
-    [UIView beginAnimations:@"3" context:NULL];
-    [UIView setAnimationDuration:0.1f];
-    
-    testView.frame = CGRectMake(testView.frame.origin.x, testView.frame.origin.y + 10, testView.frame.size.width, testView.frame.size.height);
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector: @selector(bounce5AnimationStopped)];
-    [UIView commitAnimations];
-    
-}
-
-
-- (void)bounce5AnimationStopped {
-    
-    [UIView beginAnimations:@"3" context:NULL];
-    [UIView setAnimationDuration:0.1f];
-    
-    testView.frame = CGRectMake(testView.frame.origin.x, testView.frame.origin.y - 5, testView.frame.size.width, testView.frame.size.height);
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector: @selector(bounce6AnimationStopped)];
-    
-    [UIView commitAnimations];
-    
-    
-    
-}
-- (void)bounce6AnimationStopped {
-    
-    [UIView beginAnimations:@"3" context:NULL];
-    [UIView setAnimationDuration:0.1f];
-    
-    testView.frame = CGRectMake(testView.frame.origin.x, testView.frame.origin.y + 5, testView.frame.size.width, testView.frame.size.height);
-    [UIView setAnimationDelegate:self];
-    
-    [UIView commitAnimations];
-    
-}
-
-
-
-
-
-
-
-
 @end
