@@ -22,6 +22,7 @@
 @property NSArray *fetchResults;
 @property NSManagedObject *lastRecord;
 @property BOOL show;
+@property NSMutableArray *suggestions;
 @end
 
 @implementation ExerciseViewcontroller
@@ -40,7 +41,7 @@
     [self.scrollView setContentSize:CGSizeMake(320, 800)];
     
     
-    _animationView = [[CSAnimationView alloc] initWithFrame:CGRectMake(50, 280, 280, 185)];
+    _animationView = [[CSAnimationView alloc] initWithFrame:CGRectMake(50, 560 , 280, 185)];
     
     _animationView.backgroundColor = [UIColor colorWithRed:14.0/255.0 green:114.0/255.0 blue:199.0/255.0 alpha:1];
     
@@ -59,6 +60,25 @@
                                             action:@selector(cardPressed)];
     
     [_animationView addGestureRecognizer:singleFingerTap];
+    
+    
+    self.suggestions = [[NSMutableArray alloc] initWithObjects:@"sug 1", @"sug 2", @"sug 3",
+                        @"sug 4",@"sug 5", @"Welcome! Please input data to see suggestions",nil];
+    
+    UILabel *labelSuggestion = [[UILabel alloc]initWithFrame:CGRectMake(50,30, 100, 100)];
+    [labelSuggestion setText:[self.suggestions objectAtIndex: [self loadSuggestion]]];
+    [labelSuggestion setFont:[UIFont fontWithName:@"Avenir" size:15]];
+    [labelSuggestion setNumberOfLines:0];
+    
+    CGRect frame;
+    
+    frame =labelSuggestion.frame;
+    frame.size.width +=70;
+    labelSuggestion.frame=frame;
+    
+    
+    [_animationView addSubview:labelSuggestion];
+
     [self.scrollView addSubview:_animationView];
     
 
@@ -109,14 +129,16 @@
     UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit Input" style:nil target:self action:@selector(btnAgrega:)];
     
     self.tabBarController.navigationItem.rightBarButtonItem = anotherButton;
-    _animationView.type     = CSAnimationTypeFadeInUp;
-    [_animationView startCanvasAnimation];
+  
     [self.tabBarController.tabBar setTintColor:[UIColor flatWatermelonColor]];
     [self.tabBarController.navigationController.navigationBar setTintColor:[UIColor flatWatermelonColor]];
     [self.view setTintColor:[UIColor flatWatermelonColor]];
     [self.navigationController.navigationBar
      setTitleTextAttributes: @{NSFontAttributeName: [UIFont fontWithName:@"Avenir-Heavy" size:20],
                                NSForegroundColorAttributeName: [UIColor flatWatermelonColor]}];
+    
+    _animationView.type     = CSAnimationTypeFadeInUp;
+    [_animationView startCanvasAnimation];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -202,12 +224,44 @@
         NSLog(@"Bro something's wrong");
     }
 }
+-(NSInteger)loadSuggestion{
+    /*
+    double acum = 0.0;
+    double cont = 0.0;
+    for (int i=0; i< [self.arrayOfValues count]; i++){
+        NSLog(@"[%d]:%@",i,self.arrayOfValues[i]);
+        
+        if ([self.arrayOfValues objectAtIndex:i] != 0) {
+            acum += [[self.arrayOfValues objectAtIndex:i] doubleValue];
+            cont++;
+        }
+        
+    }
+     
+    if([self.arrayOfValues count] == 0){
+        
+        return 5;
+        
+    }
+    acum/=cont;
+    acum/=cont;
+    
+    acum *= 5;
+    
+    
+    return acum;
+    */
+    return 5;
+    
+    
+    
+}
 
 - (IBAction)submit:(id)sender {
     
     if ((![self.tfAreobico.text isEqualToString:@""] && ![self.tfAnareobico.text isEqualToString:@""]) || [self.tfAnareobico.text isEqualToString:@""] || [self.tfAreobico.text isEqualToString:@""]) {
         _show = NO;
-        //Core Data
+        
         
         self.questionView.hidden = YES;
         self.scrollView.frame = CGRectMake(0,62,self.scrollView.frame.size.width, self.scrollView.frame.size.height);

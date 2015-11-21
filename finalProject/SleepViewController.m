@@ -9,7 +9,7 @@
 #import "SleepViewController.h"
 #import "UIColor+FSPalette.h"
 #import <ChameleonFramework/Chameleon.h>
-
+#import "Canvas.h"
 
 
 @interface SleepViewController () {
@@ -20,6 +20,8 @@
 @property NSManagedObject *lastRecord;
 @property  UIAlertView *alert;
 @property BOOL show;
+@property CSAnimationView *animationView;
+@property NSMutableArray *suggestions;
 @end
 
 @implementation SleepViewController
@@ -38,7 +40,49 @@
     [self.scrollView setScrollEnabled:YES];
     [self.scrollView setContentSize:CGSizeMake(320, 800)];
 
+
+    //Suggestion Card
+    _animationView = [[CSAnimationView alloc] initWithFrame:CGRectMake(50, 560, 280, 185)];
     
+    _animationView.backgroundColor = [UIColor colorWithRed:14.0/255.0 green:114.0/255.0 blue:199.0/255.0 alpha:1];
+    
+    _animationView.layer.cornerRadius = 55.0;
+    _animationView.layer.borderWidth = 0.5;
+    _animationView.layer.borderColor =(__bridge CGColorRef)([UIColor colorWithRed:14.0/255.0 green:114.0/255.0 blue:199.0/255.0 alpha:1]);
+    
+    
+    _animationView.duration = 0.5;
+    _animationView.delay    = 0;
+    _animationView.type     = CSAnimationTypeFadeInUp;
+
+    UITapGestureRecognizer *singleFingerTap =
+    [[UITapGestureRecognizer alloc] initWithTarget:self
+                                            action:@selector(cardPressed)];
+    
+    [_animationView addGestureRecognizer:singleFingerTap];
+    
+    self.suggestions = [[NSMutableArray alloc] initWithObjects:@"sug 1", @"sug 2", @"sug 3",
+                        @"sug 4",@"sug 5", @"Welcome! Please input data to see suggestions",nil];
+    
+    UILabel *labelSuggestion = [[UILabel alloc]initWithFrame:CGRectMake(50,30, 100, 100)];
+    [labelSuggestion setText:[self.suggestions objectAtIndex: [self loadSuggestion]]];
+    [labelSuggestion setFont:[UIFont fontWithName:@"Avenir" size:15]];
+    [labelSuggestion setNumberOfLines:0];
+    
+    CGRect frame;
+    
+    frame =labelSuggestion.frame;
+    frame.size.width +=70;
+    labelSuggestion.frame=frame;
+    
+    
+    [_animationView addSubview:labelSuggestion];
+    
+    [self.scrollView addSubview:_animationView];
+
+    
+    
+     //Graph
     // Create a gradient to apply to the bottom portion of the graph
     CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
     size_t num_locations = 2;
@@ -47,7 +91,7 @@
         1.0, 1.0, 1.0, 1.0,
         1.0, 1.0, 1.0, 0.0
     };
-    //Graph
+   
     // Apply the gradient to the bottom portion of the graph
     self.myGraph.gradientBottom = CGGradientCreateWithColorComponents(colorspace, components, locations, num_locations);
     
@@ -96,6 +140,17 @@
     [self.navigationController.navigationBar
      setTitleTextAttributes: @{NSFontAttributeName: [UIFont fontWithName:@"Avenir-Heavy" size:20],
                                NSForegroundColorAttributeName: [UIColor flatYellowColor]}];
+    
+    _animationView.type = CSAnimationTypeFadeInUp;
+    [_animationView startCanvasAnimation];
+}
+-(IBAction) cardPressed {
+    
+    _animationView.type = CSAnimationTypeShake;
+    [_animationView startCanvasAnimation];
+    
+    NSLog(@"Click");
+    
 }
 - (void) setQuestionView {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
@@ -238,8 +293,39 @@
    
     
 }
+-(NSInteger)loadSuggestion{
+    
+    
+    double acum = 0.0;
+    double cont = 0.0;
+    for (int i=0; i< [self.arrayOfValues count]; i++){
+        
+        
+        if ([self.arrayOfValues[i] doubleValue] != 0.0) {
+            NSLog(@"no debe ser 0 [%d]:%f",i,[self.arrayOfValues[i] doubleValue]);
+            acum += [[self.arrayOfValues objectAtIndex:i] doubleValue];
+            cont++;
+        }
+        
+    }
+    if(cont == 0){
+        
+        return 5;
+        
+    }else if(cont >= 5){
+        acum/=cont;
+        acum/=cont;
+        
+        acum *= 5;
+    }
+    NSLog(@"Valor regresado en sueño::%ld",(long)acum);
+    return acum-1;
+    
+    
 
 
+
+}
 
 - (IBAction)submit:(id)sender {
    

@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ExerciseViewcontroller : UIViewController{
-UIView *cardView;
-}
+@interface ExerciseViewcontroller : UIViewController
+
 - (IBAction)buttonPressed:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UIButton *btPlusAreobico;
 @property (weak, nonatomic) IBOutlet UIButton *btMinusAreobico;

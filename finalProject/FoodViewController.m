@@ -7,6 +7,7 @@
 //
 
 #import "FoodViewController.h"
+#import "Canvas.h"
 #import <ChameleonFramework/Chameleon.h>
 
 @interface FoodViewController ()
@@ -15,6 +16,9 @@
 @property NSInteger numOfQuestion;
 @property NSManagedObject *lastRecord;
 @property NSArray *fetchResults;
+@property NSMutableArray *suggestions;
+@property CSAnimationView *animationView;
+
 @end
 
 @implementation FoodViewController
@@ -37,6 +41,53 @@
     [self.verticalScroll setContentSize:CGSizeMake(320, 800)];
     
     self.view.backgroundColor = [UIColor flatNavyBlueColor];
+    
+    
+    
+    //Suggestion Card
+    _animationView = [[CSAnimationView alloc] initWithFrame:CGRectMake(50, 560 , 280, 185)];
+    
+    _animationView.backgroundColor = [UIColor colorWithRed:14.0/255.0 green:114.0/255.0 blue:199.0/255.0 alpha:1];
+    
+    _animationView.layer.cornerRadius = 55.0;
+    _animationView.layer.borderWidth = 0.5;
+    _animationView.layer.borderColor =(__bridge CGColorRef)([UIColor colorWithRed:14.0/255.0 green:114.0/255.0 blue:199.0/255.0 alpha:1]);
+    
+    
+    _animationView.duration = 0.5;
+    _animationView.delay    = 0;
+    _animationView.type     = CSAnimationTypeFadeInUp;
+    
+    
+    UITapGestureRecognizer *singleFingerTap =
+    [[UITapGestureRecognizer alloc] initWithTarget:self
+                                            action:@selector(cardPressed)];
+    
+    [_animationView addGestureRecognizer:singleFingerTap];
+    
+    
+    self.suggestions = [[NSMutableArray alloc] initWithObjects:@"sug 1", @"sug 2", @"sug 3",
+                        @"sug 4",@"sug 5", @"Welcome! Please input data to see suggestions",nil];
+    
+    UILabel *labelSuggestion = [[UILabel alloc]initWithFrame:CGRectMake(50,30, 100, 100)];
+    [labelSuggestion setText:[self.suggestions objectAtIndex: [self loadSuggestion]]];
+    [labelSuggestion setFont:[UIFont fontWithName:@"Avenir" size:15]];
+    [labelSuggestion setNumberOfLines:0];
+    
+    CGRect frame;
+    
+    frame =labelSuggestion.frame;
+    frame.size.width +=70;
+    labelSuggestion.frame=frame;
+    
+    
+    [_animationView addSubview:labelSuggestion];
+    
+    [self.verticalScroll addSubview:_animationView];
+    
+
+    
+    
     
     //Graph
     // Create a gradient to apply to the bottom portion of the graph
@@ -94,15 +145,55 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(btnAgrega:)];
+   // UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(btnAgrega:)];
     
-    self.tabBarController.navigationItem.rightBarButtonItem = addButton;
+    self.tabBarController.navigationItem.rightBarButtonItem = nil;
     [self.tabBarController.tabBar setTintColor:[UIColor flatMintColor]];
     [self.tabBarController.navigationController.navigationBar setTintColor:[UIColor flatMintColor]];
     [self.navigationController.navigationBar
      setTitleTextAttributes: @{NSFontAttributeName: [UIFont fontWithName:@"Avenir-Heavy" size:20],
                                NSForegroundColorAttributeName: [UIColor flatMintColor]}];
 }
+-(IBAction) cardPressed {
+    
+    _animationView.type = CSAnimationTypeShake;
+    [_animationView startCanvasAnimation];
+    
+    NSLog(@"Click");
+    
+}
+-(NSInteger)loadSuggestion{
+    
+    double acum = 0.0;
+    double cont = 0.0;
+    for (int i=0; i< [self.arrayOfValues count]; i++){
+        
+        
+        if ([self.arrayOfValues[i] doubleValue] != 0.0) {
+            NSLog(@"no debe ser 0 [%d]:%f",i,[self.arrayOfValues[i] doubleValue]);
+            acum += [[self.arrayOfValues objectAtIndex:i] doubleValue];
+            cont++;
+        }
+        
+    }
+    if(cont == 0){
+        
+        return 5;
+        
+    }else if(cont >= 5){
+    acum/=cont;
+    acum/=cont;
+    
+    acum *= 5;
+    }
+     NSLog(@"Valor regresado en nutri::%d",(NSInteger)roundf( acum));
+    return roundf( acum-1);
+    
+    
+    
+    
+}
+
 
 - (IBAction)btnAgrega:(UIButton *)sender {
 //    _show = YES;
