@@ -84,20 +84,6 @@
     
     
     
-
-    //Animated cards
-    testView  = [[UIView alloc]initWithFrame:CGRectMake(50, 500, 280, 185)];
-    testView.backgroundColor = [UIColor colorWithRed:14.0/255.0 green:114.0/255.0 blue:199.0/255.0 alpha:1];
-    testView.layer.cornerRadius = 5.0; // set cornerRadius as you want.
-    testView.layer.borderColor = [UIColor lightGrayColor].CGColor; // set color as you want.
-    testView.layer.borderWidth = 1.0; // set borderWidth as you want.
-    
-    UILabel *labelSuggestion = [[UILabel alloc]initWithFrame:CGRectMake(50,30, 100, 100)];
-    [labelSuggestion setText:@"Sugerencia"];
-    [labelSuggestion setFont:[UIFont fontWithName:@"Avenir" size:15]];
-    [testView addSubview:labelSuggestion];
-    [self.scrollView addSubview:testView];
-    [self goAnimation];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

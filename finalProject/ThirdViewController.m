@@ -24,21 +24,9 @@
     [super viewDidLoad];
    
     
-    testView  = [[UIView alloc]initWithFrame:CGRectMake(50, 280, 280, 185)];
-    testView.backgroundColor = [UIColor redColor];
-    testView.layer.cornerRadius = 10.0; // set cornerRadius as you want.
-    testView.layer.borderColor = [UIColor lightGrayColor].CGColor; // set color as you want.
-    testView.layer.borderWidth = 1.0; // set borderWidth as you want.
-  
-    UILabel *labelSuggestion = [[UILabel alloc]initWithFrame:CGRectMake(50,30, 100, 100)];
-    [labelSuggestion setText:@"Sugerencia"];
-    [labelSuggestion setFont:[UIFont fontWithName:@"Avenir" size:15]];
-    [testView addSubview:labelSuggestion];
-    [self.view addSubview:testView];
-
+        
     
     
-    [self goAnimation];
     
 }
 
@@ -112,135 +100,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
  
     }
 }
-
-
-- (void) goAnimation
-{
-    
-    
-    
-    [UIView beginAnimations:@"1" context:NULL];
-    [UIView setAnimationDuration:0.8f];
-    
-    testView.frame = CGRectMake(testView.frame.origin.x-30, testView.frame.origin.y - 200, testView.frame.size.width, testView.frame.size.height);
-
-    testView.transform = CGAffineTransformMakeRotation(- (10.0f * M_PI) / 180.0f);
-    
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector: @selector(next)];
-    [UIView commitAnimations];
-    
-   
-    CGAffineTransform transform = testView.transform;
-    transform = CGAffineTransformScale(transform, 1.2 ,1.2);
-    testView.transform = transform;
-    
-    
-}
-
-
--(void)next{
-    
-    [self.view bringSubviewToFront:testView];
-    
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.8f];
-    
-    testView.transform = CGAffineTransformMakeRotation((0.0f) / 180.0f);
-    testView.frame = CGRectMake(50, 280, 280, 185);
-    
-    [UIView setAnimationDelegate:self];
-    
-    [UIView setAnimationDidStopSelector: @selector(bounceAnimationStopped)];
-    
-    [UIView commitAnimations];
-    
-}
-
-
-
-- (void)bounceAnimationStopped {
-    
-    [UIView beginAnimations:@"3" context:NULL];
-    [UIView setAnimationDuration:0.1f];
-    
-    testView.frame = CGRectMake(testView.frame.origin.x, testView.frame.origin.y - 20, testView.frame.size.width, testView.frame.size.height);
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector: @selector(bounce2AnimationStopped)];
-    
-    [UIView commitAnimations];
-    
-    
-    
-}
-- (void)bounce2AnimationStopped {
-    
-    [UIView beginAnimations:@"3" context:NULL];
-    [UIView setAnimationDuration:0.1f];
-    
-    testView.frame = CGRectMake(testView.frame.origin.x, testView.frame.origin.y + 20, testView.frame.size.width, testView.frame.size.height);
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector: @selector(bounce3AnimationStopped)];
-    
-    [UIView commitAnimations];
-    
-}
-
-
-
-- (void)bounce3AnimationStopped {
-    
-    [UIView beginAnimations:@"3" context:NULL];
-    [UIView setAnimationDuration:0.1f];
-    
-    testView.frame = CGRectMake(testView.frame.origin.x, testView.frame.origin.y - 10, testView.frame.size.width, testView.frame.size.height);
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector: @selector(bounce4AnimationStopped)];
-    
-    [UIView commitAnimations];
-    
-    
-    
-}
-- (void)bounce4AnimationStopped {
-    
-    [UIView beginAnimations:@"3" context:NULL];
-    [UIView setAnimationDuration:0.1f];
-    
-    testView.frame = CGRectMake(testView.frame.origin.x, testView.frame.origin.y + 10, testView.frame.size.width, testView.frame.size.height);
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector: @selector(bounce5AnimationStopped)];
-    [UIView commitAnimations];
-    
-}
-
-
-- (void)bounce5AnimationStopped {
-    
-    [UIView beginAnimations:@"3" context:NULL];
-    [UIView setAnimationDuration:0.1f];
-    
-    testView.frame = CGRectMake(testView.frame.origin.x, testView.frame.origin.y - 5, testView.frame.size.width, testView.frame.size.height);
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector: @selector(bounce6AnimationStopped)];
-    
-    [UIView commitAnimations];
-    
-    
-    
-}
-- (void)bounce6AnimationStopped {
-    
-    [UIView beginAnimations:@"3" context:NULL];
-    [UIView setAnimationDuration:0.1f];
-    
-    testView.frame = CGRectMake(testView.frame.origin.x, testView.frame.origin.y + 5, testView.frame.size.width, testView.frame.size.height);
-    [UIView setAnimationDelegate:self];
-    
-    [UIView commitAnimations];
-    
-}
-
 
 
 

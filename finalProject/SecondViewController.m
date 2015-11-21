@@ -34,19 +34,6 @@
     [self.verticalScroll setScrollEnabled:YES];
     [self.verticalScroll setContentSize:CGSizeMake(320, 800)];
     
-    //Animated cards
-    testView  = [[UIView alloc]initWithFrame:CGRectMake(50, 280, 280, 185)];
-    testView.backgroundColor = [UIColor redColor];
-    testView.layer.cornerRadius = 10.0; // set cornerRadius as you want.
-    testView.layer.borderColor = [UIColor lightGrayColor].CGColor; // set color as you want.
-    testView.layer.borderWidth = 1.0; // set borderWidth as you want.
-    
-    UILabel *labelSuggestion = [[UILabel alloc]initWithFrame:CGRectMake(50,30, 100, 100)];
-    [labelSuggestion setText:@"Sugerencia"];
-    [labelSuggestion setFont:[UIFont fontWithName:@"Avenir" size:15]];
-    [testView addSubview:labelSuggestion];
-    [self.verticalScroll addSubview:testView];
-    
     
     
     //Graph
@@ -90,8 +77,7 @@
     // Show the y axis values with this format string
     self.nutriGraph.formatStringForValues = @"%.1f";
     
-    
-    [self goAnimation];
+
 
 }
 
@@ -284,14 +270,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     
     self.tabBarController.navigationItem.rightBarButtonItem = nil;
-//    if (_fetchResults.count != 0) {
-//        self.horizontalScrollView.hidden = YES;
-//        self.horizontalView.hidden = YES;
-//        self.verticalScroll.frame = CGRectMake(0,65,self.verticalScroll.frame.size.width, self.verticalScroll.frame.size.height);
-//        
-//        
-//    }
-    
+
 
 }
 
@@ -352,8 +331,6 @@
 -(void) buttonClicked5
 {
     
-//    CGRect frame = CGRectMake(self.horizontalScrollView.frame.size.width*5, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height); //wherever you want to scroll
-//    [self.horizontalScrollView scrollRectToVisible:frame animated:YES];
     self.horizontalScrollView.hidden = YES;
     self.verticalScroll.frame = CGRectMake(0,65,self.verticalScroll.frame.size.width, self.verticalScroll.frame.size.height);
     for (id obj in self.answers) {
@@ -389,134 +366,6 @@
 }
 
 
-#pragma mark Animated Card
-//Animated Card
-- (void) goAnimation
-{
-    
-    
-    
-    [UIView beginAnimations:@"1" context:NULL];
-    [UIView setAnimationDuration:0.8f];
-
-    testView.frame = CGRectMake(testView.frame.origin.x-30, testView.frame.origin.y - 200, testView.frame.size.width, testView.frame.size.height);
- 
-    testView.transform = CGAffineTransformMakeRotation(- (10.0f * M_PI) / 180.0f);
-    
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector: @selector(next)];
-    [UIView commitAnimations];
-    
-
-    CGAffineTransform transform = testView.transform;
-    transform = CGAffineTransformScale(transform, 1.2 ,1.2);
-    testView.transform = transform;
-    
-    
-}
-
-
--(void)next{
-    
-    [self.view bringSubviewToFront:testView];
-    
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.8f];
-    
-    testView.transform = CGAffineTransformMakeRotation((0.0f) / 180.0f);
-    testView.frame = CGRectMake(50, 580, 280, 185);
-    
-    [UIView setAnimationDelegate:self];
-
-    [UIView setAnimationDidStopSelector: @selector(bounceAnimationStopped)];
-    
-    [UIView commitAnimations];
-    
-}
-
-
-
-- (void)bounceAnimationStopped {
-    
-    [UIView beginAnimations:@"3" context:NULL];
-    [UIView setAnimationDuration:0.1f];
-    
-    testView.frame = CGRectMake(testView.frame.origin.x, testView.frame.origin.y - 20, testView.frame.size.width, testView.frame.size.height);
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector: @selector(bounce2AnimationStopped)];
-    
-    [UIView commitAnimations];
-    
-    
-    
-}
-- (void)bounce2AnimationStopped {
-    
-    [UIView beginAnimations:@"3" context:NULL];
-    [UIView setAnimationDuration:0.1f];
-    
-    testView.frame = CGRectMake(testView.frame.origin.x, testView.frame.origin.y + 20, testView.frame.size.width, testView.frame.size.height);
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector: @selector(bounce3AnimationStopped)];
-    
-    [UIView commitAnimations];
-    
-}
-
-
-
-- (void)bounce3AnimationStopped {
-    
-    [UIView beginAnimations:@"3" context:NULL];
-    [UIView setAnimationDuration:0.1f];
-    
-    testView.frame = CGRectMake(testView.frame.origin.x, testView.frame.origin.y - 10, testView.frame.size.width, testView.frame.size.height);
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector: @selector(bounce4AnimationStopped)];
-    
-    [UIView commitAnimations];
-    
-    
-    
-}
-- (void)bounce4AnimationStopped {
-    
-    [UIView beginAnimations:@"3" context:NULL];
-    [UIView setAnimationDuration:0.1f];
-    
-    testView.frame = CGRectMake(testView.frame.origin.x, testView.frame.origin.y + 10, testView.frame.size.width, testView.frame.size.height);
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector: @selector(bounce5AnimationStopped)];
-    [UIView commitAnimations];
-    
-}
-
-
-- (void)bounce5AnimationStopped {
-    
-    [UIView beginAnimations:@"3" context:NULL];
-    [UIView setAnimationDuration:0.1f];
-    
-    testView.frame = CGRectMake(testView.frame.origin.x, testView.frame.origin.y - 5, testView.frame.size.width, testView.frame.size.height);
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector: @selector(bounce6AnimationStopped)];
-    
-    [UIView commitAnimations];
-    
-    
-    
-}
-- (void)bounce6AnimationStopped {
-    
-    [UIView beginAnimations:@"3" context:NULL];
-    [UIView setAnimationDuration:0.1f];
-    
-    testView.frame = CGRectMake(testView.frame.origin.x, testView.frame.origin.y + 5, testView.frame.size.width, testView.frame.size.height);
-    [UIView setAnimationDelegate:self];
-    
-    [UIView commitAnimations];
-    
-}
 
 - (NSString *)labelForDateAtIndex:(NSInteger)index {
     NSDate *date = [self.arrayOfDates objectAtIndex:index];
