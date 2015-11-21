@@ -7,6 +7,8 @@
 //
 
 #import "SecondViewController.h"
+#import <ChameleonFramework/Chameleon.h>
+
 @interface SecondViewController ()
 @property HMSegmentedControl *segmentedControlQ1;
 @property NSMutableArray *answers;
@@ -25,7 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+    
     [self loadGraphData];
     [self loadQuestionView];
     
@@ -34,7 +36,7 @@
     [self.verticalScroll setScrollEnabled:YES];
     [self.verticalScroll setContentSize:CGSizeMake(320, 800)];
     
-    
+    self.view.backgroundColor = [UIColor flatNavyBlueColor];
     
     //Graph
     // Create a gradient to apply to the bottom portion of the graph
@@ -45,27 +47,37 @@
         1.0, 1.0, 1.0, 1.0,
         1.0, 1.0, 1.0, 0.0
     };
-    // Apply the gradient to the bottom portion of the graph
-    self.nutriGraph.gradientBottom = CGGradientCreateWithColorComponents(colorspace, components, locations, num_locations);
+    UIColor *mint = [UIColor flatMintColor];
+    UIColor *black = [mint colorWithAlphaComponent:0];
+    NSArray *colors = [NSArray arrayWithObjects:(id)mint.CGColor, (id)black.CGColor, nil];
     
-    // Enable and disable various graph properties and axis displays
+    // Apply the gradient to the bottom portion of the graph
+    self.nutriGraph.gradientBottom = CGGradientCreateWithColors(colorspace, (CFArrayRef)colors, locations);
+    //self.nutriGraph.gradientBottom = CGGradientCreateWithColorComponents(colorspace, components, locations, num_locations);
+    
+    // Enable and disable various graph properties and axis displays rgb(52,73,94) rgb(231,76,60)
+    self.nutriGraph.colorTop = [UIColor flatNavyBlueColor];
+    self.nutriGraph.colorBottom = [UIColor flatNavyBlueColor];
+    self.nutriGraph.colorLine = [UIColor flatMintColor];
+    self.nutriGraph.widthLine = 2.0;
+    self.nutriGraph.alphaTop = 1.0;
     self.nutriGraph.enableTouchReport = YES;
     self.nutriGraph.enablePopUpReport = YES;
-    self.nutriGraph.enableYAxisLabel = YES;
+    self.nutriGraph.enableYAxisLabel = NO;
     self.nutriGraph.autoScaleYAxis = YES;
     self.nutriGraph.alwaysDisplayDots = NO;
-    self.nutriGraph.enableReferenceXAxisLines = YES;
+    self.nutriGraph.enableReferenceXAxisLines = NO;
     self.nutriGraph.enableReferenceYAxisLines = YES;
     self.nutriGraph.enableReferenceAxisFrame = YES;
     self.nutriGraph.enableBezierCurve = YES;
     
     // Draw an average line
     self.nutriGraph.averageLine.enableAverageLine = YES;
-    self.nutriGraph.averageLine.alpha = 0.6;
-    self.nutriGraph.averageLine.color = [UIColor darkGrayColor];
+    self.nutriGraph.averageLine.alpha = 0.3;
+    self.nutriGraph.averageLine.color = [UIColor whiteColor];
     self.nutriGraph.averageLine.width = 2.5;
     self.nutriGraph.averageLine.dashPattern = @[@(2),@(2)];
-    self.nutriGraph.colorXaxisLabel = [UIColor whiteColor];
+    self.nutriGraph.colorXaxisLabel = [UIColor flatMintColor];
     self.nutriGraph.colorYaxisLabel = [UIColor whiteColor];
     
     // Set the graph's animation style to draw, fade, or none
@@ -80,11 +92,13 @@
 
 
 }
+
 - (void)viewDidAppear:(BOOL)animated {
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(btnAgrega:)];
     
     self.tabBarController.navigationItem.rightBarButtonItem = addButton;
-    
+    [self.tabBarController.tabBar setTintColor:[UIColor flatMintColor]];
+    [self.tabBarController.navigationController.navigationBar setTintColor:[UIColor flatMintColor]];
 }
 
 - (IBAction)btnAgrega:(UIButton *)sender {
@@ -123,12 +137,11 @@
     }else{
         self.horizontalScrollView.hidden = NO;
         self.horizontalView.hidden = NO;
-         self.verticalScroll.frame = CGRectMake(0,225,self.verticalScroll.frame.size.width, self.verticalScroll.frame.size.height);
+        self.verticalScroll.frame = CGRectMake(0,225,self.verticalScroll.frame.size.width, self.verticalScroll.frame.size.height);
     
     }
     
 }
-
 
 - (void)loadGraphData {
     NSDate *today = [NSDate date];
@@ -183,10 +196,13 @@
     self.horizontalScrollView.frame = CGRectMake(0, 0, 375, 162);
     //Impide que usuario pueda darle scroll
     self.horizontalScrollView.scrollEnabled = NO;
+    
+    [self.horizontalScrollView setBackgroundColor:[UIColor flatMintColor]];
+    [self.horizontalView setBackgroundColor:[UIColor flatMintColor]];
 
     //SegmentedControl for horizontal scroll view
     _segmentedControlQ1 = [[HMSegmentedControl alloc] initWithSectionTitles:@[@"1", @"2", @"3", @"4", @"5"]];
-    [_segmentedControlQ1 setFrame:CGRectMake(0, 107, self.horizontalScrollView.frame.size.width, 53)];
+    [_segmentedControlQ1 setFrame:CGRectMake(0, 115, self.horizontalScrollView.frame.size.width, 53)];
     [_segmentedControlQ1 setIndexChangeBlock:^(NSInteger index) {
         NSLog(@"Selected index %ld (via block)", (long)index);
         double delayInSeconds = 0.25;
@@ -213,26 +229,28 @@
         
     }];
     _segmentedControlQ1.selectionIndicatorHeight = 4.0f;
-    _segmentedControlQ1.backgroundColor = [UIColor colorWithRed:0.1 green:0.4 blue:0.8 alpha:1];
-    _segmentedControlQ1.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
+    _segmentedControlQ1.backgroundColor = [UIColor flatMintColorDark];
+    
+    _segmentedControlQ1.titleTextAttributes = @{NSFontAttributeName : [UIFont fontWithName:@"Avenir-Heavy" size:18], NSForegroundColorAttributeName : [UIColor flatNavyBlueColorDark]};
     _segmentedControlQ1.selectionIndicatorColor = [UIColor colorWithRed:0.5 green:0.8 blue:1 alpha:1];
     _segmentedControlQ1.selectionStyle = HMSegmentedControlSelectionStyleBox;
     _segmentedControlQ1.selectedSegmentIndex = HMSegmentedControlNoSegment;
     _segmentedControlQ1.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
     _segmentedControlQ1.shouldAnimateUserSelection = NO;
     _segmentedControlQ1.tag = 1;
+    
     [self.horizontalScrollView addSubview:_segmentedControlQ1];
     
     // Create Label 1
-    UILabel *labelOne = [[UILabel alloc]initWithFrame:CGRectMake(70, 10, 400, 40)];
-    [labelOne setBackgroundColor:[UIColor clearColor]];
-    [labelOne setText:@"Incluir gran variedad de frutas y verduras"];
+    UILabel *labelOne = [[UILabel alloc]initWithFrame:CGRectMake(5, 10, 400, 40)];
+    [labelOne setTextColor:[UIColor flatNavyBlueColorDark]];
+    [labelOne setText:@"¿Consumes una gran variedad de frutas y verduras?"];
     [labelOne setFont:[UIFont fontWithName:@"Avenir-Heavy" size:15]];
     [self.horizontalScrollView addSubview:labelOne];
     
     // Create Label 2
     UILabel *labelTwo = [[UILabel alloc]initWithFrame:CGRectMake(self.horizontalScrollView.frame.size.width+70, 10, 400, 40)];
-    [labelTwo setBackgroundColor:[UIColor clearColor]];
+    [labelTwo setTextColor:[UIColor flatNavyBlueColorDark]];
     [labelTwo setText:@"Comes seguido cereales integrales?"];
     [labelTwo setFont:[UIFont fontWithName:@"Avenir-Heavy" size:15]];
     [self.horizontalScrollView addSubview:labelTwo];
@@ -240,6 +258,7 @@
     // Create Label 3
     UILabel *labelThree = [[UILabel alloc]initWithFrame:CGRectMake(self.horizontalScrollView.frame.size.width*2+70, 10, 400, 80)];
     [labelThree setText:@"Consumes bebidas o comidas con \n azucares con moderación?"];
+    [labelThree setTextColor:[UIColor flatNavyBlueColorDark]];
     labelThree.lineBreakMode = UILineBreakModeWordWrap;
     labelThree.numberOfLines = 0;
     [labelThree setFont:[UIFont fontWithName:@"Avenir-Heavy" size:15]];
@@ -248,6 +267,7 @@
     // Create Label 4
     UILabel *labelFour = [[UILabel alloc]initWithFrame:CGRectMake(self.horizontalScrollView.frame.size.width*3+70, 10, 400, 80)];
     [labelFour setText:@"Consumes al menos un litro de agua diario?"];
+    [labelFour setTextColor:[UIColor flatNavyBlueColorDark]];
     labelFour.lineBreakMode = UILineBreakModeWordWrap;
     labelFour.numberOfLines = 0;
     [labelFour setFont:[UIFont fontWithName:@"Avenir-Heavy" size:15]];
@@ -256,6 +276,7 @@
     // Create Label 5
     UILabel *labelFive = [[UILabel alloc]initWithFrame:CGRectMake(self.horizontalScrollView.frame.size.width*4+70, 10, 400, 80)];
     [labelFive setText:@"Respetas tus horarios de comida?"];
+    [labelFive setTextColor:[UIColor flatNavyBlueColorDark]];
     labelFive.lineBreakMode = UILineBreakModeWordWrap;
     labelFive.numberOfLines = 0;
     [labelFive setFont:[UIFont fontWithName:@"Avenir-Heavy" size:15]];
@@ -266,13 +287,9 @@
 
     [self.horizontalScrollView setContentSize:CGSizeMake(self.horizontalScrollView.frame.size.width*5, self.horizontalScrollView.frame.size.height)];
     
-
     
 
 }
-
-
-
 
 #pragma mark Question Buttons
 

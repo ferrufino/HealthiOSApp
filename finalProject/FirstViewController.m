@@ -10,6 +10,7 @@
 #import "SecondViewController.h"
 #import "DateUtilities.h"
 #import "UIColor+FSPalette.h"
+#import <ChameleonFramework/Chameleon.h>
 
 
 
@@ -34,7 +35,7 @@
     [super viewDidLoad];
     
     [self loadGraphData];
-  
+    
     //Scroll View
     [self.scrollView setScrollEnabled:YES];
     [self.scrollView setContentSize:CGSizeMake(320, 800)];
@@ -91,7 +92,9 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(btnAgrega:)];
     
     self.tabBarController.navigationItem.rightBarButtonItem = addButton;
-   
+    [self.tabBarController.navigationController.navigationBar setTintColor:[UIColor flatYellowColor]];
+    [self.tabBarController.tabBar setTintColor:[UIColor flatYellowColor]];
+    [self.view setTintColor:[UIColor flatYellowColor]];
 }
 - (void) setQuestionView {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
