@@ -83,10 +83,10 @@
 
 
 - (NSMutableDictionary *)formatReport:(NSMutableDictionary *)report {
-    int roundedFoodScore = (int)[[report valueForKey:@"foodScore"] floatValue] + 0.5;
-    int roundedSleepScore = (int)[[report valueForKey:@"sleepScore"] floatValue] + 0.5;
-    int roundedExerciseScore = (int)[[report valueForKey:@"exerciseScore"] floatValue] + 0.5;
-    int roundedScore = (int)[[report valueForKey:@"score"] floatValue] + 0.5;
+    int roundedFoodScore = (int)([[report valueForKey:@"foodScore"] floatValue] + 0.5);
+    int roundedSleepScore = (int)([[report valueForKey:@"sleepScore"] floatValue] + 0.5);
+    int roundedExerciseScore = (int)([[report valueForKey:@"exerciseScore"] floatValue] + 0.5);
+    int roundedScore = (int)([[report valueForKey:@"score"] floatValue] + 0.5);
     
     NSMutableDictionary *roundedScores = [[NSMutableDictionary alloc] init];
     [roundedScores setValue:@(roundedFoodScore) forKey:@"foodScore"];
@@ -127,13 +127,12 @@
         NSNumber *foodScore = [record valueForKey:@"foodScore"];
         NSNumber *exerciseScore = [record valueForKey:@"exerciseScore"];
         NSNumber *sleepScore = [record valueForKey:@"sleepScore"];
-        NSNumber *score = [[NSNumber alloc] initWithFloat:
-                           ([foodScore floatValue] + [exerciseScore floatValue] + [sleepScore floatValue]) / 3];
+        CGFloat score = ([foodScore floatValue] + [exerciseScore floatValue] + [sleepScore floatValue]) / 3.0;
         NSDate *date = [record valueForKey:@"date"];
         [report setValue:foodScore forKey:@"foodScore"];
         [report setValue:exerciseScore forKey:@"exerciseScore"];
         [report setValue:sleepScore forKey:@"sleepScore"];
-        [report setValue:score forKey:@"score"];
+        [report setValue:@(score) forKey:@"score"];
         [report setValue:date forKey:@"date"];
         [self.reports addObject:report];
     }
