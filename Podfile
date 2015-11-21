@@ -3,4 +3,5 @@ use_frameworks!
 pod 'BEMSimpleLineGraph'
 pod 'HMSegmentedControl'
 pod 'Canvas'
+pod 'ChameleonFramework'
 
