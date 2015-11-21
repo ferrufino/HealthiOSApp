@@ -253,11 +253,6 @@
     return @" horas";
 }
 
-// PopAlert - INPUT INGRESADO EN EL TEXTFIELD
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    NSLog(@"Entered: %@",[[alertView textFieldAtIndex:0] text]);
-}
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

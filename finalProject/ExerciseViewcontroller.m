@@ -36,7 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    
-    
+     [self loadGraphData];
     /*****Vertical Scroll***/
     [self.scrollView setScrollEnabled:YES];
     [self.scrollView setContentSize:CGSizeMake(320, 1000)];
@@ -54,7 +54,6 @@
     _animationView.duration = 0.5;
     _animationView.delay    = 0;
     _animationView.type     = CSAnimationTypeFadeInUp;
-    
     
     UITapGestureRecognizer *singleFingerTap =
     [[UITapGestureRecognizer alloc] initWithTarget:self
@@ -87,7 +86,51 @@
 
     [self.scrollView addSubview:_animationView];
     
-
+    
+    //Graph
+    // Create a gradient to apply to the bottom portion of the graph
+    //Graph
+    // Create a gradient to apply to the bottom portion of the graph
+    CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
+    size_t num_locations = 2;
+    CGFloat locations[2] = { 0.0, 1.0 };
+    CGFloat components[8] = {
+        1.0, 1.0, 1.0, 1.0,
+        1.0, 1.0, 1.0, 0.0
+    };
+    
+    // Apply the gradient to the bottom portion of the graph
+    self.exerciseGraph.gradientBottom = CGGradientCreateWithColorComponents(colorspace, components, locations, num_locations);
+    
+    // Enable and disable various graph properties and axis displays
+    self.exerciseGraph.enableTouchReport = YES;
+    self.exerciseGraph.enablePopUpReport = YES;
+    self.exerciseGraph.enableYAxisLabel = YES;
+    self.exerciseGraph.autoScaleYAxis = YES;
+    self.exerciseGraph.alwaysDisplayDots = NO;
+    self.exerciseGraph.enableReferenceXAxisLines = YES;
+    self.exerciseGraph.enableReferenceYAxisLines = YES;
+    self.exerciseGraph.enableReferenceAxisFrame = YES;
+    self.exerciseGraph.enableBezierCurve = YES;
+    
+    // Draw an average line
+    self.exerciseGraph.averageLine.enableAverageLine = YES;
+    self.exerciseGraph.averageLine.alpha = 0.6;
+    self.exerciseGraph.averageLine.color = [UIColor darkGrayColor];
+    self.exerciseGraph.averageLine.width = 2.5;
+    self.exerciseGraph.averageLine.dashPattern = @[@(2),@(2)];
+    self.exerciseGraph.colorXaxisLabel = [UIColor whiteColor];
+    self.exerciseGraph.colorYaxisLabel = [UIColor whiteColor];
+    
+    // Set the graph's animation style to draw, fade, or none
+    self.exerciseGraph.animationGraphStyle = BEMLineAnimationDraw;
+    
+    // Dash the y reference lines
+    self.exerciseGraph.lineDashPatternForReferenceYAxisLines = @[@(2),@(2)];
+    
+    // Show the y axis values with this format string
+    self.exerciseGraph.formatStringForValues = @"%.1f";
+    
 }
 
 - (void) setQuestionView {
@@ -331,5 +374,89 @@
     }
     
 }
+- (NSString *)labelForDateAtIndex:(NSInteger)index {
+    NSDate *date = [self.arrayOfDates objectAtIndex:index];
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    df.dateFormat = @"MM/dd";
+    NSString *label = [df stringFromDate:date];
+    return label;
+}
+#pragma mark - SimpleLineGraph Data Source
+
+- (NSInteger)numberOfPointsInLineGraph:(BEMSimpleLineGraphView *)graph {
+    return 7;
+}
+- (CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {
+    return [[self.arrayOfValuesA objectAtIndex:index] doubleValue];
+}
+
+#pragma mark - SimpleLineGraph Delegate
+
+
+- (NSString *)lineGraph:(BEMSimpleLineGraphView *)graph labelOnXAxisForIndex:(NSInteger)index {
+    return [self labelForDateAtIndex:index];
+}
+
+- (NSInteger)numberOfGapsBetweenLabelsOnLineGraph:(BEMSimpleLineGraphView *)graph {
+    return 1;
+}
+
+/* - (void)lineGraphDidFinishDrawing:(BEMSimpleLineGraphView *)graph {
+ // Use this method for tasks after the graph has finished drawing
+ } */
+
+- (NSString *)popUpSuffixForlineGraph:(BEMSimpleLineGraphView *)graph {
+    return @" horas";
+}
+
+#pragma mark - Helper functions
+
+- (void)loadGraphData {
+    NSDate *today = [NSDate date];
+    NSDate *yesterday = [today dateByAddingTimeInterval:-86400.0];
+    NSDate *twoDaysAgo = [yesterday dateByAddingTimeInterval:-86400.0];
+    NSDate *threeDaysAgo = [twoDaysAgo dateByAddingTimeInterval:-86400.0];
+    NSDate *fourDaysAgo = [threeDaysAgo dateByAddingTimeInterval:-86400.0];
+    NSDate *fiveDaysAgo = [fourDaysAgo dateByAddingTimeInterval:-86400.0];
+    NSDate *sixDaysAgo = [fiveDaysAgo dateByAddingTimeInterval:-86400.0];
+    NSDate *sevenDaysAgo = [sixDaysAgo dateByAddingTimeInterval:-86400.0];
+    
+    self.arrayOfDates = [[NSMutableArray alloc] initWithObjects:today, yesterday, twoDaysAgo,
+                         threeDaysAgo, fourDaysAgo, fiveDaysAgo, sixDaysAgo, sevenDaysAgo, nil];
+    
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"ExerciseRecord"
+                                              inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entity];
+    NSError *error;
+    NSManagedObject *record;
+    NSPredicate *predicate;
+    NSArray *fetchResults;
+    self.arrayOfValuesA = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i<=6; i++) {
+        predicate = [NSPredicate predicateWithFormat:@"(date <= %@) AND (date >= %@)",
+                     [self.arrayOfDates objectAtIndex:i], [self.arrayOfDates objectAtIndex:i+1]];
+        [request setPredicate:predicate];
+        [request setFetchLimit:1];
+        fetchResults = [context executeFetchRequest:request error:&error];
+        NSNumber *duration = [[NSNumber alloc] initWithFloat:0];
+        if (fetchResults.count != 0) {
+            record = [fetchResults objectAtIndex:0];
+            duration = [record valueForKey:@"anaerobicDuration"];
+        }
+        [self.arrayOfValuesA addObject:duration];
+    }
+    
+    [self.arrayOfDates removeObjectAtIndex:7];
+    self.arrayOfDates = [[[self.arrayOfDates reverseObjectEnumerator] allObjects] mutableCopy];
+    self.arrayOfValuesA = [[[self.arrayOfValuesA reverseObjectEnumerator] allObjects] mutableCopy];
+    
+    
+}
+
 
 @end

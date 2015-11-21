@@ -73,7 +73,7 @@
                                         <rect key="frame" x="0.0" y="-19" width="375" height="598"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pF1-tc-vRd" customClass="BEMSimpleLineGraphView">
-                                                <rect key="frame" x="30" y="100" width="304" height="380"/>
+                                                <rect key="frame" x="0.0" y="17" width="375" height="463"/>
                                                 <animations/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <connections>
@@ -286,6 +286,17 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yEK-t0-sG1">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qDl-fe-Vw5" customClass="BEMSimpleLineGraphView">
+                                                <rect key="frame" x="0.0" y="-6" width="375" height="365"/>
+                                                <animations/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="gBW-9N-U4b" id="CkJ-ND-i7q"/>
+                                                    <outlet property="delegate" destination="gBW-9N-U4b" id="p47-IU-tCM"/>
+                                                </connections>
+                                            </view>
+                                        </subviews>
                                         <animations/>
                                         <color key="backgroundColor" red="0.47588853406376963" green="1" blue="0.99531890401251433" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
@@ -303,6 +314,7 @@
                         <outlet property="btMinusAreobico" destination="iXT-UL-VzO" id="mPh-By-LYS"/>
                         <outlet property="btPlusAnareobico" destination="axq-Jf-r1q" id="3Dw-at-iO5"/>
                         <outlet property="btPlusAreobico" destination="Lic-xN-nai" id="63J-Jr-Wfn"/>
+                        <outlet property="exerciseGraph" destination="qDl-fe-Vw5" id="w2c-1z-HHM"/>
                         <outlet property="questionView" destination="yEK-t0-sG1" id="kEN-K6-4kW"/>
                         <outlet property="scrollView" destination="stE-iB-0mB" id="OYT-6t-ilB"/>
                         <outlet property="tfAnareobico" destination="H04-ua-9Qg" id="CLF-o2-PbJ"/>
