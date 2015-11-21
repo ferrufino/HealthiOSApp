@@ -276,15 +276,13 @@
     testView.frame = CGRectMake(50, 500, 280, 185);
     
     [UIView setAnimationDelegate:self];
-    // 如果不需要执行的弹跳可不执行
+
     [UIView setAnimationDidStopSelector: @selector(bounceAnimationStopped)];
     
     [UIView commitAnimations];
     
 }
 
-#pragma -
-#pragma mark  阻尼弹跳
 
 - (void)bounceAnimationStopped {
     

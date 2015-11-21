@@ -36,7 +36,7 @@
     
     //SegmentedControl for horizontal scroll view
     _segmentedControlQ1 = [[HMSegmentedControl alloc] initWithSectionTitles:@[@"1", @"2", @"3", @"4", @"5"]];
-    [_segmentedControlQ1 setFrame:CGRectMake(0, 112, self.horizontalScrollView.frame.size.width, 53)];
+    [_segmentedControlQ1 setFrame:CGRectMake(0, 107, self.horizontalScrollView.frame.size.width, 53)];
     [_segmentedControlQ1 setIndexChangeBlock:^(NSInteger index) {
         NSLog(@"Selected index %ld (via block)", (long)index);
         double delayInSeconds = 0.25;
@@ -128,7 +128,7 @@
     
     
     //Animated cards
-    testView  = [[UIView alloc]initWithFrame:CGRectMake(50, 580, 280, 185)];
+    testView  = [[UIView alloc]initWithFrame:CGRectMake(65, 580, 280, 185)];
     testView.backgroundColor = [UIColor redColor];
     testView.layer.cornerRadius = 10.0; // set cornerRadius as you want.
     testView.layer.borderColor = [UIColor lightGrayColor].CGColor; // set color as you want.
@@ -194,7 +194,7 @@
     if ([self.answers count] == 5){
        // self.horizontalScrollView.hidden = YES;
        // self.horizontalView.hidden = YES;
-        self.verticalScroll.frame = CGRectMake(0, 0, 375, 578);
+        self.verticalScroll.frame = CGRectMake(0, 65, 375, 578);
 
         
     }
@@ -264,7 +264,7 @@
 //    CGRect frame = CGRectMake(self.horizontalScrollView.frame.size.width*5, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height); //wherever you want to scroll
 //    [self.horizontalScrollView scrollRectToVisible:frame animated:YES];
     self.horizontalScrollView.hidden = YES;
-    self.verticalScroll.frame = CGRectMake(0,0,self.verticalScroll.frame.size.width, self.verticalScroll.frame.size.height);
+    self.verticalScroll.frame = CGRectMake(0,65,self.verticalScroll.frame.size.width, self.verticalScroll.frame.size.height);
     for (id obj in self.answers)
         NSLog(@"%@", obj);
     
