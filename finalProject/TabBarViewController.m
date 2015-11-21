@@ -30,7 +30,7 @@
 }
 
 - (IBAction)unwindProfile:(UIStoryboardSegue *)segue {
-    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*
