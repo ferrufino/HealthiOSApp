@@ -59,7 +59,7 @@
                                         <rect key="frame" x="0.0" y="-19" width="375" height="598"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pF1-tc-vRd" customClass="BEMSimpleLineGraphView">
-                                                <rect key="frame" x="0.0" y="18" width="375" height="373"/>
+                                                <rect key="frame" x="0.0" y="19" width="375" height="373"/>
                                                 <animations/>
                                                 <connections>
                                                     <outlet property="dataSource" destination="9pv-A4-QxB" id="mbP-eM-Cbo"/>
@@ -317,8 +317,8 @@
                                                 <animations/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <connections>
-                                                    <outlet property="dataSource" destination="gBW-9N-U4b" id="CkJ-ND-i7q"/>
-                                                    <outlet property="delegate" destination="gBW-9N-U4b" id="p47-IU-tCM"/>
+                                                    <outlet property="dataSource" destination="gBW-9N-U4b" id="gOJ-66-bND"/>
+                                                    <outlet property="delegate" destination="gBW-9N-U4b" id="ZpM-b5-6aS"/>
                                                 </connections>
                                             </view>
                                         </subviews>
@@ -339,8 +339,8 @@
                         <outlet property="aerobicStepper" destination="Xg5-PT-xaA" id="S0r-kf-PlB"/>
                         <outlet property="anaerobicMinutesLabel" destination="fJf-fH-ObC" id="qGV-e0-DTQ"/>
                         <outlet property="anaerobicStepper" destination="cTB-Ma-LIB" id="CPG-9g-b5n"/>
-                        <outlet property="exerciseGraph" destination="qDl-fe-Vw5" id="w2c-1z-HHM"/>
-                        <outlet property="questionView" destination="yEK-t0-sG1" id="kEN-K6-4kW"/>
+                        <outlet property="exerciseGraph" destination="qDl-fe-Vw5" id="SsD-jI-zD4"/>
+                        <outlet property="questionView" destination="5ul-Yp-x3G" id="8zB-PF-dsx"/>
                         <outlet property="scrollView" destination="stE-iB-0mB" id="OYT-6t-ilB"/>
                     </connections>
                 </viewController>
@@ -601,24 +601,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pwn-g9-5cP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-406.5" y="937.5"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="wHB-c8-xri">
-            <objects>
-                <viewController id="fEz-uc-3vx" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="rCX-mx-knl"/>
-                        <viewControllerLayoutGuide type="bottom" id="NWK-Qz-Dwr"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Afd-Qu-NqT">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="j0r-ft-nHc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
     </scenes>
     <resources>

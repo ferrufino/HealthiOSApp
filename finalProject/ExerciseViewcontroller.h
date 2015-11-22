@@ -11,7 +11,7 @@
 @interface ExerciseViewcontroller : UIViewController<BEMSimpleLineGraphDataSource, BEMSimpleLineGraphDelegate>
 
 
-@property (weak, nonatomic) IBOutlet BEMSimpleLineGraphView *exerciseGraph;
+
 
 @property (weak, nonatomic) IBOutlet UIStepper *aerobicStepper;
 @property (weak, nonatomic) IBOutlet UIStepper *anaerobicStepper;
@@ -21,13 +21,17 @@
 - (IBAction)pressedAnaerobicStepper:(UIStepper *)sender;
 
 
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UIView *questionView;
 
 @property (strong, nonatomic) NSMutableArray *arrayOfValuesA;
 @property (strong, nonatomic) NSMutableArray *arrayOfValuesAna;
 @property (strong, nonatomic) NSMutableArray *arrayOfDates;
 
 - (IBAction)submit:(id)sender;
+
+
+//Views
+@property (weak, nonatomic) IBOutlet BEMSimpleLineGraphView *exerciseGraph;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIView *questionView;
 
 @end

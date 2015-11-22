@@ -143,8 +143,13 @@
     if (_mustAnswer) {
         self.tabBarController.navigationItem.rightBarButtonItem = nil;
     }else{
-        UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit Input" style:nil target:self action:@selector(btnAgrega:)];
-        self.tabBarController.navigationItem.rightBarButtonItem = anotherButton;
+        UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic_mode_edit_18pt"]
+                                                                       style:UIBarButtonItemStylePlain
+                                                                      target:self
+                                                                      action:@selector(editInput:)];
+        self.tabBarController.navigationItem.rightBarButtonItem = editButton;
+
+       
         [self.tabBarController.navigationController.navigationBar setTintColor:[UIColor flatMintColor]];
         [self.tabBarController.tabBar setTintColor:[UIColor flatMintColor]];
         [self.view setTintColor:[UIColor flatMintColor]];
@@ -230,7 +235,7 @@
     return roundf( acum-1);
 }
 
-- (IBAction)btnAgrega:(UIButton *)sender {
+- (IBAction) editInput:(UIButton *)sender {
     if (!_mustAnswer) {
         if (_show) {
             _show = NO;
