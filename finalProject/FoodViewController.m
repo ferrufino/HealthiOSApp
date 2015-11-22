@@ -377,13 +377,13 @@
     // Create Label 2
     UILabel *labelTwo = [[UILabel alloc]initWithFrame:CGRectMake(self.horizontalScrollView.frame.size.width+70, 10, 400, 40)];
     [labelTwo setTextColor:[UIColor flatNavyBlueColorDark]];
-    [labelTwo setText:@"Comes seguido cereales integrales?"];
+    [labelTwo setText:@"¿Comes seguido cereales integrales?"];
     [labelTwo setFont:[UIFont fontWithName:@"Avenir-Heavy" size:15]];
     [self.horizontalScrollView addSubview:labelTwo];
     
     // Create Label 3
     UILabel *labelThree = [[UILabel alloc]initWithFrame:CGRectMake(self.horizontalScrollView.frame.size.width*2+70, 10, 400, 80)];
-    [labelThree setText:@"Consumes bebidas o comidas con \n azucares con moderación?"];
+    [labelThree setText:@"¿Consumes bebidas o comidas con \n azucares con moderación?"];
     [labelThree setTextColor:[UIColor flatNavyBlueColorDark]];
     labelThree.lineBreakMode = UILineBreakModeWordWrap;
     labelThree.numberOfLines = 0;
@@ -391,8 +391,8 @@
     [self.horizontalScrollView addSubview:labelThree];
     
     // Create Label 4
-    UILabel *labelFour = [[UILabel alloc]initWithFrame:CGRectMake(self.horizontalScrollView.frame.size.width*3+70, 10, 400, 80)];
-    [labelFour setText:@"Consumes al menos un litro de agua diario?"];
+    UILabel *labelFour = [[UILabel alloc]initWithFrame:CGRectMake(self.horizontalScrollView.frame.size.width*3+40, 10, 400, 80)];
+    [labelFour setText:@"¿Consumes al menos un litro de agua diario?"];
     [labelFour setTextColor:[UIColor flatNavyBlueColorDark]];
     labelFour.lineBreakMode = UILineBreakModeWordWrap;
     labelFour.numberOfLines = 0;
@@ -401,7 +401,7 @@
     
     // Create Label 5
     UILabel *labelFive = [[UILabel alloc]initWithFrame:CGRectMake(self.horizontalScrollView.frame.size.width*4+70, 10, 400, 80)];
-    [labelFive setText:@"Respetas tus horarios de comida?"];
+    [labelFive setText:@"¿Respetas tus horarios de comida?"];
     [labelFive setTextColor:[UIColor flatNavyBlueColorDark]];
     labelFive.lineBreakMode = UILineBreakModeWordWrap;
     labelFive.numberOfLines = 0;
