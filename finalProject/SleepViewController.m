@@ -19,13 +19,12 @@
 @property NSArray *fetchResults;
 @property NSManagedObject *lastRecord;
 @property  UIAlertView *alert;
-
+@property CSAnimationView *animationView;
+@property NSMutableArray *suggestions;
 @property BOOL show;
 @property BOOL edit;
 @property BOOL mustAnswer;
 
-@property CSAnimationView *animationView;
-@property NSMutableArray *suggestions;
 @end
 
 @implementation SleepViewController
@@ -171,20 +170,6 @@
     [_animationView startCanvasAnimation];
 }
 
--(IBAction) cardPressed {
-    
-    _animationView.type = CSAnimationTypeShake;
-    [_animationView startCanvasAnimation];
-    
-    NSLog(@"Click");
-    [self loadSuggestion];
-    
-}
-
-- (void)quitaTeclado {
-    [self.view endEditing:YES];
-    
-}
 
 - (void) setQuestionView {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
@@ -216,6 +201,19 @@
         self.scrollView.frame = CGRectMake(0,210,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
         
     }
+    
+}
+-(IBAction) cardPressed {
+    
+    _animationView.type = CSAnimationTypeShake;
+    [_animationView startCanvasAnimation];
+    
+    NSLog(@"Click");
+    [self loadSuggestion];
+    
+}
+- (void)quitaTeclado {
+    [self.view endEditing:YES];
     
 }
 - (NSDate *)dateForGraphAfterDate:(NSDate *)date {
@@ -387,7 +385,7 @@
                                                              inManagedObjectContext:context];
         NSError *error = nil;
         
-        ///
+        /// Creates new entry or modifies existing one
         if (_edit) {
             _edit = false;
             NSLog(@"esto edita entrada");
@@ -406,6 +404,7 @@
             NSArray *resultDesc = [[[results reverseObjectEnumerator] allObjects] mutableCopy];
             record = [resultDesc lastObject];
             [record setValue:@(averageScore) forKey:@"duration"];
+            [record setValue:date forKey:@"date"];
             
         }else{
             
@@ -414,6 +413,7 @@
             NSLog(@"esto es una nueva entrada");
         
         }
+
         [context save:&error];
 
     }

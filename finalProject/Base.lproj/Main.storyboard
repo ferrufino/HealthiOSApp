@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QJ4-B0-TSo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QJ4-B0-TSo">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -59,7 +59,7 @@
                                         <rect key="frame" x="0.0" y="-19" width="375" height="598"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pF1-tc-vRd" customClass="BEMSimpleLineGraphView">
-                                                <rect key="frame" x="0.0" y="18" width="375" height="373"/>
+                                                <rect key="frame" x="0.0" y="19" width="375" height="373"/>
                                                 <animations/>
                                                 <connections>
                                                     <outlet property="dataSource" destination="9pv-A4-QxB" id="mbP-eM-Cbo"/>
@@ -317,8 +317,8 @@
                                                 <animations/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <connections>
-                                                    <outlet property="dataSource" destination="gBW-9N-U4b" id="CkJ-ND-i7q"/>
-                                                    <outlet property="delegate" destination="gBW-9N-U4b" id="p47-IU-tCM"/>
+                                                    <outlet property="dataSource" destination="gBW-9N-U4b" id="gOJ-66-bND"/>
+                                                    <outlet property="delegate" destination="gBW-9N-U4b" id="ZpM-b5-6aS"/>
                                                 </connections>
                                             </view>
                                         </subviews>
@@ -339,8 +339,8 @@
                         <outlet property="aerobicStepper" destination="Xg5-PT-xaA" id="S0r-kf-PlB"/>
                         <outlet property="anaerobicMinutesLabel" destination="fJf-fH-ObC" id="qGV-e0-DTQ"/>
                         <outlet property="anaerobicStepper" destination="cTB-Ma-LIB" id="CPG-9g-b5n"/>
-                        <outlet property="exerciseGraph" destination="qDl-fe-Vw5" id="w2c-1z-HHM"/>
-                        <outlet property="questionView" destination="yEK-t0-sG1" id="kEN-K6-4kW"/>
+                        <outlet property="exerciseGraph" destination="qDl-fe-Vw5" id="SsD-jI-zD4"/>
+                        <outlet property="questionView" destination="5ul-Yp-x3G" id="8zB-PF-dsx"/>
                         <outlet property="scrollView" destination="stE-iB-0mB" id="OYT-6t-ilB"/>
                     </connections>
                 </viewController>

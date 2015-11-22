@@ -160,8 +160,12 @@
 
 
 -(IBAction) cardPressed {
-    _animationView.type = CSAnimationTypeShake;
-    [_animationView startCanvasAnimation];
+
+   
+          _animationView.type = CSAnimationTypeShake;
+         [_animationView startCanvasAnimation];
+    
+
     NSLog(@"Click");
 }
 
