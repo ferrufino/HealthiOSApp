@@ -31,7 +31,7 @@
 
 
 
-@property (weak, nonatomic) IBOutlet BEMSimpleLineGraphView *myGraph;
+@property (weak, nonatomic) IBOutlet BEMSimpleLineGraphView *sleepGraph;
 @property (strong, nonatomic) NSMutableArray *arrayOfValues;
 @property (strong, nonatomic) NSMutableArray *arrayOfDates;
 @property (weak, nonatomic) IBOutlet UILabel *labelValues;

@@ -31,7 +31,7 @@
     [super viewDidLayoutSubviews];
     
     [self setQuestionView];
-    
+    self.view.backgroundColor = [UIColor flatNavyBlueColor];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -51,7 +51,6 @@
     _animationView.layer.cornerRadius = 55.0;
     _animationView.layer.borderWidth = 0.5;
     _animationView.layer.borderColor =(__bridge CGColorRef)([UIColor colorWithRed:14.0/255.0 green:114.0/255.0 blue:199.0/255.0 alpha:1]);
-    
     
     _animationView.duration = 0.5;
     _animationView.delay    = 0;
@@ -82,8 +81,6 @@
     
     [self.scrollView addSubview:_animationView];
 
-    
-    
      //Graph
     // Create a gradient to apply to the bottom portion of the graph
     CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
@@ -95,40 +92,47 @@
     };
    
     // Apply the gradient to the bottom portion of the graph
-    self.myGraph.gradientBottom = CGGradientCreateWithColorComponents(colorspace, components, locations, num_locations);
+    self.sleepGraph.gradientBottom = CGGradientCreateWithColorComponents(colorspace, components, locations, num_locations);
     
     // Enable and disable various graph properties and axis displays
-    self.myGraph.enableTouchReport = YES;
-    self.myGraph.enablePopUpReport = YES;
-    self.myGraph.enableYAxisLabel = YES;
-    self.myGraph.autoScaleYAxis = YES;
-    self.myGraph.alwaysDisplayDots = NO;
-    self.myGraph.enableReferenceXAxisLines = YES;
-    self.myGraph.enableReferenceYAxisLines = YES;
-    self.myGraph.enableReferenceAxisFrame = YES;
-    self.myGraph.enableBezierCurve = YES;
+    UIColor *start = [UIColor flatYellowColor];
+    UIColor *end = [start colorWithAlphaComponent:0];
+    NSArray *colors = [NSArray arrayWithObjects:(id)start.CGColor, (id)end.CGColor, nil];
+    
+    // Apply the gradient to the bottom portion of the graph
+    self.sleepGraph.gradientBottom = CGGradientCreateWithColors(colorspace, (CFArrayRef)colors, locations);
+    
+    // Enable and disable various graph properties and axis displays rgb(52,73,94) rgb(231,76,60)
+    self.sleepGraph.colorTop = [UIColor flatNavyBlueColor];
+    self.sleepGraph.colorBottom = [UIColor flatNavyBlueColor];
+    self.sleepGraph.colorLine = [UIColor flatYellowColor];
+    self.sleepGraph.enableTouchReport = YES;
+    self.sleepGraph.enablePopUpReport = YES;
+    self.sleepGraph.enableYAxisLabel = NO;
+    self.sleepGraph.autoScaleYAxis = YES;
+    self.sleepGraph.alwaysDisplayDots = NO;
+    self.sleepGraph.enableReferenceXAxisLines = NO;
+    self.sleepGraph.enableReferenceYAxisLines = YES;
+    self.sleepGraph.enableReferenceAxisFrame = YES;
+    self.sleepGraph.enableBezierCurve = YES;
     
     // Draw an average line
-    self.myGraph.averageLine.enableAverageLine = YES;
-    self.myGraph.averageLine.alpha = 0.6;
-    self.myGraph.averageLine.color = [UIColor darkGrayColor];
-    self.myGraph.averageLine.width = 2.5;
-    self.myGraph.averageLine.dashPattern = @[@(2),@(2)];
-    self.myGraph.colorXaxisLabel = [UIColor whiteColor];
-    self.myGraph.colorYaxisLabel = [UIColor whiteColor];
+    self.sleepGraph.averageLine.enableAverageLine = YES;
+    self.sleepGraph.averageLine.alpha = 0.3;
+    self.sleepGraph.averageLine.color = [UIColor flatWhiteColor];
+    self.sleepGraph.averageLine.width = 2.5;
+    self.sleepGraph.averageLine.dashPattern = @[@(2),@(2)];
+    self.sleepGraph.colorXaxisLabel = [UIColor flatYellowColor];
+    self.sleepGraph.colorYaxisLabel = [UIColor flatYellowColor];
     
     // Set the graph's animation style to draw, fade, or none
-    self.myGraph.animationGraphStyle = BEMLineAnimationDraw;
+    self.sleepGraph.animationGraphStyle = BEMLineAnimationDraw;
     
     // Dash the y reference lines
-    self.myGraph.lineDashPatternForReferenceYAxisLines = @[@(2),@(2)];
+    self.sleepGraph.lineDashPatternForReferenceYAxisLines = @[@(2),@(2)];
     
     // Show the y axis values with this format string
-    self.myGraph.formatStringForValues = @"%.1f";
-    
-    
-    
-    
+    self.sleepGraph.formatStringForValues = @"%.1f";
     
     ///Defining and secondary varibales set
     _show = NO;
@@ -145,27 +149,23 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-   
     if (_mustAnswer) {
         self.tabBarController.navigationItem.rightBarButtonItem = nil;
     }else{
         UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit Input" style:nil target:self action:@selector(btnAgrega:)];
         self.tabBarController.navigationItem.rightBarButtonItem = anotherButton;
-        [self.tabBarController.navigationController.navigationBar setTintColor:[UIColor flatYellowColor]];
-        [self.tabBarController.tabBar setTintColor:[UIColor flatYellowColor]];
-        [self.view setTintColor:[UIColor flatYellowColor]];
-        [self.navigationController.navigationBar
-         setTitleTextAttributes: @{NSFontAttributeName: [UIFont fontWithName:@"Avenir-Heavy" size:20],
-                                   NSForegroundColorAttributeName: [UIColor flatYellowColor]}];
-
-    
     }
-    
-    
+    [self.tabBarController.navigationController.navigationBar setTintColor:[UIColor flatYellowColor]];
+    [self.tabBarController.tabBar setTintColor:[UIColor flatYellowColor]];
+    [self.view setTintColor:[UIColor flatNavyBlueColorDark]];
+    [self.navigationController.navigationBar
+     setTitleTextAttributes: @{NSFontAttributeName: [UIFont fontWithName:@"Avenir-Heavy" size:20],
+                               NSForegroundColorAttributeName: [UIColor flatYellowColor]}];
     
     _animationView.type = CSAnimationTypeFadeInUp;
     [_animationView startCanvasAnimation];
 }
+
 -(IBAction) cardPressed {
     
     _animationView.type = CSAnimationTypeShake;
@@ -175,6 +175,7 @@
     [self loadSuggestion];
     
 }
+
 - (void)quitaTeclado {
     [self.view endEditing:YES];
     
@@ -260,31 +261,19 @@
 }
 
 - (IBAction)btnAgrega:(UIButton *)sender {
-    
     if (!_mustAnswer) {
         if (_show) {
             _show = NO;
             self.questionView.hidden = YES;
             self.scrollView.frame = CGRectMake(0,62,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
-            
-            
         }else{
-            
             _show = YES;
             _edit = YES;
             self.questionView.hidden = NO;
             self.scrollView.frame = CGRectMake(0,210,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
-            
-            
         }
-
     }
-    
 }
-
-
-
-
 
 #pragma mark - Helper functions
 
@@ -367,16 +356,12 @@
     NSLog(@"Valor regresado en sueño::%d",(NSInteger)roundf( acum));
     return roundf( acum-1);
     
-    
-
-
-
 }
 
 - (IBAction)submit:(id)sender {
    
     if (![self.tfTimeSlept.text isEqualToString:@""]) {
-         _show = false;
+        _show = false;
         _mustAnswer = NO;
         [self.view endEditing:YES];
         self.questionView.hidden = YES;
@@ -396,7 +381,7 @@
         
         NSManagedObject *record = [NSEntityDescription insertNewObjectForEntityForName:@"SleepRecord"
                                                              inManagedObjectContext:context];
-         NSError *error = nil;
+        NSError *error = nil;
         
         ///
         if (_edit) {
@@ -424,16 +409,6 @@
             NSLog(@"esto es una nueva entrada");
         
         }
-        
-        
-        
-        ///
-        
-        
-        
-        
-        
-        
     
         [context save:&error];
 
