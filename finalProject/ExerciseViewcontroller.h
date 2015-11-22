@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BEMSimpleLineGraphView.h"
+@interface ExerciseViewcontroller : UIViewController<BEMSimpleLineGraphDataSource, BEMSimpleLineGraphDelegate>
 
-@interface ExerciseViewcontroller : UIViewController{
-UIView *cardView;
-}
+
+@property (weak, nonatomic) IBOutlet BEMSimpleLineGraphView *exerciseGraph;
+
 - (IBAction)buttonPressed:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UIButton *btPlusAreobico;
 @property (weak, nonatomic) IBOutlet UIButton *btMinusAreobico;
@@ -22,6 +24,13 @@ UIView *cardView;
 @property (weak, nonatomic) IBOutlet UITextField *tfAnareobico;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *questionView;
+
+@property (strong, nonatomic) NSMutableArray *arrayOfValuesA;
+@property (strong, nonatomic) NSMutableArray *arrayOfValuesAna;
+@property (strong, nonatomic) NSMutableArray *arrayOfDates;
+@property (weak, nonatomic) IBOutlet UILabel *labelValues;
+@property (weak, nonatomic) IBOutlet UILabel *labelDates;
+
 - (IBAction)submit:(id)sender;
 
 @end
