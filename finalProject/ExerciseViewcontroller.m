@@ -45,7 +45,7 @@
     
     _animationView = [[CSAnimationView alloc] initWithFrame:CGRectMake(50, 560 , 280, 185)];
     
-    _animationView.backgroundColor = [UIColor colorWithRed:14.0/255.0 green:114.0/255.0 blue:199.0/255.0 alpha:1];
+    _animationView.backgroundColor = [UIColor flatWatermelonColor];
     
     _animationView.layer.cornerRadius = 55.0;
     _animationView.layer.borderWidth = 0.5;
