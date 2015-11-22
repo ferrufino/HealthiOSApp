@@ -41,7 +41,7 @@
     
     /*****Vertical Scroll***/
     [self.verticalScroll setScrollEnabled:YES];
-    [self.verticalScroll setContentSize:CGSizeMake(320, 800)];
+    [self.verticalScroll setContentSize:CGSizeMake(320, 1000)];
     
     //Suggestion Card
     _animationView = [[CSAnimationView alloc] initWithFrame:CGRectMake(50, 560 , 280, 185)];
