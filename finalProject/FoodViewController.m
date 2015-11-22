@@ -18,7 +18,9 @@
 @property NSArray *fetchResults;
 @property NSMutableArray *suggestions;
 @property CSAnimationView *animationView;
-
+@property BOOL mustAnswer;
+@property BOOL show;
+@property BOOL edit;
 
 @end
 
@@ -86,9 +88,6 @@
     
     [self.verticalScroll addSubview:_animationView];
     
-
-    
-    
     
     //Graph
     // Create a gradient to apply to the bottom portion of the graph
@@ -141,20 +140,65 @@
     // Show the y axis values with this format string
     self.nutriGraph.formatStringForValues = @"%.1f";
     
-
+    ///Defining and secondary varibales set
+    _show = NO;
+    _edit = NO;
 
 }
-
 - (void)viewDidAppear:(BOOL)animated {
-   // UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(btnAgrega:)];
     
-    self.tabBarController.navigationItem.rightBarButtonItem = nil;
-    [self.tabBarController.tabBar setTintColor:[UIColor flatMintColor]];
-    [self.tabBarController.navigationController.navigationBar setTintColor:[UIColor flatMintColor]];
-    [self.navigationController.navigationBar
-     setTitleTextAttributes: @{NSFontAttributeName: [UIFont fontWithName:@"Avenir-Heavy" size:20],
-                               NSForegroundColorAttributeName: [UIColor flatMintColor]}];
+    
+    if (_mustAnswer) {
+        self.tabBarController.navigationItem.rightBarButtonItem = nil;
+    }else{
+        UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit Input" style:nil target:self action:@selector(btnAgrega:)];
+        self.tabBarController.navigationItem.rightBarButtonItem = anotherButton;
+        [self.tabBarController.navigationController.navigationBar setTintColor:[UIColor flatMintColor]];
+        [self.tabBarController.tabBar setTintColor:[UIColor flatMintColor]];
+        [self.view setTintColor:[UIColor flatMintColor]];
+        [self.navigationController.navigationBar
+         setTitleTextAttributes: @{NSFontAttributeName: [UIFont fontWithName:@"Avenir-Heavy" size:20],
+                                   NSForegroundColorAttributeName: [UIColor flatYellowColor]}];
+        
+        
+    }
+    
 }
+- (void) setQuestionView {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"FoodRecord"
+                                              inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entity];
+    
+    NSDate *today = [NSDate date];
+    NSDate *yesterday = [today dateByAddingTimeInterval:-86400.0];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"date >= %@", yesterday];
+    [request setPredicate:predicate];
+    [request setFetchLimit:1];
+    
+    NSError *error;
+    _fetchResults = [context executeFetchRequest:request error:&error];
+    
+    if (_fetchResults.count != 0) {
+        _mustAnswer = NO;
+        self.horizontalScrollView.hidden = YES;
+        self.horizontalView.hidden = YES;
+        self.verticalScroll.frame = CGRectMake(0,62,self.verticalScroll.frame.size.width, self.verticalScroll.frame.size.height);
+    }else{
+        _mustAnswer = YES;
+        self.horizontalScrollView.hidden = NO;
+        self.horizontalView.hidden = NO;
+        self.verticalScroll.frame = CGRectMake(0,225,self.verticalScroll.frame.size.width, self.verticalScroll.frame.size.height);
+        
+    }
+    
+}
+
+
 -(IBAction) cardPressed {
     
     _animationView.type = CSAnimationTypeShake;
@@ -200,45 +244,39 @@
 
 
 - (IBAction)btnAgrega:(UIButton *)sender {
-//    _show = YES;
-//    self.questionView.hidden = NO;
-//    self.scrollView.frame = CGRectMake(0,210,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
+    if (!_mustAnswer) {
+        if (_show) {
+            _show = NO;
+            self.horizontalScrollView.hidden = YES;
+           self.verticalScroll.frame = CGRectMake(0,62,self.verticalScroll.frame.size.width, self.verticalScroll.frame.size.height);
+            
+        }else{
+            self.numOfQuestion = 1;
+            
+            _segmentedControlQ1.selectedSegmentIndex =  UISegmentedControlNoSegment;
+            
+            CGRect changePositionInX = _segmentedControlQ1.frame;
+            changePositionInX.origin.x = 0;
+            _segmentedControlQ1.frame = changePositionInX;
+            
+            CGRect frame = CGRectMake(0, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height); //wherever you want to scroll
+            [self.horizontalScrollView scrollRectToVisible:frame animated:YES];
+            
+            
+            _show = YES;
+            _edit = YES;
+            self.horizontalScrollView.hidden = NO;
+            self.verticalScroll.frame = CGRectMake(0,225,self.verticalScroll.frame.size.width, self.verticalScroll.frame.size.height);
+            
+            
+        }
+ }
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-- (void) setQuestionView {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext *context = [appDelegate managedObjectContext];
-    
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"FoodRecord"
-                                              inManagedObjectContext:context];
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:entity];
-    
-    NSDate *today = [NSDate date];
-    NSDate *yesterday = [today dateByAddingTimeInterval:-86400.0];
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"date >= %@", yesterday];
-    [request setPredicate:predicate];
-    [request setFetchLimit:1];
-    
-    NSError *error;
-    _fetchResults = [context executeFetchRequest:request error:&error];
-    
-    if (_fetchResults.count != 0) {
-        self.horizontalScrollView.hidden = YES;
-        self.horizontalView.hidden = YES;
-        self.verticalScroll.frame = CGRectMake(0,65,self.verticalScroll.frame.size.width, self.verticalScroll.frame.size.height);
-    }else{
-        self.horizontalScrollView.hidden = NO;
-        self.horizontalView.hidden = NO;
-        self.verticalScroll.frame = CGRectMake(0,225,self.verticalScroll.frame.size.width, self.verticalScroll.frame.size.height);
-    
-    }
-    
 }
 
 - (void)loadGraphData {
@@ -471,15 +509,53 @@
     NSManagedObject *record = [NSEntityDescription insertNewObjectForEntityForName:@"FoodRecord"
                                                             inManagedObjectContext:context];
     
-    [record setValue:date forKey:@"date"];
-    [record setValue:@(averageScore) forKey:@"score"];
-    
-    
-    
-    
-    
     NSError *error;
-    [context save:&error];
+    
+    
+    
+    
+    /// Creates new entry or modifies existing one
+    if (_edit) {
+        _edit = false;
+        NSLog(@"esto edita entrada");
+        
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        [request setEntity:[NSEntityDescription entityForName:@"FoodRecord" inManagedObjectContext:context]];
+        
+        
+        NSArray *results = [context executeFetchRequest:request error:&error];
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"date == %@",date];
+        [request setPredicate:predicate];
+        
+        
+        NSArray *resultDesc = [[[results reverseObjectEnumerator] allObjects] mutableCopy];
+        record = [resultDesc lastObject];
+        [record setValue:@(averageScore) forKey:@"score"];
+        [record setValue:date forKey:@"date"];
+         [context save:&error];
+        
+    }else{
+        
+        [record setValue:date forKey:@"date"];
+        [record setValue:@(averageScore) forKey:@"score"];
+        NSLog(@"esto es una nueva entrada");
+         [context save:&error];
+        
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
 }
 
 
