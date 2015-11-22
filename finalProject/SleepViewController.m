@@ -19,9 +19,11 @@
 @property NSArray *fetchResults;
 @property NSManagedObject *lastRecord;
 @property  UIAlertView *alert;
+
 @property BOOL show;
 @property BOOL edit;
 @property BOOL mustAnswer;
+
 @property CSAnimationView *animationView;
 @property NSMutableArray *suggestions;
 @end
@@ -152,8 +154,8 @@
     if (_mustAnswer) {
         self.tabBarController.navigationItem.rightBarButtonItem = nil;
     }else{
-        UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit Input" style:nil target:self action:@selector(btnAgrega:)];
-        self.tabBarController.navigationItem.rightBarButtonItem = anotherButton;
+        UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit Input" style:nil target:self action:@selector(editInput:)];
+        self.tabBarController.navigationItem.rightBarButtonItem = editButton;
     }
     [self.tabBarController.navigationController.navigationBar setTintColor:[UIColor flatYellowColor]];
     [self.tabBarController.tabBar setTintColor:[UIColor flatYellowColor]];
@@ -180,6 +182,7 @@
     [self.view endEditing:YES];
     
 }
+
 - (void) setQuestionView {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
@@ -204,7 +207,7 @@
         self.questionView.hidden = YES;
         self.scrollView.frame = CGRectMake(0,62,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
         NSLog(@" se oculto 1");
-    }else{
+    } else {
         _mustAnswer = YES;
         self.questionView.hidden = NO;
         self.scrollView.frame = CGRectMake(0,210,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
@@ -260,7 +263,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)btnAgrega:(UIButton *)sender {
+- (IBAction)editInput:(UIButton *)sender {
     if (!_mustAnswer) {
         if (_show) {
             _show = NO;
@@ -320,11 +323,9 @@
     [self.arrayOfDates removeObjectAtIndex:7];
     self.arrayOfDates = [[[self.arrayOfDates reverseObjectEnumerator] allObjects] mutableCopy];
     self.arrayOfValues = [[[self.arrayOfValues reverseObjectEnumerator] allObjects] mutableCopy];
-   
-    
 }
+
 -(NSInteger)loadSuggestion{
-    
     
     double acum = 0.0;
     double cont = 0.0;
@@ -394,6 +395,7 @@
            
             NSArray *results = [context executeFetchRequest:request error:&error];
             
+            //Esto va aregresar vacio por eso se guardan objetos vacios
             NSPredicate *predicate = [NSPredicate predicateWithFormat:@"date == %@",date];
             [request setPredicate:predicate];
             
@@ -409,39 +411,14 @@
             NSLog(@"esto es una nueva entrada");
         
         }
-    
         [context save:&error];
 
     }
     
 }
-- (IBAction)pressedButton:(UIButton *)sender {
-    if (sender == self.btPlus) {
-        
-        if ([self.tfTimeSlept.text isEqualToString:@""]) {
-            
-            self.tfTimeSlept.text = [@(1) stringValue];
-            
-        }else if ([self.tfTimeSlept.text integerValue] > 0){
-            self.tfTimeSlept.text = [@([self.tfTimeSlept.text integerValue] + 1) stringValue];
-        }
-        
-        
-        NSLog(@"Plus ");
-        
-    }else if (sender == self.btMinus){
-        
-        if ([self.tfTimeSlept.text isEqualToString:@""]) {
-            NSLog(@"No puede restar un espacio vacio");
-            
-        }else if ([self.tfTimeSlept.text integerValue] > 0){
-            self.tfTimeSlept.text = [@([self.tfTimeSlept.text integerValue] - 1) stringValue];
-            
-        }else if ([self.tfTimeSlept.text integerValue] == 0){
-            self.tfTimeSlept.text = @"";
-        }
-        
-        NSLog(@"Minus ");
-    }
+
+- (IBAction)pressedStepper:(UIStepper*)sender {
+    double value = [sender value];
+    [self.sleepHoursLabel setText:[NSString stringWithFormat:@"%.01f", value]];
 }
 @end
