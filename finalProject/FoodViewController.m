@@ -84,7 +84,6 @@
     //Graph
     // Create a gradient to apply to the bottom portion of the graph
     CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
-    size_t num_locations = 2;
     CGFloat locations[2] = { 0.0, 1.0 };
 
     UIColor *mint = [UIColor flatMintColor];
@@ -93,7 +92,6 @@
     
     // Apply the gradient to the bottom portion of the graph
     self.nutriGraph.gradientBottom = CGGradientCreateWithColors(colorspace, (CFArrayRef)colors, locations);
-    //self.nutriGraph.gradientBottom = CGGradientCreateWithColorComponents(colorspace, components, locations, num_locations);
     
     // Enable and disable various graph properties and axis displays rgb(52,73,94) rgb(231,76,60)
     self.nutriGraph.colorTop = [UIColor flatNavyBlueColor];

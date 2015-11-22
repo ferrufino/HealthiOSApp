@@ -154,7 +154,10 @@
     if (_mustAnswer) {
         self.tabBarController.navigationItem.rightBarButtonItem = nil;
     }else{
-        UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit Input" style:nil target:self action:@selector(editInput:)];
+        UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic_mode_edit_18pt"]
+                                                               style:UIBarButtonItemStylePlain
+                                                               target:self
+                                                               action:@selector(editInput:)];
         self.tabBarController.navigationItem.rightBarButtonItem = editButton;
     }
     [self.tabBarController.navigationController.navigationBar setTintColor:[UIColor flatYellowColor]];

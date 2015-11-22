@@ -33,12 +33,10 @@
                                             <action selector="pressedStepper:" destination="9pv-A4-QxB" eventType="valueChanged" id="qJr-7g-rny"/>
                                         </connections>
                                     </stepper>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S7r-sY-Ukx">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S7r-sY-Ukx">
                                         <rect key="frame" x="139" y="113" width="97" height="24"/>
                                         <animations/>
-                                        <state key="normal" image="ic_done">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
+                                        <state key="normal" image="ic_done"/>
                                         <connections>
                                             <action selector="submit:" destination="9pv-A4-QxB" eventType="touchUpInside" id="3Cm-X8-Iyb"/>
                                         </connections>
@@ -253,88 +251,71 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5ul-Yp-x3G" userLabel="Questions">
                                 <rect key="frame" x="0.0" y="64" width="375" height="245"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0lh-vI-SoH">
-                                        <rect key="frame" x="123" y="63" width="141" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Minutos de ejercicio aeróbico" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zUE-kV-h0p">
+                                        <rect key="frame" x="46" y="34" width="282" height="21"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H04-ua-9Qg">
-                                        <rect key="frame" x="123" y="151" width="141" height="30"/>
-                                        <animations/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Horas de ejercicio areobico" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zUE-kV-h0p">
-                                        <rect key="frame" x="54" y="34" width="210" height="21"/>
-                                        <animations/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                        <color key="textColor" red="0.13346317410469055" green="0.18231484293937683" blue="0.25190103054046631" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Horas de ejercicio anareobico" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMh-Cv-hkU">
-                                        <rect key="frame" x="45" y="122" width="229" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Minutos de ejercicio anaeróbico" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7H-BA-bJZ">
+                                        <rect key="frame" x="41" y="111" width="282" height="24"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                        <color key="textColor" red="0.13346317410469055" green="0.18231484293937683" blue="0.25190103054046631" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lic-xN-nai">
-                                        <rect key="frame" x="282" y="51" width="31" height="21"/>
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Xg5-PT-xaA">
+                                        <rect key="frame" x="234" y="69" width="94" height="29"/>
                                         <animations/>
-                                        <state key="normal" title="+"/>
                                         <connections>
-                                            <action selector="buttonPressed:" destination="gBW-9N-U4b" eventType="touchUpInside" id="Tc1-ep-1kk"/>
+                                            <action selector="pressedAerobicStepper:" destination="gBW-9N-U4b" eventType="valueChanged" id="8oU-NF-qyG"/>
                                         </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXT-UL-VzO">
-                                        <rect key="frame" x="282" y="80" width="31" height="21"/>
+                                    </stepper>
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="cTB-Ma-LIB">
+                                        <rect key="frame" x="234" y="153" width="94" height="29"/>
                                         <animations/>
-                                        <state key="normal" title="-"/>
                                         <connections>
-                                            <action selector="buttonPressed:" destination="gBW-9N-U4b" eventType="touchUpInside" id="Dtn-M5-QL4"/>
+                                            <action selector="pressedAnaerobicStepper:" destination="gBW-9N-U4b" eventType="valueChanged" id="Y36-SG-lv4"/>
                                         </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axq-Jf-r1q">
-                                        <rect key="frame" x="282" y="141" width="31" height="21"/>
+                                    </stepper>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKv-tq-EHf">
+                                        <rect key="frame" x="69" y="69" width="43" height="33"/>
                                         <animations/>
-                                        <state key="normal" title="+"/>
-                                        <connections>
-                                            <action selector="buttonPressed:" destination="gBW-9N-U4b" eventType="touchUpInside" id="ZyK-1t-zQc"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dI-tx-Lb3">
-                                        <rect key="frame" x="282" y="170" width="31" height="21"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="24"/>
+                                        <color key="textColor" red="0.13346317410469055" green="0.18231484293937683" blue="0.25190103054046631" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJf-fH-ObC">
+                                        <rect key="frame" x="69" y="153" width="43" height="33"/>
                                         <animations/>
-                                        <state key="normal" title="-"/>
-                                        <connections>
-                                            <action selector="buttonPressed:" destination="gBW-9N-U4b" eventType="touchUpInside" id="jv6-Ny-KkZ"/>
-                                        </connections>
-                                    </button>
+                                        <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="24"/>
+                                        <color key="textColor" red="0.1334631741" green="0.1823148429" blue="0.25190103050000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Th3-wv-hik">
-                                        <rect key="frame" x="158" y="209" width="49" height="30"/>
+                                        <rect key="frame" x="146" y="206" width="82" height="24"/>
                                         <animations/>
-                                        <state key="normal" title="Submit">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
+                                        <color key="tintColor" red="0.13346317410469055" green="0.18231484293937683" blue="0.25190103054046631" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" image="ic_done"/>
                                         <connections>
                                             <action selector="submit:" destination="gBW-9N-U4b" eventType="touchUpInside" id="UII-hF-30G"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.89126098155975342" green="0.3545563817024231" blue="0.39968371391296387" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="stE-iB-0mB">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="51" width="375" height="554"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yEK-t0-sG1">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qDl-fe-Vw5" customClass="BEMSimpleLineGraphView">
-                                                <rect key="frame" x="0.0" y="-6" width="375" height="365"/>
+                                                <rect key="frame" x="0.0" y="8" width="375" height="270"/>
                                                 <animations/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <outlet property="dataSource" destination="gBW-9N-U4b" id="CkJ-ND-i7q"/>
                                                     <outlet property="delegate" destination="gBW-9N-U4b" id="p47-IU-tCM"/>
@@ -342,11 +323,11 @@
                                             </view>
                                         </subviews>
                                         <animations/>
-                                        <color key="backgroundColor" red="0.47588853406376963" green="1" blue="0.99531890401251433" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" red="0.39387640094965515" green="1" blue="0.98266297684313808" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </scrollView>
                         </subviews>
                         <animations/>
@@ -354,15 +335,13 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Ejercicio" image="gym" id="Svx-qg-4Nv"/>
                     <connections>
-                        <outlet property="btMinusAnareobico" destination="4dI-tx-Lb3" id="cIl-Ou-L3z"/>
-                        <outlet property="btMinusAreobico" destination="iXT-UL-VzO" id="mPh-By-LYS"/>
-                        <outlet property="btPlusAnareobico" destination="axq-Jf-r1q" id="3Dw-at-iO5"/>
-                        <outlet property="btPlusAreobico" destination="Lic-xN-nai" id="63J-Jr-Wfn"/>
+                        <outlet property="aerobicMinutesLabel" destination="KKv-tq-EHf" id="o7e-fK-ziS"/>
+                        <outlet property="aerobicStepper" destination="Xg5-PT-xaA" id="S0r-kf-PlB"/>
+                        <outlet property="anaerobicMinutesLabel" destination="fJf-fH-ObC" id="qGV-e0-DTQ"/>
+                        <outlet property="anaerobicStepper" destination="cTB-Ma-LIB" id="CPG-9g-b5n"/>
                         <outlet property="exerciseGraph" destination="qDl-fe-Vw5" id="w2c-1z-HHM"/>
                         <outlet property="questionView" destination="yEK-t0-sG1" id="kEN-K6-4kW"/>
                         <outlet property="scrollView" destination="stE-iB-0mB" id="OYT-6t-ilB"/>
-                        <outlet property="tfAnareobico" destination="H04-ua-9Qg" id="CLF-o2-PbJ"/>
-                        <outlet property="tfAreobico" destination="0lh-vI-SoH" id="WHE-AH-jfj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MsW-m9-ymK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -622,42 +601,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pwn-g9-5cP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-406.5" y="937.5"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="RME-Fd-GG5">
-            <objects>
-                <viewController id="adY-ZQ-mlz" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="RLW-qZ-uYo"/>
-                        <viewControllerLayoutGuide type="bottom" id="hvk-3Y-ZIF"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="MD5-q0-MNe">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hTk-gJ-xE9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="wHB-c8-xri">
-            <objects>
-                <viewController id="fEz-uc-3vx" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="rCX-mx-knl"/>
-                        <viewControllerLayoutGuide type="bottom" id="NWK-Qz-Dwr"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Afd-Qu-NqT">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="j0r-ft-nHc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
     </scenes>
     <resources>

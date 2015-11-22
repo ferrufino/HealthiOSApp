@@ -13,23 +13,20 @@
 
 @property (weak, nonatomic) IBOutlet BEMSimpleLineGraphView *exerciseGraph;
 
-- (IBAction)buttonPressed:(UIButton *)sender;
-@property (weak, nonatomic) IBOutlet UIButton *btPlusAreobico;
-@property (weak, nonatomic) IBOutlet UIButton *btMinusAreobico;
+@property (weak, nonatomic) IBOutlet UIStepper *aerobicStepper;
+@property (weak, nonatomic) IBOutlet UIStepper *anaerobicStepper;
+@property (weak, nonatomic) IBOutlet UILabel *aerobicMinutesLabel;
+@property (weak, nonatomic) IBOutlet UILabel *anaerobicMinutesLabel;
+- (IBAction)pressedAerobicStepper:(UIStepper *)sender;
+- (IBAction)pressedAnaerobicStepper:(UIStepper *)sender;
 
 
-@property (weak, nonatomic) IBOutlet UIButton *btPlusAnareobico;
-@property (weak, nonatomic) IBOutlet UIButton *btMinusAnareobico;
-@property (weak, nonatomic) IBOutlet UITextField *tfAreobico;
-@property (weak, nonatomic) IBOutlet UITextField *tfAnareobico;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *questionView;
 
 @property (strong, nonatomic) NSMutableArray *arrayOfValuesA;
 @property (strong, nonatomic) NSMutableArray *arrayOfValuesAna;
 @property (strong, nonatomic) NSMutableArray *arrayOfDates;
-@property (weak, nonatomic) IBOutlet UILabel *labelValues;
-@property (weak, nonatomic) IBOutlet UILabel *labelDates;
 
 - (IBAction)submit:(id)sender;
 
