@@ -49,6 +49,7 @@
     [self.tabBarController.navigationController.navigationBar
      setTitleTextAttributes: @{NSFontAttributeName: [UIFont fontWithName:@"Avenir-Heavy" size:20],
                                NSForegroundColorAttributeName: [UIColor flatSkyBlueColor]}];
+    
 }
 
 

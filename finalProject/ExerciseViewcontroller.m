@@ -35,8 +35,9 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
-     [self loadGraphData];
+    self.view.backgroundColor = [UIColor flatNavyBlueColor];
+    
+    [self loadGraphData];
     /*****Vertical Scroll***/
     [self.scrollView setScrollEnabled:YES];
     [self.scrollView setContentSize:CGSizeMake(320, 1000)];
@@ -75,12 +76,6 @@
     frame =labelSuggestion.frame;
     frame.size.width +=70;
     labelSuggestion.frame=frame;
-    
-    [self.tfAnareobico setKeyboardType:UIKeyboardTypeNumberPad];
-    [self.tfAreobico setKeyboardType:UIKeyboardTypeNumberPad];
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self action:@selector(quitaTeclado)];
-    [self.view addGestureRecognizer:tap];
 
     [_animationView addSubview:labelSuggestion];
 
@@ -89,37 +84,37 @@
     
     //Graph
     // Create a gradient to apply to the bottom portion of the graph
-    //Graph
-    // Create a gradient to apply to the bottom portion of the graph
     CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
-    size_t num_locations = 2;
     CGFloat locations[2] = { 0.0, 1.0 };
-    CGFloat components[8] = {
-        1.0, 1.0, 1.0, 1.0,
-        1.0, 1.0, 1.0, 0.0
-    };
+    
+    UIColor *top = [UIColor flatWatermelonColor];
+    UIColor *bottom = [top colorWithAlphaComponent:0];
+    NSArray *colors = [NSArray arrayWithObjects:(id)top.CGColor, (id)bottom.CGColor, nil];
     
     // Apply the gradient to the bottom portion of the graph
-    self.exerciseGraph.gradientBottom = CGGradientCreateWithColorComponents(colorspace, components, locations, num_locations);
+    self.exerciseGraph.gradientBottom = CGGradientCreateWithColors(colorspace, (CFArrayRef)colors, locations);
     
     // Enable and disable various graph properties and axis displays
+    self.exerciseGraph.colorTop = [UIColor flatNavyBlueColor];
+    self.exerciseGraph.colorBottom = [UIColor flatNavyBlueColor];
+    self.exerciseGraph.colorLine = [UIColor flatWatermelonColor];
     self.exerciseGraph.enableTouchReport = YES;
     self.exerciseGraph.enablePopUpReport = YES;
-    self.exerciseGraph.enableYAxisLabel = YES;
+    self.exerciseGraph.enableYAxisLabel = NO;
     self.exerciseGraph.autoScaleYAxis = YES;
     self.exerciseGraph.alwaysDisplayDots = NO;
-    self.exerciseGraph.enableReferenceXAxisLines = YES;
+    self.exerciseGraph.enableReferenceXAxisLines = NO;
     self.exerciseGraph.enableReferenceYAxisLines = YES;
     self.exerciseGraph.enableReferenceAxisFrame = YES;
     self.exerciseGraph.enableBezierCurve = YES;
     
     // Draw an average line
     self.exerciseGraph.averageLine.enableAverageLine = YES;
-    self.exerciseGraph.averageLine.alpha = 0.6;
-    self.exerciseGraph.averageLine.color = [UIColor darkGrayColor];
+    self.exerciseGraph.averageLine.alpha = 0.3;
+    self.exerciseGraph.averageLine.color = [UIColor whiteColor];
     self.exerciseGraph.averageLine.width = 2.5;
     self.exerciseGraph.averageLine.dashPattern = @[@(2),@(2)];
-    self.exerciseGraph.colorXaxisLabel = [UIColor whiteColor];
+    self.exerciseGraph.colorXaxisLabel = [UIColor flatWatermelonColor];
     self.exerciseGraph.colorYaxisLabel = [UIColor whiteColor];
     
     // Set the graph's animation style to draw, fade, or none
@@ -160,46 +155,44 @@
         _mustAnswer = YES;
         self.questionView.hidden = NO;
         self.scrollView.frame = CGRectMake(0,325,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
-        
     }
-    
 }
 
 
 -(IBAction) cardPressed {
+
    
           _animationView.type = CSAnimationTypeShake;
          [_animationView startCanvasAnimation];
     
-    NSLog(@"Click");
 
+    NSLog(@"Click");
 }
 
 - (void)quitaTeclado {
     [self.view endEditing:YES];
-    
 }
+
 - (void)viewDidAppear:(BOOL)animated {
     self.navigationItem.rightBarButtonItem = nil;
     
     if (_mustAnswer) {
         self.tabBarController.navigationItem.rightBarButtonItem = nil;
-    }else{
+    } else {
+        UIBarButtonItem *editButton = [[UIBarButtonItem alloc]
+                                      initWithImage:[UIImage imageNamed:@"ic_mode_edit_18pt"]
+                                      style:UIBarButtonItemStylePlain target:self
+                                      action:@selector(editInput:)];
+        self.tabBarController.navigationItem.rightBarButtonItem = editButton;
+    }
     
-    
-    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit Input" style:nil target:self action:@selector(btnAgrega:)];
-    
-    self.tabBarController.navigationItem.rightBarButtonItem = anotherButton;
-  
     [self.tabBarController.tabBar setTintColor:[UIColor flatWatermelonColor]];
     [self.tabBarController.navigationController.navigationBar setTintColor:[UIColor flatWatermelonColor]];
-    [self.view setTintColor:[UIColor flatWatermelonColor]];
+    [self.view setTintColor:[UIColor flatNavyBlueColorDark]];
     [self.navigationController.navigationBar
      setTitleTextAttributes: @{NSFontAttributeName: [UIFont fontWithName:@"Avenir-Heavy" size:20],
                                NSForegroundColorAttributeName: [UIColor flatWatermelonColor]}];
-    }
-    
-    _animationView.type     = CSAnimationTypeFadeInUp;
+    _animationView.type = CSAnimationTypeFadeInUp;
     [_animationView startCanvasAnimation];
 }
 
@@ -219,89 +212,20 @@
 */
 
 
-- (IBAction)btnAgrega:(UIButton *)sender {
-   
-    
+- (IBAction)editInput:(UIButton *)sender {
     if (!_mustAnswer) {
         if (_show) {
             _show = NO;
             self.questionView.hidden = YES;
             self.scrollView.frame = CGRectMake(0,62,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
-            
-            
         }else{
-            
             _show = YES;
             self.questionView.hidden = NO;
             self.scrollView.frame = CGRectMake(0,325,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
-            
-            
         }
-        
     }
 }
 
-
-
-- (IBAction)buttonPressed:(UIButton *)sender {
-    
-    if (sender == self.btPlusAreobico) {
-        
-        if ([self.tfAreobico.text isEqualToString:@""]) {
-            
-            self.tfAreobico.text = [@(5) stringValue];
-            
-        }else if ([self.tfAreobico.text integerValue] > 0){
-             self.tfAreobico.text = [@([self.tfAreobico.text integerValue] + 5) stringValue];
-        }
-        
-        
-        NSLog(@"Plus Areobico");
-        
-    }else if (sender == self.btMinusAreobico){
-        
-        if ([self.tfAreobico.text isEqualToString:@""]) {
-           NSLog(@"No puede restar un espacio vacio");
-            
-        }else if ([self.tfAreobico.text integerValue] > 0){
-             self.tfAreobico.text = [@([self.tfAreobico.text integerValue] - 5) stringValue];
-            
-        }else if ([self.tfAreobico.text integerValue] == 0){
-            self.tfAreobico.text = @"";
-        }
-        
-        NSLog(@"Minus Areobico");
-    }else if (sender == self.btPlusAnareobico){
-        
-        if ([self.tfAnareobico.text isEqualToString:@""]) {
-            
-            self.tfAnareobico.text = [@(5) stringValue];
-            
-        }else if ([self.tfAnareobico.text integerValue] > 0){
-            self.tfAnareobico.text = [@([self.tfAnareobico.text integerValue] + 5) stringValue];
-        }
-        
-        NSLog(@"Plus Anareobico");
-        
-    }else if (sender == self.btMinusAnareobico){
-        
-        
-        if ([self.tfAnareobico.text isEqualToString:@""]) {
-             NSLog(@"No puede restar un espacio vacio");
-            
-        }else if ([self.tfAnareobico.text integerValue] > 0){
-            self.tfAnareobico.text = [@([self.tfAnareobico.text integerValue] - 5) stringValue];
-            
-        }else if ([self.tfAnareobico.text integerValue] == 0){
-            self.tfAnareobico.text = @"";
-            
-        }
-         NSLog(@"Minus Anareobico");
-    
-    }else{
-        NSLog(@"Bro something's wrong");
-    }
-}
 -(NSInteger)loadSuggestion{
     /*
     double acum = 0.0;
@@ -330,17 +254,11 @@
     return acum;
     */
     return 5;
-    
-    
-    
 }
 
 - (IBAction)submit:(id)sender {
-    
-    if ((![self.tfAreobico.text isEqualToString:@""] && ![self.tfAnareobico.text isEqualToString:@""]) || [self.tfAnareobico.text isEqualToString:@""] || [self.tfAreobico.text isEqualToString:@""]) {
         _show = NO;
-        
-        
+    
         self.questionView.hidden = YES;
         self.scrollView.frame = CGRectMake(0,62,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
         
@@ -352,28 +270,17 @@
                                                             inManagedObjectContext:context];
         }
         NSDate *date = [NSDate date];
-        CGFloat durationAreobico = [self.tfAreobico.text floatValue];
+        CGFloat aerobicDuration = [self.aerobicMinutesLabel.text floatValue];
+        CGFloat anaerobicDuration = [self.anaerobicMinutesLabel.text floatValue];
         
         [self.lastRecord setValue:date forKey:@"date"];
-        
-        if (![self.tfAreobico.text isEqualToString:@""]) {
-            [self.lastRecord setValue:@(durationAreobico) forKey:@"aerobicDuration"];
-        }
-        
-        if (![self.tfAnareobico.text isEqualToString:@""]) {
-            [self.lastRecord setValue:@(durationAreobico) forKey:@"anaerobicDuration"];
-            
-        }
+        [self.lastRecord setValue:@(aerobicDuration) forKey:@"aerobicDuration"];
+        [self.lastRecord setValue:@(anaerobicDuration) forKey:@"anaerobicDuration"];
         
         NSError *error;
         [context save:&error];
-
-        
-        
-        
-    }
-    
 }
+
 - (NSString *)labelForDateAtIndex:(NSInteger)index {
     NSDate *date = [self.arrayOfDates objectAtIndex:index];
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
@@ -381,6 +288,7 @@
     NSString *label = [df stringFromDate:date];
     return label;
 }
+
 #pragma mark - SimpleLineGraph Data Source
 
 - (NSInteger)numberOfPointsInLineGraph:(BEMSimpleLineGraphView *)graph {
@@ -454,9 +362,15 @@
     [self.arrayOfDates removeObjectAtIndex:7];
     self.arrayOfDates = [[[self.arrayOfDates reverseObjectEnumerator] allObjects] mutableCopy];
     self.arrayOfValuesA = [[[self.arrayOfValuesA reverseObjectEnumerator] allObjects] mutableCopy];
-    
-    
 }
 
+- (IBAction)pressedAerobicStepper:(UIStepper *)sender {
+    int value = [sender value];
+    [self.aerobicMinutesLabel setText:[NSString stringWithFormat:@"%d", value]];
+}
 
+- (IBAction)pressedAnaerobicStepper:(UIStepper *)sender {
+    int value = [sender value];
+    [self.anaerobicMinutesLabel setText:[NSString stringWithFormat:@"%d", value]];
+}
 @end

@@ -34,18 +34,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor flatNavyBlueColor];
     
     [self loadGraphData];
     [self loadQuestionView];
     
-    
     /*****Vertical Scroll***/
     [self.verticalScroll setScrollEnabled:YES];
     [self.verticalScroll setContentSize:CGSizeMake(320, 800)];
-    
-    self.view.backgroundColor = [UIColor flatNavyBlueColor];
-    
-    
     
     //Suggestion Card
     _animationView = [[CSAnimationView alloc] initWithFrame:CGRectMake(50, 560 , 280, 185)];
@@ -83,28 +79,22 @@
     frame.size.width +=70;
     labelSuggestion.frame=frame;
     
-    
     [_animationView addSubview:labelSuggestion];
     
     [self.verticalScroll addSubview:_animationView];
     
-    
+
     //Graph
     // Create a gradient to apply to the bottom portion of the graph
     CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
-    size_t num_locations = 2;
     CGFloat locations[2] = { 0.0, 1.0 };
-    CGFloat components[8] = {
-        1.0, 1.0, 1.0, 1.0,
-        1.0, 1.0, 1.0, 0.0
-    };
+
     UIColor *mint = [UIColor flatMintColor];
     UIColor *black = [mint colorWithAlphaComponent:0];
     NSArray *colors = [NSArray arrayWithObjects:(id)mint.CGColor, (id)black.CGColor, nil];
     
     // Apply the gradient to the bottom portion of the graph
     self.nutriGraph.gradientBottom = CGGradientCreateWithColors(colorspace, (CFArrayRef)colors, locations);
-    //self.nutriGraph.gradientBottom = CGGradientCreateWithColorComponents(colorspace, components, locations, num_locations);
     
     // Enable and disable various graph properties and axis displays rgb(52,73,94) rgb(231,76,60)
     self.nutriGraph.colorTop = [UIColor flatNavyBlueColor];
@@ -140,9 +130,11 @@
     // Show the y axis values with this format string
     self.nutriGraph.formatStringForValues = @"%.1f";
     
+
     ///Defining and secondary varibales set
     _show = NO;
     _edit = NO;
+
 
 }
 - (void)viewDidAppear:(BOOL)animated {
@@ -236,12 +228,7 @@
     }
      NSLog(@"Valor regresado en nutri::%d",(NSInteger)roundf( acum));
     return roundf( acum-1);
-    
-    
-    
-    
 }
-
 
 - (IBAction)btnAgrega:(UIButton *)sender {
     if (!_mustAnswer) {
@@ -322,8 +309,6 @@
     [self.arrayOfDates removeObjectAtIndex:7];
     self.arrayOfDates = [[[self.arrayOfDates reverseObjectEnumerator] allObjects] mutableCopy];
     self.arrayOfValues = [[[self.arrayOfValues reverseObjectEnumerator] allObjects] mutableCopy];
-    
-    
 }
 
 - (void)loadQuestionView {
@@ -422,9 +407,6 @@
     [self.horizontalScrollView setShowsHorizontalScrollIndicator:NO];
 
     [self.horizontalScrollView setContentSize:CGSizeMake(self.horizontalScrollView.frame.size.width*5, self.horizontalScrollView.frame.size.height)];
-    
-    
-
 }
 
 #pragma mark Question Buttons
@@ -481,7 +463,6 @@
 
 -(void) buttonClicked5
 {
-    
     self.horizontalScrollView.hidden = YES;
     self.verticalScroll.frame = CGRectMake(0,65,self.verticalScroll.frame.size.width, self.verticalScroll.frame.size.height);
     for (id obj in self.answers) {
@@ -556,9 +537,11 @@
     
     
    
+
+    [self loadGraphData];
+    [self.nutriGraph reloadGraph];
+
 }
-
-
 
 - (NSString *)labelForDateAtIndex:(NSInteger)index {
     NSDate *date = [self.arrayOfDates objectAtIndex:index];
@@ -578,7 +561,6 @@
 }
 
 #pragma mark - SimpleLineGraph Delegate
-
 
 - (NSString *)lineGraph:(BEMSimpleLineGraphView *)graph labelOnXAxisForIndex:(NSInteger)index {
     return [self labelForDateAtIndex:index];
