@@ -93,14 +93,14 @@
     
     UILabel *labelAerobico = [[UILabel alloc]initWithFrame:CGRectMake(150,-30, 100, 100)];
     [labelAerobico setText:@"Aerobico"];
-    [labelAerobico setFont:[UIFont fontWithName:@"Arial Rounded MT Bold" size:15]];
+    [labelAerobico setFont:[UIFont fontWithName:@"Avenir Black" size:15]];
     [self.scrollView addSubview:labelAerobico];
     labelAerobico.textColor = [UIColor flatWatermelonColor];
     
     
     UILabel *labelAnaerobico = [[UILabel alloc]initWithFrame:CGRectMake(150,300, 100, 100)];
     [labelAnaerobico setText:@"Anaerobico"];
-    [labelAnaerobico setFont:[UIFont fontWithName:@"Arial Rounded MT Bold" size:15]];
+    [labelAnaerobico setFont:[UIFont fontWithName:@"Avenir Black" size:15]];
     [self.scrollView addSubview:labelAnaerobico];
     labelAnaerobico.textColor = [UIColor flatWatermelonColor];
     
@@ -405,6 +405,7 @@
     [self viewDidAppear:YES];
     [self loadGraphData];
     [self.exerciseGraph reloadGraph];
+    [self.exerciseAnaerobicGraph reloadGraph];
 }
 
 - (NSString *)labelForDateAtIndex:(NSInteger)index {
