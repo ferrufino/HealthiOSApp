@@ -156,6 +156,9 @@
      setTitleTextAttributes: @{NSFontAttributeName: [UIFont fontWithName:@"Avenir-Heavy" size:20],
                                NSForegroundColorAttributeName: [UIColor flatMintColor]}];
     
+    _animationView.type = CSAnimationTypeFadeInUp;
+    [_animationView startCanvasAnimation];
+    
 }
 - (void) setQuestionView {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];

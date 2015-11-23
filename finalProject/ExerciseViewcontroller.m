@@ -40,10 +40,10 @@
     [self loadGraphData];
     /*****Vertical Scroll***/
     [self.scrollView setScrollEnabled:YES];
-    [self.scrollView setContentSize:CGSizeMake(320, 1000)];
+    [self.scrollView setContentSize:CGSizeMake(320, 1200)];
     
     
-    _animationView = [[CSAnimationView alloc] initWithFrame:CGRectMake(50, 560 , 280, 185)];
+    _animationView = [[CSAnimationView alloc] initWithFrame:CGRectMake(50, 700 , 280, 185)];
     
     _animationView.backgroundColor = [UIColor flatWatermelonColor];
     
@@ -90,6 +90,19 @@
     UIColor *top = [UIColor flatWatermelonColor];
     UIColor *bottom = [top colorWithAlphaComponent:0];
     NSArray *colors = [NSArray arrayWithObjects:(id)top.CGColor, (id)bottom.CGColor, nil];
+    
+    UILabel *labelAerobico = [[UILabel alloc]initWithFrame:CGRectMake(150,-30, 100, 100)];
+    [labelAerobico setText:@"Aerobico"];
+    [labelAerobico setFont:[UIFont fontWithName:@"Arial Rounded MT Bold" size:15]];
+    [self.scrollView addSubview:labelAerobico];
+    labelAerobico.textColor = [UIColor flatWatermelonColor];
+    
+    
+    UILabel *labelAnaerobico = [[UILabel alloc]initWithFrame:CGRectMake(150,300, 100, 100)];
+    [labelAnaerobico setText:@"Anaerobico"];
+    [labelAnaerobico setFont:[UIFont fontWithName:@"Arial Rounded MT Bold" size:15]];
+    [self.scrollView addSubview:labelAnaerobico];
+    labelAnaerobico.textColor = [UIColor flatWatermelonColor];
     
     // Apply the gradient to the bottom portion of the graph
     self.exerciseGraph.gradientBottom = CGGradientCreateWithColors(colorspace, (CFArrayRef)colors, locations);
@@ -148,7 +161,24 @@
     //////
     //////
     // Apply the gradient to the bottom portion of the graph
+    // Apply the gradient to the bottom portion of the graph
     self.exerciseAnaerobicGraph.gradientBottom = CGGradientCreateWithColors(colorspace, (CFArrayRef)colors, locations);
+    
+    // Enable and disable various graph properties and axis displays
+    self.exerciseAnaerobicGraph.colorTop = [UIColor flatNavyBlueColor];
+    self.exerciseAnaerobicGraph.colorBottom = [UIColor flatNavyBlueColor];
+    self.exerciseAnaerobicGraph.colorLine = [UIColor flatWatermelonColor];
+    self.exerciseAnaerobicGraph.enableTouchReport = YES;
+    self.exerciseAnaerobicGraph.enablePopUpReport = YES;
+    self.exerciseAnaerobicGraph.enableYAxisLabel = NO;
+    self.exerciseAnaerobicGraph.autoScaleYAxis = YES;
+    self.exerciseAnaerobicGraph.alwaysDisplayDots = NO;
+    self.exerciseAnaerobicGraph.enableReferenceXAxisLines = NO;
+    self.exerciseAnaerobicGraph.enableReferenceYAxisLines = YES;
+    self.exerciseAnaerobicGraph.enableReferenceAxisFrame = YES;
+    self.exerciseAnaerobicGraph.enableBezierCurve = YES;
+    
+    // Draw an average line
     self.exerciseAnaerobicGraph.averageLine.enableAverageLine = YES;
     self.exerciseAnaerobicGraph.averageLine.alpha = 0.3;
     self.exerciseAnaerobicGraph.averageLine.color = [UIColor whiteColor];
@@ -165,7 +195,25 @@
     
     // Show the y axis values with this format string
     self.exerciseAnaerobicGraph.formatStringForValues = @"%.1f";
-
+    
+    ////Anaerobic Graph
+    // Apply the gradient to the bottom portion of the graph
+    self.exerciseAnaerobicGraph.gradientBottom = CGGradientCreateWithColors(colorspace, (CFArrayRef)colors, locations);
+    
+    // Enable and disable various graph properties and axis displays
+    self.exerciseAnaerobicGraph.colorTop = [UIColor flatNavyBlueColor];
+    self.exerciseAnaerobicGraph.colorBottom = [UIColor flatNavyBlueColor];
+    self.exerciseAnaerobicGraph.colorLine = [UIColor flatWatermelonColor];
+    self.exerciseAnaerobicGraph.enableTouchReport = YES;
+    self.exerciseAnaerobicGraph.enablePopUpReport = YES;
+    self.exerciseAnaerobicGraph.enableYAxisLabel = NO;
+    self.exerciseAnaerobicGraph.autoScaleYAxis = YES;
+    self.exerciseAnaerobicGraph.alwaysDisplayDots = NO;
+    self.exerciseAnaerobicGraph.enableReferenceXAxisLines = NO;
+    self.exerciseAnaerobicGraph.enableReferenceYAxisLines = YES;
+    self.exerciseAnaerobicGraph.enableReferenceAxisFrame = YES;
+    self.exerciseAnaerobicGraph.enableBezierCurve = YES;
+    
     self.aerobicStepper.maximumValue = 1000;
     self.aerobicStepper.stepValue = 5.0;
     
@@ -429,24 +477,28 @@
     NSPredicate *predicate;
     NSArray *fetchResults;
     self.arrayOfValuesA = [[NSMutableArray alloc] init];
-    
+    self.arrayOfValuesAna = [[NSMutableArray alloc] init];
     for (int i = 0; i<=6; i++) {
         predicate = [NSPredicate predicateWithFormat:@"(date <= %@) AND (date >= %@)",
                      [self.arrayOfDates objectAtIndex:i], [self.arrayOfDates objectAtIndex:i+1]];
         [request setPredicate:predicate];
         [request setFetchLimit:1];
         fetchResults = [context executeFetchRequest:request error:&error];
-        NSNumber *duration = [[NSNumber alloc] initWithFloat:0];
+        NSNumber *durationAerobic = [[NSNumber alloc] initWithFloat:0];
+        NSNumber *durationAnaerobic = [[NSNumber alloc] initWithFloat:0];
         if (fetchResults.count != 0) {
             record = [fetchResults objectAtIndex:0];
-            duration = [record valueForKey:@"anaerobicDuration"];
+            durationAerobic = [record valueForKey:@"aerobicDuration"];
+            durationAnaerobic = [record valueForKey:@"anaerobicDuration"];
         }
-        [self.arrayOfValuesA addObject:duration];
+        [self.arrayOfValuesA addObject:durationAerobic];
+        [self.arrayOfValuesAna addObject:durationAnaerobic];
     }
     
     [self.arrayOfDates removeObjectAtIndex:7];
     self.arrayOfDates = [[[self.arrayOfDates reverseObjectEnumerator] allObjects] mutableCopy];
     self.arrayOfValuesA = [[[self.arrayOfValuesA reverseObjectEnumerator] allObjects] mutableCopy];
+    self.arrayOfValuesAna = [[[self.arrayOfValuesAna reverseObjectEnumerator] allObjects] mutableCopy];
 }
 
 - (IBAction)pressedAerobicStepper:(UIStepper *)sender {
