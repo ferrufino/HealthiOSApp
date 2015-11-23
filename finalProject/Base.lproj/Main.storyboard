@@ -196,10 +196,10 @@
                                     <outlet property="LbDate" destination="TQm-Jv-tnV" id="hkb-ye-5B7"/>
                                     <outlet property="ViewCell" destination="Us3-Om-3HE" id="eyG-c6-QYj"/>
                                     <outlet property="lbDate" destination="TQm-Jv-tnV" id="6wE-r7-k98"/>
-                                    <outlet property="lbExerciseScore" destination="dSD-mW-BFw" id="4WX-fK-5Wr"/>
+                                    <outlet property="lbExerciseScore" destination="Bgq-GW-mnc" id="lrv-7G-ILg"/>
                                     <outlet property="lbFoodScore" destination="Yu2-eT-3UZ" id="YxR-aY-NIB"/>
                                     <outlet property="lbMainScore" destination="Yp0-1p-TXk" id="DAl-3b-USE"/>
-                                    <outlet property="lbSleepScore" destination="Bgq-GW-mnc" id="zON-JT-XXa"/>
+                                    <outlet property="lbSleepScore" destination="dSD-mW-BFw" id="cld-A1-iUM"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -293,7 +293,6 @@
                                             </view>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fal-Lq-82p" customClass="BEMSimpleLineGraphView">
                                                 <rect key="frame" x="0.0" y="325" width="375" height="270"/>
-                                                <animations/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <outlet property="dataSource" destination="gBW-9N-U4b" id="pK6-JY-yH7"/>
@@ -346,7 +345,7 @@
                                     </view>
                                 </subviews>
                             </scrollView>
-                            <scrollView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kEg-YN-955">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kEg-YN-955">
                                 <rect key="frame" x="0.0" y="65" width="375" height="578"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ku-NZ-A11">
@@ -356,7 +355,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pd3-xh-3fx" customClass="BEMSimpleLineGraphView">
-                                                        <rect key="frame" x="0.0" y="8" width="375" height="336"/>
+                                                        <rect key="frame" x="0.0" y="8" width="375" height="320"/>
                                                         <color key="backgroundColor" red="0.15868747234344482" green="0.21822044253349304" blue="0.30320093035697937" alpha="1" colorSpace="calibratedRGB"/>
                                                         <connections>
                                                             <outlet property="dataSource" destination="8rJ-Kc-sve" id="NQ0-Pm-snN"/>

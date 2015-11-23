@@ -191,7 +191,8 @@
         _mustAnswer = YES;
         self.horizontalScrollView.hidden = NO;
         self.horizontalView.hidden = NO;
-        self.verticalScroll.frame = CGRectMake(0,225,self.verticalScroll.frame.size.width, self.verticalScroll.frame.size.height);
+        self.verticalScroll.frame = CGRectMake(0,290,
+                                               self.verticalScroll.frame.size.width, self.verticalScroll.frame.size.height);
         
     }
     
@@ -259,7 +260,7 @@
             _show = YES;
             _edit = YES;
             self.horizontalScrollView.hidden = NO;
-            self.verticalScroll.frame = CGRectMake(0, 225,self.verticalScroll.frame.size.width, self.verticalScroll.frame.size.height);
+            self.verticalScroll.frame = CGRectMake(0, 290,self.verticalScroll.frame.size.width, self.verticalScroll.frame.size.height);
 
         }
     }
@@ -502,6 +503,7 @@
         averageScore += [[self.answers objectAtIndex:i] doubleValue];
     }
     averageScore /= 5;
+    [self.answers removeAllObjects];
     
     [self.lastRecord setValue:@(averageScore) forKey:@"score"];
     [self.lastRecord setValue:date forKey:@"date"];
