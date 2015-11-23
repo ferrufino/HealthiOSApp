@@ -191,10 +191,16 @@
     [request setFetchLimit:1];
     
     NSError *error;
-    _fetchResults = [context executeFetchRequest:request error:&error];
+    self.fetchResults = [context executeFetchRequest:request error:&error];
     
-    if ((_fetchResults.count != 0) && !_show) {
+    if ((self.fetchResults.count != 0) && !_show) {
         _mustAnswer = NO;
+        
+        self.lastRecord = [self.fetchResults objectAtIndex:0];
+        double duration = [[self.lastRecord valueForKey:@"duration"] doubleValue];
+        [self.sleepHoursLabel setText:[NSString stringWithFormat:@"%.01f", duration]];
+        self.sleepStepper.value = duration;
+        
         self.questionView.hidden = YES;
         self.scrollView.frame = CGRectMake(0,62,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
         NSLog(@" se oculto 1");
@@ -359,63 +365,35 @@
 }
 
 - (IBAction)submit:(id)sender {
-    if (true) {
-        
-    //if (![self.tfTimeSlept.text isEqualToString:@""]) {
-        _show = false;
-        _mustAnswer = NO;
-        [self.view endEditing:YES];
-        self.questionView.hidden = YES;
-        self.scrollView.frame = CGRectMake(0,62,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
-            NSLog(@" se oculto 2");
-        
-        
-        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-        NSManagedObjectContext *context = [appDelegate managedObjectContext];
-        
-        NSDate *date = [NSDate date];
-        CGFloat averageScore;
-        
-        //llama al ultimo dato y comparar su date.
-        
-       // averageScore = [self.tfTimeSlept.text floatValue];
-        
-        NSManagedObject *record = [NSEntityDescription insertNewObjectForEntityForName:@"SleepRecord"
-                                                             inManagedObjectContext:context];
-        NSError *error = nil;
-        
-        /// Creates new entry or modifies existing one
-        if (_edit) {
-            _edit = false;
-            NSLog(@"esto edita entrada");
-            
-            NSFetchRequest *request = [[NSFetchRequest alloc] init];
-            [request setEntity:[NSEntityDescription entityForName:@"SleepRecord" inManagedObjectContext:context]];
-            
-           
-            NSArray *results = [context executeFetchRequest:request error:&error];
-            
-            //Esto va aregresar vacio por eso se guardan objetos vacios
-            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"date == %@",date];
-            [request setPredicate:predicate];
-            
-            
-            NSArray *resultDesc = [[[results reverseObjectEnumerator] allObjects] mutableCopy];
-            record = [resultDesc lastObject];
-            [record setValue:@(averageScore) forKey:@"duration"];
-            [record setValue:date forKey:@"date"];
-            
-        }else{
-            
-            [record setValue:date forKey:@"date"];
-            [record setValue:@(averageScore) forKey:@"duration"];
-            NSLog(@"esto es una nueva entrada");
-        
-        }
-
-        [context save:&error];
-
+    _show = NO;
+    _mustAnswer = NO;
+    self.questionView.hidden = YES;
+    self.scrollView.frame = CGRectMake(0,62,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
+        NSLog(@" se oculto 2");
+    
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    
+    NSDate *date = [NSDate date];
+    double duration = [self.sleepHoursLabel.text doubleValue];
+    NSError *error;
+    
+    /// Creates new entry or modifies existing one
+    if (_edit) {
+        _edit = NO;
+        NSLog(@"esto edita entrada");
+    } else {
+        //Crea el last record
+        self.lastRecord = [NSEntityDescription insertNewObjectForEntityForName:@"SleepRecord"
+                                               inManagedObjectContext:context];
+        NSLog(@"esto es una nueva entrada");
     }
+
+    [self.lastRecord setValue:@(duration) forKey:@"duration"];
+    [self.lastRecord setValue:date forKey:@"date"];
+    [context save:&error];
+    [self viewDidAppear:YES];
+    
     [self loadGraphData];
     [self.sleepGraph reloadGraph];
 }
