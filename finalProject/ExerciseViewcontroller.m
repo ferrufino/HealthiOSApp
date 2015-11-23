@@ -155,6 +155,17 @@
     
     if ((_fetchResults.count != 0) && !_show) {
         _mustAnswer = NO;
+        
+        self.lastRecord = [self.fetchResults objectAtIndex:0];
+        NSInteger aerobicDuration = [[self.lastRecord valueForKey:@"aerobicDuration"] integerValue];
+        NSInteger anaerobicDuration = [[self.lastRecord valueForKey:@"anaerobicDuration"] integerValue];
+        
+        [self.aerobicMinutesLabel setText:[NSString stringWithFormat:@"%ld", (long)aerobicDuration]];
+        [self.anaerobicMinutesLabel setText:[NSString stringWithFormat:@"%ld", (long)anaerobicDuration]];
+        
+        self.aerobicStepper.value = aerobicDuration;
+        self.anaerobicStepper.value = anaerobicDuration;
+        
         self.questionView.hidden = YES;
         self.scrollView.frame = CGRectMake(0,62,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
     }else{
@@ -280,29 +291,30 @@
 }
 
 - (IBAction)submit:(id)sender {
-        _show = NO;
+    _show = NO;
+    _mustAnswer = NO;
+    self.questionView.hidden = YES;
+    self.scrollView.frame = CGRectMake(0,62,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
     
-        self.questionView.hidden = YES;
-        self.scrollView.frame = CGRectMake(0,62,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
-        
-        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-        NSManagedObjectContext *context = [appDelegate managedObjectContext];
-        
-        if (!self.lastRecord) {
-            self.lastRecord = [NSEntityDescription insertNewObjectForEntityForName:@"ExerciseRecord"
-                                                            inManagedObjectContext:context];
-        }
-        NSDate *date = [NSDate date];
-        CGFloat aerobicDuration = [self.aerobicMinutesLabel.text floatValue];
-        CGFloat anaerobicDuration = [self.anaerobicMinutesLabel.text floatValue];
-        
-        [self.lastRecord setValue:date forKey:@"date"];
-        [self.lastRecord setValue:@(aerobicDuration) forKey:@"aerobicDuration"];
-        [self.lastRecord setValue:@(anaerobicDuration) forKey:@"anaerobicDuration"];
-        
-        NSError *error;
-        [context save:&error];
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
     
+    if (!self.lastRecord) {
+        self.lastRecord = [NSEntityDescription insertNewObjectForEntityForName:@"ExerciseRecord"
+                                                        inManagedObjectContext:context];
+    }
+    NSDate *date = [NSDate date];
+    CGFloat aerobicDuration = [self.aerobicMinutesLabel.text floatValue];
+    CGFloat anaerobicDuration = [self.anaerobicMinutesLabel.text floatValue];
+    
+    [self.lastRecord setValue:date forKey:@"date"];
+    [self.lastRecord setValue:@(aerobicDuration) forKey:@"aerobicDuration"];
+    [self.lastRecord setValue:@(anaerobicDuration) forKey:@"anaerobicDuration"];
+    
+    NSError *error;
+    [context save:&error];
+    
+    [self viewDidAppear:YES];
     [self loadGraphData];
     [self.exerciseGraph reloadGraph];
 }

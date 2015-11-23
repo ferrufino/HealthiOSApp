@@ -199,6 +199,7 @@
         self.lastRecord = [self.fetchResults objectAtIndex:0];
         double duration = [[self.lastRecord valueForKey:@"duration"] doubleValue];
         [self.sleepHoursLabel setText:[NSString stringWithFormat:@"%.01f", duration]];
+        self.sleepStepper.value = duration;
         
         self.questionView.hidden = YES;
         self.scrollView.frame = CGRectMake(0,62,self.scrollView.frame.size.width, self.scrollView.frame.size.height);
