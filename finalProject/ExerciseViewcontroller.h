@@ -13,6 +13,7 @@
 
 
 
+
 @property (weak, nonatomic) IBOutlet UIStepper *aerobicStepper;
 @property (weak, nonatomic) IBOutlet UIStepper *anaerobicStepper;
 @property (weak, nonatomic) IBOutlet UILabel *aerobicMinutesLabel;
