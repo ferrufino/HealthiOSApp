@@ -139,12 +139,12 @@
     _show = NO;
     _edit = NO;
 
-    [self.tfTimeSlept setKeyboardType:UIKeyboardTypeNumberPad];
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+       UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self action:@selector(quitaTeclado)];
      [self.view addGestureRecognizer:tap];
     
-     self.tfTimeSlept.placeholder = @"Ingresa hrs.";
+    [self loadGraphData];
+    [self.sleepGraph reloadGraph];
     
    
 }
@@ -168,6 +168,9 @@
     
     _animationView.type = CSAnimationTypeFadeInUp;
     [_animationView startCanvasAnimation];
+    
+    self.sleepStepper.maximumValue = 14.0;
+    self.sleepStepper.stepValue = 0.5;
 }
 
 
@@ -345,23 +348,18 @@
         }
         
     }
-    if (acum >9 ) {
-        acum = 9;
+    
+    if (acum > 8) {
+        acum = 8;
     }
-    if(cont == 0){
-        
-        return 5;
-        
-    }else if(cont >= 5){
-        acum/=cont;
-        acum/=cont;
-        
-        acum *= 5;
-    }else if (cont < 5){
-        acum/=cont;
+    if (acum < 4) {
+        acum = 4;
     }
-    NSLog(@"Valor regresado en sueño::%d",(NSInteger)roundf( acum));
-    return roundf( acum-1);
+    
+   
+    
+    
+    return acum - 3;
     
 }
 
@@ -383,18 +381,18 @@
     if (_edit) {
         _edit = NO;
         NSLog(@"esto edita entrada");
-
-    }else{
+    } else {
         //Crea el last record
         self.lastRecord = [NSEntityDescription insertNewObjectForEntityForName:@"SleepRecord"
                                                inManagedObjectContext:context];
         NSLog(@"esto es una nueva entrada");
     }
-    
+
     [self.lastRecord setValue:@(duration) forKey:@"duration"];
     [self.lastRecord setValue:date forKey:@"date"];
     [context save:&error];
     [self viewDidAppear:YES];
+    
     [self loadGraphData];
     [self.sleepGraph reloadGraph];
 }
@@ -402,5 +400,6 @@
 - (IBAction)pressedStepper:(UIStepper*)sender {
     double value = [sender value];
     [self.sleepHoursLabel setText:[NSString stringWithFormat:@"%.01f", value]];
+    
 }
 @end

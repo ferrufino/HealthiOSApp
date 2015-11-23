@@ -16,9 +16,9 @@
 - (IBAction)submit:(id)sender;
 - (IBAction)pressedStepper:(UIStepper*)sender;
 @property (weak, nonatomic) IBOutlet UILabel *sleepHoursLabel;
-@property (weak, nonatomic) IBOutlet UITextField *tfTimeSlept;
 @property (strong, nonatomic) NSMutableArray *arrayOfValues;
 @property (strong, nonatomic) NSMutableArray *arrayOfDates;
+@property (weak, nonatomic) IBOutlet UIStepper *sleepStepper;
 
 
 

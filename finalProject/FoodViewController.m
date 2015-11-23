@@ -537,7 +537,7 @@
 }
 
 - (NSString *)popUpSuffixForlineGraph:(BEMSimpleLineGraphView *)graph {
-    return @" horas";
+    return @" habito";
 }
 
 

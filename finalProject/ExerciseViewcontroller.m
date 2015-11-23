@@ -126,6 +126,12 @@
     // Show the y axis values with this format string
     self.exerciseGraph.formatStringForValues = @"%.1f";
     
+    self.aerobicStepper.maximumValue = 1000;
+    self.aerobicStepper.stepValue = 5.0;
+    
+    self.anaerobicStepper.maximumValue = 1000;
+    self.anaerobicStepper.stepValue = 5.0;
+    
 }
 
 - (void) setQuestionView {
@@ -227,33 +233,50 @@
 }
 
 -(NSInteger)loadSuggestion{
-    /*
-    double acum = 0.0;
-    double cont = 0.0;
-    for (int i=0; i< [self.arrayOfValues count]; i++){
-        NSLog(@"[%d]:%@",i,self.arrayOfValues[i]);
+
+    double aerobicWeekly = 0.0;
+    double anaerobicWeekly = 0.0;
+
+    for (int i=0; i< [self.arrayOfValuesA count]; i++){
+        NSLog(@"[%d]:%@",i,self.arrayOfValuesA[i]);
         
-        if ([self.arrayOfValues objectAtIndex:i] != 0) {
-            acum += [[self.arrayOfValues objectAtIndex:i] doubleValue];
-            cont++;
+        if ([self.arrayOfValuesA objectAtIndex:i] != 0) {
+            aerobicWeekly += [[self.arrayOfValuesA objectAtIndex:i] doubleValue];
+      
         }
         
     }
-     
-    if([self.arrayOfValues count] == 0){
+    
+    for (int i=0; i< [self.arrayOfValuesAna count]; i++){
+        NSLog(@"[%d]:%@",i,self.arrayOfValuesAna[i]);
         
-        return 5;
+        if ([self.arrayOfValuesAna objectAtIndex:i] != 0) {
+            anaerobicWeekly += [[self.arrayOfValuesAna objectAtIndex:i] doubleValue];
+          
+        }
         
     }
-    acum/=cont;
-    acum/=cont;
+    if (aerobicWeekly > 210) {
+        aerobicWeekly = 200;
+    }
+    if (aerobicWeekly < 90) {
+        aerobicWeekly = 90;
+    }
     
-    acum *= 5;
+    if (anaerobicWeekly > 210) {
+        anaerobicWeekly = 210;
+    }
+    if (anaerobicWeekly < 90) {
+        anaerobicWeekly = 90;
+    }
+    
+    CGFloat aerobicScore = ((aerobicWeekly - 60) / (210 - 60)) * 5;
+    CGFloat anaerobicScore = ((anaerobicWeekly - 60) / (210 - 60)) * 5;
+    
+    CGFloat score = (aerobicScore + anaerobicScore) / 2;
     
     
-    return acum;
-    */
-    return 5;
+    return score;
 }
 
 - (IBAction)submit:(id)sender {
@@ -279,6 +302,9 @@
         
         NSError *error;
         [context save:&error];
+    
+    [self loadGraphData];
+    [self.exerciseGraph reloadGraph];
 }
 
 - (NSString *)labelForDateAtIndex:(NSInteger)index {
@@ -314,7 +340,7 @@
  } */
 
 - (NSString *)popUpSuffixForlineGraph:(BEMSimpleLineGraphView *)graph {
-    return @" horas";
+    return @" minutos";
 }
 
 #pragma mark - Helper functions
