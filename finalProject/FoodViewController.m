@@ -148,17 +148,13 @@
                                                                       target:self
                                                                       action:@selector(editInput:)];
         self.tabBarController.navigationItem.rightBarButtonItem = editButton;
-
-       
-        [self.tabBarController.navigationController.navigationBar setTintColor:[UIColor flatMintColor]];
-        [self.tabBarController.tabBar setTintColor:[UIColor flatMintColor]];
-        [self.view setTintColor:[UIColor flatMintColor]];
-        [self.navigationController.navigationBar
-         setTitleTextAttributes: @{NSFontAttributeName: [UIFont fontWithName:@"Avenir-Heavy" size:20],
-                                   NSForegroundColorAttributeName: [UIColor flatMintColor]}];
-        
-        
     }
+    [self.tabBarController.navigationController.navigationBar setTintColor:[UIColor flatMintColor]];
+    [self.tabBarController.tabBar setTintColor:[UIColor flatMintColor]];
+    [self.view setTintColor:[UIColor flatMintColor]];
+    [self.navigationController.navigationBar
+     setTitleTextAttributes: @{NSFontAttributeName: [UIFont fontWithName:@"Avenir-Heavy" size:20],
+                               NSForegroundColorAttributeName: [UIColor flatMintColor]}];
     
 }
 - (void) setQuestionView {
@@ -182,6 +178,9 @@
     
     if (_fetchResults.count != 0) {
         _mustAnswer = NO;
+        
+        self.lastRecord = [self.fetchResults objectAtIndex:0];
+        
         self.horizontalScrollView.hidden = YES;
         self.horizontalView.hidden = YES;
         self.verticalScroll.frame = CGRectMake(0,62,self.verticalScroll.frame.size.width, self.verticalScroll.frame.size.height);
@@ -254,16 +253,13 @@
             CGRect frame = CGRectMake(0, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height); //wherever you want to scroll
             [self.horizontalScrollView scrollRectToVisible:frame animated:YES];
             
-            
             _show = YES;
             _edit = YES;
             self.horizontalScrollView.hidden = NO;
             self.verticalScroll.frame = CGRectMake(0,225,self.verticalScroll.frame.size.width, self.verticalScroll.frame.size.height);
-            
-            
+
         }
- }
-    
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -482,70 +478,35 @@
 - (void) saveFoodRecord {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
-
+    
     NSDate *date = [NSDate date];
-    CGFloat averageScore;
-    
-    for (int i = 0; i < 5; i++) {
-        averageScore += [[self.answers objectAtIndex:i] doubleValue];
-    }
-    
-    averageScore /= 5;
-    
-    NSManagedObject *record = [NSEntityDescription insertNewObjectForEntityForName:@"FoodRecord"
-                                                            inManagedObjectContext:context];
-    
     NSError *error;
-    
-    
-    
     
     /// Creates new entry or modifies existing one
     if (_edit) {
-        _edit = false;
+        _edit = NO;
         NSLog(@"esto edita entrada");
         
-        NSFetchRequest *request = [[NSFetchRequest alloc] init];
-        [request setEntity:[NSEntityDescription entityForName:@"FoodRecord" inManagedObjectContext:context]];
-        
-        
-        NSArray *results = [context executeFetchRequest:request error:&error];
-        
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"date == %@",date];
-        [request setPredicate:predicate];
-        
-        
-        NSArray *resultDesc = [[[results reverseObjectEnumerator] allObjects] mutableCopy];
-        record = [resultDesc lastObject];
-        [record setValue:@(averageScore) forKey:@"score"];
-        [record setValue:date forKey:@"date"];
-         [context save:&error];
-        
     }else{
-        
-        [record setValue:date forKey:@"date"];
-        [record setValue:@(averageScore) forKey:@"score"];
+        //Crea el last record
+        self.lastRecord = [NSEntityDescription insertNewObjectForEntityForName:@"FoodRecord"
+                                                        inManagedObjectContext:context];
         NSLog(@"esto es una nueva entrada");
-         [context save:&error];
-        
     }
-
     
+    double averageScore = 0;
+    for (int i = 0; i < 5; i++) {
+        averageScore += [[self.answers objectAtIndex:i] doubleValue];
+    }
+    averageScore /= 5;
     
+    [self.lastRecord setValue:@(averageScore) forKey:@"score"];
+    [self.lastRecord setValue:date forKey:@"date"];
+    [context save:&error];
     
-    
-    
-    
-    
-    
-    
-    
-    
-   
-
+    [self viewDidAppear:YES];
     [self loadGraphData];
     [self.nutriGraph reloadGraph];
-
 }
 
 - (NSString *)labelForDateAtIndex:(NSInteger)index {
