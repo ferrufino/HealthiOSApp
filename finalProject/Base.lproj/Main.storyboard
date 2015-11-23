@@ -84,6 +84,7 @@
                         <outlet property="scrollView" destination="tfo-uU-o2b" id="QwK-TJ-YjK"/>
                         <outlet property="sleepGraph" destination="pF1-tc-vRd" id="sQT-gB-DUH"/>
                         <outlet property="sleepHoursLabel" destination="NER-0d-VhU" id="FFq-xI-Drw"/>
+                        <outlet property="sleepStepper" destination="BHK-pn-Pky" id="4TW-5w-XRf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -336,7 +337,7 @@
                     <tabBarItem key="tabBarItem" title="Ejercicio" image="gym" id="Svx-qg-4Nv"/>
                     <connections>
                         <outlet property="aerobicMinutesLabel" destination="KKv-tq-EHf" id="o7e-fK-ziS"/>
-                        <outlet property="aerobicStepper" destination="Xg5-PT-xaA" id="S0r-kf-PlB"/>
+                        <outlet property="aerobicStepper" destination="Xg5-PT-xaA" id="Ilx-Fx-x3y"/>
                         <outlet property="anaerobicMinutesLabel" destination="fJf-fH-ObC" id="qGV-e0-DTQ"/>
                         <outlet property="anaerobicStepper" destination="cTB-Ma-LIB" id="CPG-9g-b5n"/>
                         <outlet property="exerciseGraph" destination="qDl-fe-Vw5" id="SsD-jI-zD4"/>

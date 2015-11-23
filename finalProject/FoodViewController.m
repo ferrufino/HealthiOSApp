@@ -155,7 +155,7 @@
         [self.view setTintColor:[UIColor flatMintColor]];
         [self.navigationController.navigationBar
          setTitleTextAttributes: @{NSFontAttributeName: [UIFont fontWithName:@"Avenir-Heavy" size:20],
-                                   NSForegroundColorAttributeName: [UIColor flatYellowColor]}];
+                                   NSForegroundColorAttributeName: [UIColor flatMintColor]}];
         
         
     }
@@ -576,7 +576,7 @@
 }
 
 - (NSString *)popUpSuffixForlineGraph:(BEMSimpleLineGraphView *)graph {
-    return @" horas";
+    return @" habito";
 }
 
 
