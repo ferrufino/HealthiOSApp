@@ -360,7 +360,7 @@
    
     
     
-    return acum - 3;
+    return (cont == 0)? 5 : acum - 3;
     
 }
 

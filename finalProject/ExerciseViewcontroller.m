@@ -335,11 +335,12 @@
 
     double aerobicWeekly = 0.0;
     double anaerobicWeekly = 0.0;
-
+    BOOL empty = YES;
     for (int i=0; i< [self.arrayOfValuesA count]; i++){
         NSLog(@"[%d]:%@",i,self.arrayOfValuesA[i]);
         
         if ([self.arrayOfValuesA objectAtIndex:i] != 0) {
+            empty = NO;
             aerobicWeekly += [[self.arrayOfValuesA objectAtIndex:i] doubleValue];
       
         }
@@ -350,6 +351,7 @@
         NSLog(@"[%d]:%@",i,self.arrayOfValuesAna[i]);
         
         if ([self.arrayOfValuesAna objectAtIndex:i] != 0) {
+            empty = NO;
             anaerobicWeekly += [[self.arrayOfValuesAna objectAtIndex:i] doubleValue];
           
         }
@@ -375,7 +377,7 @@
     CGFloat score = (aerobicScore + anaerobicScore) / 2;
     
     
-    return score;
+    return empty?5:score-1;
 }
 
 - (IBAction)submit:(id)sender {

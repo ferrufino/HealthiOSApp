@@ -211,6 +211,7 @@
     
     double acum = 0.0;
     double cont = 0.0;
+ 
     for (int i=0; i< [self.arrayOfValues count]; i++){
         
         
