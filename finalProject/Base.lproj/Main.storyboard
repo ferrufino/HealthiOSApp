@@ -322,6 +322,15 @@
                                                     <outlet property="delegate" destination="gBW-9N-U4b" id="ZpM-b5-6aS"/>
                                                 </connections>
                                             </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fal-Lq-82p" customClass="BEMSimpleLineGraphView">
+                                                <rect key="frame" x="0.0" y="304" width="375" height="270"/>
+                                                <animations/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="gBW-9N-U4b" id="pK6-JY-yH7"/>
+                                                    <outlet property="delegate" destination="gBW-9N-U4b" id="Rd0-CH-8lB"/>
+                                                </connections>
+                                            </view>
                                         </subviews>
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -340,6 +349,7 @@
                         <outlet property="aerobicStepper" destination="Xg5-PT-xaA" id="Ilx-Fx-x3y"/>
                         <outlet property="anaerobicMinutesLabel" destination="fJf-fH-ObC" id="qGV-e0-DTQ"/>
                         <outlet property="anaerobicStepper" destination="cTB-Ma-LIB" id="CPG-9g-b5n"/>
+                        <outlet property="exerciseAnaerobicGraph" destination="Fal-Lq-82p" id="oO5-pK-OPh"/>
                         <outlet property="exerciseGraph" destination="qDl-fe-Vw5" id="SsD-jI-zD4"/>
                         <outlet property="questionView" destination="5ul-Yp-x3G" id="8zB-PF-dsx"/>
                         <outlet property="scrollView" destination="stE-iB-0mB" id="OYT-6t-ilB"/>

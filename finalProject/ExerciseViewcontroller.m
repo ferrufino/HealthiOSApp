@@ -126,6 +126,46 @@
     // Show the y axis values with this format string
     self.exerciseGraph.formatStringForValues = @"%.1f";
     
+    ////Anaerobic Graph
+    // Apply the gradient to the bottom portion of the graph
+    self.exerciseGraph.gradientBottom = CGGradientCreateWithColors(colorspace, (CFArrayRef)colors, locations);
+    
+    // Enable and disable various graph properties and axis displays
+    self.exerciseGraph.colorTop = [UIColor flatNavyBlueColor];
+    self.exerciseGraph.colorBottom = [UIColor flatNavyBlueColor];
+    self.exerciseGraph.colorLine = [UIColor flatWatermelonColor];
+    self.exerciseGraph.enableTouchReport = YES;
+    self.exerciseGraph.enablePopUpReport = YES;
+    self.exerciseGraph.enableYAxisLabel = NO;
+    self.exerciseGraph.autoScaleYAxis = YES;
+    self.exerciseGraph.alwaysDisplayDots = NO;
+    self.exerciseGraph.enableReferenceXAxisLines = NO;
+    self.exerciseGraph.enableReferenceYAxisLines = YES;
+    self.exerciseGraph.enableReferenceAxisFrame = YES;
+    self.exerciseGraph.enableBezierCurve = YES;
+    
+    //////
+    //////
+    //////
+    // Apply the gradient to the bottom portion of the graph
+    self.exerciseAnaerobicGraph.gradientBottom = CGGradientCreateWithColors(colorspace, (CFArrayRef)colors, locations);
+    self.exerciseAnaerobicGraph.averageLine.enableAverageLine = YES;
+    self.exerciseAnaerobicGraph.averageLine.alpha = 0.3;
+    self.exerciseAnaerobicGraph.averageLine.color = [UIColor whiteColor];
+    self.exerciseAnaerobicGraph.averageLine.width = 2.5;
+    self.exerciseAnaerobicGraph.averageLine.dashPattern = @[@(2),@(2)];
+    self.exerciseAnaerobicGraph.colorXaxisLabel = [UIColor flatWatermelonColor];
+    self.exerciseAnaerobicGraph.colorYaxisLabel = [UIColor whiteColor];
+    
+    // Set the graph's animation style to draw, fade, or none
+    self.exerciseAnaerobicGraph.animationGraphStyle = BEMLineAnimationDraw;
+    
+    // Dash the y reference lines
+    self.exerciseAnaerobicGraph.lineDashPatternForReferenceYAxisLines = @[@(2),@(2)];
+    
+    // Show the y axis values with this format string
+    self.exerciseAnaerobicGraph.formatStringForValues = @"%.1f";
+
     self.aerobicStepper.maximumValue = 1000;
     self.aerobicStepper.stepValue = 5.0;
     
@@ -321,7 +361,14 @@
     return 7;
 }
 - (CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {
-    return [[self.arrayOfValuesA objectAtIndex:index] doubleValue];
+    
+    if (graph == self.exerciseGraph) {
+        return [[self.arrayOfValuesA objectAtIndex:index] doubleValue];
+
+    } else {
+        return [[self.arrayOfValuesAna objectAtIndex:index] doubleValue];
+
+    }
 }
 
 #pragma mark - SimpleLineGraph Delegate
