@@ -239,7 +239,7 @@
         if (_show) {
             _show = NO;
             self.horizontalScrollView.hidden = YES;
-           self.verticalScroll.frame = CGRectMake(0,62,self.verticalScroll.frame.size.width, self.verticalScroll.frame.size.height);
+           self.verticalScroll.frame = CGRectMake(0, 62,self.verticalScroll.frame.size.width, self.verticalScroll.frame.size.height);
             
         }else{
             self.numOfQuestion = 1;
@@ -256,7 +256,7 @@
             _show = YES;
             _edit = YES;
             self.horizontalScrollView.hidden = NO;
-            self.verticalScroll.frame = CGRectMake(0,225,self.verticalScroll.frame.size.width, self.verticalScroll.frame.size.height);
+            self.verticalScroll.frame = CGRectMake(0, 225,self.verticalScroll.frame.size.width, self.verticalScroll.frame.size.height);
 
         }
     }
@@ -324,7 +324,7 @@
 
     //SegmentedControl for horizontal scroll view
     _segmentedControlQ1 = [[HMSegmentedControl alloc] initWithSectionTitles:@[@"1", @"2", @"3", @"4", @"5"]];
-    [_segmentedControlQ1 setFrame:CGRectMake(0, 52, self.horizontalScrollView.frame.size.width, 53)];
+    [_segmentedControlQ1 setFrame:CGRectMake(0, 110, self.horizontalScrollView.frame.size.width, 53)];
     [_segmentedControlQ1 setIndexChangeBlock:^(NSInteger index) {
         NSLog(@"Selected index %ld (via block)", (long)index);
         double delayInSeconds = 0.25;

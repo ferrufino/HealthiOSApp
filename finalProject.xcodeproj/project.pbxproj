@@ -60,7 +60,7 @@
 		20DB32E11BE9E7F60056F4FF /* finalProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = finalProject.xcdatamodel; sourceTree = "<group>"; };
 		20DB32E61BEB1F8A0056F4FF /* ReportsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportsTableViewController.h; sourceTree = "<group>"; };
 		20DB32E71BEB1F8A0056F4FF /* ReportsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportsTableViewController.m; sourceTree = "<group>"; };
-		665393E91BD5BC990014FD20 /* finalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = finalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		665393E91BD5BC990014FD20 /* Health Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Health Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		665393ED1BD5BC990014FD20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		665393EE1BD5BC990014FD20 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		665393F01BD5BC990014FD20 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -159,7 +159,7 @@
 		665393EA1BD5BC990014FD20 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				665393E91BD5BC990014FD20 /* finalProject.app */,
+				665393E91BD5BC990014FD20 /* Health Tracker.app */,
 				665394051BD5BC990014FD20 /* finalProjectTests.xctest */,
 			);
 			name = Products;
@@ -265,7 +265,7 @@
 			);
 			name = finalProject;
 			productName = finalProject;
-			productReference = 665393E91BD5BC990014FD20 /* finalProject.app */;
+			productReference = 665393E91BD5BC990014FD20 /* Health Tracker.app */;
 			productType = "com.apple.product-type.application";
 		};
 		665394041BD5BC990014FD20 /* finalProjectTests */ = {
@@ -292,7 +292,7 @@
 		665393E11BD5BC980014FD20 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Gustavo Ferrufino";
 				TargetAttributes = {
 					665393E81BD5BC980014FD20 = {
@@ -471,6 +471,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -540,7 +541,8 @@
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = finalProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ferrufino.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "Health Tracker";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -555,7 +557,8 @@
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = finalProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ferrufino.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "Health Tracker";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -574,6 +577,7 @@
 				);
 				INFOPLIST_FILE = finalProjectTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ferrufino.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/finalProject.app/finalProject";
 			};
@@ -589,6 +593,7 @@
 				);
 				INFOPLIST_FILE = finalProjectTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ferrufino.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/finalProject.app/finalProject";
 			};
