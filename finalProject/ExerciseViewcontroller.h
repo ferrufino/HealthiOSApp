@@ -32,6 +32,7 @@
 
 //Views
 @property (weak, nonatomic) IBOutlet BEMSimpleLineGraphView *exerciseGraph;
+@property (weak, nonatomic) IBOutlet BEMSimpleLineGraphView *exerciseAnaerobicGraph;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *questionView;
 
