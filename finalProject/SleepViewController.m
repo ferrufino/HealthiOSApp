@@ -395,7 +395,8 @@
     [self.lastRecord setValue:date forKey:@"date"];
     [context save:&error];
     [self viewDidAppear:YES];
-    
+    [self loadGraphData];
+    [self.sleepGraph reloadGraph];
 }
 
 - (IBAction)pressedStepper:(UIStepper*)sender {
