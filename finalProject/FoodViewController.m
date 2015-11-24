@@ -320,7 +320,7 @@
 - (void)loadQuestionView {
     self.numOfQuestion = 1;
     self.answers = [[NSMutableArray alloc] init];
-    self.horizontalScrollView.frame = CGRectMake(0, 0, 375, 162);
+    self.horizontalScrollView.frame = CGRectMake(0, 0, self.view.frame.size.width, 162);
     //Impide que usuario pueda darle scroll
     self.horizontalScrollView.scrollEnabled = NO;
     

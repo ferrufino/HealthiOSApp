@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		205058411C039C0700282073 /* Main-iPhone4S.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 205058391C039C0700282073 /* Main-iPhone4S.storyboard */; };
+		205058421C039C0700282073 /* Main-iPhone5-iPhone5S.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2050583B1C039C0700282073 /* Main-iPhone5-iPhone5S.storyboard */; };
+		205058431C039C0700282073 /* Main-iPhone6-iPhone6S.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2050583D1C039C0700282073 /* Main-iPhone6-iPhone6S.storyboard */; };
+		205058441C039C0700282073 /* Main-iPhone6Plus-iPhone6SPlus.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2050583F1C039C0700282073 /* Main-iPhone6Plus-iPhone6SPlus.storyboard */; };
 		20536EF81BD9BC5D00BEB17A /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20536EF71BD9BC5D00BEB17A /* ProfileViewController.m */; };
 		20536EFC1BD9BEA100BEB17A /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20536EFB1BD9BEA100BEB17A /* TabBarViewController.m */; };
 		20817AEC1C00B313008C453F /* ReportsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 20817AEA1C00B313008C453F /* ReportsHelper.m */; };
@@ -51,6 +55,10 @@
 
 /* Begin PBXFileReference section */
 		0F9708528AEF50FCB1221D3D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		2050583A1C039C0700282073 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Main-iPhone4S.storyboard"; sourceTree = "<group>"; };
+		2050583C1C039C0700282073 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Main-iPhone5-iPhone5S.storyboard"; sourceTree = "<group>"; };
+		2050583E1C039C0700282073 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Main-iPhone6-iPhone6S.storyboard"; sourceTree = "<group>"; };
+		205058401C039C0700282073 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Main-iPhone6Plus-iPhone6SPlus.storyboard"; sourceTree = "<group>"; };
 		20536EF61BD9BC5D00BEB17A /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		20536EF71BD9BC5D00BEB17A /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		20536EFA1BD9BEA100BEB17A /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
@@ -168,6 +176,10 @@
 		665393EB1BD5BC990014FD20 /* finalProject */ = {
 			isa = PBXGroup;
 			children = (
+				205058391C039C0700282073 /* Main-iPhone4S.storyboard */,
+				2050583B1C039C0700282073 /* Main-iPhone5-iPhone5S.storyboard */,
+				2050583D1C039C0700282073 /* Main-iPhone6-iPhone6S.storyboard */,
+				2050583F1C039C0700282073 /* Main-iPhone6Plus-iPhone6SPlus.storyboard */,
 				20817AEB1C00B313008C453F /* Helpers */,
 				20817AE61C00A2FD008C453F /* ViewControllers */,
 				20817AE81C00A4EB008C453F /* Views */,
@@ -329,9 +341,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				205058431C039C0700282073 /* Main-iPhone6-iPhone6S.storyboard in Resources */,
+				205058441C039C0700282073 /* Main-iPhone6Plus-iPhone6SPlus.storyboard in Resources */,
 				665393FB1BD5BC990014FD20 /* Main.storyboard in Resources */,
 				665394001BD5BC990014FD20 /* LaunchScreen.xib in Resources */,
 				665393FD1BD5BC990014FD20 /* Images.xcassets in Resources */,
+				205058421C039C0700282073 /* Main-iPhone5-iPhone5S.storyboard in Resources */,
+				205058411C039C0700282073 /* Main-iPhone4S.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +447,38 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		205058391C039C0700282073 /* Main-iPhone4S.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2050583A1C039C0700282073 /* Base */,
+			);
+			name = "Main-iPhone4S.storyboard";
+			sourceTree = "<group>";
+		};
+		2050583B1C039C0700282073 /* Main-iPhone5-iPhone5S.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2050583C1C039C0700282073 /* Base */,
+			);
+			name = "Main-iPhone5-iPhone5S.storyboard";
+			sourceTree = "<group>";
+		};
+		2050583D1C039C0700282073 /* Main-iPhone6-iPhone6S.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2050583E1C039C0700282073 /* Base */,
+			);
+			name = "Main-iPhone6-iPhone6S.storyboard";
+			sourceTree = "<group>";
+		};
+		2050583F1C039C0700282073 /* Main-iPhone6Plus-iPhone6SPlus.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				205058401C039C0700282073 /* Base */,
+			);
+			name = "Main-iPhone6Plus-iPhone6SPlus.storyboard";
+			sourceTree = "<group>";
+		};
 		665393F91BD5BC990014FD20 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -540,6 +588,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = finalProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Ferrufino.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "Health Tracker";
@@ -556,6 +605,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = finalProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Ferrufino.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "Health Tracker";
@@ -579,7 +629,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Ferrufino.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/finalProject.app/finalProject";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Health Tracker.app/Health Tracker";
 			};
 			name = Debug;
 		};
@@ -595,7 +645,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Ferrufino.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/finalProject.app/finalProject";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Health Tracker.app/Health Tracker";
 			};
 			name = Release;
 		};
