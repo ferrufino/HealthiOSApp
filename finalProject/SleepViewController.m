@@ -7,7 +7,6 @@
 //
 
 #import "SleepViewController.h"
-#import "UIColor+FSPalette.h"
 #import <ChameleonFramework/Chameleon.h>
 #import "Canvas.h"
 

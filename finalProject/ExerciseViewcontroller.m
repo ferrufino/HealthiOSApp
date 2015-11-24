@@ -8,7 +8,6 @@
 
 #import "ExerciseViewcontroller.h"
 #import "FoodViewController.h"
-#import "UIColor+FSPalette.h"
 #import "QuartzCore/QuartzCore.h"
 #import "Canvas.h"
 #import <ChameleonFramework/Chameleon.h>

@@ -14,5 +14,7 @@
 
 - (void) generateReport;
 - (NSString*) getLastReportScore;
+- (int) numberOfReports;
+- (NSTimeInterval) timeSinceLastReport;
 
 @end

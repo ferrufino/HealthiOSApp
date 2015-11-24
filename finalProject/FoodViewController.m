@@ -56,7 +56,7 @@
     CGRect frameInfo;
     
     frameInfo =_pop.view.frame;
-    frameInfo.origin.x -=50;
+    frameInfo.origin.x = 0;
     _pop.view.frame=frameInfo;
     _pop.view.hidden = YES;
     

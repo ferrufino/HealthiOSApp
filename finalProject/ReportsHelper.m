@@ -265,4 +265,43 @@
     return [NSString stringWithFormat:@"%d", scoreRounded];
 }
 
+- (int) numberOfReports {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Report"
+                                              inManagedObjectContext:context];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entity];
+    NSArray *results = [context executeFetchRequest:request error:NULL];
+    
+    return results.count;
+}
+
+
+- (NSTimeInterval) timeSinceLastReport {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Report"
+                                              inManagedObjectContext:context];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entity];
+    
+    // Results should be in descending order of timeStamp.
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
+    [request setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+    [request setFetchLimit:1];
+    
+    NSArray *results = [context executeFetchRequest:request error:NULL];
+    
+    NSManagedObject *report = [results objectAtIndex:0];
+    NSDate *date = [report valueForKey:@"date"];
+    NSDate *now = [NSDate date];
+    
+    NSTimeInterval secondsBetween = [now timeIntervalSinceDate:date];
+    return secondsBetween;
+}
 @end
