@@ -23,6 +23,7 @@
 @property BOOL show;
 @property BOOL mustAnswer;
 @property NSMutableArray *suggestions;
+@property UILabel *labelSuggestion;
 @end
 
 @implementation ExerciseViewcontroller
@@ -42,7 +43,7 @@
     [self.scrollView setContentSize:CGSizeMake(320, 1200)];
     
     
-    _animationView = [[CSAnimationView alloc] initWithFrame:CGRectMake(50, 700 , 280, 185)];
+    _animationView = [[CSAnimationView alloc] initWithFrame:CGRectMake(self.scrollView.frame.size.width * 0.1, self.scrollView.frame.size.height*1.5, self.scrollView.frame.size.width * 0.8, 185)];
     
     _animationView.backgroundColor = [UIColor flatWatermelonColor];
     
@@ -62,21 +63,22 @@
     [_animationView addGestureRecognizer:singleFingerTap];
     
     
-    self.suggestions = [[NSMutableArray alloc] initWithObjects:@"sug 1", @"sug 2", @"sug 3",
-                        @"sug 4",@"sug 5", @"Welcome! Please input data to see suggestions",nil];
+    self.suggestions = [[NSMutableArray alloc] initWithObjects:@"Es bueno que reconozcas la necesidad de realizar un cambio. Tu puedes", @"Un paso a la vez, grandes cosas pueden ser logradas si lo intentas!", @"Enfocate en la figura que deseas conseguir", @" El flujo de oxígeno al cerebro aumenta, por lo que la capacidad de aprendizaje, concentración, memoria y estado de alerta pueden mejorar de manera considerable.",@"Manten la rutina, excelente trabajo!", @"Bienvenido! Ingresa datos para poder ver sugerencias de ejericio.",nil];
     
-    UILabel *labelSuggestion = [[UILabel alloc]initWithFrame:CGRectMake(50,30, 100, 100)];
-    [labelSuggestion setText:[self.suggestions objectAtIndex: [self loadSuggestion]]];
-    [labelSuggestion setFont:[UIFont fontWithName:@"Avenir" size:15]];
-    [labelSuggestion setNumberOfLines:0];
+    self.labelSuggestion = [[UILabel alloc]initWithFrame:CGRectMake(50,30, 100, 100)];
+    [_labelSuggestion
+     
+     setText:[self.suggestions objectAtIndex: [self loadSuggestion]]];
+    [_labelSuggestion setFont:[UIFont fontWithName:@"Avenir" size:15]];
+    [_labelSuggestion setNumberOfLines:0];
     
     CGRect frame;
     
-    frame =labelSuggestion.frame;
+    frame =_labelSuggestion.frame;
     frame.size.width +=70;
-    labelSuggestion.frame=frame;
+    _labelSuggestion.frame=frame;
 
-    [_animationView addSubview:labelSuggestion];
+    [_animationView addSubview:_labelSuggestion];
 
     [self.scrollView addSubview:_animationView];
     
@@ -268,8 +270,9 @@
    
           _animationView.type = CSAnimationTypeShake;
          [_animationView startCanvasAnimation];
+     [self loadGraphData];
+    self.labelSuggestion.text = [self.suggestions objectAtIndex:[self loadSuggestion]];
     
-
     NSLog(@"Click");
 }
 

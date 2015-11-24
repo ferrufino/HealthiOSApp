@@ -64,7 +64,7 @@
     
     
     //Suggestion Card
-    _animationView = [[CSAnimationView alloc] initWithFrame:CGRectMake(50, 560 , 280, 185)];
+    _animationView = [[CSAnimationView alloc] initWithFrame:CGRectMake(self.verticalScroll.frame.size.width * 0.1, self.verticalScroll.frame.size.height*0.9, self.verticalScroll.frame.size.width * 0.8, 185)];
     
     _animationView.backgroundColor = [UIColor flatMintColor];
     
@@ -85,7 +85,9 @@
     [_animationView addGestureRecognizer:singleFingerTap];
     
     
-    self.suggestions = [[NSMutableArray alloc] initWithObjects:@"Es bueno que reconozcas la necesidad de realizar un cambio.", @"Empieza con cosas pequeñas, consume frutas y agua. Dale un intento!", @"Procura controlar tu consumo de azucares y sales. Es bueno para tu salud y tu lo sabes :)",@"Procura tener horarios exactos para cada plato del día. - Estas dando los primeros pasos, crear un habito toma tiempo!" ,@"prueba 5ta sugerencia",@"Bienvenido, ingresa datos para poder ver las sugerencias", nil];
+
+    self.suggestions = [[NSMutableArray alloc] initWithObjects:@"Es bueno que reconozcas la necesidad de realizar un cambio. Tu puedes", @"Empieza con cosas pequeñas, consume frutas y agua. Dale un intento!", @"Procura controlar tu consumo de azucares y sales. Veras como es bueno para tu salud",@"Procura tener horarios exactos para cada plato del día. Estas dando los primeros pasos, crear un habito toma tiempo!" ,@"Tienes una muy buena dieta, sigue así!",@"Bienvenido, ingresa datos para poder ver las sugerencias",nil];
+
     
     _labelSuggestion = [[UILabel alloc]initWithFrame:CGRectMake(50,20, 100, 150)];
     [_labelSuggestion setText:[self.suggestions objectAtIndex: [self loadSuggestion]]];
@@ -227,7 +229,7 @@
     [self loadGraphData];
     self.labelSuggestion.text = [self.suggestions objectAtIndex:[self loadSuggestion]];
     
-    NSLog(@"Click");
+    NSLog(@"Click: %d",[self loadSuggestion]);
     
 }
 -(NSInteger)loadSuggestion{
@@ -551,21 +553,25 @@
 
 - (void) setQuestionLabels {
     // Create Label 1
-    UILabel *labelOne = [[UILabel alloc]initWithFrame:CGRectMake(5, 10, 400, 40)];
+    UILabel *labelOne = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width*0.05, 0, 400, 60)];
     [labelOne setTextColor:[UIColor flatNavyBlueColorDark]];
-    [labelOne setText:@"¿Consumes una gran variedad de frutas y verduras?"];
+    [labelOne setText:@"¿Consumes una gran variedad de frutas \n y verduras?"];
     [labelOne setFont:[UIFont fontWithName:@"Avenir-Heavy" size:15]];
+    [labelOne setNumberOfLines:0];
+   
     [self.horizontalScrollView addSubview:labelOne];
     
     // Create Label 2
-    UILabel *labelTwo = [[UILabel alloc]initWithFrame:CGRectMake(self.horizontalScrollView.frame.size.width+70, 10, 400, 40)];
+
+    UILabel *labelTwo = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width+ self.view.frame.size.width*0.05, 0, 400, 60)];
     [labelTwo setTextColor:[UIColor flatNavyBlueColorDark]];
     [labelTwo setText:@"¿Comes seguido cereales integrales?"];
     [labelTwo setFont:[UIFont fontWithName:@"Avenir-Heavy" size:15]];
+    [labelTwo setNumberOfLines:0];
     [self.horizontalScrollView addSubview:labelTwo];
     
     // Create Label 3
-    UILabel *labelThree = [[UILabel alloc]initWithFrame:CGRectMake(self.horizontalScrollView.frame.size.width*2+70, 10, 400, 80)];
+    UILabel *labelThree = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width*2+ self.view.frame.size.width*0.05, 0, 400, 80)];
     [labelThree setText:@"¿Consumes bebidas o comidas con \n azucares con moderación?"];
     [labelThree setTextColor:[UIColor flatNavyBlueColorDark]];
     labelThree.lineBreakMode = UILineBreakModeWordWrap;
@@ -574,8 +580,8 @@
     [self.horizontalScrollView addSubview:labelThree];
     
     // Create Label 4
-    UILabel *labelFour = [[UILabel alloc]initWithFrame:CGRectMake(self.horizontalScrollView.frame.size.width*3+40, 10, 400, 80)];
-    [labelFour setText:@"¿Consumes al menos un litro de agua diario?"];
+    UILabel *labelFour = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width*3+ self.view.frame.size.width*0.05, 0, 400, 80)];
+    [labelFour setText:@"¿Consumes al menos un  litro de agua \n  diario?"];
     [labelFour setTextColor:[UIColor flatNavyBlueColorDark]];
     labelFour.lineBreakMode = UILineBreakModeWordWrap;
     labelFour.numberOfLines = 0;
@@ -583,7 +589,7 @@
     [self.horizontalScrollView addSubview:labelFour];
     
     // Create Label 5
-    UILabel *labelFive = [[UILabel alloc]initWithFrame:CGRectMake(self.horizontalScrollView.frame.size.width*4+70, 10, 400, 80)];
+    UILabel *labelFive = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width*4+ self.view.frame.size.width*0.05, 0, 400, 80)];
     [labelFive setText:@"¿Respetas tus horarios de comida?"];
     [labelFive setTextColor:[UIColor flatNavyBlueColorDark]];
     labelFive.lineBreakMode = UILineBreakModeWordWrap;
