@@ -572,7 +572,7 @@
     
     // Create Label 3
     UILabel *labelThree = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width*2+ self.view.frame.size.width*0.05, 0, 400, 80)];
-    [labelThree setText:@"¿Consumes bebidas o comidas con azucares \n con moderación?"];
+    [labelThree setText:@"¿Consumes bebidas o comidas con \n azucares con moderación?"];
     [labelThree setTextColor:[UIColor flatNavyBlueColorDark]];
     labelThree.lineBreakMode = UILineBreakModeWordWrap;
     labelThree.numberOfLines = 0;
