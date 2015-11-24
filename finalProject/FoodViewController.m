@@ -597,6 +597,7 @@
     [labelFive setFont:[UIFont fontWithName:@"Avenir-Heavy" size:15]];
     [self.horizontalScrollView addSubview:labelFive];
     
+    /*
     [labelOne setUserInteractionEnabled:YES];
     UITapGestureRecognizer *tapGestureRecognizer1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(btnInfoPressed)];
     [tapGestureRecognizer1 setNumberOfTapsRequired:1];
@@ -621,7 +622,7 @@
     UITapGestureRecognizer *tapGestureRecognizer5 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(btnInfoPressed)];
     [tapGestureRecognizer5 setNumberOfTapsRequired:1];
     [labelFive addGestureRecognizer:tapGestureRecognizer5];
-     
+     */
 }
 
 - (IBAction)btnInfoPressed {
