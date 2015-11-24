@@ -9,6 +9,7 @@
 #import "FoodViewController.h"
 #import "Canvas.h"
 #import <ChameleonFramework/Chameleon.h>
+#import "InfoViewController.h"
 
 @interface FoodViewController ()
 @property HMSegmentedControl *segmentedControlQ1;
@@ -21,6 +22,9 @@
 @property BOOL mustAnswer;
 @property BOOL show;
 @property BOOL edit;
+@property UILabel *labelSuggestion;
+@property InfoViewController *pop;
+@property  UIButton *button;
 
 @end
 
@@ -42,6 +46,22 @@
     /*****Vertical Scroll***/
     [self.verticalScroll setScrollEnabled:YES];
     [self.verticalScroll setContentSize:CGSizeMake(320, 1000)];
+    
+    
+    
+
+    
+    //Pop Info
+    _pop = [[InfoViewController alloc] init];
+    CGRect frameInfo;
+    
+    frameInfo =_pop.view.frame;
+    frameInfo.origin.x -=50;
+    _pop.view.frame=frameInfo;
+    _pop.view.hidden = YES;
+    
+    [self.view addSubview:_pop.view];
+    
     
     //Suggestion Card
     _animationView = [[CSAnimationView alloc] initWithFrame:CGRectMake(50, 560 , 280, 185)];
@@ -65,21 +85,21 @@
     [_animationView addGestureRecognizer:singleFingerTap];
     
     
-    self.suggestions = [[NSMutableArray alloc] initWithObjects:@"sug 1", @"sug 2", @"sug 3",
-                        @"sug 4",@"sug 5", @"Welcome! Please input data to see suggestions",nil];
+    self.suggestions = [[NSMutableArray alloc] initWithObjects:@"Es bueno que reconozcas la necesidad de realizar un cambio.", @"Empieza con cosas pequeñas, consume frutas y agua. Dale un intento!", @"Procura controlar tu consumo de azucares y sales. Es bueno para tu salud y tu lo sabes :)",@"Procura tener horarios exactos para cada plato del día. - Estas dando los primeros pasos, crear un habito toma tiempo!" ,@"prueba 5ta sugerencia",nil];
     
-    UILabel *labelSuggestion = [[UILabel alloc]initWithFrame:CGRectMake(50,30, 100, 100)];
-    [labelSuggestion setText:[self.suggestions objectAtIndex: [self loadSuggestion]]];
-    [labelSuggestion setFont:[UIFont fontWithName:@"Avenir" size:15]];
-    [labelSuggestion setNumberOfLines:0];
+    _labelSuggestion = [[UILabel alloc]initWithFrame:CGRectMake(50,20, 100, 150)];
+    [_labelSuggestion setText:[self.suggestions objectAtIndex: [self loadSuggestion]]];
+    [_labelSuggestion setFont:[UIFont fontWithName:@"Avenir" size:15]];
+    [_labelSuggestion setNumberOfLines:0];
     
     CGRect frame;
     
-    frame =labelSuggestion.frame;
+    frame =_labelSuggestion.frame;
     frame.size.width +=70;
-    labelSuggestion.frame=frame;
+    _labelSuggestion.frame=frame;
     
-    [_animationView addSubview:labelSuggestion];
+    
+    [_animationView addSubview:_labelSuggestion];
     
     [self.verticalScroll addSubview:_animationView];
     
@@ -137,6 +157,7 @@
 
 
 }
+
 - (void)viewDidAppear:(BOOL)animated {
     
     
@@ -203,7 +224,8 @@
     _animationView.type = CSAnimationTypeShake;
     [_animationView startCanvasAnimation];
     [self loadGraphData];
-    [self loadSuggestion];
+    self.labelSuggestion.text = [self.suggestions objectAtIndex:[self loadSuggestion]];
+    
     NSLog(@"Click");
     
 }
@@ -408,6 +430,17 @@
     [labelFive setFont:[UIFont fontWithName:@"Avenir-Heavy" size:15]];
     [self.horizontalScrollView addSubview:labelFive];
     
+    
+    //BTN
+    _button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_button addTarget:self
+               action:@selector(btnInfoPressed)
+     forControlEvents:UIControlEventTouchUpInside];
+    [_button setTitle:nil forState:UIControlStateNormal];
+    _button.frame = CGRectMake(0, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height-53);
+    [self.horizontalScrollView addSubview:_button];
+    
+    
     //Oculta sidebar scroll
     [self.horizontalScrollView setShowsHorizontalScrollIndicator:NO];
 
@@ -425,8 +458,14 @@
     changePositionInX.origin.x = self.horizontalScrollView.frame.size.width;
     _segmentedControlQ1.frame = changePositionInX;
     
+    //Btn Info
+    _button.frame = CGRectMake(self.horizontalScrollView.frame.size.width, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height-53);
+    [_pop setTxt:@"hola 1" ];
+    
     CGRect frame = CGRectMake(self.horizontalScrollView.frame.size.width, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height); //wherever you want to scroll
     [self.horizontalScrollView scrollRectToVisible:frame animated:YES];
+    
+   
 }
 
 -(void) buttonClicked2 {
@@ -437,9 +476,13 @@
     changePositionInX.origin.x = self.horizontalScrollView.frame.size.width*2;
     _segmentedControlQ1.frame = changePositionInX;
     
+    _button.frame = CGRectMake(self.horizontalScrollView.frame.size.width*2, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height-53);
+     [_pop setTxt:@"hola 2" ];
+
     
     CGRect frame = CGRectMake(self.horizontalScrollView.frame.size.width*2, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height); //wherever you want to scroll
     [self.horizontalScrollView scrollRectToVisible:frame animated:YES];
+    
 }
 
 -(void) buttonClicked3 {
@@ -450,8 +493,12 @@
     changePositionInX.origin.x = self.horizontalScrollView.frame.size.width*3;
     _segmentedControlQ1.frame = changePositionInX;
     
+    _button.frame = CGRectMake(self.horizontalScrollView.frame.size.width*3, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height-53);
+     [_pop setTxt:@"hola 3" ];
+
     CGRect frame = CGRectMake(self.horizontalScrollView.frame.size.width*3, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height); //wherever you want to scroll
     [self.horizontalScrollView scrollRectToVisible:frame animated:YES];
+ 
 }
 
 -(void) buttonClicked4 {
@@ -462,8 +509,12 @@
     changePositionInX.origin.x = self.horizontalScrollView.frame.size.width*4;
     _segmentedControlQ1.frame = changePositionInX;
     
+    _button.frame = CGRectMake(self.horizontalScrollView.frame.size.width*4, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height-53);
+     [_pop setTxt:@"hola 4" ];
+    
     CGRect frame = CGRectMake(self.horizontalScrollView.frame.size.width*4, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height); //wherever you want to scroll
     [self.horizontalScrollView scrollRectToVisible:frame animated:YES];
+ 
 }
 
 -(void) buttonClicked5
@@ -546,4 +597,14 @@
 
 
 
+- (IBAction)btnInfoPressed {
+    if (_pop.view.hidden) {
+        _pop.view.hidden = NO;
+        _pop.showAnimated;
+    }else{
+        _pop.view.hidden = YES;
+        _pop.removeAnimated;
+    }
+
+}
 @end
