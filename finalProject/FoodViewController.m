@@ -85,7 +85,7 @@
     [_animationView addGestureRecognizer:singleFingerTap];
     
     
-    self.suggestions = [[NSMutableArray alloc] initWithObjects:@"Es bueno que reconozcas la necesidad de realizar un cambio.", @"Empieza con cosas pequeñas, consume frutas y agua. Dale un intento!", @"Procura controlar tu consumo de azucares y sales. Es bueno para tu salud y tu lo sabes :)",@"Procura tener horarios exactos para cada plato del día. - Estas dando los primeros pasos, crear un habito toma tiempo!" ,@"prueba 5ta sugerencia",nil];
+    self.suggestions = [[NSMutableArray alloc] initWithObjects:@"Es bueno que reconozcas la necesidad de realizar un cambio. Tu puedes", @"Empieza con cosas pequeñas, consume frutas y agua. Dale un intento!", @"Procura controlar tu consumo de azucares y sales. Veras como es bueno para tu salud",@"Procura tener horarios exactos para cada plato del día. Estas dando los primeros pasos, crear un habito toma tiempo!" ,@"Tienes una muy buena dieta, sigue así!",nil];
     
     _labelSuggestion = [[UILabel alloc]initWithFrame:CGRectMake(50,20, 100, 150)];
     [_labelSuggestion setText:[self.suggestions objectAtIndex: [self loadSuggestion]]];
@@ -226,7 +226,7 @@
     [self loadGraphData];
     self.labelSuggestion.text = [self.suggestions objectAtIndex:[self loadSuggestion]];
     
-    NSLog(@"Click");
+    NSLog(@"Click: %d",[self loadSuggestion]);
     
 }
 -(NSInteger)loadSuggestion{

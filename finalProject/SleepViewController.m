@@ -21,6 +21,7 @@
 @property  UIAlertView *alert;
 @property CSAnimationView *animationView;
 @property NSMutableArray *suggestions;
+@property UILabel *labelSuggestion;
 @property BOOL show;
 @property BOOL edit;
 @property BOOL mustAnswer;
@@ -63,8 +64,7 @@
     
     [_animationView addGestureRecognizer:singleFingerTap];
     
-    self.suggestions = [[NSMutableArray alloc] initWithObjects:@"sug 1", @"sug 2", @"sug 3",
-                        @"sug 4",@"sug 5", @"Welcome! Please input data to see suggestions",nil];
+    self.suggestions = [[NSMutableArray alloc] initWithObjects:@"Descansa! Busca dormir bien esta noche.", @"Dormir menos de 6-8 horas puede ser fatal para la salud", @"Dormir nueve o más horas al día no perjudica la salud, pero suele ser un indicador de alguna enfermedad seria", @"Una buena noche de sueño puede hacer que te levantes positivo y optimista.",@"Sabías que puedes perder peso con sólo tener una buena noche de sueño? ", @"Bienvenido! Ingresa tus horas dormidas para poder ver una sugerencia.",nil];
     
     UILabel *labelSuggestion = [[UILabel alloc]initWithFrame:CGRectMake(50,30, 100, 100)];
     [labelSuggestion setText:[self.suggestions objectAtIndex: [self loadSuggestion]]];
@@ -145,6 +145,7 @@
     
     [self loadGraphData];
     [self.sleepGraph reloadGraph];
+    self.labelSuggestion.text = [self.suggestions objectAtIndex:[self loadSuggestion]];
     
    
 }
@@ -216,9 +217,9 @@
     
     _animationView.type = CSAnimationTypeShake;
     [_animationView startCanvasAnimation];
-    
-    NSLog(@"Click");
-    [self loadSuggestion];
+      [self loadGraphData];
+    NSLog(@"El indice que regresa:: %d", [self loadSuggestion]);
+    self.labelSuggestion.text = [self.suggestions objectAtIndex:[self loadSuggestion]];
     
 }
 - (void)quitaTeclado {
@@ -343,11 +344,16 @@
         
         
         if ([self.arrayOfValues[i] doubleValue] != 0.0) {
-            NSLog(@"no debe ser 0 [%d]:%f",i,[self.arrayOfValues[i] doubleValue]);
+            NSLog(@"dato en arreglo de valores [%d]:%f",i,[self.arrayOfValues[i] doubleValue]);
             acum += [[self.arrayOfValues objectAtIndex:i] doubleValue];
-            cont++;
+            cont = cont + 1.0;
         }
         
+    }
+    
+     NSLog(@"contador: %d",cont);
+    if (cont == 0) {
+        return 5;
     }
     
     if (acum > 8) {
@@ -360,7 +366,7 @@
    
     
     
-    return (cont == 0)? 5 : acum - 3;
+    return acum - 4;
     
 }
 
@@ -396,6 +402,9 @@
     
     [self loadGraphData];
     [self.sleepGraph reloadGraph];
+    self.labelSuggestion.text = [self.suggestions objectAtIndex:[self loadSuggestion]];
+    
+    
 }
 
 - (IBAction)pressedStepper:(UIStepper*)sender {
