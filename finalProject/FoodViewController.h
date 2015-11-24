@@ -13,7 +13,9 @@
 @interface FoodViewController : UIViewController<BEMSimpleLineGraphDataSource, BEMSimpleLineGraphDelegate>
 
 
+@property (weak, nonatomic) IBOutlet UIButton *btnInfo;
 
+- (IBAction)btnInfoPressed:(id)sender;
 @property(nonatomic, strong) NSArray        *sliceColors;
 @property (weak, nonatomic) IBOutlet UIScrollView *verticalScroll;
 @property (weak, nonatomic) IBOutlet UIScrollView *horizontalScrollView;

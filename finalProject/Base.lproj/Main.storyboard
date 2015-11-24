@@ -295,8 +295,8 @@
                                                 <rect key="frame" x="0.0" y="325" width="375" height="270"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <connections>
-                                                    <outlet property="dataSource" destination="gBW-9N-U4b" id="pK6-JY-yH7"/>
-                                                    <outlet property="delegate" destination="gBW-9N-U4b" id="Rd0-CH-8lB"/>
+                                                    <outlet property="dataSource" destination="gBW-9N-U4b" id="T1a-87-76N"/>
+                                                    <outlet property="delegate" destination="gBW-9N-U4b" id="xrh-9O-e9p"/>
                                                 </connections>
                                             </view>
                                         </subviews>

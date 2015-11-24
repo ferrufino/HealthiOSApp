@@ -49,7 +49,7 @@
     
     _animationView.backgroundColor = [UIColor flatYellowColor];
     
-    _animationView.layer.cornerRadius = 55.0;
+    _animationView.layer.cornerRadius = 10.0;
     _animationView.layer.borderWidth = 0.5;
     _animationView.layer.borderColor =(__bridge CGColorRef)([UIColor colorWithRed:14.0/255.0 green:114.0/255.0 blue:199.0/255.0 alpha:1]);
     

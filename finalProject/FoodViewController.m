@@ -9,6 +9,7 @@
 #import "FoodViewController.h"
 #import "Canvas.h"
 #import <ChameleonFramework/Chameleon.h>
+#import "InfoViewController.h"
 
 @interface FoodViewController ()
 @property HMSegmentedControl *segmentedControlQ1;
@@ -21,6 +22,9 @@
 @property BOOL mustAnswer;
 @property BOOL show;
 @property BOOL edit;
+@property UILabel *labelSuggestion;
+@property InfoViewController *pop;
+@property  UIButton *button;
 
 @end
 
@@ -43,12 +47,28 @@
     [self.verticalScroll setScrollEnabled:YES];
     [self.verticalScroll setContentSize:CGSizeMake(320, 1000)];
     
+    
+    
+
+    
+    //Pop Info
+    _pop = [[InfoViewController alloc] init];
+    CGRect frameInfo;
+    
+    frameInfo =_pop.view.frame;
+    frameInfo.origin.x -=50;
+    _pop.view.frame=frameInfo;
+    _pop.view.hidden = YES;
+    
+    [self.view addSubview:_pop.view];
+    
+    
     //Suggestion Card
     _animationView = [[CSAnimationView alloc] initWithFrame:CGRectMake(50, 560 , 280, 185)];
     
     _animationView.backgroundColor = [UIColor flatMintColor];
     
-    _animationView.layer.cornerRadius = 55.0;
+    _animationView.layer.cornerRadius = 10.0;
     _animationView.layer.borderWidth = 0.5;
     _animationView.layer.borderColor =(__bridge CGColorRef)([UIColor colorWithRed:14.0/255.0 green:114.0/255.0 blue:199.0/255.0 alpha:1]);
     
@@ -65,21 +85,21 @@
     [_animationView addGestureRecognizer:singleFingerTap];
     
     
-    self.suggestions = [[NSMutableArray alloc] initWithObjects:@"sug 1", @"sug 2", @"sug 3",
-                        @"sug 4",@"sug 5", @"Welcome! Please input data to see suggestions",nil];
+    self.suggestions = [[NSMutableArray alloc] initWithObjects:@"Es bueno que reconozcas la necesidad de realizar un cambio.", @"Empieza con cosas pequeñas, consume frutas y agua. Dale un intento!", @"Procura controlar tu consumo de azucares y sales. Es bueno para tu salud y tu lo sabes :)",@"Procura tener horarios exactos para cada plato del día. - Estas dando los primeros pasos, crear un habito toma tiempo!" ,@"prueba 5ta sugerencia",@"Bienvenido, ingresa datos para poder ver las sugerencias", nil];
     
-    UILabel *labelSuggestion = [[UILabel alloc]initWithFrame:CGRectMake(50,30, 100, 100)];
-    [labelSuggestion setText:[self.suggestions objectAtIndex: [self loadSuggestion]]];
-    [labelSuggestion setFont:[UIFont fontWithName:@"Avenir" size:15]];
-    [labelSuggestion setNumberOfLines:0];
+    _labelSuggestion = [[UILabel alloc]initWithFrame:CGRectMake(50,20, 100, 150)];
+    [_labelSuggestion setText:[self.suggestions objectAtIndex: [self loadSuggestion]]];
+    [_labelSuggestion setFont:[UIFont fontWithName:@"Avenir" size:15]];
+    [_labelSuggestion setNumberOfLines:0];
     
     CGRect frame;
     
-    frame =labelSuggestion.frame;
+    frame =_labelSuggestion.frame;
     frame.size.width +=70;
-    labelSuggestion.frame=frame;
+    _labelSuggestion.frame=frame;
     
-    [_animationView addSubview:labelSuggestion];
+    
+    [_animationView addSubview:_labelSuggestion];
     
     [self.verticalScroll addSubview:_animationView];
     
@@ -137,6 +157,7 @@
 
 
 }
+
 - (void)viewDidAppear:(BOOL)animated {
     
     
@@ -204,7 +225,8 @@
     _animationView.type = CSAnimationTypeShake;
     [_animationView startCanvasAnimation];
     [self loadGraphData];
-    [self loadSuggestion];
+    self.labelSuggestion.text = [self.suggestions objectAtIndex:[self loadSuggestion]];
+    
     NSLog(@"Click");
     
 }
@@ -367,47 +389,7 @@
     _segmentedControlQ1.tag = 1;
     
     [self.horizontalScrollView addSubview:_segmentedControlQ1];
-    
-    // Create Label 1
-    UILabel *labelOne = [[UILabel alloc]initWithFrame:CGRectMake(5, 10, 400, 40)];
-    [labelOne setTextColor:[UIColor flatNavyBlueColorDark]];
-    [labelOne setText:@"¿Consumes una gran variedad de frutas y verduras?"];
-    [labelOne setFont:[UIFont fontWithName:@"Avenir-Heavy" size:15]];
-    [self.horizontalScrollView addSubview:labelOne];
-    
-    // Create Label 2
-    UILabel *labelTwo = [[UILabel alloc]initWithFrame:CGRectMake(self.horizontalScrollView.frame.size.width+70, 10, 400, 40)];
-    [labelTwo setTextColor:[UIColor flatNavyBlueColorDark]];
-    [labelTwo setText:@"¿Comes seguido cereales integrales?"];
-    [labelTwo setFont:[UIFont fontWithName:@"Avenir-Heavy" size:15]];
-    [self.horizontalScrollView addSubview:labelTwo];
-    
-    // Create Label 3
-    UILabel *labelThree = [[UILabel alloc]initWithFrame:CGRectMake(self.horizontalScrollView.frame.size.width*2+70, 10, 400, 80)];
-    [labelThree setText:@"¿Consumes bebidas o comidas con \n azucares con moderación?"];
-    [labelThree setTextColor:[UIColor flatNavyBlueColorDark]];
-    labelThree.lineBreakMode = UILineBreakModeWordWrap;
-    labelThree.numberOfLines = 0;
-    [labelThree setFont:[UIFont fontWithName:@"Avenir-Heavy" size:15]];
-    [self.horizontalScrollView addSubview:labelThree];
-    
-    // Create Label 4
-    UILabel *labelFour = [[UILabel alloc]initWithFrame:CGRectMake(self.horizontalScrollView.frame.size.width*3+40, 10, 400, 80)];
-    [labelFour setText:@"¿Consumes al menos un litro de agua diario?"];
-    [labelFour setTextColor:[UIColor flatNavyBlueColorDark]];
-    labelFour.lineBreakMode = UILineBreakModeWordWrap;
-    labelFour.numberOfLines = 0;
-    [labelFour setFont:[UIFont fontWithName:@"Avenir-Heavy" size:15]];
-    [self.horizontalScrollView addSubview:labelFour];
-    
-    // Create Label 5
-    UILabel *labelFive = [[UILabel alloc]initWithFrame:CGRectMake(self.horizontalScrollView.frame.size.width*4+70, 10, 400, 80)];
-    [labelFive setText:@"¿Respetas tus horarios de comida?"];
-    [labelFive setTextColor:[UIColor flatNavyBlueColorDark]];
-    labelFive.lineBreakMode = UILineBreakModeWordWrap;
-    labelFive.numberOfLines = 0;
-    [labelFive setFont:[UIFont fontWithName:@"Avenir-Heavy" size:15]];
-    [self.horizontalScrollView addSubview:labelFive];
+    [self setQuestionLabels];
     
     //Oculta sidebar scroll
     [self.horizontalScrollView setShowsHorizontalScrollIndicator:NO];
@@ -426,8 +408,14 @@
     changePositionInX.origin.x = self.horizontalScrollView.frame.size.width;
     _segmentedControlQ1.frame = changePositionInX;
     
+    //Btn Info
+    _button.frame = CGRectMake(self.horizontalScrollView.frame.size.width, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height-_segmentedControlQ1.frame.size.height);
+    [_pop setTxt:@"hola 1" ];
+    
     CGRect frame = CGRectMake(self.horizontalScrollView.frame.size.width, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height); //wherever you want to scroll
     [self.horizontalScrollView scrollRectToVisible:frame animated:YES];
+    
+   
 }
 
 -(void) buttonClicked2 {
@@ -438,9 +426,13 @@
     changePositionInX.origin.x = self.horizontalScrollView.frame.size.width*2;
     _segmentedControlQ1.frame = changePositionInX;
     
+    _button.frame = CGRectMake(self.horizontalScrollView.frame.size.width*2, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height-_segmentedControlQ1.frame.size.height);
+     [_pop setTxt:@"hola 2" ];
+
     
     CGRect frame = CGRectMake(self.horizontalScrollView.frame.size.width*2, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height); //wherever you want to scroll
     [self.horizontalScrollView scrollRectToVisible:frame animated:YES];
+    
 }
 
 -(void) buttonClicked3 {
@@ -451,8 +443,12 @@
     changePositionInX.origin.x = self.horizontalScrollView.frame.size.width*3;
     _segmentedControlQ1.frame = changePositionInX;
     
+    _button.frame = CGRectMake(self.horizontalScrollView.frame.size.width*3, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height-_segmentedControlQ1.frame.size.height);
+     [_pop setTxt:@"hola 3" ];
+
     CGRect frame = CGRectMake(self.horizontalScrollView.frame.size.width*3, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height); //wherever you want to scroll
     [self.horizontalScrollView scrollRectToVisible:frame animated:YES];
+ 
 }
 
 -(void) buttonClicked4 {
@@ -463,8 +459,12 @@
     changePositionInX.origin.x = self.horizontalScrollView.frame.size.width*4;
     _segmentedControlQ1.frame = changePositionInX;
     
+    _button.frame = CGRectMake(self.horizontalScrollView.frame.size.width*4, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height-_segmentedControlQ1.frame.size.height);
+     [_pop setTxt:@"hola 4" ];
+    
     CGRect frame = CGRectMake(self.horizontalScrollView.frame.size.width*4, 0, self.horizontalScrollView.frame.size.width, self.horizontalScrollView.frame.size.height); //wherever you want to scroll
     [self.horizontalScrollView scrollRectToVisible:frame animated:YES];
+ 
 }
 
 -(void) buttonClicked5
@@ -547,5 +547,82 @@
 }
 
 
+#pragma mark - Question Labels
 
+- (void) setQuestionLabels {
+    // Create Label 1
+    UILabel *labelOne = [[UILabel alloc]initWithFrame:CGRectMake(5, 10, 400, 40)];
+    [labelOne setTextColor:[UIColor flatNavyBlueColorDark]];
+    [labelOne setText:@"¿Consumes una gran variedad de frutas y verduras?"];
+    [labelOne setFont:[UIFont fontWithName:@"Avenir-Heavy" size:15]];
+    [self.horizontalScrollView addSubview:labelOne];
+    
+    // Create Label 2
+    UILabel *labelTwo = [[UILabel alloc]initWithFrame:CGRectMake(self.horizontalScrollView.frame.size.width+70, 10, 400, 40)];
+    [labelTwo setTextColor:[UIColor flatNavyBlueColorDark]];
+    [labelTwo setText:@"¿Comes seguido cereales integrales?"];
+    [labelTwo setFont:[UIFont fontWithName:@"Avenir-Heavy" size:15]];
+    [self.horizontalScrollView addSubview:labelTwo];
+    
+    // Create Label 3
+    UILabel *labelThree = [[UILabel alloc]initWithFrame:CGRectMake(self.horizontalScrollView.frame.size.width*2+70, 10, 400, 80)];
+    [labelThree setText:@"¿Consumes bebidas o comidas con \n azucares con moderación?"];
+    [labelThree setTextColor:[UIColor flatNavyBlueColorDark]];
+    labelThree.lineBreakMode = UILineBreakModeWordWrap;
+    labelThree.numberOfLines = 0;
+    [labelThree setFont:[UIFont fontWithName:@"Avenir-Heavy" size:15]];
+    [self.horizontalScrollView addSubview:labelThree];
+    
+    // Create Label 4
+    UILabel *labelFour = [[UILabel alloc]initWithFrame:CGRectMake(self.horizontalScrollView.frame.size.width*3+40, 10, 400, 80)];
+    [labelFour setText:@"¿Consumes al menos un litro de agua diario?"];
+    [labelFour setTextColor:[UIColor flatNavyBlueColorDark]];
+    labelFour.lineBreakMode = UILineBreakModeWordWrap;
+    labelFour.numberOfLines = 0;
+    [labelFour setFont:[UIFont fontWithName:@"Avenir-Heavy" size:15]];
+    [self.horizontalScrollView addSubview:labelFour];
+    
+    // Create Label 5
+    UILabel *labelFive = [[UILabel alloc]initWithFrame:CGRectMake(self.horizontalScrollView.frame.size.width*4+70, 10, 400, 80)];
+    [labelFive setText:@"¿Respetas tus horarios de comida?"];
+    [labelFive setTextColor:[UIColor flatNavyBlueColorDark]];
+    labelFive.lineBreakMode = UILineBreakModeWordWrap;
+    labelFive.numberOfLines = 0;
+    [labelFive setFont:[UIFont fontWithName:@"Avenir-Heavy" size:15]];
+    [self.horizontalScrollView addSubview:labelFive];
+    
+    [labelOne setUserInteractionEnabled:YES];
+    UITapGestureRecognizer *tapGestureRecognizer1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(btnInfoPressed)];
+    [tapGestureRecognizer1 setNumberOfTapsRequired:1];
+    [labelOne addGestureRecognizer:tapGestureRecognizer1];
+    
+    [labelTwo setUserInteractionEnabled:YES];
+    UITapGestureRecognizer *tapGestureRecognizer2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(btnInfoPressed)];
+    [tapGestureRecognizer2 setNumberOfTapsRequired:1];
+    [labelTwo addGestureRecognizer:tapGestureRecognizer2];
+    
+    [labelThree setUserInteractionEnabled:YES];
+    UITapGestureRecognizer *tapGestureRecognizer3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(btnInfoPressed)];
+    [tapGestureRecognizer3 setNumberOfTapsRequired:1];
+    [labelThree addGestureRecognizer:tapGestureRecognizer3];
+    
+    [labelFour setUserInteractionEnabled:YES];
+    UITapGestureRecognizer *tapGestureRecognizer4 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(btnInfoPressed)];
+    [tapGestureRecognizer4 setNumberOfTapsRequired:1];
+    [labelFour addGestureRecognizer:tapGestureRecognizer4];
+    
+    [labelFive setUserInteractionEnabled:YES];
+    UITapGestureRecognizer *tapGestureRecognizer5 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(btnInfoPressed)];
+    [tapGestureRecognizer5 setNumberOfTapsRequired:1];
+    [labelFive addGestureRecognizer:tapGestureRecognizer5];
+     
+}
+
+- (IBAction)btnInfoPressed {
+    if (_pop.view.hidden) {
+        _pop.view.hidden = NO;
+    }else{
+        _pop.view.hidden = YES;
+    }
+}
 @end
