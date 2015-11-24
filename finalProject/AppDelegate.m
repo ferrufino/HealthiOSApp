@@ -17,6 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self setStoryboard];
     return YES;
 }
 
@@ -122,5 +123,50 @@
     }
 }
 
+#pragma mark - Load Storyboards
+
+- (void) setStoryboard {
+    UIStoryboard *storyboard = [self grabStoryboard];
+    
+    [self setInitialScreen : storyboard];
+}
+
+- (UIStoryboard *) grabStoryboard {
+    int screenHeight = [UIScreen mainScreen].bounds.size.height;
+    
+    UIStoryboard *storyboard;
+    
+    switch (screenHeight) {
+        case 480:
+            storyboard = [UIStoryboard storyboardWithName: @"Main-iPhone4S" bundle: nil];
+            break;
+            
+        case 568:
+            storyboard = [UIStoryboard storyboardWithName: @"Main-iPhone5-iPhone5S" bundle: nil];
+            break;
+            
+        case 667:
+            storyboard = [UIStoryboard storyboardWithName: @"Main-iPhone6-iPhone6S" bundle: nil];
+            break;
+            
+        case 736:
+            storyboard = [UIStoryboard storyboardWithName: @"Main-iPhone6Plus-iPhone6SPlus" bundle: nil];
+            break;
+        default:
+            storyboard = [UIStoryboard storyboardWithName: @"Main" bundle: nil];
+            break;
+    }
+    return storyboard;
+}
+
+- (void) setInitialScreen: (UIStoryboard *) storyboard {
+    UIViewController *initViewController;
+    
+    initViewController = [storyboard instantiateViewControllerWithIdentifier: @"First"];
+    
+    self.window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = initViewController;
+    [self.window makeKeyAndVisible];
+}
 
 @end
