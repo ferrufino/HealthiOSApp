@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ReportsHelper.h"
 
 @interface AppDelegate ()
 
@@ -18,6 +19,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [self setStoryboard];
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"initialDate"]) {
+        NSDate *date = [NSDate date];
+        [[NSUserDefaults standardUserDefaults] setObject:date forKey:@"initialDate"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    } else {
+        [self checkForReportGeneration];
+    }
     return YES;
 }
 
@@ -167,6 +175,22 @@
     self.window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
     self.window.rootViewController = initViewController;
     [self.window makeKeyAndVisible];
+}
+
+- (void) checkForReportGeneration {
+    ReportsHelper *helper = [[ReportsHelper alloc] init];
+    NSDate *now = [NSDate date];
+    NSTimeInterval secondsBetween = 0;
+    if ([helper numberOfReports] == 0) {
+        NSDate *initialDate = [[NSUserDefaults standardUserDefaults] objectForKey:@"initialDate"];
+        secondsBetween = [now timeIntervalSinceDate:initialDate];
+    } else {
+        secondsBetween = [helper timeSinceLastReport];
+    }
+    
+    if (secondsBetween >= (60 * 60 * 24 * 7)) {
+        [helper generateReport];
+    }
 }
 
 @end
