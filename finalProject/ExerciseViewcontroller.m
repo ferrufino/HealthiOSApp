@@ -44,7 +44,7 @@
     [self.scrollView setContentSize:CGSizeMake(320, 1200)];
     
     
-    _animationView = [[CSAnimationView alloc] initWithFrame:CGRectMake(50, 700 , 280, 185)];
+    _animationView = [[CSAnimationView alloc] initWithFrame:CGRectMake(self.scrollView.frame.size.width * 0.1, self.scrollView.frame.size.height*1.5, self.scrollView.frame.size.width * 0.8, 185)];
     
     _animationView.backgroundColor = [UIColor flatWatermelonColor];
     

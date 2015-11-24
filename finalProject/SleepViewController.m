@@ -46,7 +46,7 @@
 
 
     //Suggestion Card
-    _animationView = [[CSAnimationView alloc] initWithFrame:CGRectMake(50, 560, 280, 185)];
+    _animationView = [[CSAnimationView alloc] initWithFrame:CGRectMake(self.scrollView.frame.size.width * 0.1, self.scrollView.frame.size.height*0.9, self.scrollView.frame.size.width * 0.8, 185)];
     
     _animationView.backgroundColor = [UIColor flatYellowColor];
     
@@ -217,9 +217,9 @@
     
     _animationView.type = CSAnimationTypeShake;
     [_animationView startCanvasAnimation];
-      [self loadGraphData];
-    NSLog(@"El indice que regresa:: %d", [self loadSuggestion]);
+    [self loadGraphData];
     self.labelSuggestion.text = [self.suggestions objectAtIndex:[self loadSuggestion]];
+     NSLog(@"El indice que regresa:: %d", [self loadSuggestion]);
     
 }
 - (void)quitaTeclado {
@@ -344,7 +344,7 @@
         
         
         if ([self.arrayOfValues[i] doubleValue] != 0.0) {
-            NSLog(@"dato en arreglo de valores [%d]:%f",i,[self.arrayOfValues[i] doubleValue]);
+            NSLog(@"valor : %f", [self.arrayOfValues[i] doubleValue]);
             acum += [[self.arrayOfValues objectAtIndex:i] doubleValue];
             cont = cont + 1.0;
         }
