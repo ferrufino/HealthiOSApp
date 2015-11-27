@@ -30,7 +30,6 @@
 @implementation SleepViewController
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    
     [self setQuestionView];
     self.view.backgroundColor = [UIColor flatNavyBlueColor];
 }
@@ -45,6 +44,7 @@
 
 
     //Suggestion Card
+ 
     _animationView = [[CSAnimationView alloc] initWithFrame:CGRectMake(self.scrollView.frame.size.width * 0.1, self.scrollView.frame.size.height*0.9, self.scrollView.frame.size.width * 0.8, 185)];
     
     _animationView.backgroundColor = [UIColor flatYellowColor];
@@ -62,22 +62,22 @@
                                             action:@selector(cardPressed)];
     
     [_animationView addGestureRecognizer:singleFingerTap];
+  
+    self.suggestions = [[NSMutableArray alloc] initWithObjects:@"Descansa! Busca dormir bien esta noche.", @"Dormir menos de 6-8 horas puede ser fatal para la salud", @"Dormir nueve o más horas suele ser un indicador de alguna enfermedad seria", @"Una buena noche de sueño hace que te levantes positivo y optimista.",@"Sabías que puedes perder peso con sólo tener una buena noche de sueño? ", @"Bienvenido! Ingresa tus horas dormidas para poder ver una sugerencia.",nil];
     
-    self.suggestions = [[NSMutableArray alloc] initWithObjects:@"Descansa! Busca dormir bien esta noche.", @"Dormir menos de 6-8 horas puede ser fatal para la salud", @"Dormir nueve o más horas al día no perjudica la salud, pero suele ser un indicador de alguna enfermedad seria", @"Una buena noche de sueño puede hacer que te levantes positivo y optimista.",@"Sabías que puedes perder peso con sólo tener una buena noche de sueño? ", @"Bienvenido! Ingresa tus horas dormidas para poder ver una sugerencia.",nil];
-    
-    UILabel *labelSuggestion = [[UILabel alloc]initWithFrame:CGRectMake(50,30, 100, 100)];
-    [labelSuggestion setText:[self.suggestions objectAtIndex: [self loadSuggestion]]];
-    [labelSuggestion setFont:[UIFont fontWithName:@"Avenir" size:15]];
-    [labelSuggestion setNumberOfLines:0];
+   self.labelSuggestion = [[UILabel alloc]initWithFrame:CGRectMake(50,30, 100, 100)];
+    [_labelSuggestion setText:[self.suggestions objectAtIndex: [self loadSuggestion]]];
+    [_labelSuggestion setFont:[UIFont fontWithName:@"Avenir" size:15]];
+    [_labelSuggestion setNumberOfLines:0];
     
     CGRect frame;
     
-    frame =labelSuggestion.frame;
+    frame =_labelSuggestion.frame;
     frame.size.width +=70;
-    labelSuggestion.frame=frame;
+    _labelSuggestion.frame=frame;
     
     
-    [_animationView addSubview:labelSuggestion];
+    [_animationView addSubview:_labelSuggestion];
     
     [self.scrollView addSubview:_animationView];
 
