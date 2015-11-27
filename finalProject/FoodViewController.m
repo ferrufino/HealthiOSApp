@@ -19,6 +19,7 @@
 @property NSArray *fetchResults;
 @property NSMutableArray *suggestions;
 @property CSAnimationView *animationView;
+@property UIView *infoNutriRank;
 @property BOOL mustAnswer;
 @property BOOL show;
 @property BOOL edit;
@@ -83,7 +84,6 @@
                                             action:@selector(cardPressed)];
     
     [_animationView addGestureRecognizer:singleFingerTap];
-    
     
 
     self.suggestions = [[NSMutableArray alloc] initWithObjects:@"Es bueno que reconozcas la necesidad de realizar un cambio. Tu puedes", @"Empieza con cosas pequeñas, consume frutas y agua. Dale un intento!", @"Procura controlar tu consumo de azucares y sales. Veras como es bueno para tu salud",@"Procura tener horarios exactos para cada plato del día. Estas dando los primeros pasos, crear un habito toma tiempo!" ,@"Tienes una muy buena dieta, sigue así!",@"Bienvenido, ingresa datos para poder ver las sugerencias",nil];
@@ -548,7 +548,21 @@
     return @" habito";
 }
 
-
+-(void)infoView{
+    
+    if (_infoNutriRank.hidden == YES) {
+         _infoNutriRank.hidden = NO;
+    }else{
+        _infoNutriRank.hidden = YES;
+    }
+    
+    
+    
+    NSLog(@"btn info pressed");
+    
+    
+    
+}
 #pragma mark - Question Labels
 
 - (void) setQuestionLabels {
@@ -560,6 +574,99 @@
     [labelOne setNumberOfLines:0];
    
     [self.horizontalScrollView addSubview:labelOne];
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeInfoLight];
+    [button addTarget:self
+               action:@selector(infoView)
+     forControlEvents:UIControlEventTouchUpInside];
+    [button setTitle:@"" forState:UIControlStateNormal];
+    button.tintColor = [UIColor flatNavyBlueColorDark];
+    button.frame = CGRectMake(self.view.frame.size.width*0.6, 40, 160.0, 40.0);
+    [self.horizontalScrollView addSubview:button];
+    
+    //
+    _infoNutriRank = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,  self.view.frame.size.height)];
+    
+    _infoNutriRank.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.10];
+    
+    _infoNutriRank.hidden = YES;
+    
+    
+    UIView *infoRankWindow = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width * 0.1, self.view.frame.size.height*0.2, self.view.frame.size.width*0.8,  self.view.frame.size.height/2)];
+    infoRankWindow.backgroundColor = [UIColor flatNavyBlueColorDark];
+    infoRankWindow.layer.cornerRadius = 10.0;
+    infoRankWindow.layer.borderWidth = 0.5;
+    
+    
+    UILabel *infoTxt= [[UILabel alloc]initWithFrame:CGRectMake(infoRankWindow.frame.size.width*0.1,infoRankWindow.frame.size.height*0.05, infoRankWindow.frame.size.width*0.8, infoRankWindow.frame.size.height*0.9)];
+    [infoTxt setText:@"El puntaje de la encuesta consiste en: \n 1 - Absolutamente nada \n 2 - Rara vez \n 3 - Por lo menos más de una vez \n 4 - Seguido pero no constante \n 5 - Soy constante"];
+    [infoTxt setFont:[UIFont fontWithName:@"Avenir" size:15]];
+    [infoTxt setNumberOfLines:0];
+    infoTxt.textColor = [UIColor flatMintColor];
+    
+   
+    UIButton *btnDismiss =[UIButton buttonWithType:UIButtonTypeCustom];
+    [btnDismiss addTarget:self
+               action:@selector(infoView)
+     forControlEvents:UIControlEventTouchUpInside];
+    [btnDismiss setTitle:@"Aceptar" forState:UIControlStateNormal];
+    btnDismiss.titleLabel.font = [UIFont systemFontOfSize:13];
+    btnDismiss.titleLabel.tintColor = [UIColor flatMintColor];
+    btnDismiss.frame = CGRectMake(infoRankWindow.frame.size.width*0.6, infoRankWindow.frame.size.height*0.85,60.0, 10.0);
+
+    
+    
+    [infoRankWindow addSubview:btnDismiss];
+    
+     [infoRankWindow addSubview:infoTxt];
+    
+    [_infoNutriRank addSubview:infoRankWindow];
+    
+    [self.view addSubview:_infoNutriRank];
+    
+    
+    //
+    
+    
+    _animationView = [[CSAnimationView alloc] initWithFrame:CGRectMake(self.verticalScroll.frame.size.width * 0.1, self.verticalScroll.frame.size.height*0.9, self.verticalScroll.frame.size.width * 0.8, 185)];
+    
+    _animationView.backgroundColor = [UIColor flatMintColor];
+    
+    _animationView.layer.cornerRadius = 10.0;
+    _animationView.layer.borderWidth = 0.5;
+    _animationView.layer.borderColor =(__bridge CGColorRef)([UIColor colorWithRed:14.0/255.0 green:114.0/255.0 blue:199.0/255.0 alpha:1]);
+    
+    
+    _animationView.duration = 0.5;
+    _animationView.delay    = 0;
+    _animationView.type     = CSAnimationTypeFadeInUp;
+    
+    
+    UITapGestureRecognizer *singleFingerTap =
+    [[UITapGestureRecognizer alloc] initWithTarget:self
+                                            action:@selector(cardPressed)];
+    
+    [_animationView addGestureRecognizer:singleFingerTap];
+    
+    
+    self.suggestions = [[NSMutableArray alloc] initWithObjects:@"Es bueno que reconozcas la necesidad de realizar un cambio. Tu puedes", @"Empieza con cosas pequeñas, consume frutas y agua. Dale un intento!", @"Procura controlar tu consumo de azucares y sales. Veras como es bueno para tu salud",@"Procura tener horarios exactos para cada plato del día. Estas dando los primeros pasos, crear un habito toma tiempo!" ,@"Tienes una muy buena dieta, sigue así!",@"Bienvenido, ingresa datos para poder ver las sugerencias",nil];
+    
+    
+    _labelSuggestion = [[UILabel alloc]initWithFrame:CGRectMake(50,20, 100, 150)];
+    [_labelSuggestion setText:[self.suggestions objectAtIndex: [self loadSuggestion]]];
+    [_labelSuggestion setFont:[UIFont fontWithName:@"Avenir" size:15]];
+    [_labelSuggestion setNumberOfLines:0];
+    
+    CGRect frame;
+    
+    frame =_labelSuggestion.frame;
+    frame.size.width +=70;
+    _labelSuggestion.frame=frame;
+    
+    
+    [_animationView addSubview:_labelSuggestion];
+    
+    [self.verticalScroll addSubview:_animationView];
     
     // Create Label 2
 
