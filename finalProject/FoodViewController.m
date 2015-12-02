@@ -704,32 +704,6 @@
     [labelFive setFont:[UIFont fontWithName:@"Avenir-Heavy" size:15]];
     [self.horizontalScrollView addSubview:labelFive];
     
-    /*
-    [labelOne setUserInteractionEnabled:YES];
-    UITapGestureRecognizer *tapGestureRecognizer1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(btnInfoPressed)];
-    [tapGestureRecognizer1 setNumberOfTapsRequired:1];
-    [labelOne addGestureRecognizer:tapGestureRecognizer1];
-    
-    [labelTwo setUserInteractionEnabled:YES];
-    UITapGestureRecognizer *tapGestureRecognizer2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(btnInfoPressed)];
-    [tapGestureRecognizer2 setNumberOfTapsRequired:1];
-    [labelTwo addGestureRecognizer:tapGestureRecognizer2];
-    
-    [labelThree setUserInteractionEnabled:YES];
-    UITapGestureRecognizer *tapGestureRecognizer3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(btnInfoPressed)];
-    [tapGestureRecognizer3 setNumberOfTapsRequired:1];
-    [labelThree addGestureRecognizer:tapGestureRecognizer3];
-    
-    [labelFour setUserInteractionEnabled:YES];
-    UITapGestureRecognizer *tapGestureRecognizer4 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(btnInfoPressed)];
-    [tapGestureRecognizer4 setNumberOfTapsRequired:1];
-    [labelFour addGestureRecognizer:tapGestureRecognizer4];
-    
-    [labelFive setUserInteractionEnabled:YES];
-    UITapGestureRecognizer *tapGestureRecognizer5 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(btnInfoPressed)];
-    [tapGestureRecognizer5 setNumberOfTapsRequired:1];
-    [labelFive addGestureRecognizer:tapGestureRecognizer5];
-     */
 }
 
 - (IBAction)btnInfoPressed {

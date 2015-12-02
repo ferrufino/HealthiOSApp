@@ -40,11 +40,15 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self
-                                                                               action:@selector(addReport)];
-    self.tabBarController.navigationItem.rightBarButtonItem = addButton;
+    UIBarButtonItem *infoButton = [[UIBarButtonItem alloc] initWithImage:
+                                  [UIImage imageNamed:@"ic_info_outline_white_22pt"]
+                                   style:UIBarButtonItemStylePlain target:self
+                                   action:@selector(showInfo)];
+    self.tabBarController.navigationItem.rightBarButtonItem = infoButton;
+    
     [self.tabBarController.tabBar setTintColor:[UIColor flatSkyBlueColor]];
     [self.tabBarController.navigationController.navigationBar setTintColor:[UIColor flatSkyBlueColor]];
+     
     [self.view setTintColor:[UIColor flatSkyBlueColor]];
     [self.tabBarController.navigationController.navigationBar
      setTitleTextAttributes: @{NSFontAttributeName: [UIFont fontWithName:@"Avenir-Heavy" size:20],
@@ -137,13 +141,12 @@
         [report setValue:date forKey:@"date"];
         [self.reports addObject:report];
     }
+    self.reports = [[[self.reports reverseObjectEnumerator] allObjects] mutableCopy];
 
 }
 
-- (void) addReport {
-    [self.helper generateReport];
-    [self loadReports];
-    [self.tableView reloadData];
+- (void) showInfo {
+    [self performSegueWithIdentifier:@"presentInfo" sender:self];
 }
 
 @end
